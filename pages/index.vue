@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <button @click.self="connect">Connect Wallet</button>
-    </div>
+    <button @click="connect">Connect Wallet</button>
     <Web3Modal
       v-if="mounted"
       ref="web3modal"
@@ -24,7 +22,7 @@ export default {
   data() {
     return {
       mounted: false,
-      theme: 'light',
+      // theme: 'light',
       providerOptions: {
         walletconnect: {
           package: WalletConnectProvider,
@@ -33,12 +31,13 @@ export default {
           },
         },
       },
-      number: 0,
-      balance: 0,
+      // number: 0,
+      // balance: 0,
     }
   },
   mounted() {
     this.mounted = true
+    // TODO: run connect logic if this.$refs.web3modal.cachedProdvider is true ?
     // this.$nextTick(async () => {
     //   const web3modal = this.$refs.web3modal
     //   this.$store.commit('setWeb3Modal', web3modal)
@@ -49,10 +48,8 @@ export default {
     // })
   },
   methods: {
-    // async connect() {
-    //   await this.$store.dispatch('connect')
-    // },
     async connect() {
+      console.log('connect ran')
       const provider = await this.$refs.web3modal.connect()
       console.log('provider', provider)
       // const library = new ethers.providers.Web3Provider(provider)
