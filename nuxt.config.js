@@ -27,13 +27,22 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/sanity/module'],
+  sanity: {
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: process.env.SANITY_DATASET,
+    apiVersion: process.env.SANITY_API_VERSION,
+    minimal: true,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
+
+  privateRuntimeConfig: {
+    sanity: {
+      token: process.env.SANITY_PREVIEW_TOKEN,
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

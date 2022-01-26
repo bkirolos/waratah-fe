@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>{{ pageTitle }}</h1>
     <button @click="connect">Connect Wallet</button>
     <Web3Modal
       v-if="mounted"
@@ -13,6 +14,7 @@
 <script>
 import Web3Modal from 'web3modal-vue'
 import WalletConnectProvider from '@walletconnect/web3-provider'
+import { groq } from '@nuxtjs/sanity'
 
 export default {
   name: 'IndexPage',
@@ -21,6 +23,7 @@ export default {
   },
   data() {
     return {
+      page: null,
       mounted: false,
       // theme: 'light',
       providerOptions: {
@@ -34,6 +37,27 @@ export default {
       // number: 0,
       // balance: 0,
     }
+  },
+  async fetch() {
+    const query = groq`
+      *[_type == "test"] | order(_updatedAt desc) [0] {
+        _id,
+        faqGroups[] {
+          heading,
+          faqs[] {
+            question,
+            answer
+          }
+        },
+        pageTitle
+      }
+    `
+    this.page = await this.$sanity.fetch(query)
+  },
+  computed: {
+    pageTitle() {
+      return this.page?.pageTitle
+    },
   },
   mounted() {
     this.mounted = true
