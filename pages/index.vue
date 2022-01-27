@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-black text-white">
     <h1>{{ pageTitle }}</h1>
     <ConnectWallet />
     <div v-for="(group, i) in faqGroups" :key="i">
@@ -9,6 +9,15 @@
         <PortableText :blocks="faq.answer" />
       </div>
     </div>
+    <section class="px-4 md:px-10 py-14">
+      <Carousel class="test-carousel md:container md:mx-auto">
+        <Slide v-for="n in 10" :key="n" class="test-slide">
+          <article>
+            <p>{{ n }}</p>
+          </article>
+        </Slide>
+      </Carousel>
+    </section>
   </div>
 </template>
 
@@ -47,3 +56,25 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.test-slide {
+  flex-basis: 200px;
+  &:nth-child(2n) {
+    flex-basis: 400px;
+  }
+  &:nth-child(3n) {
+    flex-basis: 600px;
+  }
+
+  article {
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    text-align: center;
+  }
+}
+</style>

@@ -4074,6 +4074,11 @@ elliptic@^6.5.2, elliptic@^6.5.3, elliptic@^6.5.4:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
+embla-carousel@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-6.1.1.tgz#ad4e24d57650a078097ffa5818e2282199f239cd"
+  integrity sha512-viRoyGYrUALxX/2g6P4bU+Q3lQPeeUt2StcMq3Ketn6lmNOVc7q7cKwiBVqXV+aEIqe/EgCLQZNajewrRKR+Pg==
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
