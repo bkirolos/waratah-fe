@@ -16,7 +16,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 
 export default {
   components: {
-    Web3Modal,
+    Web3Modal
   },
   data() {
     return {
@@ -26,10 +26,10 @@ export default {
         walletconnect: {
           package: WalletConnectProvider,
           options: {
-            infuraId: '-',
-          },
-        },
-      },
+            infuraId: '-'
+          }
+        }
+      }
       // number: 0,
       // balance: 0,
     }
@@ -83,8 +83,8 @@ export default {
       //   commit('setChainId', chainId)
       //   await console.log('chainChanged', chainId)
       // })
-    },
-  },
+    }
+  }
 }
 </script>
 

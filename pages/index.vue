@@ -19,7 +19,7 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      page: null,
+      page: null
     }
   },
   async fetch() {
@@ -44,7 +44,7 @@ export default {
     },
     pageTitle() {
       return this.page?.pageTitle
-    },
-  },
+    }
+  }
 }
 </script>
