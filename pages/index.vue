@@ -2,6 +2,13 @@
   <div>
     <h1>{{ pageTitle }}</h1>
     <ConnectWallet />
+    <div v-for="(group, i) in faqGroups" :key="i">
+      <h2>{{ group.heading }}</h2>
+      <div v-for="(faq, ix) in group.faqs" :key="ix">
+        <h3>{{ faq.question }}</h3>
+        <PortableText :blocks="faq.answer" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,6 +39,9 @@ export default {
     this.page = await this.$sanity.fetch(query)
   },
   computed: {
+    faqGroups() {
+      return this.page?.faqGroups
+    },
     pageTitle() {
       return this.page?.pageTitle
     },

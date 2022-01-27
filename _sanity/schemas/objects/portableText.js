@@ -14,7 +14,11 @@ export default {
           { title: 'Underline', value: 'underline' }
         ],
         annotations: [
-          // TODO: add support for internal + external links
+          {
+            type: 'link',
+            name: 'link',
+            title: 'Link'
+          }
         ]
       }
     }
