@@ -16,7 +16,6 @@
 import { groq } from '@nuxtjs/sanity'
 
 export default {
-  name: 'IndexPage',
   data() {
     return {
       page: null
