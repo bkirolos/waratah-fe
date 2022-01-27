@@ -1,35 +1,26 @@
 <template>
   <div class="carousel-container">
-    <div v-if="showPagination" role="tablist" class="carousel-pagination">
-      <button
-        v-for="(snap, index) in scrollSnaps"
-        :key="index"
-        role="tab"
-        :aria-selected="index === selectedScrollSnap"
-        class="carousel-pagination-dot"
-        @click="scrollTo(index)"
-      ></button>
-    </div>
-
-    <div ref="embla" class="carousel">
-      <div class="carousel-slides">
-        <slot></slot>
+    <div class="grid grid-cols-12 px-4 md:px-10">
+      <div ref="embla" class="carousel md:col-start-2 col-span-full">
+        <div class="carousel-slides">
+          <slot></slot>
+        </div>
       </div>
-
-      <button
-        :disabled="!canScrollPrevious"
-        aria-label="Previous"
-        class="carousel-navigation-arrow previous"
-        @click="scrollPrevious"
-      ></button>
-
-      <button
-        :disabled="!canScrollNext"
-        aria-label="Next"
-        class="carousel-navigation-arrow next"
-        @click="scrollNext"
-      ></button>
     </div>
+
+    <button
+      :disabled="!canScrollPrevious"
+      aria-label="Previous"
+      class="carousel-navigation-arrow previous"
+      @click="scrollPrevious"
+    ></button>
+
+    <button
+      :disabled="!canScrollNext"
+      aria-label="Next"
+      class="carousel-navigation-arrow next"
+      @click="scrollNext"
+    ></button>
   </div>
 </template>
 
@@ -41,7 +32,7 @@ export default {
   props: {
     align: {
       type: String,
-      default: 'start'
+      default: 'center'
     },
     containScroll: {
       type: String,
@@ -68,9 +59,6 @@ export default {
         containScroll: this.containScroll,
         slidesToScroll: this.slidesToScroll
       }
-    },
-    showPagination() {
-      return this.scrollSnaps?.length > 1
     }
   },
   mounted() {
@@ -120,6 +108,7 @@ export default {
 
 <style lang="scss">
 .carousel-container {
+  overflow: hidden;
   position: relative;
 }
 
@@ -136,35 +125,6 @@ export default {
   flex-shrink: 0;
   margin-right: 0.5rem;
   position: relative;
-}
-
-.carousel-pagination {
-  display: flex;
-  margin-bottom: 2rem;
-}
-
-.carousel-pagination-dot {
-  height: 10px;
-  padding: 2.5px;
-  position: relative;
-  width: 10px;
-  &:after {
-    background: white;
-    border-radius: 50%;
-    content: '';
-    height: 5px;
-    left: 50%;
-    opacity: 0.35;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 5px;
-  }
-  &[aria-selected] {
-    &:after {
-      opacity: 1;
-    }
-  }
 }
 
 .carousel-navigation-arrow {
@@ -189,10 +149,10 @@ export default {
     position: absolute;
   }
   &.previous {
-    left: -1rem;
+    left: 1.5rem;
   }
   &.next {
-    right: -1rem;
+    right: 1.5rem;
     &::after {
       transform: rotate(0.5turn);
     }
