@@ -30,8 +30,17 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/sanity/module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-lazysizes'
   ],
+  lazySizes: {
+    extendAssetUrls: {
+      img: ['src', 'srcset', 'data-src', 'data-srcset']
+    },
+    plugins: {
+      blurUp: true
+    }
+  },
   sanity: {
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: process.env.SANITY_DATASET,
