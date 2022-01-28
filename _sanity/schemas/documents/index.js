@@ -1,3 +1,3 @@
-import test from './test'
+import homePage from './homePage'
 
-export default [test]
+export default [homePage]
