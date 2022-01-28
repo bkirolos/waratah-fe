@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "project": {
+    "name": "Waratah"
+  },
+  "api": {
+    "projectId": "v8qwjiay",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "media"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./parts/deskStructure"
+    },
+    {
+      "name": "part:@sanity/base/initial-value-templates",
+      "path": "./parts/initialValueTemplates"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/assetSources"
+    }
+  ]
+}
