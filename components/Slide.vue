@@ -35,6 +35,7 @@ $slide-thin: calc(#{$slide-wide} * 0.36153161175423);
   margin-right: 0.5rem;
   padding-bottom: $slide-medium;
   position: relative;
+  width: 100%;
 
   &.wide {
     width: $slide-wide;
