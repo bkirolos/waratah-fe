@@ -9,24 +9,11 @@
         <PortableText :blocks="faq.answer" />
       </div>
     </div>
-    <section class="py-14">
-      <div class="grid grid-cols-12 mb-16 px-4 md:px-10">
-        <p class="col-span-full md:col-start-2 md:col-span-4">Section Title</p>
-        <p class="col-span-full md:col-start-8 md:col-span-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus odio
-          dignissim sagittis hendrerit. Arcu pharetra tellus id eu. In dignissim
-          faucibus metus amet. Ipsum proin urna dolor aenean vestibulum quisque
-          urna.
-        </p>
-      </div>
-      <Carousel class="test-carousel">
-        <Slide v-for="n in 10" :key="n" class="test-slide">
-          <article>
-            <p>{{ n }}</p>
-          </article>
-        </Slide>
-      </Carousel>
-    </section>
+    <CarouselSection
+      v-for="(section, index) in sections"
+      :key="index"
+      :section="section"
+    />
   </div>
 </template>
 
@@ -50,7 +37,18 @@ export default {
             answer
           }
         },
-        pageTitle
+        pageTitle,
+        sections[] {
+          copy,
+          heading,
+          slides[] {
+            image {
+              alt,
+              asset
+            },
+            width
+          }
+        }
       }
     `
     this.page = await this.$sanity.fetch(query)
@@ -61,38 +59,12 @@ export default {
     },
     pageTitle() {
       return this.page?.pageTitle
+    },
+    sections() {
+      return this.page?.sections
     }
   }
 }
 </script>
 
-<style lang="scss">
-$slide-size-wide: clamp(0px, 100%, 1123px);
-$slide-size-medium: calc(#{$slide-size-wide} * 0.63846838824577);
-$slide-size-thin: calc(#{$slide-size-wide} * 0.36153161175423);
-
-.test-slide {
-  position: relative;
-  height: 0;
-  padding-bottom: $slide-size-medium;
-  width: $slide-size-thin;
-  &:nth-child(2n) {
-    width: $slide-size-medium;
-  }
-  &:nth-child(3n) {
-    width: $slide-size-wide;
-  }
-
-  article {
-    background: white;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-  }
-}
-</style>
+<style lang="scss"></style>

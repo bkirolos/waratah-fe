@@ -16,6 +16,12 @@ export default {
       name: 'faqGroups',
       title: 'FAQ Groups',
       of: [{ type: 'faqGroup' }]
+    },
+    {
+      type: 'array',
+      name: 'sections',
+      title: 'Sections',
+      of: [{ type: 'carouselSection' }]
     }
   ]
 }

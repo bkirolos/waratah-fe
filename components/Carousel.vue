@@ -3,7 +3,7 @@
     <div class="grid grid-cols-12 px-4 md:px-10">
       <div ref="embla" class="carousel md:col-start-2 col-span-full">
         <div class="carousel-slides">
-          <slot></slot>
+          <Slide v-for="(slide, index) in slides" :key="index" :slide="slide" />
         </div>
       </div>
     </div>
@@ -37,6 +37,10 @@ export default {
     containScroll: {
       type: String,
       default: 'trimSnaps'
+    },
+    slides: {
+      type: Array,
+      default: () => []
     },
     slidesToScroll: {
       type: Number,
@@ -119,12 +123,6 @@ export default {
 .carousel-slides {
   display: flex;
   will-change: transform;
-}
-
-.carousel-slide {
-  flex-shrink: 0;
-  margin-right: 0.5rem;
-  position: relative;
 }
 
 .carousel-navigation-arrow {
