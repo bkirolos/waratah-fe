@@ -29,10 +29,21 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/sanity/module',
     '@nuxtjs/tailwindcss',
     'nuxt-lazysizes'
   ],
+  googleFonts: {
+    families: {
+      Antonio: [700],
+      'Open+Sans': {
+        wght: [400, 800],
+        ital: [400, 800]
+      }
+    },
+    display: 'swap'
+  },
   lazySizes: {
     extendAssetUrls: {
       img: ['src', 'srcset', 'data-src', 'data-srcset']
