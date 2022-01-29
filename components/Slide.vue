@@ -1,6 +1,17 @@
 <template>
   <article :class="['carousel-slide', width]">
-    <LazyImage :image="image" />
+    <!-- <LazyImage :image="image" /> -->
+    <client-only>
+      <vue-plyr>
+        <video controls playsinline>
+          <!-- TODO: add support for poster image (data-poster) -->
+          <source
+            src="https://player.vimeo.com/progressive_redirect/playback/319104997/rendition/720p/720p.mp4?loc=external&signature=fb9b84b97b4bbb1d4a6ee87f91054a58288cb755ba75aed313d1829f7a0279c5"
+            type="video/mp4"
+          />
+        </video>
+      </vue-plyr>
+    </client-only>
   </article>
 </template>
 
@@ -48,7 +59,8 @@ $slide-thin: calc(#{$slide-wide} * 0.36153161175423);
     width: $slide-thin;
   }
 
-  img {
+  img,
+  .plyr {
     position: absolute;
     width: 100%;
     height: 100%;
