@@ -1,17 +1,9 @@
 <template>
   <article :class="['carousel-slide', width]">
     <!-- <LazyImage :image="image" /> -->
-    <client-only>
-      <vue-plyr>
-        <video controls playsinline>
-          <!-- TODO: add support for poster image (data-poster) -->
-          <source
-            src="https://player.vimeo.com/progressive_redirect/playback/319104997/rendition/720p/720p.mp4?loc=external&signature=fb9b84b97b4bbb1d4a6ee87f91054a58288cb755ba75aed313d1829f7a0279c5"
-            type="video/mp4"
-          />
-        </video>
-      </vue-plyr>
-    </client-only>
+    <VideoPlayer
+      src="https://player.vimeo.com/progressive_redirect/playback/220494102/rendition/480p/480p.mp4?loc=external&signature=4427b747d05bdfb8b36c69aa21fdbd69fe89e5fb054e75f8fe0bad9ac8e240e8"
+    />
   </article>
 </template>
 
