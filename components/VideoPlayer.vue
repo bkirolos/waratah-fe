@@ -43,3 +43,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.plyr {
+  --plyr-color-main: #007940;
+}
+</style>
