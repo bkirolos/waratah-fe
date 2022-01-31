@@ -4,10 +4,12 @@
       <h2 class="col-span-full md:col-start-2 md:col-span-5">
         {{ heading }}
       </h2>
-      <PortableText
-        :blocks="copy"
-        class="col-span-full md:col-start-8 md:col-span-4"
-      />
+      <div class="col-span-full md:col-start-8 md:col-span-4">
+        <PortableText :blocks="copy" />
+        <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
+          {{ ctaText }}
+        </Hyperlink>
+      </div>
     </div>
     <Carousel :slides="slides" />
   </section>
@@ -24,6 +26,15 @@ export default {
   computed: {
     copy() {
       return this.section?.copy
+    },
+    cta() {
+      return this.section?.cta
+    },
+    ctaLink() {
+      return this.cta?.link
+    },
+    ctaText() {
+      return this.cta?.text
     },
     heading() {
       return this.section?.heading

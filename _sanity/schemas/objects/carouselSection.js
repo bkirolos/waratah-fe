@@ -1,4 +1,5 @@
 import { Block } from '../../lib/icons'
+import OptionalCTA from '../../components/OptionalCTA'
 
 export default {
   type: 'object',
@@ -16,6 +17,12 @@ export default {
       type: 'portableText',
       name: 'copy',
       title: 'Copy'
+    },
+    {
+      type: 'cta',
+      name: 'cta',
+      title: 'CTA',
+      inputComponent: OptionalCTA
     },
     {
       type: 'array',

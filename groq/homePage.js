@@ -4,6 +4,10 @@ export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
     sections[] {
       copy,
+      cta {
+        link,
+        text
+      },
       heading,
       slides[] {
         image {

@@ -1,0 +1,7 @@
+.fieldset {
+  margin-top: -1rem;
+}
+
+.fieldset :global(.DefaultFieldset_fieldWrapper_31XBD) {
+  grid-gap: 1.5rem;
+}
