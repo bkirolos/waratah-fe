@@ -1,6 +1,9 @@
 <template>
   <article :class="['carousel-slide', width]">
-    <LazyImage :image="image" />
+    <!-- <LazyImage :image="image" /> -->
+    <VideoPlayer
+      src="https://player.vimeo.com/progressive_redirect/playback/220494102/rendition/480p/480p.mp4?loc=external&signature=4427b747d05bdfb8b36c69aa21fdbd69fe89e5fb054e75f8fe0bad9ac8e240e8"
+    />
   </article>
 </template>
 
@@ -48,7 +51,8 @@ $slide-thin: calc(#{$slide-wide} * 0.36153161175423);
     width: $slide-thin;
   }
 
-  img {
+  img,
+  .plyr {
     position: absolute;
     width: 100%;
     height: 100%;
