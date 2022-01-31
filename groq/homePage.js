@@ -10,6 +10,12 @@ export default groq`
           alt,
           asset
         },
+        video {
+          poster {
+            asset
+          },
+          url
+        },
         width
       }
     }

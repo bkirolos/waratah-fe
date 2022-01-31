@@ -5,6 +5,7 @@ import faqGroup from './faqGroup'
 import imagePlus from './imagePlus'
 import link from './link'
 import portableText from './portableText'
+import video from './video'
 
 export default [
   carouselSection,
@@ -13,5 +14,6 @@ export default [
   faqGroup,
   imagePlus,
   link,
-  portableText
+  portableText,
+  video
 ]

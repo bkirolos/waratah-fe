@@ -1,21 +1,23 @@
 <template>
   <!-- TODO: add support for options prop? -->
   <client-only>
-    <vue-plyr v-if="src" ref="plyr" v-observe-visibility="options">
-      <video controls playsinline>
-        <!-- TODO: add support for poster image (data-poster) -->
-        <source :src="src" type="video/mp4" />
+    <vue-plyr v-if="url" ref="plyr" v-observe-visibility="options">
+      <video controls playsinline :data-poster="poster">
+        <source :src="url" type="video/mp4" />
       </video>
     </vue-plyr>
   </client-only>
 </template>
 
 <script>
+import imageBuilder from '@/mixins/imageBuilder'
+
 export default {
+  mixins: [imageBuilder],
   props: {
-    src: {
-      type: String,
-      default: ''
+    video: {
+      type: Object,
+      required: true
     }
   },
   data() {
@@ -31,6 +33,12 @@ export default {
   computed: {
     player() {
       return this.$refs.plyr.player
+    },
+    poster() {
+      return this.urlFor(this.video?.poster)
+    },
+    url() {
+      return this.video?.url
     }
   },
   methods: {
@@ -52,6 +60,14 @@ export default {
     --plyr-control-icon-size: 14px;
   }
 
+  // hide controls row / only show large play button when paused
+  &.plyr--paused {
+    .plyr__controls {
+      opacity: 0;
+    }
+  }
+
+  // custom styles for large play button
   .plyr__control--overlaid {
     --plyr-control-spacing: 9px;
     --plyr-video-control-background-hover: theme('colors.white');
