@@ -44,8 +44,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .plyr {
-  --plyr-color-main: #007940;
+  --plyr-color-main: theme('colors.white');
+  --plyr-video-control-background-hover: transparent;
+  @media (max-width: theme('screens.sm')) {
+    --plyr-control-icon-size: 14px;
+  }
+
+  .plyr__control--overlaid {
+    --plyr-control-spacing: 9px;
+    --plyr-video-control-background-hover: theme('colors.white');
+    --plyr-video-control-color: theme('colors.black');
+    --plyr-video-control-color-hover: theme('colors.black');
+    @media (min-width: theme('screens.sm')) {
+      --plyr-control-spacing: 19px;
+    }
+  }
+
+  video {
+    object-fit: cover;
+  }
 }
 </style>
