@@ -126,33 +126,51 @@ export default {
 }
 
 .carousel-navigation-arrow {
-  background-color: white;
-  box-shadow: inset 0 0 0 1px #f2f2f2;
+  background-color: theme('colors.white');
+  box-shadow: inset 0 0 0 1px theme('colors.gray-stroke');
   border-radius: 50%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  height: 51px;
+  height: 24px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 51px;
+  width: 24px;
+  @media (min-width: theme('screens.sm')) {
+    height: 51px;
+    width: 51px;
+  }
+
   &:disabled {
     cursor: default;
   }
+
   &::after {
-    background-image: url('~/assets/svg/arrow.svg');
+    background-image: url('~/assets/svg/arrow-thick.svg');
     background-repeat: no-repeat;
     background-position: center;
     content: '';
     inset: 0;
     position: absolute;
+    @media (min-width: theme('screens.sm')) {
+      background-image: url('~/assets/svg/arrow-thin.svg');
+    }
   }
+
   &.previous {
-    left: 1.5rem;
-  }
-  &.next {
-    right: 1.5rem;
+    left: 0.5rem;
+    @media (min-width: theme('screens.sm')) {
+      left: 1.5rem;
+    }
+
     &::after {
       transform: rotate(0.5turn);
+    }
+  }
+
+  &.next {
+    right: 0.5rem;
+    @media (min-width: theme('screens.sm')) {
+      right: 1.5rem;
     }
   }
 }
