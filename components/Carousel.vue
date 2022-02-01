@@ -123,8 +123,10 @@ export default {
 </script>
 
 <style lang="scss">
-$pagination-button-size: 18px;
-$pagination-margin-top: 1rem;
+$pagination-dot-padding: 3px;
+$pagination-dot-size: 14px;
+$pagination-row-height: $pagination-dot-size + ($pagination-dot-padding * 2);
+$pagination-row-margin: 1rem;
 
 .carousel-container {
   overflow: hidden;
@@ -143,26 +145,26 @@ $pagination-margin-top: 1rem;
 .carousel-pagination {
   display: flex;
   justify-content: center;
-  margin-top: $pagination-margin-top;
+  margin-top: $pagination-row-margin;
 }
 
 .carousel-pagination-dot {
   color: theme('colors.gray-dark');
-  height: $pagination-button-size;
-  padding: 3px;
+  height: $pagination-row-height;
+  padding: $pagination-dot-padding;
   position: relative;
-  width: $pagination-button-size;
+  width: $pagination-row-height;
   &:after {
     background: transparent;
     border: 1px solid currentColor;
     border-radius: 50%;
     content: '';
-    height: 12px;
+    height: $pagination-dot-size;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 12px;
+    width: $pagination-dot-size;
   }
   &[aria-selected] {
     &:after {
@@ -178,7 +180,7 @@ $pagination-margin-top: 1rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   height: 24px;
   position: absolute;
-  top: calc(50% - ($pagination-button-size + $pagination-margin-top) / 2);
+  top: calc(50% - ($pagination-row-height + $pagination-row-margin) / 2);
   transform: translateY(-50%);
   width: 24px;
   @media (min-width: theme('screens.sm')) {
