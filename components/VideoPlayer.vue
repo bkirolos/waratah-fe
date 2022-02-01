@@ -80,6 +80,9 @@ export default {
 
   video {
     object-fit: cover;
+    .plyr__poster {
+      background-size: cover;
+    }
   }
 }
 </style>
