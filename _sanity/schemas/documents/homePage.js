@@ -18,6 +18,12 @@ export default {
       name: 'sections',
       title: 'Sections',
       of: [{ type: 'carouselSection' }]
+    },
+    {
+      type: 'array',
+      name: 'faqSection',
+      title: 'FAQ Section',
+      of: [{ type: 'faqSection' }]
     }
   ],
   preview: {

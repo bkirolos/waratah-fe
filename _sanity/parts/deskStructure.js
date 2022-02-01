@@ -4,4 +4,9 @@ export default () =>
   S.list()
     .title('Content')
     .showIcons(false)
-    .items([S.documentListItem().schemaType('homePage').id('homePage')])
+    .items([
+      S.documentListItem().schemaType('homePage').id('homePage'),
+      S.divider(),
+      S.documentTypeListItem('faq').title('FAQ'),
+    ])
+

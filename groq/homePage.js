@@ -12,6 +12,13 @@ export default groq`
         },
         width
       }
+    },
+    faqSection[] {
+      heading,
+      faqs[] {
+        question,
+        answer
+      }
     }
   }
 `

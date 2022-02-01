@@ -1,7 +1,7 @@
 import { Question } from '../../lib/icons'
 
 export default {
-  type: 'object',
+  type: 'document',
   name: 'faq',
   title: 'FAQ',
   icon: Question,

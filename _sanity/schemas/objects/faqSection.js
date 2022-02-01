@@ -2,8 +2,8 @@ import { Question } from '../../lib/icons'
 
 export default {
   type: 'object',
-  name: 'faqGroup',
-  title: 'FAQ Group',
+  name: 'faqSection',
+  title: 'FAQ Section',
   icon: Question,
   fields: [
     {
@@ -13,11 +13,17 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      type: 'array',
-      name: 'faqs',
       title: 'FAQs',
-      of: [{ type: 'faq' }],
-      validation: Rule => Rule.min(1).required()
+      name: 'faqs',
+      type: 'array',
+      of: [
+        { 
+          type: 'reference',
+          to: [
+            { type: 'faq' },
+          ]
+         }
+      ]
     }
   ]
 }

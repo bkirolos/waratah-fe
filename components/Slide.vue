@@ -1,6 +1,6 @@
 <template>
   <article :class="['carousel-slide', width]">
-    <LazyImage :image="image" />
+    <LazyImage v-if="image" :image="image" />
   </article>
 </template>
 

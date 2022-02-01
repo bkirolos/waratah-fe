@@ -1,7 +1,6 @@
 <template>
   <img
     v-if="src"
-    ref="img"
     :data-src="src"
     :data-srcset="srcset"
     :src="src"
@@ -27,10 +26,10 @@ export default {
       return this.image?.alt || ''
     },
     builder() {
-      return imageUrlBuilder(this.$sanity.config)
+      return imageUrlBuilder(this.$sanity?.config)
     },
     src() {
-      return this.builder.image(this.image).auto('format')
+      return null// this.builder.image(this.image).auto('format')
     },
     srcset() {
       const widths = [640, 768, 1024, 1366, 1600, 1960]
