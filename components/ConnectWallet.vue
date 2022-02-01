@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="connect">Connect Wallet</button>
+    <button class="cta" @click="connect">Connect Wallet</button>
     <Web3Modal
       v-if="mounted"
       ref="web3modal"

@@ -14,14 +14,23 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://unpkg.com/vue-plyr/dist/vue-plyr.css'
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/vue-observe-visibility' },
+    { src: '~/plugins/vue-plyr', mode: 'client' }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -29,10 +38,21 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/sanity/module',
     '@nuxtjs/tailwindcss',
     'nuxt-lazysizes'
   ],
+  googleFonts: {
+    families: {
+      Antonio: [700],
+      'Open+Sans': {
+        wght: [400, 800],
+        ital: [400, 800]
+      }
+    },
+    display: 'swap'
+  },
   lazySizes: {
     extendAssetUrls: {
       img: ['src', 'srcset', 'data-src', 'data-srcset']
