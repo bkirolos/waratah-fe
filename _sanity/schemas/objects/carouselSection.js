@@ -9,6 +9,11 @@ export default {
   fields: [
     {
       type: 'string',
+      name: 'anchorId',
+      title: 'Anchor ID'
+    },
+    {
+      type: 'string',
       name: 'heading',
       title: 'Heading',
       validation: Rule => Rule.required().error('Heading is required')
