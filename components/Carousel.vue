@@ -5,6 +5,18 @@
         <div class="carousel-slides">
           <Slide v-for="(slide, index) in slides" :key="index" :slide="slide" />
         </div>
+
+        <div role="tablist" class="carousel-pagination">
+          <button
+            v-for="(snap, index) in scrollSnaps"
+            :key="index"
+            role="tab"
+            :aria-label="`Slide ${index + 1}`"
+            :aria-selected="index === selectedScrollSnap"
+            class="carousel-pagination-dot"
+            @click="scrollTo(index)"
+          ></button>
+        </div>
       </div>
     </div>
 
@@ -123,6 +135,37 @@ export default {
 .carousel-slides {
   display: flex;
   will-change: transform;
+}
+
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-pagination-dot {
+  color: theme('colors.gray-dark');
+  height: 18px;
+  padding: 3px;
+  position: relative;
+  width: 18px;
+  &:after {
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    content: '';
+    height: 12px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+  }
+  &[aria-selected] {
+    &:after {
+      background: currentColor;
+    }
+  }
 }
 
 .carousel-navigation-arrow {
