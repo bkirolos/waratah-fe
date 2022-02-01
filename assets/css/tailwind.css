@@ -29,3 +29,14 @@
     @apply border rounded-full font-sans text-sm font-bold leading-normal px-7 py-4 uppercase;
   }
 }
+
+:root {
+  --gray: #d3d3d3;
+  --lightgray: #f2f2f2;
+  --black: black;
+  --space-xxs: 8px;
+  --space-xs: 16px;
+  --space-sm: 24px;
+  --space-md: 40px;
+  --space-lg: 64px;
+}

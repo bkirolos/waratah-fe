@@ -27,11 +27,11 @@ export default {
 <style lang="scss">
 .faq-section {
   &:not(:first-child) {
-    margin-top: $space-md;
+    margin-top: 40px;
   }
 
   .section-title {
-    margin-bottom: $space-xs;
+    margin-bottom: 16px;
   }
 }
 </style>

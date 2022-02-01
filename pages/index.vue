@@ -7,6 +7,7 @@
       :key="index"
       :section="section"
     />
+    <FaqSection :section="faqSection" />
   </div>
 </template>
 
@@ -25,6 +26,9 @@ export default {
   computed: {
     sections() {
       return this.page?.sections
+    },
+    faqSection() {
+      return this.page?.faqSection
     }
   }
 }

@@ -13,9 +13,10 @@ export default groq`
         width
       }
     },
-    faqSection[] {
+    faqSection {
       heading,
-      faqs[] {
+      faqs[]-> {
+        _type,
         question,
         answer
       }

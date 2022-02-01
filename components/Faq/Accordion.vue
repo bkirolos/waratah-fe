@@ -45,11 +45,11 @@ export default {
 
 <style lang="scss">
 .faq-accordion {
-  border-top: 1px solid $gray;
+  border-top: 1px solid gray;
   transition: background 500ms ease;
 
   &[aria-expanded] {
-    background: $light-gray;
+    background: lightgray;
     .faq-accordion-toggle {
       .icon-container::before {
         opacity: 0.1;
@@ -60,7 +60,7 @@ export default {
 
   .faq-accordion-toggle {
     display: flex;
-    padding: $space-xs;
+    padding: 16px;
     text-align: left;
     width: 100%;
 
@@ -74,7 +74,7 @@ export default {
       &::after {
         content: '';
         position: absolute;
-        background: $black;
+        background: black;
         width: 12px;
         height: 2px;
       }
@@ -83,20 +83,20 @@ export default {
         opacity: 1;
         transform: rotate(-90deg);
         transition: transform 150ms cubic-bezier(1, 0.47, 0.72, 0.85) 100ms,
-          opacity $vfast ease-out;
+          opacity 0.5 ease-out;
       }
     }
 
     h3 {
-      margin-left: $space-xs * 0.75;
-      @include breakpoint('mobile') {
-        margin-left: $space-xs;
-      }
+      margin-left: 16px * 0.75;
+      // @include breakpoint('mobile') {
+      //   margin-left: 16px;
+      // }
     }
   }
 
   .faq-accordion-content {
-    padding: $space-xxs $space-xs $space-xs;
+    padding: 8px 16px 16px;
   }
 }
 </style>

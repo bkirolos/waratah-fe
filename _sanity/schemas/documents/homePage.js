@@ -20,10 +20,9 @@ export default {
       of: [{ type: 'carouselSection' }]
     },
     {
-      type: 'array',
+      type: 'faqSection',
       name: 'faqSection',
       title: 'FAQ Section',
-      of: [{ type: 'faqSection' }]
     }
   ],
   preview: {
