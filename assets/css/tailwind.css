@@ -26,7 +26,7 @@
 
 @layer components {
   .cta {
-    @apply border rounded-full font-sans text-sm font-bold leading-normal px-7 py-4 uppercase;
+    @apply border rounded-full inline-block font-sans text-sm font-bold leading-normal px-7 py-4 uppercase;
   }
 }
 

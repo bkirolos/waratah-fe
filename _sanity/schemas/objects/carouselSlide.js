@@ -5,6 +5,12 @@ export default {
   name: 'carouselSlide',
   title: 'Carousel Slide',
   icon: Image,
+  validation: Rule =>
+    Rule.custom(object => {
+      return !object?.image?.asset && !object?.video?.url
+        ? 'Image or Video is required'
+        : true
+    }),
   fields: [
     {
       type: 'string',
@@ -15,10 +21,13 @@ export default {
       type: 'imagePlus',
       name: 'image',
       title: 'Image',
-      validation: Rule =>
-        Rule.custom(image => {
-          return !!image?.asset || 'Image is required'
-        })
+      hidden: document => document.parent.video?.url
+    },
+    {
+      type: 'video',
+      name: 'video',
+      title: 'Video',
+      hidden: document => document.parent.image?.asset
     },
     {
       type: 'string',
@@ -39,13 +48,16 @@ export default {
   preview: {
     select: {
       image: 'image',
-      internalName: 'internalName'
+      internalName: 'internalName',
+      video: 'video'
     },
     prepare(selection) {
-      const { image, internalName } = selection
+      const { image, internalName, video } = selection
+      const media = image?.asset || video?.poster
+
       return {
         title: internalName,
-        media: image
+        media
       }
     }
   }

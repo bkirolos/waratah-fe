@@ -1,13 +1,15 @@
 <template>
-  <section class="py-14">
+  <section :id="anchorId" class="py-14">
     <div class="grid grid-cols-12 gap-y-4 mb-12 md:mb-16 px-4 md:px-10">
       <h2 class="col-span-full md:col-start-2 md:col-span-5">
         {{ heading }}
       </h2>
-      <PortableText
-        :blocks="copy"
-        class="col-span-full md:col-start-8 md:col-span-4"
-      />
+      <div class="col-span-full md:col-start-8 md:col-span-4">
+        <PortableText :blocks="copy" />
+        <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
+          {{ ctaText }}
+        </Hyperlink>
+      </div>
     </div>
     <Carousel :slides="slides" />
   </section>
@@ -22,8 +24,20 @@ export default {
     }
   },
   computed: {
+    anchorId() {
+      return this.section?.anchorId
+    },
     copy() {
       return this.section?.copy
+    },
+    cta() {
+      return this.section?.cta
+    },
+    ctaLink() {
+      return this.cta?.link
+    },
+    ctaText() {
+      return this.cta?.text
     },
     heading() {
       return this.section?.heading
