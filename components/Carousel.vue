@@ -123,6 +123,9 @@ export default {
 </script>
 
 <style lang="scss">
+$pagination-button-size: 18px;
+$pagination-margin-top: 1rem;
+
 .carousel-container {
   overflow: hidden;
   position: relative;
@@ -140,15 +143,15 @@ export default {
 .carousel-pagination {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: $pagination-margin-top;
 }
 
 .carousel-pagination-dot {
   color: theme('colors.gray-dark');
-  height: 18px;
+  height: $pagination-button-size;
   padding: 3px;
   position: relative;
-  width: 18px;
+  width: $pagination-button-size;
   &:after {
     background: transparent;
     border: 1px solid currentColor;
@@ -175,7 +178,7 @@ export default {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   height: 24px;
   position: absolute;
-  top: 50%;
+  top: calc(50% - ($pagination-button-size + $pagination-margin-top) / 2);
   transform: translateY(-50%);
   width: 24px;
   @media (min-width: theme('screens.sm')) {
