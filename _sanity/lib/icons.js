@@ -2,6 +2,7 @@
 
 import {
   BsBox,
+  BsCameraVideo,
   BsFileEarmark,
   BsImage,
   BsLink45Deg,
@@ -13,3 +14,4 @@ export const Image = BsImage
 export const Link = BsLink45Deg
 export const Page = BsFileEarmark
 export const Question = BsQuestionLg
+export const Video = BsCameraVideo

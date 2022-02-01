@@ -13,9 +13,10 @@
 </template>
 
 <script>
-import imageUrlBuilder from '@sanity/image-url'
+import imageBuilder from '@/mixins/imageBuilder'
 
 export default {
+  mixins: [imageBuilder],
   props: {
     image: {
       type: Object,
@@ -26,11 +27,8 @@ export default {
     alt() {
       return this.image?.alt || ''
     },
-    builder() {
-      return imageUrlBuilder(this.$sanity.config)
-    },
     src() {
-      return this.builder.image(this.image).auto('format')
+      return this.urlFor(this.image)
     },
     srcset() {
       const widths = [640, 768, 1024, 1366, 1600, 1960]

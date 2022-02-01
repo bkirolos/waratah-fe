@@ -1,4 +1,5 @@
 import { Block } from '../../lib/icons'
+import OptionalCTA from '../../components/OptionalCTA'
 
 export default {
   type: 'object',
@@ -6,6 +7,11 @@ export default {
   title: 'Carousel Section',
   icon: Block,
   fields: [
+    {
+      type: 'string',
+      name: 'anchorId',
+      title: 'Anchor ID'
+    },
     {
       type: 'string',
       name: 'heading',
@@ -16,6 +22,12 @@ export default {
       type: 'portableText',
       name: 'copy',
       title: 'Copy'
+    },
+    {
+      type: 'cta',
+      name: 'cta',
+      title: 'CTA',
+      inputComponent: OptionalCTA
     },
     {
       type: 'array',
