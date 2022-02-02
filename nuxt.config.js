@@ -40,6 +40,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
     '@nuxtjs/sanity/module',
+    '@nuxtjs/svg',
     '@nuxtjs/tailwindcss',
     'nuxt-lazysizes'
   ],
