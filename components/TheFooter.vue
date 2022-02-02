@@ -7,13 +7,11 @@
     </div>
 
     <div class="lg:flex mt-8 lg:mt-0">
-      <NavLink type="text" url="/#the-athletes">The Athletes</NavLink>
-      <NavLink type="text" url="/#the-shoe">The Shoe</NavLink>
-      <NavLink type="text" url="/#the-nft">The NFT</NavLink>
-      <NavLink type="text" url="/#faq">FAQ</NavLink>
-      <NavLink type="text" url="/terms-and-conditions">
-        Terms & Conditions
-      </NavLink>
+      <NavLink url="/#the-athletes">The Athletes</NavLink>
+      <NavLink url="/#the-shoe">The Shoe</NavLink>
+      <NavLink url="/#the-nft">The NFT</NavLink>
+      <NavLink url="/#faq">FAQ</NavLink>
+      <NavLink url="/terms-and-conditions">Terms & Conditions</NavLink>
     </div>
 
     <div class="flex lg:justify-end mt-9 lg:mt-0">

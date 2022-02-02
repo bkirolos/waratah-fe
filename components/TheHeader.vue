@@ -8,11 +8,11 @@
       </div>
 
       <div class="hidden lg:flex">
-        <NavLink type="text" url="/#the-athletes">The Athletes</NavLink>
-        <NavLink type="text" url="/#the-shoe">The Shoe</NavLink>
-        <NavLink type="text" url="/#the-nft">The NFT</NavLink>
-        <NavLink type="text" url="/#the-auction">The Auction</NavLink>
-        <NavLink type="text" url="/#faq">FAQ</NavLink>
+        <NavLink url="/#the-athletes">The Athletes</NavLink>
+        <NavLink url="/#the-shoe">The Shoe</NavLink>
+        <NavLink url="/#the-nft">The NFT</NavLink>
+        <NavLink url="/#the-auction">The Auction</NavLink>
+        <NavLink url="/#faq">FAQ</NavLink>
       </div>
 
       <div class="hidden lg:flex lg:justify-end">
