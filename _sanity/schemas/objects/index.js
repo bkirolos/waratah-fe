@@ -5,7 +5,8 @@ import faq from './faq'
 import faqGroup from './faqGroup'
 import imagePlus from './imagePlus'
 import link from './link'
-import portableText from './portableText'
+import portableTextLite from './portableTextLite'
+import portableTextSuite from './portableTextSuite'
 import video from './video'
 
 export default [
@@ -16,6 +17,7 @@ export default [
   faqGroup,
   imagePlus,
   link,
-  portableText,
+  portableTextLite,
+  portableTextSuite,
   video
 ]
