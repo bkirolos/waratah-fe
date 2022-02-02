@@ -8,33 +8,34 @@
       </div>
 
       <div class="hidden lg:flex">
-        <NavLink url="/#the-athletes">The Athletes</NavLink>
-        <NavLink url="/#the-shoe">The Shoe</NavLink>
-        <NavLink url="/#the-nft">The NFT</NavLink>
-        <NavLink url="/#the-auction">The Auction</NavLink>
-        <NavLink url="/#faq">FAQ</NavLink>
+        <NavLink
+          v-for="(link, index) in headerLinks"
+          :key="index"
+          :url="link.url"
+        >
+          {{ link.label }}
+        </NavLink>
       </div>
 
-      <div class="hidden lg:flex lg:justify-end">
-        <TwitterLink />
-        <DiscordLink />
+      <div class="flex justify-end">
+        <TwitterLink class="hidden lg:flex" />
+        <DiscordLink class="hidden lg:flex" />
         <ConnectWallet />
+        <TheMobileMenu class="flex lg:hidden" />
       </div>
-
-      <button class="nav-item-transition p-2 lg:hidden">
-        <span class="nav-item-round">=</span>
-      </button>
     </nav>
   </header>
 </template>
 
 <script>
 import Logo from '@/assets/svg/division-street-logo-monogram.svg?inline'
+import nav from '@/mixins/nav'
 
 export default {
   components: {
     Logo
-  }
+  },
+  mixins: [nav]
 }
 </script>
 

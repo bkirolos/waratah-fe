@@ -10,6 +10,10 @@
 <script>
 export default {
   props: {
+    large: {
+      type: Boolean,
+      default: false
+    },
     round: {
       type: Boolean,
       default: false
@@ -21,7 +25,11 @@ export default {
   },
   computed: {
     classes() {
-      return ['nav-item nav-item-transition', this.round ? 'p-2' : 'p-3']
+      return [
+        'nav-item nav-item-transition',
+        { 'font-display text-md': this.large },
+        this.round ? 'p-2' : 'p-3'
+      ]
     }
   }
 }
