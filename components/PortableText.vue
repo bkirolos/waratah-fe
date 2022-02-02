@@ -1,5 +1,5 @@
 <template>
-  <SanityContent v-if="blocks" :blocks="blocks" :serializers="serializers" />
+  <SanityContent v-if="blocks" :blocks="blocks" :serializers="serializers" class="rich-text" />
 </template>
 
 <script>
@@ -23,3 +23,16 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: inherit;
+}
+ol {
+  list-style-type: numeric;
+  list-style-position: inside;
+  color: inherit;
+}
+
+</style>

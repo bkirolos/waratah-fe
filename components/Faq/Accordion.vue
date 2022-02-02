@@ -1,8 +1,8 @@
 <template>
   <div class="faq-accordion" :aria-expanded="expanded">
     <button class="faq-accordion-toggle" @click="toggleExpanded">
-      <span aria-hidden="true" class="icon-container"></span>
       <h3>{{ question }}</h3>
+      <span aria-hidden="true" class="icon-container"></span>
     </button>
     <transition name="slide">
       <PortableText
@@ -44,12 +44,17 @@ export default {
 </script>
 
 <style lang="scss">
+$vfast: 200ms;
+$fast: 250ms;
+$avg: 300ms;
+$slow: 350ms;
+$vslow: 400ms;
+
 .faq-accordion {
-  border-top: 1px solid gray;
-  transition: background 500ms ease;
+  border-bottom: 1px solid theme('colors.white');
+  transition: all 500ms ease;
 
   &[aria-expanded] {
-    background: lightgray;
     .faq-accordion-toggle {
       .icon-container::before {
         opacity: 0.1;
@@ -60,7 +65,10 @@ export default {
 
   .faq-accordion-toggle {
     display: flex;
-    padding: 16px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 28px 0px;
     text-align: left;
     width: 100%;
 
@@ -74,7 +82,7 @@ export default {
       &::after {
         content: '';
         position: absolute;
-        background: black;
+        background: theme('colors.white');
         width: 12px;
         height: 2px;
       }
@@ -83,20 +91,32 @@ export default {
         opacity: 1;
         transform: rotate(-90deg);
         transition: transform 150ms cubic-bezier(1, 0.47, 0.72, 0.85) 100ms,
-          opacity 0.5 ease-out;
+          opacity $vfast ease-out;
       }
-    }
-
-    h3 {
-      margin-left: 16px * 0.75;
-      // @include breakpoint('mobile') {
-      //   margin-left: 16px;
-      // }
     }
   }
 
   .faq-accordion-content {
-    padding: 8px 16px 16px;
+    margin: 28px 16px 28px 0;
+    p {
+      color: theme('colors.gray-stroke')
+    }
   }
+}
+
+
+.slide-enter-active,
+.slide-leave-active {
+  max-height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height $avg ease-in;
+}
+
+.slide-enter,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height $vfast ease-out, opacity $avg;
 }
 </style>

@@ -6,7 +6,10 @@ export default {
     {
       type: 'block',
       styles: [],
-      lists: [],
+      lists: [
+        { title: 'Bulleted List', value: 'bullet' },
+        { title: 'Numbered List', value: 'number' }
+      ],
       marks: {
         decorators: [
           { title: 'Bold', value: 'strong' },
