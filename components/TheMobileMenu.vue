@@ -80,9 +80,11 @@ export default {
   methods: {
     closeMenu() {
       this.isActive = false
+      document.body.classList.remove('mobile-no-scroll')
     },
     openMenu() {
       this.isActive = true
+      document.body.classList.add('mobile-no-scroll')
     }
   }
 }
@@ -95,6 +97,12 @@ export default {
   inset: 0;
   overflow: auto;
   position: fixed;
+}
+
+.mobile-no-scroll {
+  @media (max-width: calc(theme('screens.lg') - 1px)) {
+    overflow: hidden !important;
+  }
 }
 
 .slide-enter-active,
