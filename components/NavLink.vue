@@ -1,0 +1,28 @@
+<template>
+  <Hyperlink :url="url" :class="classes">
+    <div v-if="round" class="nav-item-round">
+      <slot />
+    </div>
+    <slot v-else />
+  </Hyperlink>
+</template>
+
+<script>
+export default {
+  props: {
+    round: {
+      type: Boolean,
+      default: false
+    },
+    url: {
+      type: String,
+      default: '/'
+    }
+  },
+  computed: {
+    classes() {
+      return ['nav-item nav-item-transition', this.round ? 'p-2' : 'p-3']
+    }
+  }
+}
+</script>
