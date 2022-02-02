@@ -38,6 +38,6 @@
   }
 
   .nav-item-transition {
-    @apply transition-colors duration-300 ease-in-out hover:text-yellow;
+    @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
   }
 }
