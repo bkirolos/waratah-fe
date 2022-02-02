@@ -12,7 +12,7 @@
         <NavLink type="text" url="/#the-shoe">The Shoe</NavLink>
         <NavLink type="text" url="/#the-nft">The NFT</NavLink>
         <NavLink type="text" url="/#the-auction">The Auction</NavLink>
-        <NavLink type="text" url="/faq">FAQ</NavLink>
+        <NavLink type="text" url="/#faq">FAQ</NavLink>
       </div>
 
       <div class="hidden lg:flex lg:justify-end">
