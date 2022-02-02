@@ -27,7 +27,11 @@ module.exports = {
       none: '1',
       normal: '1.5'
     },
-    extend: {}
+    extend: {
+      width: {
+        min: 'min-content'
+      }
+    }
   },
   variants: {
     extend: {}

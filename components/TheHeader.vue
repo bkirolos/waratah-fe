@@ -1,5 +1,5 @@
 <template>
-  <header class="header p-1 md:pl-7 md:pr-8 md:py-3 w-full z-10">
+  <header class="header p-1 md:pl-7 md:pr-8 md:py-3">
     <nav class="header-nav">
       <div class="flex">
         <NavLink aria-label="Home">
@@ -16,12 +16,8 @@
       </div>
 
       <div class="hidden lg:flex lg:justify-end">
-        <NavLink url="https://twitter.com" round aria-label="Twitter">
-          <Twitter aria-hidden="true" />
-        </NavLink>
-        <NavLink url="https://discord.com" round aria-label="Discord">
-          <Discord aria-hidden="true" />
-        </NavLink>
+        <TwitterLink />
+        <DiscordLink />
         <ConnectWallet />
       </div>
 
@@ -34,14 +30,10 @@
 
 <script>
 import Logo from '@/assets/svg/division-street-logo-monogram.svg?inline'
-import Twitter from '@/assets/svg/twitter-logo.svg?inline'
-import Discord from '@/assets/svg/discord-logo.svg?inline'
 
 export default {
   components: {
-    Logo,
-    Twitter,
-    Discord
+    Logo
   }
 }
 </script>
@@ -50,6 +42,8 @@ export default {
 .header {
   color: theme('colors.white');
   position: fixed;
+  width: 100%;
+  z-index: 1;
 
   &-nav {
     display: flex;

@@ -30,7 +30,7 @@
   }
 
   .nav-item {
-    @apply heading-3 flex items-center text-center;
+    @apply heading-3 flex items-center whitespace-nowrap w-min;
   }
 
   .nav-item-round {
