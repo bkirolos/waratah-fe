@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="nav-item-transition p-2"
       aria-label="Open Menu"
+      class="nav-item-transition p-2"
       @click="openMenu"
     >
-      <span class="menu-toggle nav-item-round">
+      <span class="nav-item-round">
         <MenuIcon aria-hidden="true" />
       </span>
     </button>
