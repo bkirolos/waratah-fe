@@ -196,9 +196,12 @@ $pagination-row-margin: 1rem;
     background-image: url('~/assets/svg/arrow-thick.svg');
     background-repeat: no-repeat;
     background-position: center;
+    bottom: 0;
     content: '';
-    inset: 0;
+    left: 0;
     position: absolute;
+    right: 0;
+    top: 0;
     @media (min-width: theme('screens.sm')) {
       background-image: url('~/assets/svg/arrow-thin.svg');
     }

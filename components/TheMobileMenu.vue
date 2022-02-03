@@ -93,10 +93,13 @@ export default {
 <style lang="scss">
 .mobile-menu {
   background: theme('colors.yellow');
+  bottom: 0;
   color: theme('colors.black');
-  inset: 0;
+  left: 0;
   overflow: auto;
   position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .mobile-no-scroll {
