@@ -15,11 +15,14 @@ export default {
       },
       validation: Rule =>
         Rule.custom((alt, context) => {
-          const { asset } = context.parent
-          return asset && !alt
+          const { parent } = context
+          return parent?.asset && !alt
             ? 'Please add an alternative text description to help with accessibility'
             : true
         }).warning()
     }
-  ]
+  ],
+  options: {
+    hotspot: true
+  }
 }
