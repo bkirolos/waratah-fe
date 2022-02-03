@@ -7,7 +7,7 @@ export default () =>
     .items([
       S.documentListItem().schemaType('homePage').id('homePage'),
       S.documentListItem().schemaType('faqPage').id('faqPage'),
-      S.documentListItem().schemaType('termsConditions').id('termsConditions'),
+      S.documentListItem().schemaType('termsPage').id('termsPage'),
       S.divider(),
       S.documentTypeListItem('faq').title('FAQs')
     ])

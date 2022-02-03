@@ -2,7 +2,7 @@ import { Page } from '../../lib/icons'
 
 export default {
   type: 'document',
-  name: 'termsConditions',
+  name: 'termsPage',
   title: 'Terms & Conditions Page',
   icon: Page,
   fields: [
