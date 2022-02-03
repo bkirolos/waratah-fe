@@ -1,0 +1,129 @@
+<template>
+  <article class="faq-accordion">
+    <button
+      :id="`${ariaId}-toggle`"
+      class="faq-accordion-toggle"
+      :aria-expanded="expanded"
+      :aria-controls="`${ariaId}-content`"
+      @click="toggleExpanded"
+    >
+      <h3>{{ question }}</h3>
+      <span aria-hidden="true" class="icon-container"></span>
+    </button>
+    <transition name="accordion-slide">
+      <PortableText
+        v-if="expanded"
+        :id="`${ariaId}-content`"
+        :blocks="answer"
+        class="faq-accordion-content"
+        :aria-labelledby="`${ariaId}-toggle`"
+      />
+    </transition>
+  </article>
+</template>
+
+<script>
+export default {
+  props: {
+    faq: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      expanded: false
+    }
+  },
+  computed: {
+    answer() {
+      return this.faq?.answer
+    },
+    ariaId() {
+      return this.faq?._id
+    },
+    question() {
+      return this.faq?.question
+    }
+  },
+  methods: {
+    toggleExpanded() {
+      this.expanded = !this.expanded
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+$fast: 200ms;
+$avg: 300ms;
+
+.faq-accordion {
+  border-bottom: 1px solid theme('colors.white');
+  transition: all 500ms ease;
+
+  &[aria-expanded] {
+    .faq-accordion-toggle {
+      .icon-container::before {
+        opacity: 0.1;
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .faq-accordion-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 28px 0px;
+    text-align: left;
+    width: 100%;
+
+    .icon-container {
+      display: flex;
+      align-items: center;
+      width: 12px;
+      height: 36px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background: theme('colors.white');
+        width: 12px;
+        height: 2px;
+      }
+
+      &::before {
+        opacity: 1;
+        transform: rotate(-90deg);
+        transition: transform 150ms cubic-bezier(1, 0.47, 0.72, 0.85) 100ms,
+          opacity $fast ease-out;
+      }
+    }
+  }
+
+  .faq-accordion-content {
+    margin: 28px 16px 28px 0;
+    p {
+      color: theme('colors.gray-stroke');
+    }
+  }
+}
+
+.accordion-slide-enter-active,
+.accordion-slide-leave-active {
+  max-height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height $avg ease-in;
+}
+
+.accordion-slide-enter,
+.accordion-slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height $fast ease-out, opacity $avg;
+}
+</style>

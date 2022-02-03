@@ -6,6 +6,7 @@
       :key="index"
       :section="section"
     />
+    <FaqSection :section="faqSection" />
   </div>
 </template>
 
@@ -22,6 +23,9 @@ export default {
     this.page = await this.$sanity.fetch(homePage)
   },
   computed: {
+    faqSection() {
+      return this.page?.faqSection
+    },
     sections() {
       return this.page?.sections
     }

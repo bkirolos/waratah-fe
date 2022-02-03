@@ -2,8 +2,8 @@ import { Page } from '../../lib/icons'
 
 export default {
   type: 'document',
-  name: 'homePage',
-  title: 'Home Page',
+  name: 'termsPage',
+  title: 'Terms & Conditions Page',
   icon: Page,
   fields: [
     {
@@ -14,15 +14,14 @@ export default {
       readOnly: true
     },
     {
-      type: 'array',
-      name: 'sections',
-      title: 'Sections',
-      of: [{ type: 'carouselSection' }]
+      type: 'string',
+      name: 'heading',
+      title: 'Heading'
     },
     {
-      type: 'faqSection',
-      name: 'faqSection',
-      title: 'FAQ Section'
+      type: 'portableTextSuite',
+      name: 'copy',
+      title: 'Copy'
     }
   ],
   preview: {
