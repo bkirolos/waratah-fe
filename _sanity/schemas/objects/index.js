@@ -1,7 +1,7 @@
 import carouselSection from './carouselSection'
 import carouselSlide from './carouselSlide'
-import faqSection from './faqSection'
 import cta from './cta'
+import faqSection from './faqSection'
 import imagePlus from './imagePlus'
 import link from './link'
 import portableTextLite from './portableTextLite'
@@ -11,8 +11,8 @@ import video from './video'
 export default [
   carouselSection,
   carouselSlide,
-  faqSection,
   cta,
+  faqSection,
   imagePlus,
   link,
   portableTextLite,
