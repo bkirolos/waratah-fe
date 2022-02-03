@@ -1,44 +1,56 @@
 <template>
-  <section class="hero bg-green grid grid-cols-12 items-center px-4 md:px-10">
-    <div class="hero-content-wrap col-span-full md:col-start-2">
-      <h1 class="text-yellow">
-        {{ heading }}
-      </h1>
-      <h2 v-if="subheading" class="font-sans md:text-md">
-        {{ subheading }}
-      </h2>
-      <p v-if="copy" class="mt-2 md:mt-6">
-        {{ copy }}
-      </p>
-      <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
-        {{ ctaText }}
-      </Hyperlink>
+  <section class="hero">
+    <LazyImage v-if="mobileImage" :image="mobileImage" class="md:hidden" />
+    <LazyImage :image="image" :class="{ 'hidden md:block': mobileImage }" />
+    <div class="grid grid-cols-12 items-center h-full px-4 md:px-10">
+      <div class="hero-content-wrap col-span-full lg:col-start-2">
+        <h1 class="text-yellow">
+          {{ heading }}
+        </h1>
+        <h2 v-if="subheading" class="font-sans md:text-md">
+          {{ subheading }}
+        </h2>
+        <PortableText v-if="copy" :blocks="copy" class="mt-2 md:mt-6" />
+        <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
+          {{ ctaText }}
+        </Hyperlink>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+  props: {
+    hero: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
     copy() {
-      return `Limited edition NFT and physical shoe designed by Tinker Hatfield,
-        Auction taking place July 20, 2022, for athletes by athletes (or other
-        concept tying project to the team)`
+      return this.hero?.copy
     },
     cta() {
-      return true
+      return this.hero?.cta
     },
     ctaLink() {
-      return '/#the-nft'
+      return this.cta?.link
     },
     ctaText() {
-      return 'Learn More'
+      return this.cta?.text
     },
     heading() {
-      return 'Ducks of a Feather'
+      return this.hero?.heading
+    },
+    image() {
+      return this.hero?.image
+    },
+    mobileImage() {
+      return this.hero?.mobileImage
     },
     subheading() {
-      return 'For Athletes By Athletes'
+      return this.hero?.subheading
     }
   }
 }
@@ -46,14 +58,27 @@ export default {
 
 <style lang="scss">
 .hero {
-  height: 727px;
+  background: theme('colors.green');
+  height: calc(727 / 375 * 100vw);
+  max-height: 727px;
+  min-height: 727px;
   position: relative;
+  width: 100vw;
   @media (min-width: theme('screens.md')) {
-    height: 900px;
+    height: calc(900 / 1440 * 100vw);
+    max-height: 900px;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
   }
 
   &-content-wrap {
     max-width: 600px;
+    z-index: 1;
 
     h1 {
       @media (max-width: calc(theme('screens.md') - 1px)) {

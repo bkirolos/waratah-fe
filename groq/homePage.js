@@ -2,6 +2,25 @@ import { groq } from '@nuxtjs/sanity'
 
 export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
+    hero {
+      copy,
+      cta {
+        link,
+        text
+      },
+      heading,
+      image {
+        alt,
+        asset,
+        crop
+      },
+      mobileImage {
+        alt,
+        asset,
+        crop
+      },
+      subheading
+    },
     sections[] {
       anchorId,
       copy,
@@ -13,7 +32,8 @@ export default groq`
       slides[] {
         image {
           alt,
-          asset
+          asset,
+          crop
         },
         video {
           poster {

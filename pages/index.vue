@@ -1,6 +1,6 @@
 <template>
   <div class="bg-black text-white">
-    <Hero />
+    <Hero :hero="hero" />
     <CarouselSection
       v-for="(section, index) in sections"
       :key="index"
@@ -25,6 +25,9 @@ export default {
   computed: {
     faqSection() {
       return this.page?.faqSection
+    },
+    hero() {
+      return this.page?.hero
     },
     sections() {
       return this.page?.sections
