@@ -26,6 +26,10 @@ export default groq`
     },
     faqSection {
       heading,
+      cta {
+        link,
+        text
+      },
       faqs[]-> {
         _type,
         question,

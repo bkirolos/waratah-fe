@@ -1,4 +1,5 @@
 import { Question } from '../../lib/icons'
+import OptionalCTA from '../../components/OptionalCTA'
 
 export default {
   type: 'object',
@@ -11,6 +12,12 @@ export default {
       name: 'heading',
       title: 'Heading',
       validation: Rule => Rule.required()
+    },
+    {
+      type: 'cta',
+      name: 'cta',
+      title: 'CTA',
+      inputComponent: OptionalCTA
     },
     {
       title: 'FAQs',

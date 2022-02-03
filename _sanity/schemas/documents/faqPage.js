@@ -2,25 +2,34 @@ import { Page } from '../../lib/icons'
 
 export default {
   type: 'document',
-  name: 'homePage',
-  title: 'Home Page',
+  name: 'faqPage',
+  title: 'FAQ Page',
   icon: Page,
   fields: [
     {
       type: 'string',
       name: 'documentName',
       title: 'Document Name',
+      hidden: true,
+      readOnly: true
     },
     {
+      type: 'string',
+      name: 'heading',
+      title: 'Heading'
+    },
+    {
+      title: 'FAQs',
+      name: 'faqs',
       type: 'array',
-      name: 'sections',
-      title: 'Sections',
-      of: [{ type: 'carouselSection' }]
-    },
-    {
-      type: 'faqSection',
-      name: 'faqSection',
-      title: 'FAQ Section',
+      of: [
+        { 
+          type: 'reference',
+          to: [
+            { type: 'faq' },
+          ]
+         }
+      ]
     }
   ],
   preview: {

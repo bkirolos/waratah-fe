@@ -2,25 +2,26 @@ import { Page } from '../../lib/icons'
 
 export default {
   type: 'document',
-  name: 'homePage',
-  title: 'Home Page',
+  name: 'termsConditions',
+  title: 'Terms & Conditions Page',
   icon: Page,
   fields: [
     {
       type: 'string',
       name: 'documentName',
       title: 'Document Name',
+      hidden: true,
+      readOnly: true
     },
     {
-      type: 'array',
-      name: 'sections',
-      title: 'Sections',
-      of: [{ type: 'carouselSection' }]
+      type: 'string',
+      name: 'heading',
+      title: 'Heading'
     },
     {
-      type: 'faqSection',
-      name: 'faqSection',
-      title: 'FAQ Section',
+      type: 'portableText',
+      name: 'copy',
+      title: 'Copy'
     }
   ],
   preview: {

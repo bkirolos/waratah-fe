@@ -4,7 +4,7 @@
       <h3>{{ question }}</h3>
       <span aria-hidden="true" class="icon-container"></span>
     </button>
-    <transition name="slide">
+    <transition name="accordion-slide">
       <PortableText
         v-if="expanded"
         :blocks="answer"
@@ -44,11 +44,8 @@ export default {
 </script>
 
 <style lang="scss">
-$vfast: 200ms;
-$fast: 250ms;
+$fast: 200ms;
 $avg: 300ms;
-$slow: 350ms;
-$vslow: 400ms;
 
 .faq-accordion {
   border-bottom: 1px solid theme('colors.white');
@@ -91,7 +88,7 @@ $vslow: 400ms;
         opacity: 1;
         transform: rotate(-90deg);
         transition: transform 150ms cubic-bezier(1, 0.47, 0.72, 0.85) 100ms,
-          opacity $vfast ease-out;
+          opacity $fast ease-out;
       }
     }
   }
@@ -105,18 +102,18 @@ $vslow: 400ms;
 }
 
 
-.slide-enter-active,
-.slide-leave-active {
+.accordion-slide-enter-active,
+.accordion-slide-leave-active {
   max-height: 100vh;
   opacity: 1;
   overflow: hidden;
   transition: max-height $avg ease-in;
 }
 
-.slide-enter,
-.slide-leave-to {
+.accordion-slide-enter,
+.accordion-slide-leave-to {
   max-height: 0;
   opacity: 0;
-  transition: max-height $vfast ease-out, opacity $avg;
+  transition: max-height $fast ease-out, opacity $avg;
 }
 </style>

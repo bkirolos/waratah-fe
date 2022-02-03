@@ -6,7 +6,9 @@ export default () =>
     .showIcons(false)
     .items([
       S.documentListItem().schemaType('homePage').id('homePage'),
+      S.documentListItem().schemaType('faqPage').id('faqPage'),
+      S.documentListItem().schemaType('termsConditions').id('termsConditions'),
       S.divider(),
-      S.documentTypeListItem('faq').title('FAQ'),
+      S.documentTypeListItem('faq').title('FAQs'),
     ])
 
