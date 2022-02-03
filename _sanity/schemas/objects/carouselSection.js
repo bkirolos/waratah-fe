@@ -19,7 +19,7 @@ export default {
       validation: Rule => Rule.required().error('Heading is required')
     },
     {
-      type: 'portableText',
+      type: 'portableTextLite',
       name: 'copy',
       title: 'Copy'
     },

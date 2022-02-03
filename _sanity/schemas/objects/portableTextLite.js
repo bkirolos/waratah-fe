@@ -1,6 +1,6 @@
 export default {
   type: 'array',
-  name: 'portableText',
+  name: 'portableTextLite',
   title: 'PortableText',
   of: [
     {

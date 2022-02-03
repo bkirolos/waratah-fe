@@ -1,16 +1,17 @@
 <template>
   <div class="bg-black text-white">
-    <section class="grid grid-cols-12 px-4 md:px-10 py-20">
-      <h1 class="md:col-start-2 md:col-span-10 col-span-12">{{ heading }}</h1>
-      <div class="md:col-start-2 md:col-span-10 col-span-12">
-        <FaqAccordion v-for="(faq, ix) in faqs" :key="ix" :faq="faq" />
-      </div>
-    </section>
+    <h1 class="text-yellow">DUCKS OF A FEATHER</h1>
+    <CarouselSection
+      v-for="(section, index) in sections"
+      :key="index"
+      :section="section"
+    />
+    <FaqSection :section="faqSection" />
   </div>
 </template>
 
 <script>
-import termsPage from '@/groq/termsPage'
+import homePage from '@/groq/homePage'
 
 export default {
   data() {
@@ -19,14 +20,14 @@ export default {
     }
   },
   async fetch() {
-    this.page = await this.$sanity.fetch(termsPage)
+    this.page = await this.$sanity.fetch(homePage)
   },
   computed: {
-    copy() {
-      return this.page?.copy
+    faqSection() {
+      return this.page?.faqSection
     },
-    heading() {
-      return this.page?.heading
+    sections() {
+      return this.page?.sections
     }
   }
 }

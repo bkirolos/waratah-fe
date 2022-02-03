@@ -4,7 +4,8 @@ import faqSection from './faqSection'
 import cta from './cta'
 import imagePlus from './imagePlus'
 import link from './link'
-import portableText from './portableText'
+import portableTextLite from './portableTextLite'
+import portableTextSuite from './portableTextSuite'
 import video from './video'
 
 export default [
@@ -14,6 +15,7 @@ export default [
   cta,
   imagePlus,
   link,
-  portableText,
+  portableTextLite,
+  portableTextSuite,
   video
 ]
