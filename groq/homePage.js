@@ -23,6 +23,19 @@ export default groq`
         },
         width
       }
+    },
+    faqSection {
+      heading,
+      cta {
+        link,
+        text
+      },
+      faqs[]-> {
+        _id,
+        _type,
+        question,
+        answer
+      }
     }
   }
 `
