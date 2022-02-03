@@ -56,7 +56,7 @@ export default {
 .plyr {
   --plyr-color-main: theme('colors.white');
   --plyr-video-control-background-hover: transparent;
-  @media (max-width: theme('screens.sm')) {
+  @media (max-width: calc(theme('screens.sm') - 1px)) {
     --plyr-control-icon-size: 14px;
   }
 
@@ -73,6 +73,7 @@ export default {
     --plyr-video-control-background-hover: theme('colors.white');
     --plyr-video-control-color: theme('colors.black');
     --plyr-video-control-color-hover: theme('colors.black');
+    opacity: 1;
     @media (min-width: theme('screens.sm')) {
       --plyr-control-spacing: 19px;
     }

@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <button class="cta" @click="connect">Connect Wallet</button>
+  <div class="flex">
+    <button class="nav-item-transition p-2" @click="connect">
+      <span class="cta flex items-center h-10 leading-none px-5 py-0">
+        Connect Wallet
+      </span>
+    </button>
     <Web3Modal
       v-if="mounted"
       ref="web3modal"
