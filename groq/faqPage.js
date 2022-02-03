@@ -5,6 +5,7 @@ export default groq`
     heading,
     copy,
     faqs[]-> {
+      _id,
       _type,
       question,
       answer

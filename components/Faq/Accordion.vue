@@ -1,14 +1,22 @@
 <template>
-  <article class="faq-accordion" :aria-expanded="expanded">
-    <button class="faq-accordion-toggle" @click="toggleExpanded">
+  <article class="faq-accordion">
+    <button
+      :id="`${ariaId}-toggle`"
+      class="faq-accordion-toggle"
+      :aria-expanded="expanded"
+      :aria-controls="`${ariaId}-content`"
+      @click="toggleExpanded"
+    >
       <h3>{{ question }}</h3>
       <span aria-hidden="true" class="icon-container"></span>
     </button>
     <transition name="accordion-slide">
       <PortableText
         v-if="expanded"
+        :id="`${ariaId}-content`"
         :blocks="answer"
         class="faq-accordion-content"
+        :aria-labelledby="`${ariaId}-toggle`"
       />
     </transition>
   </article>
@@ -30,6 +38,9 @@ export default {
   computed: {
     answer() {
       return this.faq?.answer
+    },
+    ariaId() {
+      return this.faq?._id
     },
     question() {
       return this.faq?.question

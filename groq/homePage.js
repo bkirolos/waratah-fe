@@ -31,6 +31,7 @@ export default groq`
         text
       },
       faqs[]-> {
+        _id,
         _type,
         question,
         answer
