@@ -9,6 +9,5 @@ export default () =>
       S.documentListItem().schemaType('faqPage').id('faqPage'),
       S.documentListItem().schemaType('termsConditions').id('termsConditions'),
       S.divider(),
-      S.documentTypeListItem('faq').title('FAQs'),
+      S.documentTypeListItem('faq').title('FAQs')
     ])
-

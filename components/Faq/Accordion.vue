@@ -96,11 +96,10 @@ $avg: 300ms;
   .faq-accordion-content {
     margin: 28px 16px 28px 0;
     p {
-      color: theme('colors.gray-stroke')
+      color: theme('colors.gray-stroke');
     }
   }
 }
-
 
 .accordion-slide-enter-active,
 .accordion-slide-leave-active {

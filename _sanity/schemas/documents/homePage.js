@@ -9,7 +9,7 @@ export default {
     {
       type: 'string',
       name: 'documentName',
-      title: 'Document Name',
+      title: 'Document Name'
     },
     {
       type: 'array',
@@ -20,7 +20,7 @@ export default {
     {
       type: 'faqSection',
       name: 'faqSection',
-      title: 'FAQ Section',
+      title: 'FAQ Section'
     }
   ],
   preview: {

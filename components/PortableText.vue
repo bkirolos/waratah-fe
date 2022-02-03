@@ -1,5 +1,10 @@
 <template>
-  <SanityContent v-if="blocks" :blocks="blocks" :serializers="serializers" class="rich-text" />
+  <SanityContent
+    v-if="blocks"
+    :blocks="blocks"
+    :serializers="serializers"
+    class="rich-text"
+  />
 </template>
 
 <script>
@@ -34,5 +39,4 @@ ol {
   list-style-position: inside;
   color: inherit;
 }
-
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="bg-black text-white min-h-screen">
     <section class="grid grid-cols-12 px-4 md:px-10 py-20">
-      <h1 class="heading-2 md:col-start-2 md:col-span-10 col-span-12">{{ heading }}</h1>
+      <h1 class="heading-2 md:col-start-2 md:col-span-10 col-span-12">
+        {{ heading }}
+      </h1>
       <div class="md:col-start-2 md:col-span-10 col-span-12">
         <FaqAccordion v-for="(faq, ix) in faqs" :key="ix" :faq="faq" />
       </div>
