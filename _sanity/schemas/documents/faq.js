@@ -12,7 +12,7 @@ export default {
       title: 'Question'
     },
     {
-      type: 'portableTextLite',
+      type: 'portableTextSuite',
       name: 'answer',
       title: 'Answer'
     }

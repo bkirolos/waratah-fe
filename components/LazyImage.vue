@@ -1,6 +1,7 @@
 <template>
   <img
     v-if="src"
+    ref="img"
     :data-src="src"
     :data-srcset="srcset"
     :src="src"

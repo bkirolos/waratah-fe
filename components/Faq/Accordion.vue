@@ -1,5 +1,5 @@
 <template>
-  <div class="faq-accordion" :aria-expanded="expanded">
+  <article class="faq-accordion" :aria-expanded="expanded">
     <button class="faq-accordion-toggle" @click="toggleExpanded">
       <h3>{{ question }}</h3>
       <span aria-hidden="true" class="icon-container"></span>
@@ -11,7 +11,7 @@
         class="faq-accordion-content"
       />
     </transition>
-  </div>
+  </article>
 </template>
 
 <script>

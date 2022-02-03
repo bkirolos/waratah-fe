@@ -4,9 +4,9 @@
       <div class="sm:flex justify-between">
         <h2 class="mb-12 md:mb-16">{{ title }}</h2>
         <div>
-          <nuxt-link v-if="cta" class="cta" :to="cta.link">
+          <Hyperlink v-if="cta" class="cta" :url="cta.link">
             {{ cta.text }}
-          </nuxt-link>
+          </Hyperlink>
         </div>
       </div>
       <FaqAccordion v-for="(faq, ix) in faqs" :key="ix" :faq="faq" />

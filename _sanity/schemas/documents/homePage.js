@@ -9,7 +9,9 @@ export default {
     {
       type: 'string',
       name: 'documentName',
-      title: 'Document Name'
+      title: 'Document Name',
+      hidden: true,
+      readOnly: true
     },
     {
       type: 'array',
