@@ -19,7 +19,7 @@ export default {
       title: 'Heading'
     },
     {
-      type: 'portableText',
+      type: 'portableTextSuite',
       name: 'copy',
       title: 'Copy'
     }

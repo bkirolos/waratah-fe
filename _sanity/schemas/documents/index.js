@@ -1,6 +1,6 @@
 import faq from './faq'
 import faqPage from './faqPage'
 import homePage from './homePage'
-import termsConditions from './termsConditions'
+import termsPage from './termsPage'
 
-export default [homePage, faq, faqPage, termsConditions]
+export default [homePage, faq, faqPage, termsPage]
