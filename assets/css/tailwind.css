@@ -26,7 +26,8 @@
 
 @layer components {
   .cta {
-    @apply border rounded-full inline-block font-sans text-sm font-bold leading-normal px-7 py-4 uppercase hover-transition;
+    min-width: 9.4375rem;
+    @apply border rounded-full inline-block font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
   .hover-transition {
