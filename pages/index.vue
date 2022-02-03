@@ -1,6 +1,6 @@
 <template>
   <div class="bg-black text-white">
-    <h1 class="text-yellow">DUCKS OF A FEATHER</h1>
+    <Hero />
     <CarouselSection
       v-for="(section, index) in sections"
       :key="index"
