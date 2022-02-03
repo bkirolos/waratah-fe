@@ -10,7 +10,7 @@
       </span>
     </button>
 
-    <transition name="slide">
+    <transition name="menu-slide">
       <FocusTrap
         v-if="isActive"
         :active="isActive"
@@ -105,13 +105,13 @@ export default {
   }
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.menu-slide-enter-active,
+.menu-slide-leave-active {
   transition: transform 350ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.slide-enter,
-.slide-leave-to {
+.menu-slide-enter,
+.menu-slide-leave-to {
   transform: translateX(100vw);
 }
 </style>
