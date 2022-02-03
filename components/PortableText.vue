@@ -3,6 +3,7 @@
     v-if="blocks"
     :blocks="blocks"
     :serializers="serializers"
+    class="rich-text"
   />
 </template>
 
@@ -27,15 +28,17 @@ export default {
   }
 }
 </script>
-<style lang="scss scoped">
-ul {
-  list-style-type: disc;
-  list-style-position: inside;
-  color: inherit;
-}
-ol {
-  list-style-type: numeric;
-  list-style-position: inside;
-  color: inherit;
+<style lang="scss">
+.rich-text {
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: inherit;
+  }
+  ol {
+    list-style-type: numeric;
+    list-style-position: inside;
+    color: inherit;
+  }
 }
 </style>
