@@ -1,12 +1,28 @@
-export default (to, from, savedPosition) => {
+export default async (to, from, savedPosition) => {
   if (savedPosition) {
     return savedPosition
   }
 
+  const findEl = (hash, x) => {
+    return (
+      document.querySelector(hash) ||
+      new Promise((resolve, reject) => {
+        if (x > 50) {
+          return resolve()
+        }
+        setTimeout(() => {
+          resolve(findEl(hash, ++x || 1))
+        }, 100)
+      })
+    )
+  }
+
   if (to.hash) {
-    return {
-      selector: to.hash,
-      behavior: 'smooth'
+    const el = await findEl(to.hash)
+    if ('scrollBehavior' in document.documentElement.style) {
+      return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+    } else {
+      return window.scrollTo(0, el.offsetTop)
     }
   }
 
