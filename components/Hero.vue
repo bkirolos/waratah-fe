@@ -78,7 +78,7 @@ export default {
 
   &-content-wrap {
     max-width: 600px;
-    z-index: 1;
+    position: relative;
 
     h1 {
       @media (max-width: calc(theme('screens.md') - 1px)) {
