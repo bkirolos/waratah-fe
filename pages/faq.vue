@@ -1,10 +1,17 @@
 <template>
-  <section class="grid grid-cols-12 px-4 py-20">
-    <h1 class="heading-2 md:col-start-2">
-      {{ heading }}
-    </h1>
-    <div class="md:col-start-2 md:col-span-10 col-span-12">
-      <FaqAccordion v-for="(faq, ix) in faqs" :key="ix" :faq="faq" />
+  <section class="grid grid-cols-12 content-start px-4 md:px-10 py-24 w-full">
+    <div class="col-span-full md:col-start-2 md:col-span-10">
+      <h1 class="heading-2 mb-3 md:mb-10">
+        {{ heading }}
+      </h1>
+      <Accordion
+        v-for="(faq, ix) in faqs"
+        :key="ix"
+        :content="faq.answer"
+        :heading="faq.question"
+        heading-tag="h2"
+        :unique-id="faq._id"
+      />
     </div>
   </section>
 </template>
