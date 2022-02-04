@@ -77,7 +77,9 @@ export default {
       token: process.env.SANITY_PREVIEW_TOKEN
     }
   },
-
+  generate: {
+    routes: []
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['web3modal-vue']

@@ -9,5 +9,7 @@ export default () =>
       S.documentListItem().schemaType('faqPage').id('faqPage'),
       S.documentListItem().schemaType('termsPage').id('termsPage'),
       S.divider(),
+      S.documentTypeListItem('nftAsset').title('NFTs'),
+      S.divider(),
       S.documentTypeListItem('faq').title('FAQs')
     ])
