@@ -19,9 +19,9 @@ export default {
       title: 'Heading'
     },
     {
-      title: 'FAQs',
-      name: 'faqs',
       type: 'array',
+      name: 'faqs',
+      title: 'FAQs',
       of: [
         {
           type: 'reference',

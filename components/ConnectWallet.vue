@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <button class="nav-item-transition p-2" @click="connect">
+    <button class="hover-transition p-2" @click="connect">
       <span class="cta flex items-center h-10 leading-none px-5 py-0">
         Connect Wallet
       </span>

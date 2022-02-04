@@ -26,7 +26,7 @@ export default {
   computed: {
     classes() {
       return [
-        'nav-item nav-item-transition',
+        'nav-item hover-transition',
         { 'font-display text-md': this.large },
         this.round ? 'p-2' : 'p-3'
       ]
