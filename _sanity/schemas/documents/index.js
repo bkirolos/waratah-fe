@@ -4,4 +4,4 @@ import homePage from './homePage'
 import nftAsset from './nftAsset'
 import termsPage from './termsPage'
 
-export default [homePage, faq, faqPage, nftAsset, termsPage]
+export default [faq, faqPage, homePage, nftAsset, termsPage]

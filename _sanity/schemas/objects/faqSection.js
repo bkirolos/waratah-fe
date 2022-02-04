@@ -20,9 +20,9 @@ export default {
       inputComponent: OptionalCTA
     },
     {
-      title: 'FAQs',
-      name: 'faqs',
       type: 'array',
+      name: 'faqs',
+      title: 'FAQs',
       of: [
         {
           type: 'reference',

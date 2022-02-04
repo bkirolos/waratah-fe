@@ -14,6 +14,11 @@ export default {
       readOnly: true
     },
     {
+      type: 'hero',
+      name: 'hero',
+      title: 'Hero'
+    },
+    {
       type: 'array',
       name: 'sections',
       title: 'Sections',

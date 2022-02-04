@@ -42,6 +42,7 @@ export default {
 <style lang="scss">
 .header {
   color: theme('colors.white');
+  pointer-events: none; // allows click events to "pass through" header
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -52,6 +53,11 @@ export default {
     @media (min-width: theme('screens.xl')) {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
+    }
+
+    a,
+    button {
+      pointer-events: auto; // ensures nav items are still clickable
     }
   }
 }

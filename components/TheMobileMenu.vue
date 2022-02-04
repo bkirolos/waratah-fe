@@ -2,7 +2,7 @@
   <div>
     <button
       aria-label="Open Menu"
-      class="nav-item-transition p-2"
+      class="hover-transition p-2"
       @click="openMenu"
     >
       <span class="nav-item-round">
@@ -26,7 +26,7 @@
             <button
               ref="closeButton"
               aria-label="Close Menu"
-              class="nav-item-transition p-2"
+              class="hover-transition p-2"
               @click="closeMenu"
             >
               <span class="nav-item-round">
