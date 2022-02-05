@@ -5,32 +5,35 @@
         Connect Wallet
       </span>
     </button>
-    <Web3Modal
+    <!-- <Web3Modal
       v-if="mounted"
       ref="web3modal"
       :provider-options="providerOptions"
       cache-provider
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import Web3Modal from 'web3modal-vue'
+import { ethers } from 'ethers'
+import Web3Modal from 'web3modal'
+// import Web3Modal from 'web3modal-vue'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 
 export default {
-  components: {
-    Web3Modal
-  },
+  // components: {
+  //   Web3Modal
+  // },
   data() {
     return {
-      mounted: false,
+      web3Modal: null,
+      // mounted: false,
       // theme: 'light',
       providerOptions: {
         walletconnect: {
           package: WalletConnectProvider,
           options: {
-            infuraId: '-'
+            infuraId: 'ee82f9968cb640d898581a26a5e5e369'
           }
         }
       }
@@ -39,7 +42,29 @@ export default {
     }
   },
   mounted() {
-    this.mounted = true
+    // const providerOptions = {
+    //   walletconnect: {
+    //     package: WalletConnectProvider,
+    //     options: {
+    //       infuraId: 'ee82f9968cb640d898581a26a5e5e369'
+    //     }
+    //   }
+    // }
+
+    const web3Modal = new Web3Modal({
+      network: 'mainnet', // optional
+      cacheProvider: true, // optional
+      providerOptions: this.providerOptions // required
+    })
+
+    this.web3Modal = web3Modal
+
+    // const instance = await web3Modal.connect()
+
+    // const provider = new ethers.providers.Web3Provider(instance)
+    // const signer = provider.getSigner()
+
+    // this.mounted = true
     // TODO: run connect logic if this.$refs.web3modal.cachedProdvider is true ?
     // this.$nextTick(async () => {
     //   const web3modal = this.$refs.web3modal
@@ -52,9 +77,19 @@ export default {
   },
   methods: {
     async connect() {
-      console.log('connect ran')
-      const provider = await this.$refs.web3modal.connect()
-      console.log('provider', provider)
+      try {
+        const instance = await this.web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(instance)
+        console.log(provider)
+
+        const accounts = await provider.listAccounts()
+        console.log(accounts)
+      } catch (error) {
+        console.log(error)
+      }
+      // console.log('connect ran')
+      // const provider = await this.$refs.web3modal.connect()
+      // console.log('provider', provider)
       // const library = new ethers.providers.Web3Provider(provider)
 
       // library.pollingInterval = 12000
