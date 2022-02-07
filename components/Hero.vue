@@ -7,7 +7,7 @@
         <h1 class="text-yellow">
           {{ heading }}
         </h1>
-        <h2 v-if="subheading" class="font-sans md:text-md">
+        <h2 v-if="subheading" class="font-sans md:text-lg">
           {{ subheading }}
         </h2>
         <PortableText v-if="copy" :blocks="copy" class="mt-2 md:mt-6" />

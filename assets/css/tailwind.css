@@ -5,12 +5,12 @@
 @layer base {
   h1,
   .heading-1 {
-    @apply font-display text-lg md:text-xl font-bold leading-negative pb-2 md:pb-3 uppercase;
+    @apply font-display text-xl md:text-xxl font-bold leading-negative pb-2 md:pb-3 uppercase;
   }
 
   h2,
   .heading-2 {
-    @apply font-display text-md md:text-lg font-bold leading-none uppercase;
+    @apply font-display text-lg md:text-xl font-bold leading-none uppercase;
   }
 
   h3,
