@@ -5,6 +5,7 @@ export default groq`
     hero {
       copy,
       cta {
+        icon,
         link,
         text
       },
@@ -25,6 +26,7 @@ export default groq`
       anchorId,
       copy,
       cta {
+        icon,
         link,
         text
       },
@@ -47,6 +49,7 @@ export default groq`
     faqSection {
       heading,
       cta {
+        icon,
         link,
         text
       },
