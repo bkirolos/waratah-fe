@@ -1,13 +1,31 @@
 <template>
-  <section :id="anchorId" class="py-14">
+  <section id="faq" class="py-14">
     <div class="grid grid-cols-12 gap-y-4 mb-12 md:mb-16 px-4 md:px-10">
-      <div class="md:col-start-2 md:col-span-10 col-span-12">
-        <div class="flex justify-between items-start mb-3 md:mb-10">
-          <h2>{{ title }}</h2>
-          <Hyperlink v-if="cta" class="cta" :url="ctaLink">
-            {{ ctaText }}
-          </Hyperlink>
-        </div>
+      <h2 class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
+        {{ heading }}
+      </h2>
+      <div
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-8 lg:col-span-4 space-y-6"
+      >
+        <PortableText :blocks="copy" />
+        <CTA :cta="cta" />
+        <form class="flex items-end" @submit.prevent="handleSubmit">
+          <div class="flex-1">
+            <label for="email" class="input-label">
+              Enter your email to receive updates
+            </label>
+            <input
+              id="email"
+              v-model="email"
+              placeholder="Email address"
+              type="text"
+              class="input w-full"
+            />
+          </div>
+          <button type="submit" class="submit-button ml-4">Submit</button>
+        </form>
+      </div>
+      <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
         <Accordion
           v-for="(faq, ix) in faqs"
           :key="ix"
@@ -28,24 +46,28 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      email: ''
+    }
+  },
   computed: {
-    anchorId() {
-      return 'faq'
+    copy() {
+      return this.section?.copy
     },
     cta() {
       return this.section?.cta
     },
-    ctaLink() {
-      return this.cta?.link
-    },
-    ctaText() {
-      return this.cta?.text
-    },
     faqs() {
       return this.section?.faqs
     },
-    title() {
+    heading() {
       return this.section?.heading
+    }
+  },
+  methods: {
+    handleSubmit() {
+      console.log(this.email)
     }
   }
 }

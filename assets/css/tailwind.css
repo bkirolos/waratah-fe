@@ -30,8 +30,26 @@
     @apply border rounded-full inline-flex justify-center items-center font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
-  .hover-transition {
-    @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
+  .input {
+    height: 3.75rem;
+    line-height: 3.75rem;
+    @apply heading-3 px-3 pt-4 pb-3 uppercase;
+  }
+
+  .input::placeholder {
+    @apply text-gray-light;
+  }
+
+  .input[type='text'] {
+    @apply bg-black border;
+  }
+
+  .input-label {
+    @apply heading-3 block mb-2;
+  }
+
+  .submit-button {
+    @apply input bg-yellow border border-yellow text-black font-display text-md px-5;
   }
 
   .nav-item {
@@ -40,5 +58,11 @@
 
   .nav-item-round {
     @apply border rounded-full flex justify-center items-center h-10 w-10;
+  }
+}
+
+@layer utilities {
+  .hover-transition {
+    @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
   }
 }

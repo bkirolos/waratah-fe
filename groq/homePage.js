@@ -47,7 +47,7 @@ export default groq`
       }
     },
     faqSection {
-      heading,
+      copy,
       cta {
         icon,
         link,
@@ -55,10 +55,10 @@ export default groq`
       },
       faqs[]-> {
         _id,
-        _type,
-        question,
-        answer
-      }
+        answer,
+        question
+      },
+      heading
     }
   }
 `
