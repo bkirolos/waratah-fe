@@ -16,7 +16,7 @@ const OptionalCTA = React.forwardRef((props, ref) => {
   const { markers, onChange, type, value } = props
 
   const handleAdd = () => {
-    onChange(PatchEvent.from(set({ _type: 'cta' })))
+    onChange(PatchEvent.from(set({ _type: 'cta', icon: 'none' })))
   }
 
   const handleRemove = () => {

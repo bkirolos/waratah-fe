@@ -34,6 +34,21 @@ export default {
               value === undefined || isRelative || hasValidProtocol
             return isValid || 'Link does not match any of the accepted formats'
           })
+    },
+    {
+      type: 'string',
+      name: 'icon',
+      title: 'Icon',
+      initialValue: 'none',
+      options: {
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Discord', value: 'discord' },
+          { title: 'Twitter', value: 'twitter' }
+        ],
+        layout: 'radio',
+        direction: 'horizontal'
+      }
     }
   ]
 }
