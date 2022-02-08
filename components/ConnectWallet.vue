@@ -9,17 +9,12 @@
 </template>
 
 <script>
-/*
-import { ethers } from 'ethers'
-*/
-import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
-      web3Modal: null,
       accounts: null,
       providerOptions: {
         walletconnect: {
@@ -33,6 +28,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      web3Modal: 'wallet/getWeb3Modal',
       provider: 'wallet/getProvider',
       accountsStore: 'wallet/getAccounts'
     }),
@@ -41,39 +37,26 @@ export default {
     }
   },
   mounted() {
-    const web3Modal = new Web3Modal({
-      network: 'mainnet', // optional
-      cacheProvider: true, // optional
-      providerOptions: this.providerOptions // required
-    })
+    this.initiateConnect()
+    if (this.web3Modal?.cachedProvider) {
+      this.connectProvider()
+    }
 
-    this.web3Modal = web3Modal
     // const instance = await web3Modal.connect()
     // const provider = new ethers.providers.Web3Provider(instance)
     // const signer = provider.getSigner()
   },
   methods: {
     ...mapActions({
-      setProvider: 'wallet/setProvider'
+      connectProvider: 'wallet/connectProvider',
+      initiateConnect: 'wallet/initiateConnect'
     }),
     async connect() {
       try {
-        await this.setProvider(this.web3Modal)
-      } catch (error) {
-        console.log(error)
+        await this.connectProvider()
+      } catch (e) {
+        console.log('error')
       }
-      /*
-      try {
-        const instance = await this.web3Modal.connect()
-        const provider = new ethers.providers.Web3Provider(instance)
-        console.log(provider)
-
-        this.accounts = await provider.listAccounts()
-        console.log(this.accounts)
-      } catch (error) {
-        console.log(error)
-      }
-      */
     }
   }
 }

@@ -1,54 +1,58 @@
 import { ethers } from 'ethers'
 import Web3Modal from 'web3modal'
+import WalletConnectProvider from '@walletconnect/web3-provider'
+
+const providerOptionConstant = {
+  walletconnect: {
+    package: WalletConnectProvider,
+      options: {
+        infuraId: 'ee82f9968cb640d898581a26a5e5e369'
+      }
+    }
+  }
 
 export const state = () => ({
   web3Modal: null,
   provider: null,
-  accounts: null
+  accounts: null,
+  instance: null
 })
 
 export const mutations = {
-  storeWeb3Modal(state, web3Modal) {
+  setWeb3Modal(state, web3Modal) {
     state.web3Modal = web3Modal
   },
-  storeProvider(state, provider) {
+  setProvider(state, provider) {
     state.provider = provider
   },
-  storeAccounts(state, accounts) {
+  setAccounts(state, accounts) {
     state.accounts = accounts
   }
 }
 
 export const actions = {
-  async setProvider({ commit }, instance) {
+  initiateConnect({ commit }) {
+    const web3Modal = new Web3Modal({
+      network: 'mainnet', // optional
+      cacheProvider: true, // optional
+      providerOptions: providerOptionConstant // required
+    })
+    commit('setWeb3Modal', web3Modal)
+  },
+  async connectProvider({commit, state}) {
     try {
-      console.log(ethers)
+      const instance = await state.web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(instance)
       console.log(provider)
-      commit('storeProvider', provider)
-      console.log(provider)
-
       const accounts = await provider.listAccounts()
-      commit('storeAccounts', accounts)
-      console.log(this.accounts)
+      commit('setAccounts', accounts)
     } catch (error) {
       console.log(error)
     }
   },
   clearConnection({ state }) {
-    await state.web3Modal.clearCachedProvider()
-  }
-  // async connect({ commit }){
-  // 	try {
-  // 		const instance = await this.web3Modal.connect()
-  // 		const provider = new ethers.providers.Web3Provider(instance)
-  // 		console.log(provider)
-  // 		this.accounts = await provider.listAccounts()
-  // 		console.log(this.accounts)
-  // 	} catch (error) {
-  // 		console.log(error)
-  // 	}
-  // }
+    state.web3Modal.clearCachedProvider()
+  },
 }
 
 export const getters = {
