@@ -6,9 +6,7 @@
       </h2>
       <div class="col-span-full md:col-start-8 md:col-span-4">
         <PortableText :blocks="copy" />
-        <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
-          {{ ctaText }}
-        </Hyperlink>
+        <CTA :cta="cta" class="mt-6" />
       </div>
     </div>
     <Carousel :slides="slides" />
@@ -32,12 +30,6 @@ export default {
     },
     cta() {
       return this.section?.cta
-    },
-    ctaLink() {
-      return this.cta?.link
-    },
-    ctaText() {
-      return this.cta?.text
     },
     heading() {
       return this.section?.heading
