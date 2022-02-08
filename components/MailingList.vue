@@ -9,9 +9,9 @@
       class="max-w-xl"
       @submit.prevent
     >
+      <h3 class="input-label">Enter your email to receive updates</h3>
       <div class="flex items-end">
         <div class="flex-1">
-          <h3 class="input-label">Enter your email to receive updates</h3>
           <label for="email" class="visually-hidden">Email address</label>
           <input
             id="email"
