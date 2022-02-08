@@ -1,7 +1,9 @@
 <template>
   <section id="faq" class="py-14">
-    <div class="grid grid-cols-12 gap-y-4 mb-12 md:mb-16 px-4 md:px-10">
-      <h2 class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
+    <div class="grid grid-cols-12 gap-y-4 px-4 md:px-10">
+      <h2
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5"
+      >
         {{ heading }}
       </h2>
       <div
@@ -9,21 +11,7 @@
       >
         <PortableText :blocks="copy" />
         <CTA :cta="cta" />
-        <form class="flex items-end" @submit.prevent="handleSubmit">
-          <div class="flex-1">
-            <label for="email" class="input-label">
-              Enter your email to receive updates
-            </label>
-            <input
-              id="email"
-              v-model="email"
-              placeholder="Email address"
-              type="text"
-              class="input w-full"
-            />
-          </div>
-          <button type="submit" class="submit-button ml-4">Submit</button>
-        </form>
+        <MailingList />
       </div>
       <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
         <Accordion
@@ -46,11 +34,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      email: ''
-    }
-  },
   computed: {
     copy() {
       return this.section?.copy
@@ -63,11 +46,6 @@ export default {
     },
     heading() {
       return this.section?.heading
-    }
-  },
-  methods: {
-    handleSubmit() {
-      console.log(this.email)
     }
   }
 }

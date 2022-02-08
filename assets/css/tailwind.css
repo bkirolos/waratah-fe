@@ -40,6 +40,7 @@
     @apply text-gray-light;
   }
 
+  .input[type='email'],
   .input[type='text'] {
     @apply bg-black border;
   }
@@ -64,5 +65,10 @@
 @layer utilities {
   .hover-transition {
     @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
+  }
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    @apply hidden h-px absolute whitespace-nowrap w-px;
   }
 }
