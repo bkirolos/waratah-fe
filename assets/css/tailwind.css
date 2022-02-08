@@ -5,12 +5,12 @@
 @layer base {
   h1,
   .heading-1 {
-    @apply font-display text-lg md:text-xl font-bold leading-negative pb-2 md:pb-3 uppercase;
+    @apply font-display text-xl md:text-xxl font-bold leading-negative pb-2 md:pb-3 uppercase;
   }
 
   h2,
   .heading-2 {
-    @apply font-display text-md md:text-lg font-bold leading-none uppercase;
+    @apply font-display text-lg md:text-xl font-bold leading-none uppercase;
   }
 
   h3,
@@ -27,11 +27,30 @@
 @layer components {
   .cta {
     min-width: 9.4375rem;
-    @apply border rounded-full inline-block font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
+    @apply border rounded-full inline-flex justify-center items-center font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
-  .hover-transition {
-    @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
+  .input {
+    height: 3.75rem;
+    line-height: 3.75rem;
+    @apply heading-3 px-3 uppercase;
+  }
+
+  .input::placeholder {
+    @apply text-gray-light;
+  }
+
+  .input[type='email'],
+  .input[type='text'] {
+    @apply bg-black border;
+  }
+
+  .input-label {
+    @apply heading-3 block mb-2;
+  }
+
+  .submit-button {
+    @apply input bg-yellow border border-yellow text-black font-display text-md px-5;
   }
 
   .nav-item {
@@ -40,5 +59,16 @@
 
   .nav-item-round {
     @apply border rounded-full flex justify-center items-center h-10 w-10;
+  }
+}
+
+@layer utilities {
+  .hover-transition {
+    @apply transition-opacity duration-300 ease-in-out hover:opacity-50;
+  }
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    @apply hidden h-px absolute whitespace-nowrap w-px;
   }
 }

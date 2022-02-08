@@ -18,9 +18,10 @@ module.exports = {
     fontSize: {
       sm: '14px',
       base: '16px',
-      md: '40px',
-      lg: '96px',
-      xl: '168px'
+      md: '24px',
+      lg: '40px',
+      xl: '96px',
+      xxl: '168px'
     },
     lineHeight: {
       negative: '0.92',

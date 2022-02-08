@@ -11,7 +11,12 @@ export default {
       type: 'string',
       name: 'heading',
       title: 'Heading',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required().error('Heading is required')
+    },
+    {
+      type: 'portableTextLite',
+      name: 'copy',
+      title: 'Copy'
     },
     {
       type: 'cta',

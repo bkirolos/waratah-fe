@@ -18,7 +18,7 @@
         :id="contentId"
         :blocks="content"
         :aria-labelledby="toggleId"
-        class="accordion-content"
+        class="accordion-content pr-8"
       />
     </transition>
   </article>
