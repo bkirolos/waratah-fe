@@ -7,13 +7,11 @@
         <h1 class="text-yellow">
           {{ heading }}
         </h1>
-        <h2 v-if="subheading" class="font-sans md:text-md">
+        <h2 v-if="subheading" class="font-sans md:text-lg">
           {{ subheading }}
         </h2>
         <PortableText v-if="copy" :blocks="copy" class="mt-2 md:mt-6" />
-        <Hyperlink v-if="cta" :url="ctaLink" class="cta mt-6">
-          {{ ctaText }}
-        </Hyperlink>
+        <CTA :cta="cta" class="mt-6" />
       </div>
     </div>
   </section>
@@ -33,12 +31,6 @@ export default {
     },
     cta() {
       return this.hero?.cta
-    },
-    ctaLink() {
-      return this.cta?.link
-    },
-    ctaText() {
-      return this.cta?.text
     },
     heading() {
       return this.hero?.heading

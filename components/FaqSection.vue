@@ -1,13 +1,19 @@
 <template>
-  <section :id="anchorId" class="py-14">
-    <div class="grid grid-cols-12 gap-y-4 mb-12 md:mb-16 px-4 md:px-10">
-      <div class="md:col-start-2 md:col-span-10 col-span-12">
-        <div class="flex justify-between items-start mb-3 md:mb-10">
-          <h2>{{ title }}</h2>
-          <Hyperlink v-if="cta" class="cta" :url="ctaLink">
-            {{ ctaText }}
-          </Hyperlink>
-        </div>
+  <section id="faq" class="py-14">
+    <div class="grid grid-cols-12 gap-y-4 px-4 md:px-10">
+      <h2
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5"
+      >
+        {{ heading }}
+      </h2>
+      <div
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-8 lg:col-span-4 space-y-6"
+      >
+        <PortableText :blocks="copy" />
+        <CTA :cta="cta" />
+        <MailingList />
+      </div>
+      <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
         <Accordion
           v-for="(faq, ix) in faqs"
           :key="ix"
@@ -29,22 +35,16 @@ export default {
     }
   },
   computed: {
-    anchorId() {
-      return 'faq'
+    copy() {
+      return this.section?.copy
     },
     cta() {
       return this.section?.cta
     },
-    ctaLink() {
-      return this.cta?.link
-    },
-    ctaText() {
-      return this.cta?.text
-    },
     faqs() {
       return this.section?.faqs
     },
-    title() {
+    heading() {
       return this.section?.heading
     }
   }

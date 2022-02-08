@@ -3,7 +3,7 @@
     v-if="blocks"
     :blocks="blocks"
     :serializers="serializers"
-    class="rich-text"
+    class="portable-text"
   />
 </template>
 
@@ -30,16 +30,26 @@ export default {
 </script>
 
 <style lang="scss">
-.rich-text {
-  ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    color: inherit;
+.portable-text {
+  & > :not(:first-child) {
+    margin-top: theme('margin.6');
   }
+
+  a {
+    color: theme('colors.yellow');
+    font-weight: theme('fontWeight.bold');
+  }
+
   ol {
-    list-style-type: numeric;
-    list-style-position: inside;
     color: inherit;
+    list-style-position: inside;
+    list-style-type: numeric;
+  }
+
+  ul {
+    color: inherit;
+    list-style-position: inside;
+    list-style-type: disc;
   }
 }
 </style>
