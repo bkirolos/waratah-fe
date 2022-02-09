@@ -21,8 +21,8 @@ module.exports = {
       sans: ['Open Sans', 'sans-serif']
     },
     fontSize: {
-      sm: '14px',
-      nav: '18p',
+      xs: '14px',
+      sm: '16px',
       base: '20px',
       md: '40px',
       lg: '64px',

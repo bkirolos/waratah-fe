@@ -10,12 +10,12 @@
 @layer base {
   h1,
   .heading-1 {
-    @apply font-display text-xl md:text-xxl font-bold leading-negative pb-2 md:pb-3 uppercase;
+    @apply font-display text-xl md:text-xxl font-bold leading-negative uppercase;
   }
 
   h2,
   .heading-2 {
-    @apply font-display text-lg md:text-xl font-bold leading-none uppercase;
+    @apply font-display text-md md:text-xl font-bold leading-none uppercase;
   }
 
   h3,
@@ -23,25 +23,21 @@
     @apply font-display text-md md:text-lg font-bold leading-none uppercase;
   }
 
-  h4, 
+  h4,
   .heading-4 {
-    @apply font-display text-sm md:text-md font-bold leading-none uppercase;
-  }
-
-  .heading-faq {
-    @apply font-display text-sm md:text-base font-bold leading-none uppercase;
+    @apply font-display text-base md:text-md font-bold leading-none uppercase;
   }
 
   body,
   .body {
-    @apply font-sans text-sm md:text-base leading-normal;
+    @apply font-sans text-xs md:text-base leading-normal;
   }
 }
 
 @layer components {
   .cta {
     min-width: 9.4375rem;
-    @apply border rounded-full inline-flex justify-center items-center font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
+    @apply border rounded-full inline-flex justify-center items-center font-sans text-xs font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
   .input {
@@ -68,7 +64,8 @@
   }
 
   .nav-item {
-    @apply font-display text-nav uppercase flex items-center whitespace-nowrap w-min;
+    font-size: 18px;
+    @apply font-display flex items-center leading-none uppercase whitespace-nowrap w-min;
   }
 
   .nav-item-round {

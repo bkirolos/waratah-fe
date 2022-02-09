@@ -24,7 +24,7 @@
         </div>
         <button type="submit" class="submit-button">Submit</button>
       </div>
-      <div id="mce-responses" class="text-sm mt-2">
+      <div id="mce-responses" class="text-xs mt-2">
         <span id="mce-error-response" style="display: none"></span>
         <span id="mce-success-response" style="display: none"></span>
       </div>
