@@ -14,7 +14,7 @@
         </h3>
         <CTA :cta="cta" class="bg-blue border-blue text-white" />
       </div>
-      <MailingList
+      <EmailCapture
         :heading="emailCaptureSubheading"
         class="col-span-full md:col-start-2 lg:col-start-7 lg:col-span-5"
       />

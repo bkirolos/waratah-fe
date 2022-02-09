@@ -74,7 +74,7 @@ export default {
 $duration: 300ms;
 
 .accordion {
-  border-bottom: 1px solid theme('colors.white');
+  border-bottom: 1px solid currentColor;
   transition: padding $duration ease-in-out;
 
   .accordion-toggle {
