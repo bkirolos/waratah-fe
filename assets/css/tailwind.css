@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Trade Gothic';
+  src: url(../fonts/TradeGothicLTPro-BdCn20.otf) format('opentype');
+}
+
 @layer base {
   h1,
   .heading-1 {
@@ -15,7 +20,16 @@
 
   h3,
   .heading-3 {
-    @apply font-sans text-base font-bold leading-none uppercase;
+    @apply font-display text-md md:text-lg font-bold leading-none uppercase;
+  }
+
+  h4, 
+  .heading-4 {
+    @apply font-display text-sm md:text-md font-bold leading-none uppercase;
+  }
+
+  .heading-faq {
+    @apply font-display text-sm md:text-base font-bold leading-none uppercase;
   }
 
   body,
@@ -33,7 +47,7 @@
   .input {
     height: 3.75rem;
     line-height: 3.75rem;
-    @apply heading-3 px-3 uppercase;
+    @apply body px-3 uppercase;
   }
 
   .input::placeholder {
@@ -46,7 +60,7 @@
   }
 
   .input-label {
-    @apply heading-3 block mb-2;
+    @apply body block mb-2;
   }
 
   .submit-button {
@@ -54,7 +68,7 @@
   }
 
   .nav-item {
-    @apply heading-3 flex items-center whitespace-nowrap w-min;
+    @apply font-display text-nav uppercase flex items-center whitespace-nowrap w-min;
   }
 
   .nav-item-round {

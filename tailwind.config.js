@@ -21,14 +21,15 @@ module.exports = {
       yellow: '#fcdf1b'
     },
     fontFamily: {
-      display: ['Antonio', 'sans-serif'],
+      display: ['Trade Gothic', 'sans-serif'],
       sans: ['Open Sans', 'sans-serif']
     },
     fontSize: {
       sm: '14px',
-      base: '16px',
-      md: '24px',
-      lg: '40px',
+      nav: '18p',
+      base: '20px',
+      md: '40px',
+      lg: '64px',
       xl: '96px',
       xxl: '168px'
     },
