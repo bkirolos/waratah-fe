@@ -23,7 +23,7 @@
     @apply font-display text-md md:text-lg font-bold leading-none uppercase;
   }
 
-  h4, 
+  h4,
   .heading-4 {
     @apply font-display text-sm md:text-md font-bold leading-none uppercase;
   }

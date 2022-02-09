@@ -1,6 +1,6 @@
 export default {
   widgets: [
-      {
+    {
       name: 'netlify',
       options: {
         title: 'My Netlify deploys',
@@ -10,7 +10,7 @@ export default {
             buildHookId: '620314f5ea21f81fe96b7df2',
             name: 'waratah-nuxt',
             url: 'https://www.ducksofafeather.xyz'
-          },
+          }
         ]
       }
     }

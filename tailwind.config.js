@@ -1,7 +1,4 @@
-import { bgColors } from './_sanity/lib/colors'
-
 module.exports = {
-  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
@@ -43,5 +40,15 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [],
+  purge: [],
+  safelist: [
+    'whitelisted',
+    {
+      pattern: [
+        `/bg-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/`,
+        `/text-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/`
+      ]
+    }
+  ]
 }
