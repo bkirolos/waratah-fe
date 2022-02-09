@@ -8,12 +8,12 @@ export default ({ app }, inject) => {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        infuraId: 'ee82f9968cb640d898581a26a5e5e369'
+        infuraId: process.env.INFERA_ID,
       }
     }
   }
   const web3Modal = new Web3Modal({
-    network: 'mainnet', // optional
+    network: process.env.ETHEREUM_NETWORK, // optional
     cacheProvider: true, // optional
     providerOptions: providerOptionsConstant // required
   })
