@@ -90,10 +90,6 @@ $duration: 300ms;
       transition: transform $duration ease-in-out;
     }
   }
-
-  .accordion-content {
-    color: theme('colors.gray-stroke');
-  }
 }
 
 .accordion-slide-enter-active,

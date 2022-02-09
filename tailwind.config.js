@@ -1,5 +1,3 @@
-import { bgColors } from './_sanity/lib/colors'
-
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -12,13 +10,11 @@ module.exports = {
       'electric-green': '#01ED89',
       blue: '#4669F2',
       navy: '#11085A',
-      white: '#FFFFFF',
       black: '#010101',
-      'gray-dark': '#454943',
-      'gray-light': '#a2aaad',
-      'gray-stroke': '#f2f2f2',
-      green: '#007940',
-      yellow: '#fcdf1b'
+      white: '#FFFFFF',
+      'dark-gray': '#454943',
+      'light-gray': '#A2AAAD',
+      'stroke-gray': '#F2F2F2'
     },
     fontFamily: {
       display: ['Trade Gothic', 'sans-serif'],

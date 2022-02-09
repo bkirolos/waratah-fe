@@ -92,9 +92,9 @@ export default {
 
 <style lang="scss">
 .mobile-menu {
-  background: theme('colors.yellow');
+  background: theme('colors.blue');
   bottom: 0;
-  color: theme('colors.black');
+  color: theme('colors.white');
   left: 0;
   overflow: auto;
   position: fixed;

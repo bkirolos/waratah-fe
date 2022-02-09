@@ -51,7 +51,7 @@
   }
 
   .input::placeholder {
-    @apply text-gray-light;
+    @apply text-light-gray;
   }
 
   .input[type='email'],
@@ -64,7 +64,7 @@
   }
 
   .submit-button {
-    @apply input bg-yellow border border-yellow text-black font-display text-md px-5;
+    @apply input bg-navy border border-navy text-white font-display text-md px-5;
   }
 
   .nav-item {

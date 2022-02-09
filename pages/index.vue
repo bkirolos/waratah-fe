@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white text-black">
+  <div class="bg-white text-navy">
     <Hero :hero="hero" />
     <CarouselSection
       v-for="(section, index) in sections"
