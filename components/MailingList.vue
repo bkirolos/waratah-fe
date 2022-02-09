@@ -9,7 +9,7 @@
       class="max-w-xl"
       @submit.prevent
     >
-      <h3 class="body input-label">Enter your email to receive updates</h3>
+      <h3 v-if="heading" class="body normal-case input-label">{{ heading }}</h3>
       <div class="flex items-end">
         <div class="flex-1">
           <label for="email" class="visually-hidden">Email address</label>
@@ -18,7 +18,7 @@
             v-model="email"
             name="EMAIL"
             type="email"
-            placeholder="Email address"
+            placeholder="Enter your email address"
             class="input w-full"
           />
         </div>
@@ -47,6 +47,10 @@ export default {
     audienceId: {
       type: String,
       default: 'e460024be0'
+    },
+    heading: {
+      type: String,
+      default: ''
     },
     userId: {
       type: String,
