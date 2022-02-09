@@ -41,14 +41,11 @@ module.exports = {
     extend: {}
   },
   plugins: [],
-  purge: [],
-  safelist: [
-    'whitelisted',
-    {
-      pattern: [
-        `/bg-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/`,
-        `/text-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/`
+  purge: {
+    options: {
+      safelist: [
+        /(bg|text)-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/
       ]
     }
-  ]
+  }
 }
