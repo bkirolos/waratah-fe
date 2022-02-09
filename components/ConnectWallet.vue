@@ -24,8 +24,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accounts: 'wallet/getAccounts',
-      signer: 'wallet/getSigner'
+      accounts: 'wallet/getAccounts'
     }),
     connectText() {
       return this.accounts ? 'Connected' : 'Connect Wallet'
