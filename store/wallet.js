@@ -50,6 +50,12 @@ export const actions = {
       console.log(error)
     }
   },
+  initializeProvider({commit}, provider) {
+    commit('setProvider', provider)
+  },
+  initializeAccounts({commit}, accounts) {
+    commit('setAccounts', accounts)
+  },
   clearConnection({ state }) {
     state.web3Modal.clearCachedProvider()
   },
