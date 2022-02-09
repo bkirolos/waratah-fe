@@ -1,5 +1,6 @@
 import { Question } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
+import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
@@ -34,6 +35,24 @@ export default {
           to: [{ type: 'faq' }]
         }
       ]
+    },
+    {
+      title: 'Background Colr',
+      name: 'bgColor',
+      type: 'colorlist',
+      description: 'Defaults to white when nothing is selected',
+      options: {
+        list: bgColors
+      }
+    },
+    {
+      title: 'text Color',
+      name: 'textColor',
+      type: 'colorlist',
+      description: 'Defaults to white when nothing is selected',
+      options: {
+        list: textColors
+      }
     }
   ]
 }

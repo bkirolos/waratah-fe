@@ -35,6 +35,9 @@ export default {
     }
   },
   computed: {
+    bgColor() {
+      return this.section?.bgColor ? `bg-${this.section?.bgColor}` : ''
+    },
     copy() {
       return this.section?.copy
     },
@@ -46,6 +49,9 @@ export default {
     },
     heading() {
       return this.section?.heading
+    },
+    textColor() {
+      return this.section?.textColor ? `text-${this.section?.textColor}` : ''
     }
   }
 }
