@@ -1,8 +1,6 @@
 
 export const state = () => ({
-  accounts: null,
-  instance: null,
-  signer: null
+  accounts: null
 })
 
 export const mutations = {
