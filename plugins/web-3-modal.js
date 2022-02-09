@@ -1,7 +1,6 @@
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 
-
 export default ({ app }, inject) => {
 
   const providerOptionsConstant = {
@@ -18,5 +17,4 @@ export default ({ app }, inject) => {
     providerOptions: providerOptionsConstant // required
   })
   inject('web3Modal', web3Modal)
-
 }
