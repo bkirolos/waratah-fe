@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-navy text-white px-1 pt-1 pb-2 lg:pl-7 lg:pr-8 lg:py-1">
+  <footer class="footer bg-navy text-white px-1 pt-1 pb-2 lg:pl-7 lg:pr-8 lg:py-1">
     <div class="flex">
       <NavLink aria-label="Home">
         <Logo aria-hidden="true" />
