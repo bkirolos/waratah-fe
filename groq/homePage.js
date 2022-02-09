@@ -24,6 +24,7 @@ export default groq`
     },
     sections[] {
       anchorId,
+      "bgColor": bgColor.class,
       copy,
       cta {
         icon,
@@ -44,9 +45,11 @@ export default groq`
           url
         },
         width
-      }
+      },
+      "textColor": textColor.class,
     },
     faqSection {
+      "bgColor": bgColor.class,
       copy,
       cta {
         icon,
@@ -58,7 +61,8 @@ export default groq`
         answer,
         question
       },
-      heading
+      heading,
+      "textColor": textColor.class,
     }
   }
 `

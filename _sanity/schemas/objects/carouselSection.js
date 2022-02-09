@@ -1,5 +1,6 @@
 import { Block } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
+import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
@@ -34,6 +35,24 @@ export default {
       name: 'slides',
       title: 'Carousel Slides',
       of: [{ type: 'carouselSlide' }]
+    },
+    {
+      title: 'Background Color',
+      name: 'bgColor',
+      type: 'colorlist',
+      description: 'Defaults to white when nothing is selected',
+      options: {
+        list: bgColors
+      }
+    },
+    {
+      title: 'Text Color',
+      name: 'textColor',
+      type: 'colorlist',
+      description: 'Defaults to black when nothing is selected',
+      options: {
+        list: textColors
+      }
     }
   ]
 }

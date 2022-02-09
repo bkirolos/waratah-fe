@@ -1,5 +1,5 @@
 <template>
-  <section id="faq" class="py-14">
+  <section id="faq" :class="[bgColor, textColor, 'py-14']">
     <div class="grid grid-cols-12 gap-y-4 px-4 md:px-10">
       <h2
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5"
@@ -35,6 +35,9 @@ export default {
     }
   },
   computed: {
+    bgColor() {
+      return this.section?.bgColor ? `bg-${this.section?.bgColor}` : ''
+    },
     copy() {
       return this.section?.copy
     },
@@ -46,6 +49,9 @@ export default {
     },
     heading() {
       return this.section?.heading
+    },
+    textColor() {
+      return this.section?.textColor ? `text-${this.section?.textColor}` : ''
     }
   }
 }
