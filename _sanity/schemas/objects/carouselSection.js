@@ -46,10 +46,10 @@ export default {
       }
     },
     {
-      title: 'text Color',
+      title: 'Text Color',
       name: 'textColor',
       type: 'colorlist',
-      description: 'Defaults to white when nothing is selected',
+      description: 'Defaults to black when nothing is selected',
       options: {
         list: textColors
       }

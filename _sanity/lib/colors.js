@@ -4,7 +4,7 @@ const orange = { class: 'orange', value: '#FE9A33' }
 const lime = { class: 'lime', value: '#D7FB5C' }
 const electricGreen = { class: 'electric-green', value: '#01ED89' }
 const blue = { class: 'blue', value: '#4669F2' }
-const navy = { class: 'navy', valye: '#11085A' }
+const navy = { class: 'navy', value: '#11085A' }
 const white = { class: 'white', value: '#FFFFFF' }
 const black = { class: 'black', value: '#010101' }
 
