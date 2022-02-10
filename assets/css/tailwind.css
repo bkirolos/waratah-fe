@@ -30,6 +30,16 @@
     @apply font-display text-base md:text-md font-bold leading-none uppercase;
   }
 
+  h5,
+  .heading-5 {
+    @apply font-serif text-sm tracking-tight leading-tight uppercase;
+  }
+
+  h6,
+  .heading-6 {
+    @apply font-serif text-xs tracking-tight leading-tight uppercase;
+  }
+
   body,
   .body {
     @apply font-sans text-xs md:text-base leading-normal;
@@ -70,8 +80,7 @@
   }
 
   .nav-item {
-    font-size: 18px;
-    @apply font-display flex items-center leading-none uppercase whitespace-nowrap w-min;
+    @apply font-display flex items-center text-sm leading-none uppercase whitespace-nowrap w-min;
   }
 
   .nav-item-round {
