@@ -12,7 +12,7 @@
         <h3 v-if="ctaSubheading" class="input-label">
           {{ ctaSubheading }}
         </h3>
-        <CTA :cta="cta" class="bg-blue border-blue text-white text-base" />
+        <CTA :cta="cta" class="bg-blue border-blue text-white" large />
       </div>
       <EmailCapture
         :heading="emailCaptureSubheading"
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     bgColor() {
-      return this.section?.bgColor ? `bg-${this.section?.bgColor}` : ''
+      return this.section?.bgColor ? `bg-${this.section.bgColor}` : ''
     },
     copy() {
       return this.section?.copy
@@ -53,7 +53,7 @@ export default {
       return this.section?.heading
     },
     textColor() {
-      return this.section?.textColor ? `text-${this.section?.textColor}` : ''
+      return this.section?.textColor ? `text-${this.section.textColor}` : ''
     }
   }
 }

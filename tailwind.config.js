@@ -17,11 +17,12 @@ module.exports = {
     },
     fontFamily: {
       display: ['Trade Gothic', 'sans-serif'],
-      sans: ['Open Sans', 'sans-serif']
+      sans: ['Open Sans', 'sans-serif'],
+      serif: ['Miller Disp Rom']
     },
     fontSize: {
       xs: '14px',
-      sm: '16px',
+      sm: '18px',
       base: '20px',
       md: '40px',
       lg: '64px',
@@ -29,8 +30,9 @@ module.exports = {
       xxl: '168px'
     },
     lineHeight: {
-      negative: '0.92',
+      negative: '0.84',
       none: '1',
+      tight: '1.1',
       normal: '1.5'
     },
     extend: {}

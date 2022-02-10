@@ -1,5 +1,6 @@
 import { Block } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
+import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
@@ -7,6 +8,11 @@ export default {
   title: 'Hero',
   icon: Block,
   fields: [
+    {
+      type: 'string',
+      name: 'introduction',
+      title: 'Introduction'
+    },
     {
       type: 'string',
       name: 'heading',
@@ -19,9 +25,9 @@ export default {
       title: 'Subeading'
     },
     {
-      type: 'portableTextLite',
-      name: 'copy',
-      title: 'Copy'
+      type: 'imagePlus',
+      name: 'signatureImage',
+      title: 'Signature Image'
     },
     {
       type: 'cta',
@@ -30,17 +36,34 @@ export default {
       inputComponent: OptionalCTA
     },
     {
-      type: 'imagePlus',
-      name: 'image',
-      title: 'Image',
-      description: 'Aspect ratio: ~16:10',
-      validation: Rule => Rule.required().error('Image is required')
+      type: 'string',
+      name: 'closing',
+      title: 'Closing'
     },
     {
       type: 'imagePlus',
-      name: 'mobileImage',
-      title: 'Mobile Image',
-      description: 'Aspect ratio: ~2:1'
+      name: 'image',
+      title: 'Image',
+      description: 'Image should have a square aspect ratio',
+      validation: Rule => Rule.required().error('Image is required')
+    },
+    {
+      title: 'Background Color',
+      name: 'bgColor',
+      type: 'colorlist',
+      description: 'Defaults to white when nothing is selected',
+      options: {
+        list: bgColors
+      }
+    },
+    {
+      title: 'Text Color',
+      name: 'textColor',
+      type: 'colorlist',
+      description: 'Defaults to black when nothing is selected',
+      options: {
+        list: textColors
+      }
     }
   ]
 }
