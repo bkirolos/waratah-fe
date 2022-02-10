@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     bgColor() {
-      return this.section?.bgColor ? `bg-${this.section?.bgColor}` : ''
+      return this.section?.bgColor ? `bg-${this.section.bgColor}` : ''
     },
     cta() {
       return this.section?.cta
@@ -42,7 +42,7 @@ export default {
       return this.section?.heading
     },
     textColor() {
-      return this.section?.textColor ? `text-${this.section?.textColor}` : ''
+      return this.section?.textColor ? `text-${this.section.textColor}` : ''
     }
   }
 }

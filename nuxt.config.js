@@ -46,7 +46,6 @@ export default {
   ],
   googleFonts: {
     families: {
-      Antonio: [700],
       'Open+Sans': {
         wght: [400, 800],
         ital: [400, 800]

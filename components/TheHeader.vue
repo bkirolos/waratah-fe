@@ -43,7 +43,8 @@ export default {
 .header {
   color: theme('colors.white');
   pointer-events: none; // allows click events to "pass through" header
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 1;
 

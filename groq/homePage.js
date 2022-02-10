@@ -3,7 +3,8 @@ import { groq } from '@nuxtjs/sanity'
 export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
     hero {
-      copy,
+      "bgColor": bgColor.class,
+      closing,
       cta {
         icon,
         link,
@@ -15,12 +16,13 @@ export default groq`
         asset,
         crop
       },
-      mobileImage {
+      introduction,
+      signatureImage {
         alt,
-        asset,
-        crop
+        asset
       },
-      subheading
+      subheading,
+      "textColor": textColor.class
     },
     sections[] {
       anchorId,

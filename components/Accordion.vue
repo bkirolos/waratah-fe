@@ -5,7 +5,7 @@
         :id="toggleId"
         :aria-expanded="expanded"
         :aria-controls="contentId"
-        class="accordion-toggle flex justify-between font-sans font-bold text-xs md:text-sm py-7 text-left uppercase w-full"
+        class="accordion-toggle flex justify-between font-sans font-bold text-xs py-7 text-left uppercase w-full"
         @click="toggleExpanded"
       >
         {{ heading }}
@@ -18,7 +18,7 @@
         :id="contentId"
         :blocks="content"
         :aria-labelledby="toggleId"
-        class="accordion-content text-xs md:text-sm pr-8"
+        class="accordion-content text-xs pr-8"
       />
     </transition>
   </article>
@@ -83,6 +83,13 @@ $duration: 300ms;
     }
     &[aria-expanded] svg {
       transform: rotate(0.5turn);
+    }
+  }
+
+  .accordion-toggle,
+  .accordion-content {
+    @media (min-width: theme('screens.md')) {
+      font-size: 1rem;
     }
   }
 }

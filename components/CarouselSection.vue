@@ -26,7 +26,7 @@ export default {
       return this.section?.anchorId
     },
     bgColor() {
-      return this.section?.bgColor ? `bg-${this.section?.bgColor}` : ''
+      return this.section?.bgColor ? `bg-${this.section.bgColor}` : ''
     },
     copy() {
       return this.section?.copy
@@ -41,7 +41,7 @@ export default {
       return this.section?.slides
     },
     textColor() {
-      return this.section?.textColor ? `text-${this.section?.textColor}` : ''
+      return this.section?.textColor ? `text-${this.section.textColor}` : ''
     }
   }
 }
