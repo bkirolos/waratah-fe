@@ -1,18 +1,32 @@
 <template>
-  <section class="hero">
-    <LazyImage v-if="mobileImage" :image="mobileImage" class="md:hidden" />
-    <LazyImage :image="image" :class="{ 'hidden md:block': mobileImage }" />
-    <div class="grid grid-cols-12 items-center h-full px-4 md:px-10">
-      <div class="hero-content-wrap col-span-full lg:col-start-2">
-        <h1 class="heading-2">
-          {{ heading }}
-        </h1>
-        <h2 v-if="subheading" class="font-sans md:text-md">
+  <section
+    :class="[
+      'hero',
+      bgColor,
+      textColor,
+      'grid grid-cols-12 place-items-center w-screen'
+    ]"
+  >
+    <div
+      class="grid grid-cols-12 col-span-full xl:col-span-5 py-12 xl:py-16 w-full"
+    >
+      <div class="col-start-2 col-span-10">
+        <p v-if="introduction" class="content-block heading-6">
+          {{ introduction }}
+        </p>
+        <h1 class="heading-2 leading-negative mt-6">{{ heading }}</h1>
+        <p v-if="subheading" class="content-block heading-5">
           {{ subheading }}
-        </h2>
-        <PortableText v-if="copy" :blocks="copy" class="mt-2 md:mt-6" />
-        <CTA :cta="cta" class="mt-6" />
+        </p>
+        <LazyImage :image="signatureImage" class="content-block mt-6" />
+        <CTA :cta="cta" class="bg-lime border-lime text-black mt-6" />
+        <p v-if="closing" class="content-block heading-6 mt-6">
+          {{ closing }}
+        </p>
       </div>
+    </div>
+    <div class="hero-image-wrap col-span-full xl:col-span-7">
+      <LazyImage :image="image" />
     </div>
   </section>
 </template>
@@ -26,8 +40,11 @@ export default {
     }
   },
   computed: {
-    copy() {
-      return this.hero?.copy
+    bgColor() {
+      return this.hero?.bgColor ? `bg-${this.hero.bgColor}` : ''
+    },
+    closing() {
+      return this.hero?.closing
     },
     cta() {
       return this.hero?.cta
@@ -38,11 +55,17 @@ export default {
     image() {
       return this.hero?.image
     },
-    mobileImage() {
-      return this.hero?.mobileImage
+    introduction() {
+      return this.hero?.introduction
+    },
+    signatureImage() {
+      return this.hero?.signatureImage
     },
     subheading() {
       return this.hero?.subheading
+    },
+    textColor() {
+      return this.hero?.textColor ? `text-${this.hero.textColor}` : ''
     }
   }
 }
@@ -50,33 +73,21 @@ export default {
 
 <style lang="scss">
 .hero {
-  background: theme('colors.navy');
-  color: theme('colors.white');
-  height: calc(727 / 375 * 100vw);
-  max-height: 727px;
-  min-height: 727px;
-  position: relative;
-  width: 100vw;
-  @media (min-width: theme('screens.md')) {
-    height: calc(900 / 1440 * 100vw);
-    max-height: 900px;
-  }
-
-  img {
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
+  .content-block {
+    max-width: 357px;
     width: 100%;
   }
 
-  &-content-wrap {
-    max-width: 600px;
+  .hero-image-wrap {
+    height: 0;
+    padding-bottom: 100%;
     position: relative;
-
-    h1 {
-      @media (max-width: calc(theme('screens.md') - 1px)) {
-        font-size: clamp(theme('fontSize.md'), 25vw, theme('fontSize.lg'));
-      }
+    width: 100%;
+    img {
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      width: 100%;
     }
   }
 }
