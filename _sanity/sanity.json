@@ -13,7 +13,10 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "media"
+    "media",
+    "color-list",
+    "@sanity/dashboard",
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {
@@ -40,6 +43,10 @@
     {
       "implements": "part:@sanity/base/document-actions/resolver",
       "path": "./parts/resolveDocumentActions"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "src/dashboardConfig.js"
     }
   ]
 }

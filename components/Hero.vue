@@ -4,10 +4,10 @@
     <LazyImage :image="image" :class="{ 'hidden md:block': mobileImage }" />
     <div class="grid grid-cols-12 items-center h-full px-4 md:px-10">
       <div class="hero-content-wrap col-span-full lg:col-start-2">
-        <h1 class="text-yellow">
+        <h1 class="heading-2">
           {{ heading }}
         </h1>
-        <h2 v-if="subheading" class="font-sans md:text-lg">
+        <h2 v-if="subheading" class="font-sans md:text-md">
           {{ subheading }}
         </h2>
         <PortableText v-if="copy" :blocks="copy" class="mt-2 md:mt-6" />
@@ -50,7 +50,8 @@ export default {
 
 <style lang="scss">
 .hero {
-  background: theme('colors.green');
+  background: theme('colors.navy');
+  color: theme('colors.white');
   height: calc(727 / 375 * 100vw);
   max-height: 727px;
   min-height: 727px;

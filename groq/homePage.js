@@ -24,6 +24,7 @@ export default groq`
     },
     sections[] {
       anchorId,
+      "bgColor": bgColor.class,
       copy,
       cta {
         icon,
@@ -44,10 +45,23 @@ export default groq`
           url
         },
         width
-      }
+      },
+      "textColor": textColor.class
+    },
+    emailCaptureSection {
+      "bgColor": bgColor.class,
+      cta {
+        icon,
+        link,
+        text
+      },
+      ctaSubheading,
+      emailCaptureSubheading,
+      heading,
+      "textColor": textColor.class
     },
     faqSection {
-      copy,
+      "bgColor": bgColor.class,
       cta {
         icon,
         link,
@@ -58,7 +72,8 @@ export default groq`
         answer,
         question
       },
-      heading
+      heading,
+      "textColor": textColor.class
     }
   }
 `

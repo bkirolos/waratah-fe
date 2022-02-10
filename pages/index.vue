@@ -1,11 +1,12 @@
 <template>
-  <div class="bg-black text-white">
+  <div class="bg-white text-navy">
     <Hero :hero="hero" />
     <CarouselSection
       v-for="(section, index) in sections"
       :key="index"
       :section="section"
     />
+    <EmailCaptureSection :section="emailCaptureSection" />
     <FaqSection :section="faqSection" />
   </div>
 </template>
@@ -23,6 +24,9 @@ export default {
     this.page = await this.$sanity.fetch(homePage)
   },
   computed: {
+    emailCaptureSection() {
+      return this.page?.emailCaptureSection
+    },
     faqSection() {
       return this.page?.faqSection
     },
