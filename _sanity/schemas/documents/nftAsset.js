@@ -25,14 +25,12 @@ export default {
     {
       type: 'imagePlus',
       name: 'image',
-      title: 'Image',
-      hidden: document => document.parent.video?.url
+      title: 'Image'
     },
     {
       type: 'video',
       name: 'video',
-      title: 'Video',
-      hidden: document => document.parent.image?.asset
+      title: 'Video'
     },
     {
       type: 'string',
