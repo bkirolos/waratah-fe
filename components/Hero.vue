@@ -15,9 +15,9 @@
           {{ introduction }}
         </p>
         <h1 class="heading-2 leading-negative mt-6">{{ heading }}</h1>
-        <p v-if="subheading" class="content-block heading-5">
+        <h2 v-if="subheading" class="content-block heading-5">
           {{ subheading }}
-        </p>
+        </h2>
         <LazyImage :image="signatureImage" class="content-block mt-6" />
         <CTA :cta="cta" class="bg-lime border-lime text-black mt-6" />
         <p v-if="closing" class="content-block heading-6 mt-6">
