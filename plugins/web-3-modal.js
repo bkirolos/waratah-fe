@@ -7,7 +7,7 @@ export default ({ app }, inject) => {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        infuraId: process.env.INFERA_ID,
+        infuraId: process.env.INFURA_ID,
       }
     }
   }
