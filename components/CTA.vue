@@ -1,7 +1,7 @@
 <template>
   <Hyperlink v-if="cta" :url="ctaLink" class="cta">
-    <DiscordIcon v-if="showDiscordIcon" aria-hidden="true" class="mr-2" />
-    <TwitterIcon v-if="showTwitterIcon" aria-hidden="true" class="mr-2" />
+    <DiscordIcon v-if="showDiscordIcon" aria-hidden="true" class="mr-4" />
+    <TwitterIcon v-if="showTwitterIcon" aria-hidden="true" class="mr-4" />
     {{ ctaText }}
   </Hyperlink>
 </template>

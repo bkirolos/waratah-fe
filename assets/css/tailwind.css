@@ -44,7 +44,7 @@
     background: transparent;
     height: 5.5rem;
     line-height: 5.5rem;
-    @apply text-base px-7;
+    @apply body text-sm md:text-base px-7;
   }
 
   .input::placeholder {
@@ -57,7 +57,10 @@
   }
 
   .input-label {
-    @apply body block mb-2;
+    @apply font-sans text-base mb-4 normal-case;
+    @media (min-width: theme('screens.md')) {
+      font-size: 1.5rem;
+    }
   }
 
   .submit-button {

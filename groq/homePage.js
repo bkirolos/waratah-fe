@@ -62,7 +62,6 @@ export default groq`
     },
     faqSection {
       "bgColor": bgColor.class,
-      copy,
       cta {
         icon,
         link,

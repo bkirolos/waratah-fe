@@ -6,10 +6,11 @@
       :action="endpoint"
       method="post"
       novalidate
-      class="max-w-xl"
       @submit.prevent
     >
-      <h3 v-if="heading" class="body normal-case input-label">{{ heading }}</h3>
+      <h3 v-if="heading" class="input-label">
+        {{ heading }}
+      </h3>
       <div class="flex items-end">
         <div class="flex-1">
           <label for="email" class="visually-hidden">Email address</label>
