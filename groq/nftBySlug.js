@@ -3,11 +3,12 @@ import { groq } from '@nuxtjs/sanity'
 export default groq`
   *[_type == "nftAsset" && slug.current == $slug] {
     _id,
+    tokenId {
+      current
+    },
     slug {
       current
     },
-    nftId,
-    title,
     shoeSize,
     image {
       alt,
@@ -22,6 +23,14 @@ export default groq`
         }
       }
     },
-    description,
+    video {
+      poster {
+         asset
+      },
+      url
+    },
+    shoeSize,
+    stripes,
+    backgroundColor
   }
 `

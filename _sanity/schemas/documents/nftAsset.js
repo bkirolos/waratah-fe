@@ -1,14 +1,12 @@
-import { Question } from '../../lib/icons'
-
 export default {
   type: 'document',
   name: 'nftAsset',
   title: 'NFT Asset',
   fields: [
     {
-      type: 'string',
-      name: 'nftId',
-      title: 'NFT ID',
+      type: 'slug',
+      name: 'tokenId',
+      title: 'Token Id',
       validation: Rule => Rule.required()
     },
     {
@@ -17,14 +15,24 @@ export default {
       title: 'Slug',
       description: "Click 'Generate' to auto-generate a slug for this page",
       options: {
-        source: 'nftID'
+        source: 'tokenId',
+        slugify: input => {
+          return `ducks-of-a-feather-${input.current}`
+        }
       },
       validation: Rule => Rule.required()
     },
     {
-      type: 'string',
-      name: 'title',
-      title: 'Title'
+      type: 'imagePlus',
+      name: 'image',
+      title: 'Image',
+      hidden: document => document.parent.video?.url
+    },
+    {
+      type: 'video',
+      name: 'video',
+      title: 'Video',
+      hidden: document => document.parent.image?.asset
     },
     {
       type: 'string',
@@ -32,10 +40,6 @@ export default {
       title: 'Show Size',
       options: {
         list: [
-          '4',
-          '4.5',
-          '5',
-          '5.5',
           '6',
           '6.5',
           '7',
@@ -48,19 +52,28 @@ export default {
           '10.5',
           '11',
           '11.5',
-          '12'
+          '12',
+          '12.5',
+          '13',
+          '14',
+          '15'
         ]
       }
     },
     {
-      title: 'Image',
-      name: 'image',
-      type: 'imagePlus'
+      type: 'boolean',
+      name: 'stripes',
+      title: 'Stripes'
     },
     {
-      type: 'portableTextSuite',
-      name: 'description',
-      title: 'Description'
+      type: 'string',
+      name: 'backgroundColor',
+      title: 'Background Color'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'slug.current'
+    }
+  }
 }
