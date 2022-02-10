@@ -17,7 +17,8 @@ module.exports = {
     },
     fontFamily: {
       display: ['Trade Gothic', 'sans-serif'],
-      sans: ['Open Sans', 'sans-serif']
+      sans: ['Open Sans', 'sans-serif'],
+      serif: ['Miller Disp Rom']
     },
     fontSize: {
       xs: '14px',
