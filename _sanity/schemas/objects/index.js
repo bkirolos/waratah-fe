@@ -1,6 +1,7 @@
 import carouselSection from './carouselSection'
 import carouselSlide from './carouselSlide'
 import cta from './cta'
+import emailCaptureSection from './emailCaptureSection'
 import faqSection from './faqSection'
 import hero from './hero'
 import imagePlus from './imagePlus'
@@ -13,6 +14,7 @@ export default [
   carouselSection,
   carouselSlide,
   cta,
+  emailCaptureSection,
   faqSection,
   hero,
   imagePlus,

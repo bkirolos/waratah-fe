@@ -1,8 +1,12 @@
 <template>
-  <Hyperlink v-if="cta" :url="ctaLink" class="cta">
-    <DiscordIcon v-if="showDiscordIcon" aria-hidden="true" class="mr-2" />
-    <TwitterIcon v-if="showTwitterIcon" aria-hidden="true" class="mr-2" />
-    {{ ctaText }}
+  <Hyperlink
+    v-if="cta"
+    :url="ctaLink"
+    :class="['cta space-x-2', { 'text-base space-x-4': large }]"
+  >
+    <DiscordIcon v-if="showDiscordIcon" aria-hidden="true" />
+    <TwitterIcon v-if="showTwitterIcon" aria-hidden="true" />
+    <span>{{ ctaText }}</span>
   </Hyperlink>
 </template>
 
@@ -19,6 +23,10 @@ export default {
     cta: {
       type: Object,
       required: true
+    },
+    large: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

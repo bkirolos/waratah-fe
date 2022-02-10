@@ -1,5 +1,6 @@
 import { Question } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
+import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
@@ -12,11 +13,6 @@ export default {
       name: 'heading',
       title: 'Heading',
       validation: Rule => Rule.required().error('Heading is required')
-    },
-    {
-      type: 'portableTextLite',
-      name: 'copy',
-      title: 'Copy'
     },
     {
       type: 'cta',
@@ -34,6 +30,24 @@ export default {
           to: [{ type: 'faq' }]
         }
       ]
+    },
+    {
+      title: 'Background Color',
+      name: 'bgColor',
+      type: 'colorlist',
+      description: 'Defaults to white when nothing is selected',
+      options: {
+        list: bgColors
+      }
+    },
+    {
+      title: 'Text Color',
+      name: 'textColor',
+      type: 'colorlist',
+      description: 'Defaults to black when nothing is selected',
+      options: {
+        list: textColors
+      }
     }
   ]
 }

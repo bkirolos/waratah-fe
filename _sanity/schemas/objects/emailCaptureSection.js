@@ -1,18 +1,14 @@
+import { string } from 'prop-types'
 import { Block } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
 import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
-  name: 'carouselSection',
-  title: 'Carousel Section',
+  name: 'emailCaptureSection',
+  title: 'Email Capture Section',
   icon: Block,
   fields: [
-    {
-      type: 'string',
-      name: 'anchorId',
-      title: 'Anchor ID'
-    },
     {
       type: 'string',
       name: 'heading',
@@ -20,9 +16,9 @@ export default {
       validation: Rule => Rule.required().error('Heading is required')
     },
     {
-      type: 'portableTextLite',
-      name: 'copy',
-      title: 'Copy'
+      type: 'string',
+      name: 'ctaSubheading',
+      title: 'CTA Subheading'
     },
     {
       type: 'cta',
@@ -31,10 +27,9 @@ export default {
       inputComponent: OptionalCTA
     },
     {
-      type: 'array',
-      name: 'slides',
-      title: 'Carousel Slides',
-      of: [{ type: 'carouselSlide' }]
+      type: 'string',
+      name: 'emailCaptureSubheading',
+      title: 'Email Capture Subheading'
     },
     {
       title: 'Background Color',

@@ -35,7 +35,7 @@ export default {
 <style lang="scss">
 .terms-content {
   p {
-    color: theme('colors.gray-stroke');
+    color: theme('colors.stroke-gray');
   }
 }
 </style>

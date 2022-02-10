@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Logo from '@/assets/svg/division-street-logo-monogram.svg?inline'
+import Logo from '@/assets/svg/ducks-of-a-feather-logo.svg?inline'
 import nav from '@/mixins/nav'
 
 export default {
@@ -43,7 +43,8 @@ export default {
 .header {
   color: theme('colors.white');
   pointer-events: none; // allows click events to "pass through" header
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 1;
 

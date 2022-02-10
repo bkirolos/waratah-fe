@@ -1,17 +1,11 @@
 <template>
-  <section id="faq" class="py-14">
-    <div class="grid grid-cols-12 gap-y-4 px-4 md:px-10">
-      <h2
-        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5"
-      >
-        {{ heading }}
-      </h2>
+  <section id="faq" :class="[bgColor, 'text-white py-14']">
+    <div class="grid grid-cols-12 px-4 md:px-10">
       <div
-        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-8 lg:col-span-4 space-y-6"
+        class="col-span-full md:col-start-2 md:col-span-10 md:flex md:flex-wrap md:justify-between md:items-start mb-5 md:mb-9"
       >
-        <PortableText :blocks="copy" />
-        <CTA :cta="cta" />
-        <MailingList />
+        <h2 :class="[textColor, 'md:mr-16']">{{ heading }}</h2>
+        <CTA :cta="cta" class="mt-4 md:mt-0" />
       </div>
       <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
         <Accordion
@@ -35,8 +29,8 @@ export default {
     }
   },
   computed: {
-    copy() {
-      return this.section?.copy
+    bgColor() {
+      return this.section?.bgColor ? `bg-${this.section.bgColor}` : ''
     },
     cta() {
       return this.section?.cta
@@ -46,6 +40,9 @@ export default {
     },
     heading() {
       return this.section?.heading
+    },
+    textColor() {
+      return this.section?.textColor ? `text-${this.section.textColor}` : ''
     }
   }
 }

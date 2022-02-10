@@ -3,7 +3,8 @@ import { groq } from '@nuxtjs/sanity'
 export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
     hero {
-      copy,
+      "bgColor": bgColor.class,
+      closing,
       cta {
         icon,
         link,
@@ -15,15 +16,17 @@ export default groq`
         asset,
         crop
       },
-      mobileImage {
+      introduction,
+      signatureImage {
         alt,
-        asset,
-        crop
+        asset
       },
-      subheading
+      subheading,
+      "textColor": textColor.class
     },
     sections[] {
       anchorId,
+      "bgColor": bgColor.class,
       copy,
       cta {
         icon,
@@ -44,10 +47,23 @@ export default groq`
           url
         },
         width
-      }
+      },
+      "textColor": textColor.class
+    },
+    emailCaptureSection {
+      "bgColor": bgColor.class,
+      cta {
+        icon,
+        link,
+        text
+      },
+      ctaSubheading,
+      emailCaptureSubheading,
+      heading,
+      "textColor": textColor.class
     },
     faqSection {
-      copy,
+      "bgColor": bgColor.class,
       cta {
         icon,
         link,
@@ -58,7 +74,8 @@ export default groq`
         answer,
         question
       },
-      heading
+      heading,
+      "textColor": textColor.class
     }
   }
 `

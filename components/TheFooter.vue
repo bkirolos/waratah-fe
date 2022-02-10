@@ -1,5 +1,7 @@
 <template>
-  <footer class="footer px-1 pt-1 pb-2 lg:pl-7 lg:pr-8 lg:py-1">
+  <footer
+    class="footer bg-navy text-white px-1 pt-1 pb-2 lg:pl-7 lg:pr-8 lg:py-1"
+  >
     <div class="flex">
       <NavLink aria-label="Home">
         <Logo aria-hidden="true" />
@@ -33,8 +35,6 @@ export default {
 
 <style lang="scss">
 .footer {
-  background: theme('colors.yellow');
-  color: theme('colors.black');
   width: 100%;
   @media (min-width: theme('screens.lg')) {
     display: grid;

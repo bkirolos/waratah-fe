@@ -27,7 +27,7 @@ export default {
     classes() {
       return [
         'nav-item hover-transition',
-        { 'font-display text-lg': this.large },
+        { 'text-md': this.large },
         this.round ? 'p-2' : 'p-3'
       ]
     }
