@@ -44,6 +44,7 @@ export default {
       type: 'imagePlus',
       name: 'image',
       title: 'Image',
+      description: 'Image should have a square aspect ratio',
       validation: Rule => Rule.required().error('Image is required')
     },
     {
