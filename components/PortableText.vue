@@ -36,7 +36,6 @@ export default {
   }
 
   a {
-    color: theme('colors.yellow');
     font-weight: theme('fontWeight.bold');
   }
 

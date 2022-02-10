@@ -1,12 +1,13 @@
-import { Question } from '../../lib/icons'
+import { string } from 'prop-types'
+import { Block } from '../../lib/icons'
 import OptionalCTA from '../../components/OptionalCTA'
 import { bgColors, textColors } from '../../lib/colors'
 
 export default {
   type: 'object',
-  name: 'faqSection',
-  title: 'FAQ Section',
-  icon: Question,
+  name: 'emailCaptureSection',
+  title: 'Email Capture Section',
+  icon: Block,
   fields: [
     {
       type: 'string',
@@ -15,21 +16,20 @@ export default {
       validation: Rule => Rule.required().error('Heading is required')
     },
     {
+      type: 'string',
+      name: 'ctaSubheading',
+      title: 'CTA Subheading'
+    },
+    {
       type: 'cta',
       name: 'cta',
       title: 'CTA',
       inputComponent: OptionalCTA
     },
     {
-      type: 'array',
-      name: 'faqs',
-      title: 'FAQs',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'faq' }]
-        }
-      ]
+      type: 'string',
+      name: 'emailCaptureSubheading',
+      title: 'Email Capture Subheading'
     },
     {
       title: 'Background Color',

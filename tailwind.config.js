@@ -9,21 +9,19 @@ module.exports = {
       'electric-green': '#01ED89',
       blue: '#4669F2',
       navy: '#11085A',
-      white: '#FFFFFF',
       black: '#010101',
-      'gray-dark': '#454943',
-      'gray-light': '#a2aaad',
-      'gray-stroke': '#f2f2f2',
-      green: '#007940',
-      yellow: '#fcdf1b'
+      white: '#FFFFFF',
+      'dark-gray': '#454943',
+      'light-gray': '#A2AAAD',
+      'stroke-gray': '#F2F2F2'
     },
     fontFamily: {
       display: ['Trade Gothic', 'sans-serif'],
       sans: ['Open Sans', 'sans-serif']
     },
     fontSize: {
-      sm: '14px',
-      nav: '18px',
+      xs: '14px',
+      sm: '16px',
       base: '20px',
       md: '40px',
       lg: '64px',
@@ -44,7 +42,7 @@ module.exports = {
   purge: {
     options: {
       safelist: [
-        /(bg|text)-(pink|salmon|orange|lime|electric-green|blue|navy|white|black|green|yellow)/
+        /(bg|text)-(pink|salmon|orange|lime|electric-green|blue|navy|black|white)/
       ]
     }
   }

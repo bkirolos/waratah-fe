@@ -149,7 +149,7 @@ $pagination-row-margin: 1rem;
 }
 
 .carousel-pagination-dot {
-  color: theme('colors.gray-dark');
+  color: inherit;
   height: $pagination-row-height;
   padding: $pagination-dot-padding;
   position: relative;
@@ -175,7 +175,7 @@ $pagination-row-margin: 1rem;
 
 .carousel-navigation-arrow {
   background-color: theme('colors.white');
-  box-shadow: inset 0 0 0 1px theme('colors.gray-stroke');
+  box-shadow: inset 0 0 0 1px theme('colors.stroke-gray');
   border-radius: 50%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   height: 24px;

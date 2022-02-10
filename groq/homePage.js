@@ -46,11 +46,22 @@ export default groq`
         },
         width
       },
-      "textColor": textColor.class,
+      "textColor": textColor.class
+    },
+    emailCaptureSection {
+      "bgColor": bgColor.class,
+      cta {
+        icon,
+        link,
+        text
+      },
+      ctaSubheading,
+      emailCaptureSubheading,
+      heading,
+      "textColor": textColor.class
     },
     faqSection {
       "bgColor": bgColor.class,
-      copy,
       cta {
         icon,
         link,
@@ -62,7 +73,7 @@ export default groq`
         question
       },
       heading,
-      "textColor": textColor.class,
+      "textColor": textColor.class
     }
   }
 `

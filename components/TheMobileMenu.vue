@@ -60,7 +60,7 @@
 <script>
 import { FocusTrap } from 'focus-trap-vue'
 import CloseIcon from '@/assets/svg/close.svg?inline'
-import Logo from '@/assets/svg/division-street-logo-monogram.svg?inline'
+import Logo from '@/assets/svg/ducks-of-a-feather-logo.svg?inline'
 import MenuIcon from '@/assets/svg/menu.svg?inline'
 import nav from '@/mixins/nav'
 
@@ -92,9 +92,9 @@ export default {
 
 <style lang="scss">
 .mobile-menu {
-  background: theme('colors.yellow');
+  background: theme('colors.navy');
   bottom: 0;
-  color: theme('colors.black');
+  color: theme('colors.white');
   left: 0;
   overflow: auto;
   position: fixed;

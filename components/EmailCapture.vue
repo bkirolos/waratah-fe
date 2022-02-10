@@ -6,10 +6,11 @@
       :action="endpoint"
       method="post"
       novalidate
-      class="max-w-xl"
       @submit.prevent
     >
-      <h3 class="body input-label">Enter your email to receive updates</h3>
+      <h3 v-if="heading" class="input-label">
+        {{ heading }}
+      </h3>
       <div class="flex items-end">
         <div class="flex-1">
           <label for="email" class="visually-hidden">Email address</label>
@@ -18,13 +19,13 @@
             v-model="email"
             name="EMAIL"
             type="email"
-            placeholder="Email address"
+            placeholder="Enter your email address"
             class="input w-full"
           />
         </div>
         <button type="submit" class="submit-button">Submit</button>
       </div>
-      <div id="mce-responses" class="text-sm mt-2">
+      <div id="mce-responses" class="text-xs mt-2">
         <span id="mce-error-response" style="display: none"></span>
         <span id="mce-success-response" style="display: none"></span>
       </div>
@@ -47,6 +48,10 @@ export default {
     audienceId: {
       type: String,
       default: 'e460024be0'
+    },
+    heading: {
+      type: String,
+      default: ''
     },
     userId: {
       type: String,

@@ -25,6 +25,11 @@ export default {
       of: [{ type: 'carouselSection' }]
     },
     {
+      type: 'emailCaptureSection',
+      name: 'emailCaptureSection',
+      title: 'Email Capture Section'
+    },
+    {
       type: 'faqSection',
       name: 'faqSection',
       title: 'FAQ Section'

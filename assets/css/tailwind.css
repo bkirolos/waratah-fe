@@ -10,12 +10,12 @@
 @layer base {
   h1,
   .heading-1 {
-    @apply font-display text-xl md:text-xxl font-bold leading-negative pb-2 md:pb-3 uppercase;
+    @apply font-display text-xl md:text-xxl font-bold leading-negative uppercase;
   }
 
   h2,
   .heading-2 {
-    @apply font-display text-lg md:text-xl font-bold leading-none uppercase;
+    @apply font-display text-md md:text-xl font-bold leading-none uppercase;
   }
 
   h3,
@@ -25,50 +25,51 @@
 
   h4,
   .heading-4 {
-    @apply font-display text-sm md:text-md font-bold leading-none uppercase;
-  }
-
-  .heading-faq {
-    @apply font-display text-sm md:text-base font-bold leading-none uppercase;
+    @apply font-display text-base md:text-md font-bold leading-none uppercase;
   }
 
   body,
   .body {
-    @apply font-sans text-sm md:text-base leading-normal;
+    @apply font-sans text-xs md:text-base leading-normal;
   }
 }
 
 @layer components {
   .cta {
     min-width: 9.4375rem;
-    @apply border rounded-full inline-flex justify-center items-center font-sans text-sm font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
+    @apply border rounded-full inline-flex justify-center items-center font-sans text-xs font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
   .input {
-    height: 3.75rem;
-    line-height: 3.75rem;
-    @apply body px-3 uppercase;
+    background: transparent;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    @apply body text-sm md:text-base px-7;
   }
 
   .input::placeholder {
-    @apply text-gray-light;
+    @apply text-navy;
   }
 
   .input[type='email'],
   .input[type='text'] {
-    @apply bg-black border;
+    @apply border rounded-none text-navy;
   }
 
   .input-label {
-    @apply body block mb-2;
+    @apply font-sans text-base leading-normal mb-4 normal-case;
+    @media (min-width: theme('screens.md')) {
+      font-size: 1.5rem;
+    }
   }
 
   .submit-button {
-    @apply input bg-yellow border border-yellow text-black font-display text-md px-5;
+    @apply input bg-navy border border-navy text-white font-display px-5 uppercase;
   }
 
   .nav-item {
-    @apply font-display text-nav uppercase flex items-center whitespace-nowrap w-min;
+    font-size: 18px;
+    @apply font-display flex items-center leading-none uppercase whitespace-nowrap w-min;
   }
 
   .nav-item-round {
