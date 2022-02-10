@@ -12,7 +12,7 @@
         <h3 v-if="ctaSubheading" class="input-label">
           {{ ctaSubheading }}
         </h3>
-        <CTA :cta="cta" class="bg-blue border-blue text-white text-base" />
+        <CTA :cta="cta" class="bg-blue border-blue text-white" large />
       </div>
       <EmailCapture
         :heading="emailCaptureSubheading"
