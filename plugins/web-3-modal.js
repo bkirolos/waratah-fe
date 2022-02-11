@@ -2,12 +2,11 @@ import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 
 export default ({ app }, inject) => {
-
   const providerOptionsConstant = {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        infuraId: process.env.INFURA_ID,
+        infuraId: process.env.INFURA_ID
       }
     }
   }

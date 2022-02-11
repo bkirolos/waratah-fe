@@ -30,7 +30,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-observe-visibility' },
     { src: '~/plugins/vue-plyr', mode: 'client' },
-    { src: '~/plugins/web-3-modal', mode: 'client'}
+    { src: '~/plugins/web-3-modal', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

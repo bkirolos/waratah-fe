@@ -1,4 +1,3 @@
-
 export const state = () => ({
   accounts: null
 })
@@ -10,7 +9,7 @@ export const mutations = {
 }
 
 export const actions = {
-  initializeAccounts({commit}, accounts) {
+  initializeAccounts({ commit }, accounts) {
     commit('setAccounts', accounts)
   },
   clearAccounts({ commit }) {
@@ -19,5 +18,5 @@ export const actions = {
 }
 
 export const getters = {
-  getAccounts: state => state.accounts,
+  getAccounts: state => state.accounts
 }

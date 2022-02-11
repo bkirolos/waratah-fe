@@ -5,7 +5,11 @@
         {{ connectText }}
       </span>
     </button>
-    <button v-if="isConnected" class="hover-transition p-2" @click="clearConnection">
+    <button
+      v-if="isConnected"
+      class="hover-transition p-2"
+      @click="clearConnection"
+    >
       <span class="cta flex items-center h-10 leading-none px-5 py-0">
         Disconnect
       </span>
@@ -19,8 +23,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
     ...mapGetters({
@@ -42,7 +45,7 @@ export default {
   methods: {
     ...mapActions({
       clearAccounts: 'wallet/clearAccounts',
-      initializeAccounts: 'wallet/initializeAccounts',
+      initializeAccounts: 'wallet/initializeAccounts'
     }),
     async connectWithPlugin() {
       try {
@@ -52,14 +55,14 @@ export default {
 
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
-      } catch(e) {
+      } catch (e) {
         console.log(e)
       }
     },
     clearConnection() {
       this.$web3Modal.clearCachedProvider()
       this.clearAccounts()
-    },
+    }
   }
 }
 </script>
