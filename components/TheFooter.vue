@@ -1,22 +1,28 @@
 <template>
-  <footer
-    class="footer bg-navy text-white px-1 pt-1 pb-2 lg:pl-7 lg:pr-8 lg:py-1"
-  >
-    <div class="flex">
+  <footer class="footer px-1 py-4 lg:pl-7 lg:pr-8 w-full">
+    <div class="footer-logo flex">
       <NavLink aria-label="Home">
         <Logo aria-hidden="true" />
       </NavLink>
     </div>
 
-    <div class="lg:flex mt-8 lg:mt-0">
-      <NavLink url="/#the-athletes">The Athletes</NavLink>
-      <NavLink url="/#the-shoe">The Shoe</NavLink>
-      <NavLink url="/#the-nft">The NFT</NavLink>
-      <NavLink url="/#faq">FAQ</NavLink>
-      <NavLink url="/terms-and-conditions">Terms & Conditions</NavLink>
+    <div
+      class="footer-navigation lg:flex lg:justify-end xl:justify-center mt-8 lg:mt-0"
+    >
+      <NavLink
+        v-for="(link, index) in footerLinks"
+        :key="index"
+        :url="link.url"
+        class="font-sans font-bold"
+      >
+        {{ link.label }}
+      </NavLink>
     </div>
 
-    <div class="flex lg:justify-end mt-9 lg:mt-0">
+    <div class="footer-socials flex lg:justify-end items-center mt-9 lg:mt-0">
+      <GenuineCollegeProductIcon />
+      <span class="divider"></span>
+      <InstagramLink />
       <TwitterLink />
       <DiscordLink />
     </div>
@@ -24,21 +30,63 @@
 </template>
 
 <script>
+import GenuineCollegeProductIcon from '@/assets/svg/genuine-college-product-icon.svg?inline'
 import Logo from '@/assets/svg/division-street-logo.svg?inline'
+import nav from '@/mixins/nav'
 
 export default {
   components: {
+    GenuineCollegeProductIcon,
     Logo
-  }
+  },
+  mixins: [nav]
 }
 </script>
 
 <style lang="scss">
 .footer {
-  width: 100%;
+  background: #0a0534;
+  color: theme('colors.white');
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    'logo'
+    'navigation'
+    'socials';
   @media (min-width: theme('screens.lg')) {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'logo navigation'
+      'socials socials';
+  }
+  @media (min-width: theme('screens.xl')) {
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'logo navigation socials';
+  }
+
+  .footer-logo {
+    grid-area: logo;
+  }
+
+  .footer-navigation {
+    grid-area: navigation;
+  }
+
+  .footer-socials {
+    grid-area: socials;
+    @media (max-width: calc(theme('screens.lg') - 1px)) {
+      padding-left: theme('padding.3');
+    }
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .divider {
+    border-left: 1px solid currentColor;
+    height: 44px;
+    margin: 0 1.5rem;
   }
 }
 </style>
