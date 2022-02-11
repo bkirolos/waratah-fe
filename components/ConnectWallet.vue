@@ -1,92 +1,67 @@
 <template>
   <div class="flex">
-    <button class="hover-transition p-2" @click="connect">
+    <button class="hover-transition p-2" @click="connectWithPlugin">
       <span class="cta flex items-center h-10 leading-none px-5 py-0">
-        Connect Wallet
+        {{ connectText }}
       </span>
     </button>
-    <Web3Modal
-      v-if="mounted"
-      ref="web3modal"
-      :provider-options="providerOptions"
-      cache-provider
-    />
+    <button
+      v-if="isConnected"
+      class="hover-transition p-2"
+      @click="clearConnection"
+    >
+      <span class="cta flex items-center h-10 leading-none px-5 py-0">
+        Disconnect
+      </span>
+    </button>
   </div>
 </template>
 
 <script>
-import Web3Modal from 'web3modal-vue'
-import WalletConnectProvider from '@walletconnect/web3-provider'
+import { ethers } from 'ethers'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Web3Modal
-  },
   data() {
-    return {
-      mounted: false,
-      // theme: 'light',
-      providerOptions: {
-        walletconnect: {
-          package: WalletConnectProvider,
-          options: {
-            infuraId: '-'
-          }
-        }
-      }
-      // number: 0,
-      // balance: 0,
+    return {}
+  },
+  computed: {
+    ...mapGetters({
+      accounts: 'wallet/getAccounts'
+    }),
+    connectText() {
+      return this.accounts ? 'Connected' : 'Connect Wallet'
+    },
+    isConnected() {
+      return this.accounts
     }
   },
   mounted() {
-    this.mounted = true
-    // TODO: run connect logic if this.$refs.web3modal.cachedProdvider is true ?
-    // this.$nextTick(async () => {
-    //   const web3modal = this.$refs.web3modal
-    //   this.$store.commit('setWeb3Modal', web3modal)
-    //   if (web3modal.cachedProvider) {
-    //     await this.$store.dispatch('connect')
-    //     // this.subscribeMewBlockHeaders()
-    //   }
-    // })
+    // plugin flow
+    if (this.$web3Modal.cachedProvider) {
+      this.connectWithPlugin()
+    }
   },
   methods: {
-    async connect() {
-      console.log('connect ran')
-      const provider = await this.$refs.web3modal.connect()
-      console.log('provider', provider)
-      // const library = new ethers.providers.Web3Provider(provider)
+    ...mapActions({
+      clearAccounts: 'wallet/clearAccounts',
+      initializeAccounts: 'wallet/initializeAccounts'
+    }),
+    async connectWithPlugin() {
+      try {
+        const instance = await this.$web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(instance)
+        const accounts = await provider.listAccounts()
 
-      // library.pollingInterval = 12000
-      // commit('setLibrary', library)
-
-      // const accounts = await library.listAccounts()
-      // if (accounts.length > 0) {
-      //   commit('setAccount', accounts[0])
-      // }
-      // const network = await library.getNetwork()
-      // commit('setChainId', network.chainId)
-      // commit('setActive', true)
-
-      // provider.on('connect', async (info) => {
-      //   const chainId = parseInt(info.chainId)
-      //   commit('setChainId', chainId)
-      //   await console.log('connect', info)
-      // })
-
-      // provider.on('accountsChanged', async (accounts) => {
-      //   if (accounts.length > 0) {
-      //     commit('setAccount', accounts[0])
-      //   } else {
-      //     await dispatch('resetApp')
-      //   }
-      //   console.log('accountsChanged')
-      // })
-      // provider.on('chainChanged', async (chainId) => {
-      //   chainId = parseInt(chainId)
-      //   commit('setChainId', chainId)
-      //   await console.log('chainChanged', chainId)
-      // })
+        this.initializeAccounts(accounts)
+        console.log(this.accounts, 'from store')
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    clearConnection() {
+      this.$web3Modal.clearCachedProvider()
+      this.clearAccounts()
     }
   }
 }
