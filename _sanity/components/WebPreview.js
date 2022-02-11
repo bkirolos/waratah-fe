@@ -1,7 +1,7 @@
 import React from 'react'
 
 const WebPreview = ({ document }) => {
-  const baseUrl = 'https://deploy-preview-49--waratah-nuxt.netlify.app'
+  const baseUrl = 'https://waratah-nuxt.netlify.app'
 
   const getTargetUrl = document => {
     if (document._type === 'homePage') {
