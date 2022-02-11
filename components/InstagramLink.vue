@@ -2,7 +2,7 @@
   <NavLink
     url="https://www.instagram.com/ducksofafeather"
     round
-    aria-label="Discord"
+    aria-label="Instagram"
   >
     <InstagramIcon aria-hidden="true" />
   </NavLink>
