@@ -71,6 +71,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
+  publicRuntimeConfig: {
+    ethereumNetwork: process.env.ETHEREUM_NETWORK,
+    infuraId: process.env.INFURA_ID
+  },
 
   privateRuntimeConfig: {
     sanity: {
