@@ -6,7 +6,7 @@
       </h2>
       <div class="col-span-full md:col-start-8 md:col-span-4">
         <PortableText :blocks="copy" />
-        <CTA :cta="cta" class="mt-6" />
+        <CTA if="cta" :cta="cta" class="mt-6" />
       </div>
     </div>
     <Carousel :slides="slides" />
