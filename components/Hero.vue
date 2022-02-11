@@ -8,9 +8,9 @@
     ]"
   >
     <div
-      class="grid grid-cols-12 col-span-full xl:col-span-5 py-12 xl:py-16 w-full"
+      class="grid grid-cols-12 col-span-full xl:col-span-6 py-12 xl:py-16 w-full"
     >
-      <div class="col-start-2 col-span-10">
+      <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
         <p v-if="introduction" class="content-block heading-6">
           {{ introduction }}
         </p>
@@ -25,7 +25,7 @@
         </p>
       </div>
     </div>
-    <div class="hero-image-wrap col-span-full xl:col-span-7">
+    <div class="hero-image-wrap col-span-full xl:col-span-6">
       <LazyImage :image="image" />
     </div>
   </section>
@@ -79,13 +79,13 @@ export default {
   }
 
   .hero-image-wrap {
-    height: 0;
+    height: 100%;
     padding-bottom: 100%;
     position: relative;
     width: 100%;
     img {
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       position: absolute;
       width: 100%;
     }
