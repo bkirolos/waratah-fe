@@ -1,10 +1,14 @@
 <template>
   <section :id="anchorId" :class="[bgColor, textColor, 'py-14']">
     <div class="grid grid-cols-12 gap-y-4 mb-12 md:mb-16 px-4 md:px-10">
-      <h2 class="col-span-full md:col-start-2 md:col-span-5">
+      <h2
+        class="carousel-section-heading col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5 md:max-w-heading"
+      >
         {{ heading }}
       </h2>
-      <div class="col-span-full md:col-start-8 md:col-span-4">
+      <div
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-8 lg:col-span-5"
+      >
         <PortableText :blocks="copy" />
         <CTA :cta="cta" class="mt-6" />
       </div>
@@ -46,5 +50,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss"></style>

@@ -4,7 +4,7 @@
       <div
         class="col-span-full md:col-start-2 md:col-span-10 md:flex md:flex-wrap md:justify-between md:items-start mb-5 md:mb-9"
       >
-        <h2 :class="[textColor, 'md:mr-16']">{{ heading }}</h2>
+        <h2 :class="[textColor, 'md:mr-16 md:max-w-heading']">{{ heading }}</h2>
         <CTA :cta="cta" class="mt-4 md:mt-0" />
       </div>
       <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
