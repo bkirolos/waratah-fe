@@ -5,5 +5,6 @@
       <Nuxt />
     </main>
     <TheFooter />
+    <PreviewModeBanner />
   </div>
 </template>

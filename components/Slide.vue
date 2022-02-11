@@ -30,8 +30,8 @@ export default {
 
 <style lang="scss">
 $slide-wide: clamp(1px, 100%, 1123px);
-$slide-medium: calc(#{$slide-wide} * 0.63846838824577);
-$slide-thin: calc(#{$slide-wide} * 0.36153161175423);
+$slide-medium: calc(#{$slide-wide} * 0.5625);
+$slide-thin: calc(#{$slide-wide} * 0.318515904921938);
 
 .carousel-slide {
   flex-shrink: 0;
