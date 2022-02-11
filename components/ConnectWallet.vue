@@ -37,9 +37,13 @@ export default {
     }
   },
   mounted() {
-    // plugin flow
-    if (this.$web3Modal.cachedProvider) {
-      this.connectWithPlugin()
+    // if this person has already connected to waratah, check for existing connection
+    // and try to connect if we can
+    if (
+      this.$web3Modal.cachedProvider &&
+      this.$web3Modal.cachedProvider === 'injected'
+    ) {
+      this.checkConnection()
     }
   },
   methods: {
@@ -57,6 +61,18 @@ export default {
         console.log(this.accounts, 'from store')
       } catch (e) {
         console.log(e)
+      }
+    },
+    async checkConnection() {
+      try {
+        const accounts = await window.ethereum.request({
+          method: 'eth_accounts'
+        })
+        if (accounts) {
+          this.connectWithPlugin()
+        }
+      } catch (e) {
+        console.error(e)
       }
     },
     clearConnection() {
