@@ -6,9 +6,8 @@ export default {
     {
       type: 'block',
       styles: [
-        { title: 'H1', value: 'h1' },
-        { title: 'H2', value: 'h2' },
-        { title: 'H3', value: 'h3' },
+        { title: 'Heading', value: 'h2' },
+        { title: 'Subheading', value: 'h3' },
         { title: 'Body', value: 'normal' }
       ],
       lists: [

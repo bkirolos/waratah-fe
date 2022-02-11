@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import termsPage from '@/groq/termsPage'
+import privacyPage from '@/groq/privacyPage'
 
 export default {
   data() {
@@ -19,7 +19,7 @@ export default {
     }
   },
   async fetch() {
-    this.page = await this.$sanity.fetch(termsPage)
+    this.page = await this.$sanity.fetch(privacyPage)
   },
   computed: {
     copy() {

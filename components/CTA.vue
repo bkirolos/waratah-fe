@@ -22,7 +22,7 @@ export default {
   props: {
     cta: {
       type: Object,
-      required: true
+      default: null
     },
     large: {
       type: Boolean,

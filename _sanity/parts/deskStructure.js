@@ -8,6 +8,7 @@ export default () =>
       S.documentListItem().schemaType('homePage').id('homePage'),
       S.documentListItem().schemaType('faqPage').id('faqPage'),
       S.documentListItem().schemaType('termsPage').id('termsPage'),
+      S.documentListItem().schemaType('privacyPage').id('privacyPage'),
       S.divider(),
       S.documentTypeListItem('faq').title('FAQs')
     ])
