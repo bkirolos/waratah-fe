@@ -1,4 +1,5 @@
 import { groq } from '@nuxtjs/sanity'
+import { metaInfo } from '@/groq/abstractions'
 
 export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
@@ -76,6 +77,7 @@ export default groq`
       },
       heading,
       "textColor": textColor.class
-    }
+    },
+    ${metaInfo}
   }
 `

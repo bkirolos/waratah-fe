@@ -3,11 +3,20 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      metaDescription: 'metaInfo/description',
-      metaImage: 'metaInfo/image',
-      pageTitle: 'metaInfo/title',
+      metaDescriptionFallback: 'metaInfo/description',
+      metaImageFallback: 'metaInfo/image',
+      pageTitleFallback: 'metaInfo/title',
       pageTitleBase: 'metaInfo/titleBase'
-    })
+    }),
+    metaDescription() {
+      return this.page?.metaInfo?.description || this.metaDescriptionFallback
+    },
+    metaImage() {
+      return this.page?.metaInfo?.image || this.metaImageFallback
+    },
+    pageTitle() {
+      return this.page?.metaInfo?.title || this.pageTitleFallback
+    }
   },
   methods: {
     formatMetaImageUrl(image) {
@@ -15,6 +24,7 @@ export default {
       return image.url + '?max-w=1200'
     },
     formatMetaDescription(description) {
+      if (!description) return null
       return description.length > 175
         ? description.substring(0, 172) + '...'
         : description

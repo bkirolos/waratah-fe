@@ -3,6 +3,7 @@
 import {
   BsBox,
   BsCameraVideo,
+  BsCode,
   BsFileEarmark,
   BsGear,
   BsImage,
@@ -11,6 +12,7 @@ import {
 } from 'react-icons/bs'
 
 export const Block = BsBox
+export const Code = BsCode
 export const Image = BsImage
 export const Link = BsLink45Deg
 export const Page = BsFileEarmark

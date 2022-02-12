@@ -28,6 +28,11 @@ export default {
           to: [{ type: 'faq' }]
         }
       ]
+    },
+    {
+      type: 'metaInfo',
+      name: 'metaInfo',
+      title: 'Meta Info'
     }
   ],
   preview: {
