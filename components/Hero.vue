@@ -36,7 +36,7 @@ export default {
   props: {
     hero: {
       type: Object,
-      required: true
+      default: null
     }
   },
   computed: {

@@ -33,6 +33,11 @@ export default {
       type: 'faqSection',
       name: 'faqSection',
       title: 'FAQ Section'
+    },
+    {
+      type: 'metaInfo',
+      name: 'metaInfo',
+      title: 'Meta Info'
     }
   ],
   preview: {

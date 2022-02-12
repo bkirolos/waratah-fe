@@ -11,7 +11,7 @@ export default {
   props: {
     slide: {
       type: Object,
-      required: true
+      default: null
     }
   },
   computed: {

@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'waratah-nuxt',
+    title: 'Ducks of a Feather',
     htmlAttrs: {
       lang: 'en'
     },

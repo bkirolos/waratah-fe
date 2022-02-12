@@ -35,7 +35,11 @@ module.exports = {
       tight: '1.1',
       normal: '1.5'
     },
-    extend: {}
+    extend: {
+      maxWidth: {
+        heading: '22rem'
+      }
+    }
   },
   variants: {
     extend: {}
