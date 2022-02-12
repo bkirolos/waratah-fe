@@ -19,6 +19,8 @@ export default () =>
     .title('Content')
     .showIcons(false)
     .items([
+      S.documentListItem().schemaType('siteSettings').id('siteSettings'),
+      S.divider(),
       S.documentListItem().schemaType('homePage').id('homePage'),
       S.documentListItem().schemaType('faqPage').id('faqPage'),
       S.documentListItem().schemaType('termsPage').id('termsPage'),

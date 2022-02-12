@@ -18,8 +18,10 @@
 
 <script>
 import faqPage from '@/groq/faqPage'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       page: null

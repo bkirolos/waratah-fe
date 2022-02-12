@@ -16,7 +16,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import siteSettings from '@/groq/siteSettings'
+import head from '@/mixins/head'
+
 export default {
+  mixins: [head],
+  async fetch() {
+    const settings = await this.$sanity.fetch(siteSettings)
+    const { metaInfo } = settings
+    this.setMetaInfo(metaInfo)
+  },
   computed: {
     cta() {
       return {
@@ -28,9 +38,17 @@ export default {
     heading() {
       return '404'
     },
+    pageTitle() {
+      return this.heading
+    },
     subheading() {
       return "We can't find the page you are looking for"
     }
+  },
+  methods: {
+    ...mapActions({
+      setMetaInfo: 'metaInfo/setMetaInfo'
+    })
   }
 }
 </script>
