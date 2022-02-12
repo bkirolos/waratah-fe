@@ -2,7 +2,7 @@
   <div class="bg-white text-navy">
     <Hero :hero="hero" />
     <CarouselSection
-      v-for="(section, index) in sections"
+      v-for="(section, index) in carouselSections"
       :key="index"
       :section="section"
     />
@@ -26,6 +26,9 @@ export default {
     this.page = await this.$sanity.fetch(homePage)
   },
   computed: {
+    carouselSections() {
+      return this.page?.carouselSections
+    },
     emailCaptureSection() {
       return this.page?.emailCaptureSection
     },
@@ -34,9 +37,6 @@ export default {
     },
     hero() {
       return this.page?.hero
-    },
-    sections() {
-      return this.page?.sections
     }
   }
 }

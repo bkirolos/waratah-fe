@@ -3,29 +3,7 @@ import { metaInfo } from '@/groq/abstractions'
 
 export default groq`
   *[_type == "homePage"] | order(_updatedAt desc) [0] {
-    hero {
-      "bgColor": bgColor.class,
-      closing,
-      cta {
-        icon,
-        link,
-        text
-      },
-      heading,
-      image {
-        alt,
-        asset,
-        crop
-      },
-      introduction,
-      signatureImage {
-        alt,
-        asset
-      },
-      subheading,
-      "textColor": textColor.class
-    },
-    sections[] {
+    "carouselSections": sections[] {
       anchorId,
       "bgColor": bgColor.class,
       copy,
@@ -76,6 +54,28 @@ export default groq`
         question
       },
       heading,
+      "textColor": textColor.class
+    },
+    hero {
+      "bgColor": bgColor.class,
+      closing,
+      cta {
+        icon,
+        link,
+        text
+      },
+      heading,
+      image {
+        alt,
+        asset,
+        crop
+      },
+      introduction,
+      signatureImage {
+        alt,
+        asset
+      },
+      subheading,
       "textColor": textColor.class
     },
     ${metaInfo}
