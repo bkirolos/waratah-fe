@@ -1,17 +1,17 @@
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 
-export default ({ app }, inject) => {
+export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
   const providerOptionsConstant = {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        infuraId: process.env.INFURA_ID
+        infuraId,
       }
     }
   }
   const web3Modal = new Web3Modal({
-    network: process.env.ETHEREUM_NETWORK, // optional
+    network: ethereumNetwork, // optional
     cacheProvider: true, // optional
     providerOptions: providerOptionsConstant // required
   })
