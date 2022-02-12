@@ -6,7 +6,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        infuraId,
+        infuraId
       }
     }
   }

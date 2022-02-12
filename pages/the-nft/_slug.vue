@@ -1,47 +1,66 @@
 <template>
-  <section class="grid bg-navy grid-cols-12 w-full px-4 py-20 gap-12 gap-y-40">
-    <LazyImage
-      v-if="image"
-      class="md:col-start-4 md:col-span-6"
-      :image="image"
-    />
-    <div class="row-2 md:col-span-6">
-      <h1 class="heading-3">{{ title }}</h1>
-      <p class="base">SHOE SIZE {{ shoeSize }}</p>
-      <p>
-        Flying Formations is the first series in the Ducks of a Feather project.
-        It is a limited-edition series of 120 one-of-a-kind NFTs created by
-        Tinker Hatfield to benefit University of Oregon Duck Athletes. Featuring
-        a complementary pair of Air Max 1 UO Edition sneakers designed by
-        Tinker. It represents the initial offering from “Ducks of A Feather” by
-        Division Street, an ongoing marketing initiative featuring University of
-        Oregon athletes. EDITION OF 120
-      </p>
+  <section class="grid grid-cols-1">
+    <div
+      class="grid grid-cols-12 bg-light-blue bg-opacity-20 py-20 row-start-1 row-span-1"
+    >
+      <div class="nft-video-asset col-start-4 col-span-6">
+        <VideoPlayer v-if="video" :video="video" />
+        <LazyImage v-else-if="image" :image="image" />
+      </div>
     </div>
-    <div class="row-2 md:col-span-6">
-      <p>Sale Ends When it Ends</p>
-      <p>ADD TIMER</p>
-      <hr />
-      <h5>Current Price</h5>
-      <p class="heading-4">{{ price }} ETH</p>
-      <button class="cta bg-electric-green" @click="buy">Buy Now</button>
+    <div class="grid grid-cols-12 row-start-2 row-span-1 p-10 gap-10">
+      <div class="md:col-span-6 col-span-12">
+        <h1 class="heading-3">{{ title }}</h1>
+        <p class="base font-serif text-lime mt-2 mb-4">
+          SHOE SIZE: {{ shoeSize }}
+        </p>
+        <PortableText :blocks="nftDescription" />
+      </div>
+      <div class="md:col-span-6 col-span-12">
+        <p class="base font-bold my-4">
+          Sale ends Feburary 24th at 11:45pm PST at 1ETH
+        </p>
+        <p>ADD TIMER</p>
+        <hr class="my-6" />
+        <h5 class="base font-bold my-2">Current Price</h5>
+        <p class="heading-4 font-serif">{{ price }} ETH</p>
+        <button class="cta bg-lime text-navy w-full my-6" @click="buy">
+          Buy Now
+        </button>
+      </div>
+      <hr class="col-span-12" />
+    </div>
+    <div class="grid grid-cols-12 row-start-3 row-span-1 p-10 gap-x-10">
+      <div class="md:col-span-6 col-span-12">
+        <div class="shoe-asset">
+          <LazyImage v-if="shoeImage" :image="shoeImage" />
+        </div>
+      </div>
+      <div class="md:col-span-6 col-span-12">
+        <PortableText :blocks="shoeDescription" />
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import nftBySlug from '@/groq/nftBySlug'
+import nftSettings from '@/groq/nftSettings'
 
 export default {
   data() {
     return {
-      page: null
+      page: null,
+      nftSettings: null
     }
   },
   async fetch() {
     const params = { slug: String(this.slug) }
     const data = await this.$sanity.fetch(nftBySlug, params)
+    const nftSettingsData = await this.$sanity.fetch(nftSettings)
+
     this.page = data ? data[0] : null
+    this.nftSettings = nftSettingsData
   },
   computed: {
     title() {
@@ -55,11 +74,25 @@ export default {
     price() {
       return '00.0000'
     },
+    nftDescription() {
+      return this.nftSettings?.nftDescription
+    },
+    shoeDescription() {
+      return this.nftSettings?.shoeDescription
+    },
+    shoeImage() {
+      return this.nftSettings?.shoeImage?.asset
+        ? this.nftSettings.shoeImage
+        : null
+    },
     shoeSize() {
       return this.page?.shoeSize
     },
     slug() {
       return this.$route.params.slug
+    },
+    video() {
+      return this.page?.video?.url ? this.page.video : null
     }
   },
   methods: {
@@ -69,3 +102,25 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+$slide-width: clamp(1px, 100%, 670px);
+.nft-video-asset,
+.shoe-asset {
+  flex-shrink: 0;
+  height: 0;
+  margin-right: 0.5rem;
+  padding-bottom: $slide-width;
+  position: relative;
+  width: $slide-width;
+  img,
+  .plyr {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.shoe-asset {
+  width: clamp(1px, 100%, 660px);
+}
+</style>

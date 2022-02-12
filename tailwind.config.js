@@ -8,6 +8,7 @@ module.exports = {
       lime: '#D7FB5C',
       'electric-green': '#01ED89',
       blue: '#4669F2',
+      'light-blue': '#EBEBEB',
       navy: '#11085A',
       black: '#010101',
       white: '#FFFFFF',
