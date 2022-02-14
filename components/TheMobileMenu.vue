@@ -47,7 +47,6 @@
             </NavLink>
 
             <div class="flex mt-10">
-              <InstagramLink />
               <TwitterLink />
               <DiscordLink />
             </div>

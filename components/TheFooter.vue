@@ -1,7 +1,7 @@
 <template>
   <footer class="footer px-1 py-4 lg:pl-7 lg:pr-8 w-full">
     <div class="footer-logo flex">
-      <NavLink aria-label="Home">
+      <NavLink url="https://www.divisionst.com" aria-label="Home">
         <Logo aria-hidden="true" />
       </NavLink>
     </div>
@@ -13,7 +13,6 @@
         v-for="(link, index) in footerLinks"
         :key="index"
         :url="link.url"
-        class="font-sans font-bold"
       >
         {{ link.label }}
       </NavLink>
