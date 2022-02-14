@@ -32,12 +32,12 @@
 
   h5,
   .heading-5 {
-    @apply font-serif text-sm tracking-tight leading-tight uppercase;
+    @apply font-serif text-sm font-normal tracking-tight leading-tight uppercase;
   }
 
   h6,
   .heading-6 {
-    @apply font-serif text-xs tracking-tight leading-tight uppercase;
+    @apply font-serif text-xs font-normal tracking-tight leading-tight uppercase;
   }
 
   body,
