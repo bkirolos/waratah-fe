@@ -13,7 +13,6 @@
         v-for="(link, index) in footerLinks"
         :key="index"
         :url="link.url"
-        class="font-sans font-bold"
       >
         {{ link.label }}
       </NavLink>

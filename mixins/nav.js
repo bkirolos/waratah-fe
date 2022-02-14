@@ -2,22 +2,7 @@ export default {
   computed: {
     footerLinks() {
       return [
-        {
-          label: 'The Flock',
-          url: '/#the-flock'
-        },
-        {
-          label: 'The Shoe',
-          url: '/#the-shoe'
-        },
-        {
-          label: 'The NFT',
-          url: '/#the-nft'
-        },
-        {
-          label: 'FAQ',
-          url: '/#faq'
-        },
+        ...this.headerLinks,
         {
           label: 'Terms & Conditions',
           url: '/terms-and-conditions'
@@ -31,16 +16,16 @@ export default {
     headerLinks() {
       return [
         {
-          label: 'The Flock',
-          url: '/#the-flock'
+          label: 'The NFT',
+          url: '/#the-nft'
         },
         {
           label: 'The Shoe',
           url: '/#the-shoe'
         },
         {
-          label: 'The NFT',
-          url: '/#the-nft'
+          label: 'The Athletes',
+          url: '/#the-athletes'
         },
         {
           label: 'The Auction',
