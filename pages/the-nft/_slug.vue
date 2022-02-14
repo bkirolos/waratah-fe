@@ -22,7 +22,7 @@
         </p>
         <p>ADD TIMER</p>
         <hr class="my-6" />
-        <h5 class="base font-bold my-2">Current Price</h5>
+        <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
         <button class="cta bg-lime text-navy w-full my-6" @click="buy">
           Buy Now
