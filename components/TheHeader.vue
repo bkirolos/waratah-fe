@@ -2,7 +2,7 @@
   <header class="header p-1 md:pl-7 md:pr-8 md:py-3">
     <nav class="header-nav">
       <div class="flex">
-        <NavLink aria-label="Home">
+        <NavLink aria-label="Home" @click.native="scrollToTop">
           <Logo aria-hidden="true" />
         </NavLink>
       </div>
@@ -35,7 +35,12 @@ export default {
   components: {
     Logo
   },
-  mixins: [nav]
+  mixins: [nav],
+  methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 }
 </script>
 
