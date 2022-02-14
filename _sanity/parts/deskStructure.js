@@ -11,5 +11,7 @@ export default () =>
       S.divider(),
       S.documentTypeListItem('nftAsset').title('NFTs'),
       S.divider(),
-      S.documentTypeListItem('faq').title('FAQs')
+      S.documentTypeListItem('faq').title('FAQs'),
+      S.divider(),
+      S.documentListItem().schemaType('nftSettings').id('nftSettings')
     ])
