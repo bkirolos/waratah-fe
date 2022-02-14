@@ -74,6 +74,7 @@ export default {
     --plyr-video-control-color: theme('colors.black');
     --plyr-video-control-color-hover: theme('colors.black');
     opacity: 1;
+    z-index: 10;
     @media (min-width: theme('screens.sm')) {
       --plyr-control-spacing: 19px;
     }
