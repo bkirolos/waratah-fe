@@ -18,7 +18,6 @@
       </div>
 
       <div class="flex justify-end">
-        <InstagramLink class="hidden lg:flex" />
         <TwitterLink class="hidden lg:flex" />
         <DiscordLink class="hidden lg:flex" />
         <!-- <ConnectWallet /> -->
