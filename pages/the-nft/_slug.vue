@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
 
@@ -63,6 +64,9 @@ export default {
     this.nftSettings = nftSettingsData
   },
   computed: {
+    ...mapGetters({
+      accounts: 'wallet/getAccounts'
+    }),
     title() {
       return this.page?.tokenId.current
         ? `Ducks of a Feather ${this.page?.tokenId.current}`
@@ -97,7 +101,7 @@ export default {
   },
   methods: {
     buy() {
-      this.console('Buying')
+      console.log('Buying for', this.accounts)
     }
   }
 }
