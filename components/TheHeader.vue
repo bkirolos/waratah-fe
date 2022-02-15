@@ -2,7 +2,7 @@
   <header class="header p-1 md:pl-7 md:pr-8 md:py-3">
     <nav class="header-nav">
       <div class="flex">
-        <NavLink aria-label="Home">
+        <NavLink aria-label="Home" @click.native="scrollToTop">
           <Logo aria-hidden="true" />
         </NavLink>
       </div>
@@ -20,7 +20,7 @@
       <div class="flex justify-end">
         <TwitterLink class="hidden lg:flex" />
         <DiscordLink class="hidden lg:flex" />
-        <ConnectWallet />
+        <ConnectWallet v-if="nftGoLive" />
         <TheMobileMenu class="flex lg:hidden" />
       </div>
     </nav>
@@ -35,7 +35,18 @@ export default {
   components: {
     Logo
   },
-  mixins: [nav]
+  mixins: [nav],
+  computed: {
+    nftGoLive() {
+      console.log(this.$config)
+      return this.$config.nftGoLive === 'y'
+    }
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 }
 </script>
 

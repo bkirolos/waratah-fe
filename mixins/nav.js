@@ -1,18 +1,31 @@
 export default {
   computed: {
+    footerLinks() {
+      return [
+        ...this.headerLinks,
+        {
+          label: 'Terms & Conditions',
+          url: '/terms-and-conditions'
+        },
+        {
+          label: 'Privacy Policy',
+          url: '/privacy-policy'
+        }
+      ]
+    },
     headerLinks() {
       return [
         {
-          label: 'The Athletes',
-          url: '/#the-athletes'
+          label: 'The NFT',
+          url: '/#the-nft'
         },
         {
           label: 'The Shoe',
           url: '/#the-shoe'
         },
         {
-          label: 'The NFT',
-          url: '/#the-nft'
+          label: 'The Athletes',
+          url: '/#the-athletes'
         },
         {
           label: 'The Auction',

@@ -5,5 +5,14 @@
       <Nuxt />
     </main>
     <TheFooter />
+    <PreviewModeBanner />
   </div>
 </template>
+
+<script>
+import beanAscii from '@/mixins/beanAscii'
+
+export default {
+  mixins: [beanAscii]
+}
+</script>

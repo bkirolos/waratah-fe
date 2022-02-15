@@ -22,6 +22,11 @@ export default {
       type: 'portableTextSuite',
       name: 'copy',
       title: 'Copy'
+    },
+    {
+      type: 'metaInfo',
+      name: 'metaInfo',
+      title: 'Meta Info'
     }
   ],
   preview: {
