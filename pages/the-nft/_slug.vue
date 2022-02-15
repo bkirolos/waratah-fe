@@ -65,7 +65,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accounts: 'wallet/getAccounts'
+      accounts: 'wallet/getAccounts',
+      price: 'wallet/getPrice'
     }),
     title() {
       return this.page?.tokenId.current
@@ -74,9 +75,6 @@ export default {
     },
     image() {
       return this.page?.image?.asset ? this.page.image : null
-    },
-    price() {
-      return '00.0000'
     },
     nftDescription() {
       return this.nftSettings?.nftDescription

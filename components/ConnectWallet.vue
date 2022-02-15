@@ -28,7 +28,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accounts: 'wallet/getAccounts'
+      accounts: 'wallet/getAccounts',
+      network: 'wallet/getNetwork',
+      price: 'wallet/getPrice'
     }),
     connectText() {
       return this.accounts ? 'Connected' : 'Connect Wallet'
@@ -50,47 +52,54 @@ export default {
   methods: {
     ...mapActions({
       clearAccounts: 'wallet/clearAccounts',
-      initializeAccounts: 'wallet/initializeAccounts'
+      initializeAccounts: 'wallet/initializeAccounts',
+      updateCurrentNetwork: 'wallet/updateCurrentNetwork',
+      updateCurrentPrice: 'wallet/updateCurrentPrice'
     }),
     async connectWithPlugin() {
       try {
         const instance = await this.$web3Modal.connect()
-        const provider = new ethers.providers.Web3Provider(instance)
+        const provider = new ethers.providers.Web3Provider(instance, 'any')
         const accounts = await provider.listAccounts()
 
         const network = await provider.getNetwork()
 
-        // This could change at any time; we can hook into it with events
-        // TODO: create event subscription and use env var
-        if (network.name !== 'rinkeby') {
-          alert(`Wrong network! You are connected to ${network.name}`)
-        }
+        this.updateCurrentNetwork(network)
 
+        instance.on('chainChanged', async n => {
+          const network = await provider.getNetwork()
+          this.updateCurrentNetwork(network)
+        })
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
 
         const signer = await provider.getSigner()
 
-        // TODO: use actual env vars here
-        // const contractAddress = Token.address[process.env.ETHEREUM_NETWORK_NAME]
-        // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
-        const contractAddress = Token.address.rinkeby
-        const contractAbi = Token.abi.rinkeby
-        const contract = new ethers.Contract(
-          contractAddress,
-          contractAbi,
-          signer
-        )
+        if (this.network.name === 'rinkeby') {
+          // TODO: use actual env vars here
+          // const contractAddress =
+          //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
+          // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
+          const contractAddress = Token.address.rinkeby
+          const contractAbi = Token.abi.rinkeby
+          const contract = new ethers.Contract(
+            contractAddress,
+            contractAbi,
+            signer
+          )
 
-        // in wei
-        const currentPrice = await contract.getPrice()
-        console.log('current price:', ethers.utils.formatEther(currentPrice))
+          // // in wei
+          const currentPriceWei = await contract.getPrice()
+          const currentPrice = ethers.utils.formatEther(currentPriceWei)
+          this.updateCurrentPrice(currentPrice)
+          console.log(this.price, 'from store')
 
-        const firstMintedDuckTokenId = await contract.tokenByIndex(0)
-        const firstMintedDuckIPFSUrl = await contract.tokenURI(
-          firstMintedDuckTokenId
-        )
-        console.log(firstMintedDuckIPFSUrl)
+          const firstMintedDuckTokenId = await contract.tokenByIndex(0)
+          const firstMintedDuckIPFSUrl = await contract.tokenURI(
+            firstMintedDuckTokenId
+          )
+          console.log(firstMintedDuckIPFSUrl)
+        }
       } catch (e) {
         console.log(e)
       }
