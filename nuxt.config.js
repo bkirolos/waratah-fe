@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'waratah-nuxt',
+    title: 'Ducks of a Feather',
     htmlAttrs: {
       lang: 'en'
     },
@@ -28,6 +28,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/preview', mode: 'client' },
     { src: '~/plugins/vue-observe-visibility' },
     { src: '~/plugins/vue-plyr', mode: 'client' },
     { src: '~/plugins/web-3-modal', mode: 'client' }
@@ -73,6 +74,7 @@ export default {
   modules: [],
   publicRuntimeConfig: {
     ethereumNetwork: process.env.ETHEREUM_NETWORK,
+    nftGoLive: process.env.NFT_GO_LIVE,
     infuraId: process.env.INFURA_ID
   },
 
@@ -87,5 +89,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['web3modal-vue']
+  },
+
+  generate: {
+    fallback: true
   }
 }

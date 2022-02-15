@@ -10,34 +10,42 @@
 }
 
 @layer base {
+  .heading-display {
+    @apply font-display font-bold tracking-tight leading-negative uppercase;
+  }
+
+  .heading-serif {
+    @apply font-serif font-normal tracking-wide leading-tight uppercase;
+  }
+
   h1,
   .heading-1 {
-    @apply font-display text-xl md:text-xxl font-bold leading-negative uppercase;
+    @apply heading-display text-xl md:text-xxl;
   }
 
   h2,
   .heading-2 {
-    @apply font-display text-md md:text-xl font-bold leading-none uppercase;
+    @apply heading-display text-md md:text-xl;
   }
 
   h3,
   .heading-3 {
-    @apply font-display text-md md:text-lg font-bold leading-none uppercase;
+    @apply heading-display text-md md:text-lg;
   }
 
   h4,
   .heading-4 {
-    @apply font-display text-base md:text-md font-bold leading-none uppercase;
+    @apply heading-display text-base md:text-md;
   }
 
   h5,
   .heading-5 {
-    @apply font-serif text-sm tracking-tight leading-tight uppercase;
+    @apply heading-serif text-sm;
   }
 
   h6,
   .heading-6 {
-    @apply font-serif text-xs tracking-tight leading-tight uppercase;
+    @apply heading-serif text-xs;
   }
 
   body,
@@ -69,7 +77,7 @@
   }
 
   .input-label {
-    @apply font-sans text-base leading-normal mb-4 normal-case;
+    @apply font-sans text-base tracking-normal leading-normal mb-4 normal-case;
     @media (min-width: theme('screens.md')) {
       font-size: 1.5rem;
     }

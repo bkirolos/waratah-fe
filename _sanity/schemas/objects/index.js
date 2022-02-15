@@ -6,6 +6,7 @@ import faqSection from './faqSection'
 import hero from './hero'
 import imagePlus from './imagePlus'
 import link from './link'
+import metaInfo from './metaInfo'
 import portableTextLite from './portableTextLite'
 import portableTextSuite from './portableTextSuite'
 import video from './video'
@@ -19,6 +20,7 @@ export default [
   hero,
   imagePlus,
   link,
+  metaInfo,
   portableTextLite,
   portableTextSuite,
   video

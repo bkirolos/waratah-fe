@@ -2,7 +2,7 @@
   <section :class="[bgColor, textColor, 'py-14']">
     <div class="grid grid-cols-12 md:gap-x-12 px-4 md:px-10">
       <h2
-        class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-5 mb-12 md:mb-16"
+        class="col-span-full md:col-start-2 md:col-span-10 mb-12 md:mb-16 max-w-xl"
       >
         {{ heading }}
       </h2>
@@ -27,7 +27,7 @@ export default {
   props: {
     section: {
       type: Object,
-      required: true
+      default: null
     }
   },
   computed: {

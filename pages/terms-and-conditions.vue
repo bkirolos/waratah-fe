@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-12 content-start px-4 md:px-10 py-24 w-full">
+  <section class="grid grid-cols-12 content-start px-4 md:px-10 py-14 w-full">
     <div class="col-span-full md:col-start-2 md:col-span-10">
       <h1 class="heading-2 mb-10 md:mb-16">
         {{ heading }}
@@ -11,8 +11,10 @@
 
 <script>
 import termsPage from '@/groq/termsPage'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       page: null
@@ -31,11 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.terms-content {
-  p {
-    color: theme('colors.stroke-gray');
-  }
-}
-</style>

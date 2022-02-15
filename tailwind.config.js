@@ -30,13 +30,22 @@ module.exports = {
       xl: '96px',
       xxl: '168px'
     },
+    letterSpacing: {
+      normal: '0em',
+      tight: '-0.041666666666667em',
+      wide: '0.02em'
+    },
     lineHeight: {
       negative: '0.84',
       none: '1',
       tight: '1.1',
       normal: '1.5'
     },
-    extend: {}
+    extend: {
+      maxWidth: {
+        heading: '22rem'
+      }
+    }
   },
   variants: {
     extend: {}
