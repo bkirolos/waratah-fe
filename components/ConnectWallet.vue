@@ -20,6 +20,7 @@
 <script>
 import { ethers } from 'ethers'
 import { mapActions, mapGetters } from 'vuex'
+import { Token } from '../contracts/token'
 
 export default {
   data() {
@@ -59,15 +60,37 @@ export default {
 
         const network = await provider.getNetwork()
 
-        if (network.name !== 'homestead') {
+        // This could change at any time; we can hook into it with events
+        // TODO: create event subscription and use env var
+        if (network.name !== 'rinkeby') {
           alert(`Wrong network! You are connected to ${network.name}`)
         }
 
-        const signer = await provider.getSigner()
-        console.log('signer', signer)
-
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
+
+        const signer = await provider.getSigner()
+
+        // TODO: use actual env vars here
+        // const contractAddress = Token.address[process.env.ETHEREUM_NETWORK_NAME]
+        // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
+        const contractAddress = Token.address.rinkeby
+        const contractAbi = Token.abi.rinkeby
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractAbi,
+          signer
+        )
+
+        // in wei
+        const currentPrice = await contract.getPrice()
+        console.log('current price:', ethers.utils.formatEther(currentPrice))
+
+        const firstMintedDuckTokenId = await contract.tokenByIndex(0)
+        const firstMintedDuckIPFSUrl = await contract.tokenURI(
+          firstMintedDuckTokenId
+        )
+        console.log(firstMintedDuckIPFSUrl)
       } catch (e) {
         console.log(e)
       }
