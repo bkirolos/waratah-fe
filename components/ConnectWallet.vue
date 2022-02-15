@@ -57,6 +57,15 @@ export default {
         const provider = new ethers.providers.Web3Provider(instance)
         const accounts = await provider.listAccounts()
 
+        const network = await provider.getNetwork()
+
+        if (network.name !== 'homestead') {
+          alert(`Wrong network! You are connected to ${network.name}`)
+        }
+
+        const signer = await provider.getSigner()
+        console.log('signer', signer)
+
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
       } catch (e) {
