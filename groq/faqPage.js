@@ -1,4 +1,5 @@
 import { groq } from '@nuxtjs/sanity'
+import { metaInfo } from '@/groq/abstractions'
 
 export default groq`
   *[_type == "faqPage"] | order(_updatedAt desc) [0] {
@@ -8,6 +9,7 @@ export default groq`
       answer,
       question
     },
-    heading
+    heading,
+    ${metaInfo}
   }
 `

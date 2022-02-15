@@ -1,5 +1,5 @@
 <template>
-  <NavLink url="https://twitter.com" round aria-label="Twitter">
+  <NavLink url="https://twitter.com/ducksofafeather" round aria-label="Twitter">
     <TwitterIcon aria-hidden="true" />
   </NavLink>
 </template>

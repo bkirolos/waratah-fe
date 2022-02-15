@@ -2,8 +2,8 @@ import { Page } from '../../lib/icons'
 
 export default {
   type: 'document',
-  name: 'homePage',
-  title: 'Home Page',
+  name: 'privacyPage',
+  title: 'Privacy Policy Page',
   icon: Page,
   fields: [
     {
@@ -14,25 +14,14 @@ export default {
       readOnly: true
     },
     {
-      type: 'hero',
-      name: 'hero',
-      title: 'Hero'
+      type: 'string',
+      name: 'heading',
+      title: 'Heading'
     },
     {
-      type: 'array',
-      name: 'sections',
-      title: 'Sections',
-      of: [{ type: 'carouselSection' }]
-    },
-    {
-      type: 'emailCaptureSection',
-      name: 'emailCaptureSection',
-      title: 'Email Capture Section'
-    },
-    {
-      type: 'faqSection',
-      name: 'faqSection',
-      title: 'FAQ Section'
+      type: 'portableTextSuite',
+      name: 'copy',
+      title: 'Copy'
     },
     {
       type: 'metaInfo',

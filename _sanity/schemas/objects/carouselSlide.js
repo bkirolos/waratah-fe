@@ -36,9 +36,9 @@ export default {
       initialValue: 'medium',
       options: {
         list: [
-          { title: 'Thin', value: 'thin' },
-          { title: 'Medium', value: 'medium' },
-          { title: 'Wide', value: 'wide' }
+          { title: 'Thin - 5:9', value: 'thin' },
+          { title: 'Medium - 9:9', value: 'medium' },
+          { title: 'Wide - 16:9', value: 'wide' }
         ],
         layout: 'radio',
         direction: 'horizontal'

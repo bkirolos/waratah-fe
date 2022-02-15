@@ -17,7 +17,7 @@ export default {
   props: {
     video: {
       type: Object,
-      required: true
+      default: null
     }
   },
   data() {

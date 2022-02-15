@@ -1,5 +1,5 @@
 <template>
-  <NavLink url="https://discord.com" round aria-label="Discord">
+  <NavLink url="https://discord.gg/DzJHVXJM" round aria-label="Discord">
     <DiscordIcon aria-hidden="true" />
   </NavLink>
 </template>

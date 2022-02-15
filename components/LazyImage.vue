@@ -19,7 +19,7 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true
+      default: null
     }
   },
   computed: {
