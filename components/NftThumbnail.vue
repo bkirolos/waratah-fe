@@ -1,6 +1,8 @@
 <template>
-  <article class="nft-item text-navy">
-    <LazyImage v-if="image" class="w-full" :image="image" />
+  <article class="nft-item text-navy center">
+    <div class="nft-thumbail">
+      <LazyImage v-if="image" :image="image" />
+    </div>
     <h5>{{ title }}</h5>
     <p>Shoe Size {{ shoeSize }}</p>
     <nuxt-link :to="`${slug}`">View Details</nuxt-link>
@@ -34,3 +36,21 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+$asset-width: clamp(1px, 100%, 260px);
+.nft-thumbnail{
+  flex-shrink: 0;
+  height: 0;
+  margin-right: 0.5rem;
+  padding-bottom: $asset-width;
+  position: relative;
+  width: $asset-width;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+</style>

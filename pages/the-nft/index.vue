@@ -1,24 +1,23 @@
 <template>
-  <div class="bg-white">
-    <div class="grid grid-cols-12 bg-navy min-h-300 py-20 px-10">
-      <div class="row-1 md:col-span-5">
-        <h1 class="heading-2">Ducks are Flying</h1>
-        <p>
-          Get one of 120 NFTs created by Tinker Hatfield benefitting Universty
-          of Oregon Duck Athletes. Each NFT comes with a physical pair of Nike
-          Air Max 1 sneakers designed by Tinker himself. Click here for offical
-          rules.
+  <section class="grid grid-cols-1">
+    <div class="grid row-1 grid-cols-12 bg-navy py-20">
+      <div class="col-span-12 md:col-span-5">
+        <h1 class="heading-2">{{this.heading}}</h1>
+        <p class="body">
+          {{ description }}
         </p>
       </div>
-      <div class="row-1 md:col-span-7">
-        <p>Sale Ends when it ends</p>
-        <p>Add a countdown clock</p>
-        <hr />
-        <h5>Current Price</h5>
-        <p class="heading-4">{{ price }} ETH</p>
+      <div class="col-span-12 md:col-span-7">
+         <p class="base font-bold my-4">
+          Sale ends Feburary 24th at 11:45pm PST at 1ETH
+        </p>
+        <p>ADD TIMER</p>
+        <hr class="my-6" />
+        <h2 class="heading-5 base font-bold my-2">Current Price</h2>
+        <p class="heading-4 font-serif">{{ price }} ETH</p>
       </div>
     </div>
-    <div class="grid px-4 py-20 grid-cols-5 gap-5">
+    <div class="grid bg-white row-start-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-4 py-20 gap-5">
       <NftThumbnail
         v-for="item in nftList"
         :key="item._id"
@@ -26,7 +25,7 @@
         :nft="item"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -41,6 +40,14 @@ export default {
   async fetch() {
     const data = await this.$sanity.fetch(allNfts)
     this.nftList = data
+  },
+  computed: {
+    heading() {
+      return 'Ducks are Flying'
+    },
+    description() {
+      return "Get one of 120 NFTs created by Tinker Hatfield benefitting Universty of Oregon Duck Athletes. Each NFT comes with a physical pair of Nik Air Max 1 sneakers designed by Tinker himself. Click here for offical rules."
+    }
   }
 }
 </script>
