@@ -25,14 +25,14 @@ export default {
       updateConnectionStatus: 'web3/updateConnectionStatus',
       updateCurrentPrice: 'web3/updateCurrentPrice'
     }),
-    async connectWithPlugin() {
+    async connectWallet() {
       this.updateConnectionStatus('disconnected')
       try {
         const instance = await this.$web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(instance, 'any')
         const accounts = await provider.listAccounts()
 
-        const network = await provider.getNetwork()
+        // const network = await provider.getNetwork()
 
         instance.on('chainChanged', n => {
           this.updateConnectionStatus('disconnected')
@@ -43,65 +43,79 @@ export default {
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
 
-        const signer = await provider.getSigner()
-        if (network.name === 'rinkeby') {
-          // TODO: use actual env vars here
-          // const contractAddress =
-          //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
-          // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
-          const contractAddress = Token.address.rinkeby
-          const contractAbi = Token.abi.rinkeby
-          const contract = new ethers.Contract(
-            contractAddress,
-            contractAbi,
-            signer
-          )
-
-          this.contract = contract
-
-          // // in wei
-          const currentPriceWei = await contract.getPrice()
-          const currentPrice = ethers.utils.formatEther(currentPriceWei)
-          this.updateCurrentPrice(currentPrice)
-          console.log(this.price, 'from store')
-
-          const firstMintedDuckTokenId = await contract.tokenByIndex(0)
-          const firstMintedDuckIPFSUrl = await contract.tokenURI(
-            firstMintedDuckTokenId
-          )
-          console.log(firstMintedDuckIPFSUrl)
-
-          this.updateConnectionStatus('wallet')
-        }
+        this.updateConnectionStatus('wallet')
       } catch (e) {
         console.log(e)
+        await this.connectWithInfura()
       }
     },
+    async connectWithInfura() {
+      // TODO: set up with env vars
+      const infura = new ethers.providers.InfuraProvider('rinkeby')
+      await this.connectToContract(infura)
+      console.log('connect to infura')
+      this.updateConnectionStatus('infura')
+    },
+
+    async connectToContract(providerOrSigner) {
+      // TODO: use actual env vars here
+      // const contractAddress =
+      //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
+      // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
+
+      const contractAddress = Token.address.rinkeby
+      const contractAbi = Token.abi.rinkeby
+      const contract = await new ethers.Contract(
+        contractAddress,
+        contractAbi,
+        providerOrSigner
+      )
+
+      const currentPriceWei = await contract.getPrice()
+      const currentPrice = ethers.utils.formatEther(currentPriceWei)
+      this.updateCurrentPrice(currentPrice)
+      console.log(this.price, 'from store')
+
+      const firstMintedDuckTokenId = await contract.tokenByIndex(0)
+      const firstMintedDuckIPFSUrl = await contract.tokenURI(
+        firstMintedDuckTokenId
+      )
+      console.log(firstMintedDuckIPFSUrl)
+
+      this.contract = contract
+    },
     async checkConnection() {
-      try {
-        const accounts = await window.ethereum.request({
-          method: 'eth_accounts'
-        })
-        if (accounts) {
-          this.connectWithPlugin()
+      console.log('checking connection')
+
+      if (this.$web3Modal.cachedProvider) {
+        try {
+          if (this.$web3Modal.cachedProvider === 'injected') {
+            const accounts = await window.ethereum.request({
+              method: 'eth_accounts'
+            })
+            if (!accounts.length) {
+              console.log('Having trouble re-connecting to Metamask')
+              // TODO: handle this edge case
+            }
+
+            this.updateConnectionStatus('pending')
+            await this.connectWallet()
+          }
+        } catch (e) {
+          console.error(e)
+          await this.connectWithInfura()
         }
-      } catch (e) {
-        console.error(e)
+      } else {
+        await this.connectWithInfura()
       }
     },
     async mintDuck() {
-      // honestly if the wallet is disconnected, the button should be disabled anyway but if somehow this is called:
-      // if (!connectedToWallet) {
-      // maybe display error
-      // return
-      // }
+      if (this.connectionStatus !== 'wallet') {
+        return
+      }
 
-      console.log(this.accounts)
-      console.log(this.contract)
       const weiPrice = await this.contract.getPrice()
-      console.log('weiPrice', weiPrice)
       const ethPrice = ethers.utils.formatEther(weiPrice)
-      console.log('ethprice', ethPrice)
       const activeTx = await this.contract.buy(this.accounts[0], 2, {
         value: ethers.utils.parseEther(ethPrice.toString())
       })

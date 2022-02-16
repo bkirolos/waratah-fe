@@ -116,12 +116,8 @@ export default {
   mounted() {
     // if this person has already connected to waratah, check for existing connection
     // and try to connect if we can
-    if (
-      this.$web3Modal.cachedProvider &&
-      this.$web3Modal.cachedProvider === 'injected'
-    ) {
-      this.checkConnection()
-    }
+
+    this.checkConnection()
   },
   methods: {
     buy() {

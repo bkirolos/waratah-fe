@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <button class="hover-transition p-2" @click="connectWithPlugin">
+    <button class="hover-transition p-2" @click="connectWallet">
       <span class="cta flex items-center h-10 leading-none px-5 py-0">
         {{ connectText }}
       </span>
