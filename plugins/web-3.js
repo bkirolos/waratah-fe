@@ -27,9 +27,16 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     contract: null,
     price: null,
     connectionStatus: 'disconnected',
+    ownedTokens: [],
 
-    test() {
-      console.log('8=====D')
+    async getAllOwnedTokens() {
+      try {
+        const tokenIds = await this.contract.getAllTokens()
+        console.log('tokenIds', tokenIds)
+        this.ownedTokens = tokenIds
+      } catch (e) {
+        console.error(e)
+      }
     },
     async connectWallet() {
       this.connectionStatus = 'disconnected'
@@ -89,12 +96,15 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       this.provider.on('block', async () => {
         const price = await contract.getPrice()
         this.price = price
+
+        await this.getAllOwnedTokens()
         console.log('new price just dropped!!!!!', this.formatPrice(price))
       })
 
       this.contract = contract
     },
     formatPrice(weiPrice) {
+      if (!weiPrice) return
       return ethers.utils.formatEther(weiPrice)
     },
     clearConnection() {
@@ -127,7 +137,16 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         console.error(e)
       }
     },
-
+    async getTokenOwner(tokenId) {
+      try {
+        const ownerOfDuck = await this.$web3.contract.ownerOf(tokenId)
+        console.log('ownerOf', ownerOfDuck)
+        console.log('yours!', this.$web3.accounts[0].address === ownerOfDuck)
+        return ownerOfDuck
+      } catch (e) {
+        console.error(e)
+      }
+    },
     async init() {
       if (web3.web3Modal.cachedProvider) {
         try {

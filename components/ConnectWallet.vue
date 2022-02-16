@@ -19,9 +19,6 @@
 
 <script>
 export default {
-  mounted() {
-    this.$web3?.test()
-  },
   computed: {
     isConnected() {
       return this.$web3?.accounts
