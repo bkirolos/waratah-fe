@@ -7,10 +7,12 @@ export default function resolveDocumentActions(props) {
   const singletons = [
     'faqPage',
     'homePage',
+    'nftSettings',
     'privacyPage',
     'siteSettings',
     'termsPage'
   ]
+
   if (singletons.includes(props.type)) {
     return [PublishAction, DiscardChangesAction]
   } else {
