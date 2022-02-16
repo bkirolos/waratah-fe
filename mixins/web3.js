@@ -10,9 +10,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accounts: 'wallet/getAccounts',
-      network: 'wallet/getNetwork',
-      price: 'wallet/getPrice'
+      accounts: 'web3/getAccounts',
+      network: 'web3/getNetwork',
+      price: 'web3/getPrice'
     }),
     isConnected() {
       return this.accounts
@@ -20,10 +20,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      clearAccounts: 'wallet/clearAccounts',
-      initializeAccounts: 'wallet/initializeAccounts',
-      updateCurrentNetwork: 'wallet/updateCurrentNetwork',
-      updateCurrentPrice: 'wallet/updateCurrentPrice'
+      clearAccounts: 'web3/clearAccounts',
+      initializeAccounts: 'web3/initializeAccounts',
+      updateCurrentNetwork: 'web3/updateCurrentNetwork',
+      updateCurrentPrice: 'web3/updateCurrentPrice'
     }),
     async connectWithPlugin() {
       try {

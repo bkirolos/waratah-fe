@@ -68,8 +68,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accounts: 'wallet/getAccounts',
-      price: 'wallet/getPrice'
+      accounts: 'web3/getAccounts',
+      price: 'web3/getPrice'
     }),
     title() {
       return this.page?.tokenId.current
