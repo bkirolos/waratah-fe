@@ -29,7 +29,7 @@ export default {
       return this.nft?.title
     },
     tokenId() {
-      return this.nft?._id
+      return this.nft?.tokenId
     }
   }
 }

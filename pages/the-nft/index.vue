@@ -21,7 +21,7 @@
     <div class="grid px-4 py-20 grid-cols-5 gap-5">
       <NftThumbnail
         v-for="nft in nfts"
-        :key="nft._id"
+        :key="nft.tokenId"
         class="col-span-1"
         :nft="nft"
       />
@@ -40,7 +40,7 @@ export default {
   },
   async fetch() {
     const nfts = await this.$sanity.fetch(allNfts)
-    this.nfts = nfts.sort((a, b) => a._id - b._id)
+    this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
   }
 }
 </script>
