@@ -1,4 +1,4 @@
-id,imageAssetName,name,shoeSize,videoUrl,stripes,backgroundColor
+id,imageAssetName,title,shoeSize,videoUrl,stripes,backgroundColor
 0,DOAF_FF_000.png,Ducks of a Feather #1,6,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_000.mp4,Y,DARK GREEN
 1,DOAF_FF_001.png,Ducks of a Feather #2,6.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_001.mp4,N,PINK
 2,DOAF_FF_002.png,Ducks of a Feather #3,7,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_002.mp4,Y,BRIGHT ORANGE

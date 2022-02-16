@@ -5,8 +5,8 @@ export default {
   fields: [
     {
       type: 'string',
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       readOnly: true
     },
     {
@@ -43,12 +43,12 @@ export default {
   preview: {
     select: {
       image: 'image',
-      name: 'name'
+      title: 'title'
     },
     prepare(selection) {
-      const { image, name } = selection
+      const { image, title } = selection
       return {
-        title: name,
+        title,
         media: image
       }
     }

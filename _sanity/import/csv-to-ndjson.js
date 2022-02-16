@@ -26,9 +26,9 @@ csv()
             : 'a'
         } ${nft.backgroundColor.toLowerCase()} background`
       },
-      name: nft.name,
       shoeSize: nft.shoeSize,
       stripes: nft.stripes === 'Y',
+      title: nft.title,
       video: {
         _type: 'video',
         url: nft.videoUrl
