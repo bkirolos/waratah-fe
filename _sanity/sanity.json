@@ -44,6 +44,10 @@
       "path": "./parts/resolveDocumentActions"
     },
     {
+      "name": "part:@sanity/base/new-document-structure",
+      "path": "./parts/newDocumentStructure"
+    },
+    {
       "implements": "part:@sanity/base/brand-logo",
       "path": "./parts/brandLogo"
     }
