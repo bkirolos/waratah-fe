@@ -4,7 +4,7 @@
       class="grid grid-cols-12 bg-light-blue bg-opacity-20 py-20 row-start-1 row-span-1"
     >
       <div class="nft-video-asset col-start-4 col-span-6">
-        <VideoPlayer v-if="video" :video="video" />
+        <VideoPlayer v-if="video" :video="video" autoplay loop />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
