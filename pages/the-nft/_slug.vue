@@ -84,17 +84,14 @@ export default {
     },
     nftTitle() {
       return this.tokenId
-        ? `Ducks of a Feather ${this.page?.tokenId.current}`
+        ? `Ducks of a Feather ${this.tokenId}`
         : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
     },
-    nftDescription() {
-      return this.nftSettings?.nftDescription
-    },
     price() {
-      return Number(this.$web3?.formatPrice(this.$web3?.price)) || '-'
+      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription
@@ -111,7 +108,7 @@ export default {
       return this.nft?.title
     },
     tokenId() {
-      return parseInt(this.nft.tokenId)
+      return parseInt(this.nft?.tokenId) || null
     },
     video() {
       return this.nft?.video?.url ? this.nft.video : null

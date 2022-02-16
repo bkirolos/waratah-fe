@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     price() {
-      return Number(this.$web3.price) || '-'
+      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     }
   },
   async fetch() {
