@@ -35,7 +35,7 @@ export default {
       return this.$refs.plyr.player
     },
     poster() {
-      return this.urlFor(this.video?.poster)
+      return this.video?.poster && this.urlFor(this.video.poster)
     },
     url() {
       return this.video?.url
