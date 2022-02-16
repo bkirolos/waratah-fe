@@ -1,0 +1,121 @@
+id,imageAssetName,title,shoeSize,videoUrl,stripes,backgroundColor
+1,DOAF_FF_000.png,Ducks of a Feather #1,6,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_000.mp4,Y,DARK GREEN
+2,DOAF_FF_001.png,Ducks of a Feather #2,6.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_001.mp4,N,PINK
+3,DOAF_FF_002.png,Ducks of a Feather #3,7,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_002.mp4,Y,BRIGHT ORANGE
+4,DOAF_FF_003.png,Ducks of a Feather #4,7,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_003.mp4,N,LIGHT GREY
+5,DOAF_FF_004.png,Ducks of a Feather #5,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_004.mp4,Y,YELLOW
+6,DOAF_FF_005.png,Ducks of a Feather #6,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_005.mp4,N,MAROON
+7,DOAF_FF_006.png,Ducks of a Feather #7,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_006.mp4,N,ARTICHOKE GREEN
+8,DOAF_FF_007.png,Ducks of a Feather #8,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_007.mp4,N,BROWN
+9,DOAF_FF_008.png,Ducks of a Feather #9,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_008.mp4,N,PURPLE
+10,DOAF_FF_009.png,Ducks of a Feather #10,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_009.mp4,N,LIGHT GREY
+11,DOAF_FF_010.png,Ducks of a Feather #11,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_010.mp4,N,SKY BLUE
+12,DOAF_FF_011.png,Ducks of a Feather #12,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_011.mp4,N,DARK GREY
+13,DOAF_FF_012.png,Ducks of a Feather #13,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_012.mp4,N,ARTICHOKE GREEN
+14,DOAF_FF_013.png,Ducks of a Feather #14,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_013.mp4,Y,BRIGHT ORANGE
+15,DOAF_FF_014.png,Ducks of a Feather #15,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_014.mp4,N,MAROON
+16,DOAF_FF_015.png,Ducks of a Feather #16,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_015.mp4,N,FLAME ORANGE
+17,DOAF_FF_016.png,Ducks of a Feather #17,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_016.mp4,N,LIGHT GREY
+18,DOAF_FF_017.png,Ducks of a Feather #18,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_017.mp4,N,MINT GREEN
+19,DOAF_FF_018.png,Ducks of a Feather #19,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_018.mp4,N,PURPLE
+20,DOAF_FF_019.png,Ducks of a Feather #20,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_019.mp4,N,PINK
+21,DOAF_FF_020.png,Ducks of a Feather #21,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_020.mp4,N,DARK GREY
+22,DOAF_FF_021.png,Ducks of a Feather #22,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_021.mp4,N,SKY BLUE
+23,DOAF_FF_022.png,Ducks of a Feather #23,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_022.mp4,N,ARTICHOKE GREEN
+24,DOAF_FF_023.png,Ducks of a Feather #24,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_023.mp4,Y,BLACK
+25,DOAF_FF_024.png,Ducks of a Feather #25,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_024.mp4,N,MAROON
+26,DOAF_FF_025.png,Ducks of a Feather #26,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_025.mp4,Y,BRIGHT ORANGE
+27,DOAF_FF_026.png,Ducks of a Feather #27,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_026.mp4,N,DARK GREY
+28,DOAF_FF_027.png,Ducks of a Feather #28,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_027.mp4,N,PURPLE
+29,DOAF_FF_028.png,Ducks of a Feather #29,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_028.mp4,N,MINT GREEN
+30,DOAF_FF_029.png,Ducks of a Feather #30,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_029.mp4,N,LIGHT GREY
+31,DOAF_FF_030.png,Ducks of a Feather #31,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_030.mp4,N,BROWN
+32,DOAF_FF_031.png,Ducks of a Feather #32,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_031.mp4,N,SKY BLUE
+33,DOAF_FF_032.png,Ducks of a Feather #33,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_032.mp4,Y,YELLOW
+34,DOAF_FF_033.png,Ducks of a Feather #34,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_033.mp4,N,PINK
+35,DOAF_FF_034.png,Ducks of a Feather #35,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_034.mp4,N,ARTICHOKE GREEN
+36,DOAF_FF_035.png,Ducks of a Feather #36,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_035.mp4,N,MINT GREEN
+37,DOAF_FF_036.png,Ducks of a Feather #37,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_036.mp4,N,DARK GREY
+38,DOAF_FF_037.png,Ducks of a Feather #38,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_037.mp4,N,LIGHT GREY
+39,DOAF_FF_038.png,Ducks of a Feather #39,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_038.mp4,Y,BRIGHT ORANGE
+40,DOAF_FF_039.png,Ducks of a Feather #40,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_039.mp4,N,MAROON
+41,DOAF_FF_040.png,Ducks of a Feather #41,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_040.mp4,N,PURPLE
+42,DOAF_FF_041.png,Ducks of a Feather #42,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_041.mp4,N,BROWN
+43,DOAF_FF_042.png,Ducks of a Feather #43,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_042.mp4,N,DARK GREY
+44,DOAF_FF_043.png,Ducks of a Feather #44,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_043.mp4,N,PINK
+45,DOAF_FF_044.png,Ducks of a Feather #45,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_044.mp4,N,MINT GREEN
+46,DOAF_FF_045.png,Ducks of a Feather #46,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_045.mp4,N,PURPLE
+47,DOAF_FF_046.png,Ducks of a Feather #47,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_046.mp4,Y,DARK GREEN
+48,DOAF_FF_047.png,Ducks of a Feather #48,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_047.mp4,N,SKY BLUE
+49,DOAF_FF_048.png,Ducks of a Feather #49,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_048.mp4,N,MAROON
+50,DOAF_FF_049.png,Ducks of a Feather #50,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_049.mp4,Y,BRIGHT ORANGE
+51,DOAF_FF_050.png,Ducks of a Feather #51,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_050.mp4,N,PINK
+52,DOAF_FF_051.png,Ducks of a Feather #52,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_051.mp4,N,LIGHT GREY
+53,DOAF_FF_052.png,Ducks of a Feather #53,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_052.mp4,N,ARTICHOKE GREEN
+54,DOAF_FF_053.png,Ducks of a Feather #54,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_053.mp4,Y,YELLOW
+55,DOAF_FF_054.png,Ducks of a Feather #55,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_054.mp4,N,FLAME ORANGE
+56,DOAF_FF_055.png,Ducks of a Feather #56,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_055.mp4,N,SKY BLUE
+57,DOAF_FF_056.png,Ducks of a Feather #57,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_056.mp4,N,PURPLE
+58,DOAF_FF_057.png,Ducks of a Feather #58,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_057.mp4,Y,BRIGHT ORANGE
+59,DOAF_FF_058.png,Ducks of a Feather #59,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_058.mp4,N,PINK
+60,DOAF_FF_059.png,Ducks of a Feather #60,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_059.mp4,N,MINT GREEN
+61,DOAF_FF_060.png,Ducks of a Feather #61,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_060.mp4,N,LIGHT GREY
+62,DOAF_FF_061.png,Ducks of a Feather #62,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_061.mp4,N,BROWN
+63,DOAF_FF_062.png,Ducks of a Feather #63,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_062.mp4,N,MAROON
+64,DOAF_FF_063.png,Ducks of a Feather #64,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_063.mp4,N,MAROON
+65,DOAF_FF_064.png,Ducks of a Feather #65,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_064.mp4,N,FLAME ORANGE
+66,DOAF_FF_065.png,Ducks of a Feather #66,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_065.mp4,N,ARTICHOKE GREEN
+67,DOAF_FF_066.png,Ducks of a Feather #67,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_066.mp4,N,MINT GREEN
+68,DOAF_FF_067.png,Ducks of a Feather #68,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_067.mp4,N,SKY BLUE
+69,DOAF_FF_068.png,Ducks of a Feather #69,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_068.mp4,N,DARK GREY
+70,DOAF_FF_069.png,Ducks of a Feather #70,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_069.mp4,Y,BRIGHT ORANGE
+71,DOAF_FF_070.png,Ducks of a Feather #71,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_070.mp4,N,MAROON
+72,DOAF_FF_071.png,Ducks of a Feather #72,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_071.mp4,N,PURPLE
+73,DOAF_FF_072.png,Ducks of a Feather #73,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_072.mp4,N,BROWN
+74,DOAF_FF_073.png,Ducks of a Feather #74,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_073.mp4,N,PINK
+75,DOAF_FF_074.png,Ducks of a Feather #75,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_074.mp4,N,DARK GREY
+76,DOAF_FF_075.png,Ducks of a Feather #76,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_075.mp4,N,MINT GREEN
+77,DOAF_FF_076.png,Ducks of a Feather #77,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_076.mp4,N,LIGHT GREY
+78,DOAF_FF_077.png,Ducks of a Feather #78,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_077.mp4,N,DARK GREY
+79,DOAF_FF_078.png,Ducks of a Feather #79,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_078.mp4,Y,BLACK
+80,DOAF_FF_079.png,Ducks of a Feather #80,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_079.mp4,N,ARTICHOKE GREEN
+81,DOAF_FF_080.png,Ducks of a Feather #81,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_080.mp4,N,MAROON
+82,DOAF_FF_081.png,Ducks of a Feather #82,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_081.mp4,Y,BRIGHT ORANGE
+83,DOAF_FF_082.png,Ducks of a Feather #83,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_082.mp4,N,SKY BLUE
+84,DOAF_FF_083.png,Ducks of a Feather #84,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_083.mp4,N,PURPLE
+85,DOAF_FF_084.png,Ducks of a Feather #85,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_084.mp4,N,BROWN
+86,DOAF_FF_085.png,Ducks of a Feather #86,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_085.mp4,N,DARK GREY
+87,DOAF_FF_086.png,Ducks of a Feather #87,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_086.mp4,N,PINK
+88,DOAF_FF_087.png,Ducks of a Feather #88,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_087.mp4,N,FLAME ORANGE
+89,DOAF_FF_088.png,Ducks of a Feather #89,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_088.mp4,Y,BRIGHT ORANGE
+90,DOAF_FF_089.png,Ducks of a Feather #90,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_089.mp4,N,LIGHT GREY
+91,DOAF_FF_090.png,Ducks of a Feather #91,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_090.mp4,N,FLAME ORANGE
+92,DOAF_FF_091.png,Ducks of a Feather #92,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_091.mp4,N,MINT GREEN
+93,DOAF_FF_092.png,Ducks of a Feather #93,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_092.mp4,N,FLAME ORANGE
+94,DOAF_FF_093.png,Ducks of a Feather #94,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_093.mp4,Y,YELLOW
+95,DOAF_FF_094.png,Ducks of a Feather #95,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_094.mp4,N,DARK GREY
+96,DOAF_FF_095.png,Ducks of a Feather #96,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_095.mp4,N,SKY BLUE
+97,DOAF_FF_096.png,Ducks of a Feather #97,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_096.mp4,N,BROWN
+98,DOAF_FF_097.png,Ducks of a Feather #98,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_097.mp4,N,ARTICHOKE GREEN
+99,DOAF_FF_098.png,Ducks of a Feather #99,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_098.mp4,N,BROWN
+100,DOAF_FF_099.png,Ducks of a Feather #100,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_099.mp4,N,PURPLE
+101,DOAF_FF_100.png,Ducks of a Feather #101,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_100.mp4,Y,BRIGHT ORANGE
+102,DOAF_FF_101.png,Ducks of a Feather #102,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_101.mp4,N,FLAME ORANGE
+103,DOAF_FF_102.png,Ducks of a Feather #103,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_102.mp4,N,SKY BLUE
+104,DOAF_FF_103.png,Ducks of a Feather #104,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_103.mp4,N,MINT GREEN
+105,DOAF_FF_104.png,Ducks of a Feather #105,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_104.mp4,N,FLAME ORANGE
+106,DOAF_FF_105.png,Ducks of a Feather #106,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_105.mp4,N,LIGHT GREY
+107,DOAF_FF_106.png,Ducks of a Feather #107,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_106.mp4,Y,YELLOW
+108,DOAF_FF_107.png,Ducks of a Feather #108,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_107.mp4,N,FLAME ORANGE
+109,DOAF_FF_108.png,Ducks of a Feather #109,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_108.mp4,N,ARTICHOKE GREEN
+110,DOAF_FF_109.png,Ducks of a Feather #110,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_109.mp4,N,BROWN
+111,DOAF_FF_110.png,Ducks of a Feather #111,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_110.mp4,N,FLAME ORANGE
+112,DOAF_FF_111.png,Ducks of a Feather #112,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_111.mp4,N,SKY BLUE
+113,DOAF_FF_112.png,Ducks of a Feather #113,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_112.mp4,N,PINK
+114,DOAF_FF_113.png,Ducks of a Feather #114,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_113.mp4,N,MAROON
+115,DOAF_FF_114.png,Ducks of a Feather #115,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_114.mp4,N,MINT GREEN
+116,DOAF_FF_115.png,Ducks of a Feather #116,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_115.mp4,N,PINK
+117,DOAF_FF_116.png,Ducks of a Feather #117,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_116.mp4,N,ARTICHOKE GREEN
+118,DOAF_FF_117.png,Ducks of a Feather #118,14,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_117.mp4,N,BROWN
+119,DOAF_FF_118.png,Ducks of a Feather #119,14,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_118.mp4,N,PURPLE
+120,DOAF_FF_119.png,Ducks of a Feather #120,15,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_119.mp4,Y,DARK GREEN

@@ -19,10 +19,10 @@
     </div>
     <div class="grid bg-white row-start-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-4 py-20 gap-5">
       <NftThumbnail
-        v-for="item in nftList"
-        :key="item._id"
+        v-for="nft in nfts"
+        :key="nft.tokenId"
         class="col-span-1"
-        :nft="item"
+        :nft="nft"
       />
     </div>
   </section>
@@ -34,21 +34,23 @@ import allNfts from '@/groq/allNfts'
 export default {
   data() {
     return {
-      nftList: null
+      nfts: null
     }
   },
   async fetch() {
-    const data = await this.$sanity.fetch(allNfts)
-    this.nftList = data
+    const nfts = await this.$sanity.fetch(allNfts)
+    this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
   },
   computed: {
-    heading() {
+     heading() {
       return 'Ducks are Flying'
     },
     description() {
       return "Get one of 120 NFTs created by Tinker Hatfield benefitting Universty of Oregon Duck Athletes. Each NFT comes with a physical pair of Nik Air Max 1 sneakers designed by Tinker himself. Click here for offical rules."
+    },
+    price() {
+      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     }
   }
 }
 </script>
-<style lang="scss"></style>
