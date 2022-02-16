@@ -3,6 +3,11 @@ import { mapActions, mapGetters } from 'vuex'
 import { Token } from '../contracts/token'
 
 export default {
+  data() {
+    return {
+      contract: null
+    }
+  },
   computed: {
     ...mapGetters({
       accounts: 'wallet/getAccounts',
@@ -52,6 +57,8 @@ export default {
             signer
           )
 
+          this.contract = contract
+
           // // in wei
           const currentPriceWei = await contract.getPrice()
           const currentPrice = ethers.utils.formatEther(currentPriceWei)
@@ -79,6 +86,28 @@ export default {
       } catch (e) {
         console.error(e)
       }
+    },
+    async mintDuck() {
+      // honestly if the wallet is disconnected, the button should be disabled anyway but if somehow this is called:
+      // if (!connectedToWallet) {
+      // maybe display error
+      // return
+      // }
+
+      console.log(this.accounts)
+      console.log(this.contract)
+      const weiPrice = await this.contract.getPrice()
+      console.log('weiPrice', weiPrice)
+      const ethPrice = ethers.utils.formatEther(weiPrice)
+      console.log('ethprice', ethPrice)
+      const activeTx = await this.contract.buy(this.accounts[0], 2, {
+        value: ethers.utils.parseEther(ethPrice.toString())
+      })
+
+      console.log('activeTx', activeTx)
+      const txResult = await activeTx.wait()
+
+      console.log('txResult', txResult)
     },
     clearConnection() {
       this.$web3Modal.clearCachedProvider()

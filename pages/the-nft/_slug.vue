@@ -48,6 +48,8 @@ import { mapGetters } from 'vuex'
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
 
+import web3 from '@/mixins/web3'
+
 export default {
   data() {
     return {
@@ -55,6 +57,7 @@ export default {
       nftSettings: null
     }
   },
+  mixins: [web3],
   async fetch() {
     const params = { slug: String(this.slug) }
     const data = await this.$sanity.fetch(nftBySlug, params)
@@ -97,9 +100,20 @@ export default {
       return this.page?.video?.url ? this.page.video : null
     }
   },
+  mounted() {
+    // if this person has already connected to waratah, check for existing connection
+    // and try to connect if we can
+    if (
+      this.$web3Modal.cachedProvider &&
+      this.$web3Modal.cachedProvider === 'injected'
+    ) {
+      this.checkConnection()
+    }
+  },
   methods: {
     buy() {
       console.log('Buying for', this.accounts)
+      this.mintDuck()
     }
   }
 }
