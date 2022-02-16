@@ -5,7 +5,7 @@
         :id="toggleId"
         :aria-expanded="expanded"
         :aria-controls="contentId"
-        class="accordion-toggle flex justify-between font-sans font-bold text-xs py-7 text-left uppercase w-full"
+        class="accordion-toggle flex justify-between font-sans text-xs font-bold leading-none py-7 text-left uppercase w-full"
         @click="toggleExpanded"
       >
         {{ heading }}
