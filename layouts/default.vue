@@ -11,8 +11,9 @@
 
 <script>
 import beanAscii from '@/mixins/beanAscii'
+// import web3 from '@/mixins/web3'
 
 export default {
-  mixins: [beanAscii]
+  mixins: [beanAscii],
 }
 </script>

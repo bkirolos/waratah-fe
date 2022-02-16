@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
 
@@ -64,9 +63,6 @@ export default {
     this.nftSettings = nftSettingsData
   },
   computed: {
-    ...mapGetters({
-      accounts: 'wallet/getAccounts'
-    }),
     title() {
       return this.page?.tokenId.current
         ? `Ducks of a Feather ${this.page?.tokenId.current}`
@@ -75,11 +71,11 @@ export default {
     image() {
       return this.page?.image?.asset ? this.page.image : null
     },
-    price() {
-      return '00.0000'
-    },
     nftDescription() {
       return this.nftSettings?.nftDescription
+    },
+    price() {
+      return Number(this.$web3?.price)
     },
     shoeDescription() {
       return this.nftSettings?.shoeDescription
@@ -101,7 +97,8 @@ export default {
   },
   methods: {
     buy() {
-      console.log('Buying for', this.accounts)
+      console.log('Buying for', this.$web3.accounts)
+      this.$web3.mintDuck()
     }
   }
 }
