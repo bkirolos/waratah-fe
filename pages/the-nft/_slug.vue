@@ -45,58 +45,52 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import nftBySlug from '@/groq/nftBySlug'
+import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
 
 export default {
   data() {
     return {
-      page: null,
-      nftSettings: null
+      nft: null,
+      nftGeneral: null
     }
   },
   async fetch() {
-    const params = { slug: String(this.slug) }
-    const data = await this.$sanity.fetch(nftBySlug, params)
-    const nftSettingsData = await this.$sanity.fetch(nftSettings)
-
-    this.page = data ? data[0] : null
-    this.nftSettings = nftSettingsData
+    const params = { id: this.$route.params.slug }
+    const nft = await this.$sanity.fetch(nftById, params)
+    const nftGeneral = await this.$sanity.fetch(nftSettings)
+    this.nft = nft
+    this.nftGeneral = nftGeneral
   },
   computed: {
     ...mapGetters({
       accounts: 'wallet/getAccounts'
     }),
-    title() {
-      return this.page?.tokenId.current
-        ? `Ducks of a Feather ${this.page?.tokenId.current}`
-        : '404'
-    },
     image() {
-      return this.page?.image?.asset ? this.page.image : null
+      return this.nft?.image?.asset ? this.nft.image : null
+    },
+    nftDescription() {
+      return this.nftGeneral?.nftDescription
     },
     price() {
       return '00.0000'
     },
-    nftDescription() {
-      return this.nftSettings?.nftDescription
-    },
     shoeDescription() {
-      return this.nftSettings?.shoeDescription
+      return this.nftGeneral?.shoeDescription
     },
     shoeImage() {
-      return this.nftSettings?.shoeImage?.asset
-        ? this.nftSettings.shoeImage
+      return this.nftGeneral?.shoeImage?.asset
+        ? this.nftGeneral.shoeImage
         : null
     },
     shoeSize() {
-      return this.page?.shoeSize
+      return this.nft?.shoeSize
     },
-    slug() {
-      return this.$route.params.slug
+    title() {
+      return this.nft?.title
     },
     video() {
-      return this.page?.video?.url ? this.page.video : null
+      return this.nft?.video?.url ? this.nft.video : null
     }
   },
   methods: {
@@ -106,6 +100,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 $slide-width: clamp(1px, 100%, 670px);
 .nft-video-asset,

@@ -1,11 +1,12 @@
 <template>
   <article class="nft-item text-navy">
     <LazyImage v-if="image" class="w-full" :image="image" />
-    <h5>{{ title }}</h5>
-    <p>Shoe Size {{ shoeSize }}</p>
-    <nuxt-link :to="`${slug}`">View Details</nuxt-link>
+    <p class="heading-4 text-base">{{ title }}</p>
+    <p class="heading-6">Shoe Size {{ shoeSize }}</p>
+    <Hyperlink :url="slug" class="text-xs">View Details</Hyperlink>
   </article>
 </template>
+
 <script>
 export default {
   props: {
@@ -15,11 +16,6 @@ export default {
     }
   },
   computed: {
-    title() {
-      return this.nft?.tokenId.current
-        ? `Ducks of a Feather ${this.nft?.tokenId.current}`
-        : '404'
-    },
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
     },
@@ -27,9 +23,13 @@ export default {
       return this.nft?.shoeSize
     },
     slug() {
-      return this.nft?.slug.current
-        ? `/the-nft/${this.nft?.slug.current}`
-        : null
+      return `/the-nft/${this.tokenId}`
+    },
+    title() {
+      return this.nft?.title
+    },
+    tokenId() {
+      return this.nft?._id
     }
   }
 }
