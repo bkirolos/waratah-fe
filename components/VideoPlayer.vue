@@ -2,7 +2,13 @@
   <!-- TODO: add support for options prop? -->
   <client-only>
     <vue-plyr v-if="url" ref="plyr" v-observe-visibility="options">
-      <video controls playsinline :data-poster="poster">
+      <video
+        playsinline
+        controls
+        :data-poster="poster"
+        :autoplay="autoplay"
+        :loop="loop"
+      >
         <source :src="url" type="video/mp4" />
       </video>
     </vue-plyr>
@@ -15,6 +21,14 @@ import imageBuilder from '@/mixins/imageBuilder'
 export default {
   mixins: [imageBuilder],
   props: {
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+    loop: {
+      type: Boolean,
+      default: false
+    },
     video: {
       type: Object,
       default: null
@@ -35,7 +49,7 @@ export default {
       return this.$refs.plyr.player
     },
     poster() {
-      return this.urlFor(this.video?.poster)
+      return this.video?.poster && this.urlFor(this.video.poster)
     },
     url() {
       return this.video?.url
