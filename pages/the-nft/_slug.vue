@@ -24,7 +24,11 @@
         <hr class="my-6" />
         <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
-        <button class="cta bg-lime text-navy w-full my-6" @click="buy">
+        <button
+          class="cta bg-lime text-navy w-full my-6"
+          :disabled="disableButton"
+          @click="buy"
+        >
           {{ buyButtonText }}
         </button>
       </div>
@@ -81,6 +85,9 @@ export default {
       return this.page?.tokenId.current
         ? `Ducks of a Feather ${this.page?.tokenId.current}`
         : '404'
+    },
+    disableButton() {
+      return this.connectionStatus !== 'wallet'
     },
     image() {
       return this.page?.image?.asset ? this.page.image : null
