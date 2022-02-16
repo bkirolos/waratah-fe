@@ -25,7 +25,7 @@
         <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
         <button class="cta bg-lime text-navy w-full my-6" @click="buy">
-          Buy Now
+          {{ buyButtonText }}
         </button>
       </div>
       <hr class="col-span-12" />
@@ -69,8 +69,14 @@ export default {
   computed: {
     ...mapGetters({
       accounts: 'web3/getAccounts',
-      price: 'web3/getPrice'
+      price: 'web3/getPrice',
+      connectionStatus: 'web3/getConnectionStatus'
     }),
+    buyButtonText() {
+      return this.connectionStatus === 'wallet'
+        ? 'BUY'
+        : 'CONNECT WALLET TO BUY'
+    },
     title() {
       return this.page?.tokenId.current
         ? `Ducks of a Feather ${this.page?.tokenId.current}`

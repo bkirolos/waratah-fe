@@ -11,7 +11,7 @@ export default {
   computed: {
     ...mapGetters({
       accounts: 'web3/getAccounts',
-      network: 'web3/getNetwork',
+      connectionStatus: 'web3/getConnectionStatus',
       price: 'web3/getPrice'
     }),
     isConnected() {
@@ -22,10 +22,11 @@ export default {
     ...mapActions({
       clearAccounts: 'web3/clearAccounts',
       initializeAccounts: 'web3/initializeAccounts',
-      updateCurrentNetwork: 'web3/updateCurrentNetwork',
+      updateConnectionStatus: 'web3/updateConnectionStatus',
       updateCurrentPrice: 'web3/updateCurrentPrice'
     }),
     async connectWithPlugin() {
+      this.updateConnectionStatus('disconnected')
       try {
         const instance = await this.$web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(instance, 'any')
@@ -33,18 +34,17 @@ export default {
 
         const network = await provider.getNetwork()
 
-        this.updateCurrentNetwork(network)
+        instance.on('chainChanged', n => {
+          this.updateConnectionStatus('disconnected')
 
-        instance.on('chainChanged', async n => {
-          const network = await provider.getNetwork()
-          this.updateCurrentNetwork(network)
+          // const network = await provider.getNetwork()
+          // TODO: update network
         })
         this.initializeAccounts(accounts)
         console.log(this.accounts, 'from store')
 
         const signer = await provider.getSigner()
-
-        if (this.network.name === 'rinkeby') {
+        if (network.name === 'rinkeby') {
           // TODO: use actual env vars here
           // const contractAddress =
           //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
@@ -70,6 +70,8 @@ export default {
             firstMintedDuckTokenId
           )
           console.log(firstMintedDuckIPFSUrl)
+
+          this.updateConnectionStatus('wallet')
         }
       } catch (e) {
         console.log(e)
@@ -112,6 +114,7 @@ export default {
     clearConnection() {
       this.$web3Modal.clearCachedProvider()
       this.clearAccounts()
+      this.updateConnectionStatus('disconnected')
     }
   }
 }

@@ -1,6 +1,6 @@
 export const state = () => ({
   accounts: null,
-  network: null,
+  connectionStatus: null, // "disconnected" | "pending" | "wallet" | "infura"
   price: null
 })
 
@@ -8,8 +8,8 @@ export const mutations = {
   setAccounts(state, accounts) {
     state.accounts = accounts
   },
-  setNetwork(state, network) {
-    state.network = network
+  setConnectionStatus(state, status) {
+    state.connectionStatus = status
   },
   setPrice(state, price) {
     state.price = price
@@ -23,8 +23,8 @@ export const actions = {
   clearAccounts({ commit }) {
     commit('setAccounts', null)
   },
-  updateCurrentNetwork({ commit }, network) {
-    commit('setNetwork', network)
+  updateConnectionStatus({ commit }, status) {
+    commit('setConnectionStatus', status)
   },
   updateCurrentPrice({ commit }, price) {
     commit('setPrice', price)
@@ -33,6 +33,6 @@ export const actions = {
 
 export const getters = {
   getAccounts: state => state.accounts,
-  getNetwork: state => state.network,
+  getConnectionStatus: state => state.connectionStatus,
   getPrice: state => state.price
 }
