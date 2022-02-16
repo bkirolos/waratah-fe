@@ -47,6 +47,42 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       this.connectionStatus = 'disconnected'
     },
 
+    async connectWithInfura() {
+      // TODO: set up with env vars
+      const infura = new ethers.providers.InfuraProvider('rinkeby')
+      await this.connectToContract(infura)
+      console.log('connect to infura')
+      this.connectionStatus = 'infura'
+    },
+
+    async connectToContract(providerOrSigner) {
+      // TODO: use actual env vars here
+      // const contractAddress =
+      //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
+      // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
+
+      const contractAddress = Token.address.rinkeby
+      const contractAbi = Token.abi.rinkeby
+      const contract = await new ethers.Contract(
+        contractAddress,
+        contractAbi,
+        providerOrSigner
+      )
+
+      const currentPriceWei = await contract.getPrice()
+      const currentPrice = ethers.utils.formatEther(currentPriceWei)
+      this.price = currentPrice
+      console.log(this.price, 'from store')
+
+      const firstMintedDuckTokenId = await contract.tokenByIndex(0)
+      const firstMintedDuckIPFSUrl = await contract.tokenURI(
+        firstMintedDuckTokenId
+      )
+      console.log(firstMintedDuckIPFSUrl)
+
+      this.contract = contract
+    },
+
     async mintDuck() {
       // if (this.connectionStatus !== 'wallet') {
       //   return
