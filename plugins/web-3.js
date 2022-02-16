@@ -114,7 +114,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
 
     async mintDuck(tokenId) {
-      console.log('minting')
+      console.log('minting', tokenId)
 
       try {
         if (this.connectionStatus !== 'wallet') {
@@ -125,7 +125,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
         const weiPrice = await this.contract.getPrice()
         const ethPrice = ethers.utils.formatEther(weiPrice)
-        const activeTx = await this.contract.buy(this.accounts[0], 2, {
+        const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
           value: ethers.utils.parseEther(ethPrice.toString())
         })
 

@@ -70,6 +70,7 @@ export default {
     buyButtonText() {
       if (this.$web3?.ownedTokens) {
         const mappedTokens = this.$web3.ownedTokens.map(bn => bn.toNumber())
+        console.log(mappedTokens)
         return mappedTokens.includes(this.tokenId) ? 'OWNED' : 'AVAILABLE'
       }
       return this.$web3?.connectionStatus === 'wallet'
@@ -115,7 +116,7 @@ export default {
   methods: {
     buy() {
       console.log('Buying for', this.$web3.accounts)
-      this.$web3.mintDuck()
+      this.$web3.mintDuck(this.tokenId)
     }
   }
 }
