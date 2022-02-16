@@ -72,26 +72,24 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
+
+  // Runtime config
   publicRuntimeConfig: {
     ethereumNetwork: process.env.ETHEREUM_NETWORK,
-    nftGoLive: process.env.NFT_GO_LIVE,
-    infuraId: process.env.INFURA_ID
+    infuraId: process.env.INFURA_ID,
+    nftGoLive: process.env.NFT_GO_LIVE
   },
-
   privateRuntimeConfig: {
     sanity: {
       token: process.env.SANITY_PREVIEW_TOKEN
     }
   },
-  generate: {
-    routes: []
-  },
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: ['web3modal-vue']
-  },
 
+  // Generate configuration
   generate: {
     fallback: true
-  }
+  },
+
+  // Build configuration: https://go.nuxtjs.dev/config-build
+  build: {}
 }

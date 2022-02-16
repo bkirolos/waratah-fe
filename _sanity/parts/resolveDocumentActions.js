@@ -7,11 +7,14 @@ export default function resolveDocumentActions(props) {
   const singletons = [
     'faqPage',
     'homePage',
+    'nftSettings',
     'privacyPage',
     'siteSettings',
     'termsPage'
   ]
-  if (singletons.includes(props.type)) {
+  const isSingleton = singletons.includes(props.type)
+  const isNftAsset = props.type === 'nftAsset'
+  if (isSingleton || isNftAsset) {
     return [PublishAction, DiscardChangesAction]
   } else {
     return [...defaultResolve(props)]
