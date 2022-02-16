@@ -4,13 +4,15 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy"
+    "deploy": "sanity deploy",
+    "csv-to-ndjson": "node import/csv-to-ndjson.js",
+    "import:sandbox": "sanity dataset import import/nfts.ndjson sandbox --replace",
+    "import:production": "sanity dataset import import/nfts.ndjson production --replace"
   },
   "dependencies": {
     "@sanity/base": "^2.25.0",
     "@sanity/components": "^2.14.0",
     "@sanity/core": "^2.25.0",
-    "@sanity/dashboard": "^2.27.0",
     "@sanity/default-layout": "^2.25.0",
     "@sanity/default-login": "^2.24.1",
     "@sanity/desk-tool": "^2.25.0",
@@ -21,9 +23,11 @@
     "react-dom": "^17.0",
     "react-icons": "^4.3.1",
     "sanity-plugin-color-list": "^2.0.2",
-    "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "sanity-plugin-media": "^1.4.4",
+    "sanity-plugin-webhook-deploy": "^1.0.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "csvtojson": "^2.0.10"
+  }
 }

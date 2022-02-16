@@ -4,7 +4,7 @@
       class="grid grid-cols-12 bg-light-blue bg-opacity-20 py-20 row-start-1 row-span-1"
     >
       <div class="nft-video-asset col-start-4 col-span-6">
-        <VideoPlayer v-if="video" :video="video" />
+        <VideoPlayer v-if="video" :video="video" autoplay loop />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
@@ -48,73 +48,74 @@
 </template>
 
 <script>
-import nftBySlug from '@/groq/nftBySlug'
+import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
 
 export default {
   data() {
     return {
-      page: null,
-      nftSettings: null,
+      nft: null,
+      nftGeneral: null,
       owner: null
     }
   },
   async fetch() {
-    const params = { slug: String(this.slug) }
-    const data = await this.$sanity.fetch(nftBySlug, params)
-    const nftSettingsData = await this.$sanity.fetch(nftSettings)
-    this.page = data ? data[0] : null
-    this.nftSettings = nftSettingsData
+    const params = { id: this.$route.params.slug }
+    const nft = await this.$sanity.fetch(nftById, params)
+    const nftGeneral = await this.$sanity.fetch(nftSettings)
+    this.nft = nft
+    this.nftGeneral = nftGeneral
   },
   computed: {
     buyButtonText() {
       if (this.$web3?.ownedTokens) {
         const mappedTokens = this.$web3.ownedTokens.map(bn => bn.toNumber())
-        const tokenId = this.page?.tokenId.current
-        return mappedTokens.includes(parseInt(tokenId)) ? 'OWNED' : 'AVAILABLE'
+        return mappedTokens.includes(this.tokenId) ? 'OWNED' : 'AVAILABLE'
       }
       return this.$web3?.connectionStatus === 'wallet'
         ? 'BUY'
         : 'CONNECT WALLET TO BUY'
     },
-    title() {
-      return this.page?.tokenId.current
-        ? `Ducks of a Feather ${this.page?.tokenId.current}`
-        : '404'
-    },
     disableButton() {
       return this.$web3?.connectionStatus !== 'wallet'
     },
     image() {
-      return this.page?.image?.asset ? this.page.image : null
+      return this.nft?.image?.asset ? this.nft.image : null
+    },
+    nftTitle() {
+      return this.tokenId
+        ? `Ducks of a Feather ${this.page?.tokenId.current}`
+        : '404'
+    },
+    nftDescription() {
+      return this.nftGeneral?.nftDescription
     },
     nftDescription() {
       return this.nftSettings?.nftDescription
     },
     price() {
-      return Number(this.$web3?.formatPrice(this.$web3?.price))
+      return Number(this.$web3?.formatPrice(this.$web3?.price)) || '-'
     },
     shoeDescription() {
-      return this.nftSettings?.shoeDescription
+      return this.nftGeneral?.shoeDescription
     },
     shoeImage() {
-      return this.nftSettings?.shoeImage?.asset
-        ? this.nftSettings.shoeImage
+      return this.nftGeneral?.shoeImage?.asset
+        ? this.nftGeneral.shoeImage
         : null
     },
     shoeSize() {
-      return this.page?.shoeSize
+      return this.nft?.shoeSize
     },
-    slug() {
-      return this.$route.params.slug
+    title() {
+      return this.nft?.title
+    },
+    tokenId() {
+      return parseInt(this.nft.tokenId)
     },
     video() {
-      return this.page?.video?.url ? this.page.video : null
+      return this.nft?.video?.url ? this.nft.video : null
     }
-  },
-  mounted() {
-    // if this person has already connected to waratah, check for existing connection
-    // and try to connect if we can
   },
   methods: {
     buy() {
@@ -124,6 +125,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 $slide-width: clamp(1px, 100%, 670px);
 .nft-video-asset,

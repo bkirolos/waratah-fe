@@ -20,10 +20,10 @@
     </div>
     <div class="grid px-4 py-20 grid-cols-5 gap-5">
       <NftThumbnail
-        v-for="item in nftList"
-        :key="item._id"
+        v-for="nft in nfts"
+        :key="nft.tokenId"
         class="col-span-1"
-        :nft="item"
+        :nft="nft"
       />
     </div>
   </div>
@@ -35,7 +35,7 @@ import allNfts from '@/groq/allNfts'
 export default {
   data() {
     return {
-      nftList: null
+      nfts: null
     }
   },
   computed: {
@@ -44,9 +44,8 @@ export default {
     }
   },
   async fetch() {
-    const data = await this.$sanity.fetch(allNfts)
-    this.nftList = data
+    const nfts = await this.$sanity.fetch(allNfts)
+    this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
   }
 }
 </script>
-<style lang="scss"></style>
