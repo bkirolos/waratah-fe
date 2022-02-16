@@ -6,32 +6,38 @@ export default {
     {
       type: 'string',
       name: 'name',
-      title: 'Name'
+      title: 'Name',
+      readOnly: true
     },
     {
       type: 'string',
       name: 'shoeSize',
-      title: 'Shoe Size'
+      title: 'Shoe Size',
+      readOnly: true
     },
     {
       type: 'imagePlus',
       name: 'image',
-      title: 'Image'
+      title: 'Image',
+      readOnly: true
     },
     {
       type: 'video',
       name: 'video',
-      title: 'Video'
+      title: 'Video',
+      readOnly: true
     },
     {
       type: 'string',
       name: 'backgroundColor',
-      title: 'Background Color'
+      title: 'Background Color',
+      readOnly: true
     },
     {
       type: 'boolean',
       name: 'stripes',
-      title: 'Stripes'
+      title: 'Stripes',
+      readOnly: true
     }
   ],
   preview: {
