@@ -27,6 +27,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     signer: null,
     contract: null,
     price: null,
+    connectionStatus: 'disconnected',
 
     async checkConnection() {
       try {
@@ -43,6 +44,24 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     clearConnection() {
       this.web3Modal.clearCachedProvider()
       this.accounts = null
+      this.connectionStatus = 'disconnected'
+    },
+
+    async mintDuck() {
+      // if (this.connectionStatus !== 'wallet') {
+      //   return
+      // }
+
+      const weiPrice = await this.contract.getPrice()
+      const ethPrice = ethers.utils.formatEther(weiPrice)
+      const activeTx = await this.contract.buy(this.accounts[0], 2, {
+        value: ethers.utils.parseEther(ethPrice.toString())
+      })
+
+      console.log('activeTx', activeTx)
+      const txResult = await activeTx.wait()
+
+      console.log('txResult', txResult)
     },
 
     async init() {
@@ -61,6 +80,9 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
         // this.initializeAccounts(this.accounts)
         console.log(this.accounts, 'from plugin')
+        if (this.accounts) {
+          this.connectionStatus = 'wallet'
+        }
 
         this.signer = await this.provider.getSigner()
 

@@ -24,8 +24,12 @@
         <hr class="my-6" />
         <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
-        <button class="cta bg-lime text-navy w-full my-6" @click="buy">
-          Buy Now
+        <button
+          class="cta bg-lime text-navy w-full my-6"
+          :disabled="disableButton"
+          @click="buy"
+        >
+          {{ buyButtonText }}
         </button>
       </div>
       <hr class="col-span-12" />
@@ -46,6 +50,7 @@
 <script>
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
+import web3 from '@/mixins/web3'
 
 export default {
   data() {
@@ -54,6 +59,7 @@ export default {
       nftSettings: null
     }
   },
+  mixins: [web3],
   async fetch() {
     const params = { slug: String(this.slug) }
     const data = await this.$sanity.fetch(nftBySlug, params)
@@ -63,10 +69,18 @@ export default {
     this.nftSettings = nftSettingsData
   },
   computed: {
+    buyButtonText() {
+      return this.$web3?.connectionStatus === 'wallet'
+        ? 'BUY'
+        : 'CONNECT WALLET TO BUY'
+    },
     title() {
       return this.page?.tokenId.current
         ? `Ducks of a Feather ${this.page?.tokenId.current}`
         : '404'
+    },
+    disableButton() {
+      return this.connectionStatus !== 'wallet'
     },
     image() {
       return this.page?.image?.asset ? this.page.image : null
@@ -94,6 +108,12 @@ export default {
     video() {
       return this.page?.video?.url ? this.page.video : null
     }
+  },
+  mounted() {
+    // if this person has already connected to waratah, check for existing connection
+    // and try to connect if we can
+
+    this.checkConnection()
   },
   methods: {
     buy() {

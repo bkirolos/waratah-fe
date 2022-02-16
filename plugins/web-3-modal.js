@@ -10,6 +10,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       }
     }
   }
+
   const web3Modal = new Web3Modal({
     network: ethereumNetwork, // optional
     cacheProvider: true, // optional

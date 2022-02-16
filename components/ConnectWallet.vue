@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import web3 from '@/mixins/web3'
 
 export default {
   mounted() {
     console.log(this.$web3)
   },
+  mixins: [web3],
   computed: {
     isConnected() {
       return this.$web3?.accounts
