@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import allNfts from '@/groq/allNfts'
 
 export default {
@@ -40,9 +39,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      price: 'web3/getPrice'
-    })
+    price() {
+      return this.$web3.price
+    }
   },
   async fetch() {
     const data = await this.$sanity.fetch(allNfts)

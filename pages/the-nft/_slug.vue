@@ -50,26 +50,29 @@
 <script>
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
-import web3 from '@/mixins/web3'
 
 export default {
   data() {
     return {
       page: null,
-      nftSettings: null
+      nftSettings: null,
+      owner: null
     }
   },
-  mixins: [web3],
   async fetch() {
     const params = { slug: String(this.slug) }
     const data = await this.$sanity.fetch(nftBySlug, params)
     const nftSettingsData = await this.$sanity.fetch(nftSettings)
-
     this.page = data ? data[0] : null
     this.nftSettings = nftSettingsData
   },
   computed: {
     buyButtonText() {
+      if (this.$web3?.ownedTokens) {
+        const mappedTokens = this.$web3.ownedTokens.map(bn => bn.toNumber())
+        const tokenId = this.page?.tokenId.current
+        return mappedTokens.includes(parseInt(tokenId)) ? 'OWNED' : 'AVAILABLE'
+      }
       return this.$web3?.connectionStatus === 'wallet'
         ? 'BUY'
         : 'CONNECT WALLET TO BUY'
@@ -80,7 +83,7 @@ export default {
         : '404'
     },
     disableButton() {
-      return this.connectionStatus !== 'wallet'
+      return this.$web3?.connectionStatus !== 'wallet'
     },
     image() {
       return this.page?.image?.asset ? this.page.image : null
@@ -89,7 +92,7 @@ export default {
       return this.nftSettings?.nftDescription
     },
     price() {
-      return Number(this.$web3?.price)
+      return Number(this.$web3?.formatPrice(this.$web3?.price))
     },
     shoeDescription() {
       return this.nftSettings?.shoeDescription
@@ -112,8 +115,6 @@ export default {
   mounted() {
     // if this person has already connected to waratah, check for existing connection
     // and try to connect if we can
-
-    this.checkConnection()
   },
   methods: {
     buy() {

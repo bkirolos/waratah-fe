@@ -5,8 +5,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 import { Token } from '../contracts/token'
 
 export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
-  const web3 = Vue.observable ({
-
+  const web3 = Vue.observable({
     web3Modal: new Web3Modal({
       network: ethereumNetwork, // optional
       cacheProvider: true, // optional
@@ -28,33 +27,53 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     contract: null,
     price: null,
     connectionStatus: 'disconnected',
+    ownedTokens: [],
 
-    async checkConnection() {
+    async getAllOwnedTokens() {
       try {
-        this.accounts = await window.ethereum.request({
-          method: 'eth_accounts'
-        })
-        if (this.accounts) {
-          this.init()
-        }
+        const tokenIds = await this.contract.getAllTokens()
+        console.log('tokenIds', tokenIds)
+        this.ownedTokens = tokenIds
       } catch (e) {
         console.error(e)
       }
     },
-    clearConnection() {
-      this.web3Modal.clearCachedProvider()
-      this.accounts = null
+    async connectWallet() {
       this.connectionStatus = 'disconnected'
-    },
+      try {
+        const instance = await web3.web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(instance, 'any')
+        const accounts = await provider.listAccounts()
 
+        this.provider = provider
+
+        const network = await provider.getNetwork()
+        this.network = network
+
+        instance.on('chainChanged', async n => {
+          const network = await provider.getNetwork()
+          this.network = network
+        })
+        this.accounts = accounts
+        console.log(this.accounts, 'from store')
+
+        const signer = await provider.getSigner()
+        await this.connectToContract(signer)
+        this.connectionStatus = 'wallet'
+      } catch (e) {
+        console.log(e)
+        await this.connectWithInfura()
+      }
+    },
     async connectWithInfura() {
       // TODO: set up with env vars
       const infura = new ethers.providers.InfuraProvider('rinkeby')
       await this.connectToContract(infura)
+
+      this.provider = infura
       console.log('connect to infura')
       this.connectionStatus = 'infura'
     },
-
     async connectToContract(providerOrSigner) {
       // TODO: use actual env vars here
       // const contractAddress =
@@ -70,94 +89,90 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       )
 
       const currentPriceWei = await contract.getPrice()
-      const currentPrice = ethers.utils.formatEther(currentPriceWei)
-      this.price = currentPrice
-      console.log(this.price, 'from store')
+      this.price = currentPriceWei
+      console.log(this.formatPrice(this.price), 'from store')
 
-      const firstMintedDuckTokenId = await contract.tokenByIndex(0)
-      const firstMintedDuckIPFSUrl = await contract.tokenURI(
-        firstMintedDuckTokenId
-      )
-      console.log(firstMintedDuckIPFSUrl)
+      // fetch the price every block
+      this.provider.on('block', async () => {
+        const price = await contract.getPrice()
+        this.price = price
+
+        await this.getAllOwnedTokens()
+        console.log('new price just dropped!!!!!', this.formatPrice(price))
+      })
 
       this.contract = contract
     },
-
-    async mintDuck() {
-      // if (this.connectionStatus !== 'wallet') {
-      //   return
-      // }
-
-      const weiPrice = await this.contract.getPrice()
-      const ethPrice = ethers.utils.formatEther(weiPrice)
-      const activeTx = await this.contract.buy(this.accounts[0], 2, {
-        value: ethers.utils.parseEther(ethPrice.toString())
-      })
-
-      console.log('activeTx', activeTx)
-      const txResult = await activeTx.wait()
-
-      console.log('txResult', txResult)
+    formatPrice(weiPrice) {
+      if (!weiPrice) return
+      return ethers.utils.formatEther(weiPrice)
+    },
+    clearConnection() {
+      this.web3Modal.clearCachedProvider()
+      this.accounts = null
+      this.connectionStatus = 'disconnected'
     },
 
-    async init() {
+    async mintDuck(tokenId) {
+      console.log('minting')
+
       try {
-        this.instance = await this.web3Modal.connect()
-        this.provider = new ethers.providers.Web3Provider(this.instance)
-        this.accounts = await this.provider.listAccounts()
-
-        this.network = await this.provider.getNetwork()
-
-        // This could change at any time; we can hook into it with events
-        // TODO: create event subscription and use env var
-        if (this.network.name !== 'rinkeby') {
-          alert(`Wrong network! You are connected to ${this.network.name}`)
+        if (this.connectionStatus !== 'wallet') {
+          throw new Error('Not connected to wallet!')
+        } else if (this.network.name !== 'rinkeby') {
+          throw new Error('Wrong network!')
         }
 
-        // this.initializeAccounts(this.accounts)
-        console.log(this.accounts, 'from plugin')
-        if (this.accounts) {
-          this.connectionStatus = 'wallet'
-        }
+        const weiPrice = await this.contract.getPrice()
+        const ethPrice = ethers.utils.formatEther(weiPrice)
+        const activeTx = await this.contract.buy(this.accounts[0], 2, {
+          value: ethers.utils.parseEther(ethPrice.toString())
+        })
 
-        this.signer = await this.provider.getSigner()
+        console.log('activeTx', activeTx)
+        const txResult = await activeTx.wait()
 
-        // TODO: use actual env vars here
-        // const contractAddress = Token.address[process.env.ETHEREUM_NETWORK_NAME]
-        // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
-        console.log(ethereumNetwork, 'env for network')
-        const contractAddress = Token.address.rinkeby
-        const contractAbi = Token.abi.rinkeby
-        this.contract = new ethers.Contract(
-          contractAddress,
-          contractAbi,
-          this.signer
-        )
-
-        // in wei
-        const currentPrice = await this.contract.getPrice()
-        console.log(
-          'current price:',
-          ethers.utils.formatEther(currentPrice)
-        )
-
-        this.price = ethers.utils.formatEther(currentPrice)
-
-        const firstMintedDuckTokenId = await this.contract.tokenByIndex(0)
-        const firstMintedDuckIPFSUrl = await this.contract.tokenURI(
-          firstMintedDuckTokenId
-        )
-        console.log(firstMintedDuckIPFSUrl)
+        console.log('txResult', txResult)
       } catch (e) {
-        console.log(e)
+        console.error(e)
+      }
+    },
+    async getTokenOwner(tokenId) {
+      try {
+        const ownerOfDuck = await this.$web3.contract.ownerOf(tokenId)
+        console.log('ownerOf', ownerOfDuck)
+        console.log('yours!', this.$web3.accounts[0].address === ownerOfDuck)
+        return ownerOfDuck
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async init() {
+      if (web3.web3Modal.cachedProvider) {
+        try {
+          if (web3.web3Modal.cachedProvider === 'injected') {
+            const accounts = await window.ethereum.request({
+              method: 'eth_accounts'
+            })
+            if (!accounts.length) {
+              console.log('Having trouble re-connecting to Metamask')
+              // TODO: handle this edge case
+            }
+
+            this.connectionStatus = 'pending'
+            await this.connectWallet()
+          }
+        } catch (e) {
+          console.error(e)
+          await this.connectWithInfura()
+        }
+      } else {
+        await this.connectWithInfura()
       }
     }
   })
-  if (
-    web3.web3Modal?.cachedProvider &&
-    web3.web3Modal?.cachedProvider === 'injected'
-  ) {
-    web3.checkConnection()
-  }
+
+  web3.init()
+
   inject('web3', web3)
 }
