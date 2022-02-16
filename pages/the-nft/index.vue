@@ -41,6 +41,11 @@ export default {
   async fetch() {
     const nfts = await this.$sanity.fetch(allNfts)
     this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
+  },
+  computed: {
+    price() {
+      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
+    }
   }
 }
 </script>
