@@ -50,7 +50,6 @@
 <script>
 import nftBySlug from '@/groq/nftBySlug'
 import nftSettings from '@/groq/nftSettings'
-import web3 from '@/mixins/web3'
 
 export default {
   data() {
@@ -59,7 +58,6 @@ export default {
       nftSettings: null
     }
   },
-  mixins: [web3],
   async fetch() {
     const params = { slug: String(this.slug) }
     const data = await this.$sanity.fetch(nftBySlug, params)
@@ -70,6 +68,7 @@ export default {
   },
   computed: {
     buyButtonText() {
+      console.log('connectionStatus', this.$web3?.connectionStatus)
       return this.$web3?.connectionStatus === 'wallet'
         ? 'BUY'
         : 'CONNECT WALLET TO BUY'
@@ -112,8 +111,6 @@ export default {
   mounted() {
     // if this person has already connected to waratah, check for existing connection
     // and try to connect if we can
-
-    this.checkConnection()
   },
   methods: {
     buy() {

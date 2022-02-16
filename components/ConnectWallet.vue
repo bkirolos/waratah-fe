@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <button class="hover-transition p-2" @click="$web3.init()">
+    <button class="hover-transition p-2" @click="$web3.connectWallet()">
       <span class="cta flex items-center h-10 leading-none px-5 py-0">
         {{ connectText }}
       </span>
@@ -18,19 +18,18 @@
 </template>
 
 <script>
-import web3 from '@/mixins/web3'
-
 export default {
   mounted() {
-    console.log(this.$web3)
+    this.$web3?.test()
   },
-  mixins: [web3],
   computed: {
     isConnected() {
       return this.$web3?.accounts
     },
     connectText() {
-      return this.isConnected ? 'Connected' : 'Connect Wallet'
+      return this.isConnected
+        ? `Connected to ${this.$web3.network.name}`
+        : 'Connect Wallet'
     }
   }
 }
