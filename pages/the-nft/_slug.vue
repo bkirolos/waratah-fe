@@ -83,9 +83,7 @@ export default {
       return this.nft?.image?.asset ? this.nft.image : null
     },
     nftTitle() {
-      return this.tokenId
-        ? `Ducks of a Feather ${this.tokenId}`
-        : '404'
+      return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription

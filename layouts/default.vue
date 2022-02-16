@@ -13,6 +13,6 @@
 import beanAscii from '@/mixins/beanAscii'
 
 export default {
-  mixins: [beanAscii],
+  mixins: [beanAscii]
 }
 </script>
