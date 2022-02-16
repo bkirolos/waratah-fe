@@ -19,10 +19,18 @@
     </div>
 
     <div class="footer-socials flex lg:justify-end items-center mt-9 lg:mt-0">
-      <Hyperlink url="http://six21.xyz" aria-label="Built by Six21">
+      <Hyperlink
+        url="http://six21.xyz"
+        aria-label="Built by Six21"
+        class="hover-transition"
+      >
         <Six21Icon aria-hidden="true" />
       </Hyperlink>
-      <Hyperlink url="https://aerial.is/nft" aria-label="Aerial" class="ml-6">
+      <Hyperlink
+        url="https://aerial.is/nft"
+        aria-label="Aerial"
+        class="ml-6 hover-transition"
+      >
         <img src="~/assets/png/aerial-logo.png" aria-hidden="true" />
       </Hyperlink>
       <GenuineCollegeProductIcon class="ml-5" />
