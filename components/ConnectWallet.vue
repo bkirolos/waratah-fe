@@ -25,7 +25,7 @@ export default {
     },
     connectText() {
       return this.isConnected
-        ? `Connected to ${this.$web3.network.name}`
+        ? `Connected to ${this.$web3?.network?.name}`
         : 'Connect Wallet'
     }
   }
