@@ -22,9 +22,9 @@
 export default {
   data() {
     return {
-      hours: 0,
-      minutes: 0,
-      seconds: 0
+      hours: '-',
+      minutes: '-',
+      seconds: '-'
     }
   },
   computed: {
@@ -39,8 +39,12 @@ export default {
     this.initializeCountdown()
   },
   methods: {
-    formatNumber(number) {
-      return number?.toString().padStart(2, '0')
+    formatNumber(value) {
+      if (typeof value === 'number') {
+        return value?.toString().padStart(2, '0')
+      } else {
+        return value
+      }
     },
     getTimeRemaining() {
       const currentTime = this.$dayjs().tz(this.timeZone)
