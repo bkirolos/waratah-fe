@@ -1,7 +1,9 @@
 <template>
   <div>
-    <p class="font-bold mb-4">Sale ends Feburary 20th at 10:00pm PST at 1ETH</p>
-    <div class="flex space-x-10">
+    <h2 class="body font-bold mb-4">
+      Sale ends Feburary 20th at 10:00pm PST at 1ETH
+    </h2>
+    <div class="flex justify-between md:space-x-10 md:w-min">
       <p class="flex flex-col space-y-2">
         <span class="heading-4">{{ formatNumber(hours) }}</span>
         <span class="heading-6">Hours</span>

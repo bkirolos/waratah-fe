@@ -50,7 +50,7 @@
 
   body,
   .body {
-    @apply font-sans text-xs md:text-base leading-normal;
+    @apply font-sans text-xs md:text-base tracking-normal leading-normal normal-case;
   }
 }
 
