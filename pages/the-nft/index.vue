@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white">
-    <div class="grid grid-cols-12 bg-navy min-h-300 py-20 px-10">
-      <div class="row-1 md:col-span-5">
-        <h1 class="heading-2">Ducks are Flying</h1>
+  <div>
+    <section class="bg-navy grid grid-cols-12 gap-y-6 px-4 py-16 md:px-10">
+      <div class="col-span-full md:col-span-5">
+        <h1 class="heading-2 mb-6">Ducks are Flying</h1>
         <p>
           Get one of 120 NFTs created by Tinker Hatfield benefitting Universty
           of Oregon Duck Athletes. Each NFT comes with a physical pair of Nike
@@ -10,22 +10,20 @@
           rules.
         </p>
       </div>
-      <div class="row-1 md:col-span-7">
-        <p>Sale Ends when it ends</p>
-        <p>Add a countdown clock</p>
-        <hr />
-        <h5>Current Price</h5>
-        <p class="heading-4">{{ price }} ETH</p>
+      <div class="col-span-full md:col-start-7 md:col-span-5">
+        <Countdown />
+        <hr class="my-6" />
+        <CurrentPrice />
       </div>
-    </div>
-    <div class="grid px-4 py-20 grid-cols-5 gap-5">
+    </section>
+    <section class="bg-white grid grid-cols-10 gap-x-4 gap-y-3 p-4 md:p-10">
       <NftThumbnail
         v-for="nft in nfts"
         :key="nft.tokenId"
-        class="col-span-1"
+        class="col-span-full sm:col-span-5 lg:col-span-2"
         :nft="nft"
       />
-    </div>
+    </section>
   </div>
 </template>
 
@@ -43,11 +41,6 @@ export default {
   async fetch() {
     const nfts = await this.$sanity.fetch(allNfts)
     this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
-  },
-  computed: {
-    price() {
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
-    }
   }
 }
 </script>

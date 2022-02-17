@@ -6,7 +6,8 @@
 
 @font-face {
   font-family: 'Trade Gothic';
-  src: url(../fonts/TradeGothicLTPro-BdCn20.otf) format('opentype');
+  src: url(../fonts/TradeGothicLTProBdCn20.woff2) format('woff2'),
+    url(../fonts/TradeGothicLTProBdCn20.woff) format('woff');
 }
 
 @layer base {
@@ -50,7 +51,7 @@
 
   body,
   .body {
-    @apply font-sans text-xs md:text-base leading-normal;
+    @apply font-sans text-xs md:text-base tracking-normal leading-normal normal-case;
   }
 }
 

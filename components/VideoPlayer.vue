@@ -120,6 +120,10 @@ export default {
     }
   }
 
+  .plyr__video-wrapper {
+    z-index: -1;
+  }
+
   video {
     object-fit: cover;
   }
