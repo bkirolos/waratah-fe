@@ -7,6 +7,8 @@ export default groq`
     shoeImage {
       alt,
       asset
-    }
+    },
+    nftCollectionHeading,
+    nftCollectionDescription
   }
 `

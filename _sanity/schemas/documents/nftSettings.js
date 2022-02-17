@@ -11,6 +11,16 @@ export default {
       readOnly: true
     },
     {
+      type: 'string',
+      name: 'nftCollectionHeading',
+      title: 'NFT Collection Heading'
+    },
+    {
+      type: 'text',
+      name: 'nftCollectionDescription',
+      title: 'NFT Collection Description'
+    },
+    {
       type: 'portableTextLite',
       name: 'nftDescription',
       title: 'NFT Description'
