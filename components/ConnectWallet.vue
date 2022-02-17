@@ -36,7 +36,7 @@ export default {
       if (this.network === 'mainnet') {
         return this.network !== 'homestead'
       } else {
-        return this.netwrok !== this.$config.ethereumNetwork
+        return this.network !== this.$config.ethereumNetwork
       }
     },
     network() {
