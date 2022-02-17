@@ -19,7 +19,21 @@
     </div>
 
     <div class="footer-socials flex lg:justify-end items-center mt-9 lg:mt-0">
-      <GenuineCollegeProductIcon />
+      <Hyperlink
+        url="http://six21.xyz"
+        aria-label="Built by Six21"
+        class="hover-transition"
+      >
+        <Six21Icon aria-hidden="true" />
+      </Hyperlink>
+      <Hyperlink
+        url="https://aerial.is/nft"
+        aria-label="Aerial"
+        class="ml-6 hover-transition"
+      >
+        <img src="~/assets/png/aerial-logo.png" aria-hidden="true" />
+      </Hyperlink>
+      <GenuineCollegeProductIcon class="ml-5" />
       <span class="divider"></span>
       <InstagramLink />
       <TwitterLink />
@@ -31,12 +45,14 @@
 <script>
 import GenuineCollegeProductIcon from '@/assets/svg/genuine-college-product-icon.svg?inline'
 import Logo from '@/assets/svg/division-street-logo.svg?inline'
+import Six21Icon from '@/assets/svg/six21-logo.svg?inline'
 import nav from '@/mixins/nav'
 
 export default {
   components: {
     GenuineCollegeProductIcon,
-    Logo
+    Logo,
+    Six21Icon
   },
   mixins: [nav]
 }
