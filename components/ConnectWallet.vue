@@ -4,7 +4,7 @@
       <span
         :class="[
           'connect-button cta flex items-center h-10 leading-none px-5 py-0 relative',
-          { 'bg-salmon transition-colors': isConnected && isWrongNetwork }
+          { 'bg-salmon': isConnected && isWrongNetwork }
         ]"
       >
         {{ connectText }}
