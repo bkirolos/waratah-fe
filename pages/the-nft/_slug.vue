@@ -21,8 +21,12 @@
         <hr class="my-6" />
         <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
-        <button class="cta bg-lime text-navy w-full my-6" @click="buy">
-          Buy Now
+        <button
+          class="cta bg-lime text-navy w-full my-6"
+          :disabled="disableButton"
+          @click="buy"
+        >
+          {{ buyButtonText }}
         </button>
       </div>
       <hr class="col-span-12" />
@@ -41,7 +45,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
 
@@ -49,7 +52,8 @@ export default {
   data() {
     return {
       nft: null,
-      nftGeneral: null
+      nftGeneral: null,
+      owner: null
     }
   },
   async fetch() {
@@ -60,17 +64,30 @@ export default {
     this.nftGeneral = nftGeneral
   },
   computed: {
-    ...mapGetters({
-      accounts: 'wallet/getAccounts'
-    }),
+    buyButtonText() {
+      if (this.$web3?.ownedTokens) {
+        const mappedTokens = this.$web3.ownedTokens.map(bn => bn.toNumber())
+        console.log(mappedTokens)
+        return mappedTokens.includes(this.tokenId) ? 'OWNED' : 'AVAILABLE'
+      }
+      return this.$web3?.connectionStatus === 'wallet'
+        ? 'BUY'
+        : 'CONNECT WALLET TO BUY'
+    },
+    disableButton() {
+      return this.$web3?.connectionStatus !== 'wallet'
+    },
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
+    },
+    nftTitle() {
+      return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
     },
     price() {
-      return '00.0000'
+      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription
@@ -86,13 +103,17 @@ export default {
     title() {
       return this.nft?.title
     },
+    tokenId() {
+      return parseInt(this.nft?.tokenId) || null
+    },
     video() {
       return this.nft?.video?.url ? this.nft.video : null
     }
   },
   methods: {
     buy() {
-      console.log('Buying for', this.accounts)
+      console.log('Buying for', this.$web3.accounts)
+      this.$web3.mintDuck(this.tokenId)
     }
   }
 }

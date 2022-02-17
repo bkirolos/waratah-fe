@@ -38,7 +38,6 @@ export default {
   mixins: [nav],
   computed: {
     nftGoLive() {
-      console.log(this.$config)
       return this.$config.nftGoLive === 'y'
     }
   },
