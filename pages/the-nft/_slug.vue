@@ -57,8 +57,10 @@
 <script>
 import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       nft: null,
@@ -90,11 +92,17 @@ export default {
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
     },
+    metaImage() {
+      return this.image
+    },
     nftTitle() {
       return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
+    },
+    pageTitle() {
+      return this.title
     },
     price() {
       return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'

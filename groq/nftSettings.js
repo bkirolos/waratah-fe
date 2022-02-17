@@ -6,7 +6,8 @@ export default groq`
     shoeDescription,
     shoeImage {
       alt,
-      asset
+      asset,
+      crop
     }
   }
 `
