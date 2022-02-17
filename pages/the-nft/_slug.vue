@@ -19,8 +19,7 @@
       <div class="md:col-span-6 col-span-12">
         <Countdown />
         <hr class="my-6" />
-        <h2 class="heading-5 base font-bold my-2">Current Price</h2>
-        <p class="heading-4 font-serif">{{ price }} ETH</p>
+        <CurrentPrice />
         <button
           class="cta bg-lime text-navy w-full my-6"
           :disabled="disableButton"
@@ -85,9 +84,6 @@ export default {
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
-    },
-    price() {
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription

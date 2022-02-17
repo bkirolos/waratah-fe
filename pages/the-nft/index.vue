@@ -12,8 +12,8 @@
       </div>
       <div class="row-1 md:col-span-7">
         <Countdown />
-        <h5>Current Price</h5>
-        <p class="heading-4">{{ price }} ETH</p>
+        <hr class="my-6" />
+        <CurrentPrice />
       </div>
     </div>
     <div class="grid px-4 py-20 grid-cols-5 gap-5">
@@ -39,11 +39,6 @@ export default {
   async fetch() {
     const nfts = await this.$sanity.fetch(allNfts)
     this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
-  },
-  computed: {
-    price() {
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
-    }
   }
 }
 </script>
