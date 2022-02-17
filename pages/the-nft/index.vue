@@ -11,9 +11,7 @@
         </p>
       </div>
       <div class="row-1 md:col-span-7">
-        <p>Sale Ends when it ends</p>
-        <p>Add a countdown clock</p>
-        <hr />
+        <Countdown />
         <h5>Current Price</h5>
         <p class="heading-4">{{ price }} ETH</p>
       </div>
