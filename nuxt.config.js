@@ -71,7 +71,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dayjs'],
+  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios'],
   dayjs: {
     defaultTimeZone: 'America/Los_Angeles',
     plugins: ['utc', 'timezone']
