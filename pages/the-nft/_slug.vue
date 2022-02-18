@@ -1,22 +1,22 @@
 <template>
   <section class="grid grid-cols-1">
     <div
-      class="grid grid-cols-12 bg-light-blue bg-opacity-20 py-20 row-start-1 row-span-1"
+      class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-20"
     >
-      <div class="nft-video-asset col-start-4 col-span-6">
+      <div class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6">
         <VideoPlayer v-if="video" :video="video" autoplay loop />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
-    <div class="grid grid-cols-12 row-start-2 row-span-1 p-10 gap-10">
-      <div class="md:col-span-6 col-span-12">
+    <div class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10">
+      <div class="col-start-1 col-span-12 md:col-start-1 md:col-span-5">
         <h1 class="heading-3">{{ title }}</h1>
         <p class="base font-serif text-lime mt-2 mb-4">
           SHOE SIZE: {{ shoeSize }}
         </p>
         <PortableText :blocks="nftDescription" />
       </div>
-      <div class="md:col-span-6 col-span-12">
+      <div class="col-start-1 col-span-12 md:col-start-7 md:col-span-6">
         <p class="base font-bold my-4">
           Sale ends Feburary 24th at 11:45pm PST at 1ETH
         </p>
@@ -32,9 +32,9 @@
           {{ buyButtonText }}
         </button>
       </div>
-      <hr class="col-span-12" />
+      <hr class="col-span-12"/>
     </div>
-    <div class="grid grid-cols-12 row-start-3 row-span-1 p-10 gap-x-10">
+    <div class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10">
       <div class="md:col-span-6 col-span-12">
         <div class="shoe-asset">
           <LazyImage v-if="shoeImage" :image="shoeImage" />
@@ -50,8 +50,10 @@
 <script>
 import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       nft: null,
@@ -88,6 +90,12 @@ export default {
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
+    },
+    pageTitle() {
+      return `Flying Formation | ${this.nftTitle}`
+    },
+    metaDescription() {
+      return this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
     },
     price() {
       return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'

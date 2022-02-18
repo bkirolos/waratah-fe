@@ -1,12 +1,14 @@
 <template>
   <article class="nft-item text-navy center border border-stroke-gray pb-2">
     <div class="nft-thumbnail pb-4">
-      <div v-if="sold" class="sold-badge text-xs base bold absolute z-10 border rounded-full inline-flex justify-center items-center text-navy bg-electric-green px-2 right-2 top-2">SOLD</div>
+      <div v-if="sold" class="small-cta absolute z-10 border text-navy bg-electric-green font-bold right-2 top-2">SOLD</div>
       <LazyImage v-if="image" :image="image" />
     </div>
-    <p class="heading-4 text-base">{{ title }}</p>
+    <div class="mt-4 ml-4">
+    <p class="heading-4 text-base my-1">{{ title }}</p>
     <p class="heading-6">Shoe Size {{ shoeSize }}</p>
-    <Hyperlink :url="slug" class="text-xs border rounded-full inline-flex justify-center items-center font-sans text-navy bg-stroke-gray mt-6 px-2">View Details</Hyperlink>
+    <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-6 font-semibold">View Details</Hyperlink>
+    </div>
   </article>
 </template>
 

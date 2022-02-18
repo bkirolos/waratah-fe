@@ -22,6 +22,7 @@ module.exports = {
       serif: ['Miller Disp Rom']
     },
     fontSize: {
+      xxs: '12px',
       xs: '14px',
       sm: '18px',
       base: '20px',

@@ -1,9 +1,9 @@
 <template>
   <section class="grid grid-cols-1">
-    <div class="grid row-1 grid-cols-12 bg-navy py-20">
-      <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 ">
+    <div class="grid row-1 grid-cols-12 bg-navy py-12 md:py-20">
+      <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-8">
         <h1 class="heading-2">{{this.heading}}</h1>
-        <p class="body my-4 md:my-8 mr-8">
+        <p class="body my-4 md:my-8 ">
           {{ description }}
         </p>
         <CTA :cta="discordCta" class="bg-lime text-navy mt-4 md:mt-0" />
@@ -16,9 +16,9 @@
         <hr class="my-6" />
         <h2 class="heading-5 base font-bold my-2">Current Price</h2>
         <p class="heading-4 font-serif">{{ price }} ETH</p>
-        <div class="py-8 md:flex md:flex-row md:justify-between">
-          <p class="heading-4 font-serif md:pt-2">{{ minted }} / 120 Minted</p>
-          <CTA :cta="openSeaCta" class="text-lime border-lime mt-8 md:mt-0" />
+        <div class="py-8 md:flex md:flex-row md:justify-between flex-wrap">
+          <p class="heading-4 font-serif py-4">{{ minted }} / 120 Minted</p>
+          <CTA :cta="openSeaCta" class="text-lime border-lime" />
         </div>
       </div>
     </div>
@@ -37,8 +37,10 @@
 <script>
 import allNfts from '@/groq/allNfts'
 import nftSettings from '@/groq/nftSettings'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       nfts: null,
@@ -60,10 +62,16 @@ export default {
       }
     },
     description() {
-      return this.nftGeneral?.nftCollectionDescription || "Get one of 120 NFTs created by Tinker Hatfield benefitting Universty of Oregon Duck Athletes. Each NFT comes with a physical pair of Nik Air Max 1 sneakers designed by Tinker himself. Click here for offical rules."
+      return this.nftGeneral?.nftCollectionDescription
+    },
+    pageTitle() {
+      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
+    },
+    metaDescription() {
+      return this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
     },
     heading() {
-      return this.nftGeneral?.nftCollectionHeading || 'Ducks are Flying'
+      return this.nftGeneral?.nftCollectionHeading
     },
     minted() {
       return 0
