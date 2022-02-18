@@ -41,6 +41,7 @@
               :key="index"
               :url="link.url"
               large
+              :class="link.class"
               @click.native="closeMenu"
             >
               {{ link.label }}
