@@ -78,8 +78,7 @@ export default {
   computed: {
     buyButtonText() {
       if (this.$web3?.ownedTokens) {
-        const mappedTokens = this.$web3.ownedTokens.map(bn => bn.toNumber())
-        console.log(mappedTokens)
+        const mappedTokens = this.$web3.ownedTokens
         return mappedTokens.includes(this.tokenId) ? 'OWNED' : 'AVAILABLE'
       }
       return this.$web3?.connectionStatus === 'wallet'
