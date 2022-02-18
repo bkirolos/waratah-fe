@@ -24,7 +24,9 @@
         </div>
       </div>
     </section>
-    <section class="grid bg-white row-start-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 px-4 py-20">
+    <section
+      class="grid bg-white row-start-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 px-4 py-20"
+    >
       <NftThumbnail
         v-for="nft in nfts"
         :key="nft.tokenId"

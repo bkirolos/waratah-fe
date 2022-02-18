@@ -11,14 +11,14 @@
     <div
       class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10"
     >
-      <div class="col-start-1 col-span-12 md:col-start-1 md:col-span-5">
+      <div class="col-start-1 col-span-12 md:col-start-1 md:col-span-6">
         <h1 class="heading-3">{{ title }}</h1>
         <p class="base font-serif text-lime mt-2 mb-4">
           SHOE SIZE: {{ shoeSize }}
         </p>
         <PortableText :blocks="nftDescription" />
       </div>
-      <div class="md:col-span-6 col-span-12">
+      <div class="md:col-start-7 md:col-span-6 col-span-12">
         <Countdown />
         <hr class="my-6" />
         <CurrentPrice />

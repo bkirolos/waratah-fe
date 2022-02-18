@@ -12,10 +12,7 @@
     <div class="mt-4 ml-4">
       <p class="heading-4 text-base my-1">{{ title }}</p>
       <p class="heading-6">Shoe Size {{ shoeSize }}</p>
-      <Hyperlink
-        :url="slug"
-        class="small-cta text-navy bg-stroke-gray mt-6"
-      >
+      <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-6">
         View Details
       </Hyperlink>
     </div>
