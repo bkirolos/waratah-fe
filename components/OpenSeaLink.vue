@@ -1,5 +1,5 @@
 <template>
-  <NavLink url="https://opensea.io" round aria-label="Open Sea">
+  <NavLink :url="url" round aria-label="OpenSea">
     <OpenSeaIcon aria-hidden="true" />
   </NavLink>
 </template>
@@ -10,6 +10,14 @@ import OpenSeaIcon from '@/assets/svg/open-sea-logo.svg?inline'
 export default {
   components: {
     OpenSeaIcon
+  },
+  computed: {
+    contractAddress() {
+      return this.$web3?.contractAddress || ''
+    },
+    url() {
+      return `https://opensea.io/assets/${this.contractAddress}`
+    }
   }
 }
 </script>
