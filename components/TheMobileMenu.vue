@@ -46,7 +46,9 @@
               {{ link.label }}
             </NavLink>
 
-            <div class="flex mt-10">
+            <ConnectWallet class="mt-5" />
+
+            <div class="flex mt-6">
               <TwitterLink />
               <DiscordLink />
             </div>

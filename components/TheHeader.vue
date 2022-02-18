@@ -20,7 +20,7 @@
       <div class="flex justify-end">
         <TwitterLink class="hidden lg:flex" />
         <DiscordLink class="hidden lg:flex" />
-        <ConnectWallet v-if="nftGoLive" />
+        <ConnectWallet v-if="nftGoLive" class="hidden lg:flex" />
         <TheMobileMenu class="flex lg:hidden" />
       </div>
     </nav>
