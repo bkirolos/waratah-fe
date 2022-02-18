@@ -26,16 +26,24 @@
         <PortableText :blocks="nftDescription" />
       </div>
       <div class="md:col-start-7 md:col-span-6 col-span-12">
-        <Countdown />
-        <hr class="my-6" />
-        <CurrentPrice />
-        <button
-          class="cta bg-lime text-navy w-full my-6"
-          :disabled="disableButton"
-          @click="buy"
-        >
-          {{ buyButtonText }}
-        </button>
+        <div v-if="!nftIsOwned">
+          <Countdown />
+          <hr class="my-6" />
+          <CurrentPrice />
+          <button class="wide-cta text-navy my-6" @click="buy">
+            {{ buyButtonText }}
+          </button>
+        </div>
+        <div v-else>
+          <p class="heading-4 my-2">SOLD</p>
+          <p class="base truncate">Owned By {{ ownedByText }}</p>
+          <Hyperlink
+            :url="openSeaUrl"
+            class="wide-cta text-lime border-lime my-6"
+          >
+            View On OpenSea
+          </Hyperlink>
+        </div>
       </div>
       <hr class="col-span-12" />
     </div>
@@ -65,7 +73,8 @@ export default {
     return {
       nft: null,
       nftGeneral: null,
-      owner: null
+      owner: null,
+      transactionInProgress: false
     }
   },
   async fetch() {
@@ -77,16 +86,13 @@ export default {
   },
   computed: {
     buyButtonText() {
-      if (this.$web3?.ownedTokens) {
-        const mappedTokens = this.$web3.ownedTokens
-        return mappedTokens.includes(this.tokenId) ? 'OWNED' : 'AVAILABLE'
+      if (this.transactionInProgress) {
+        return 'Transaction In Progress'
       }
-      return this.$web3?.connectionStatus === 'wallet'
-        ? 'BUY'
-        : 'CONNECT WALLET TO BUY'
-    },
-    disableButton() {
-      return this.$web3?.connectionStatus !== 'wallet'
+      if (this.$web3?.connectionStatus === 'wallet') {
+        return 'Buy Now'
+      }
+      return 'Connect Wallet To Buy'
     },
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
@@ -94,19 +100,35 @@ export default {
     metaImage() {
       return this.image
     },
+    metaDescription() {
+      return (
+        this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
+      )
+    },
     nftTitle() {
       return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
     },
+    nftIsOwned() {
+      return this.$web3?.ownedTokens.includes(this.tokenId)
+    },
     pageTitle() {
       return `Flying Formation | ${this.nftTitle}`
     },
-    metaDescription() {
-      return (
-        this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
-      )
+    openSeaUrl() {
+      return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
+    },
+    ownedByText() {
+      return this.owner
+        ? String(this.owner) === String(this.$web3?.accounts[0]?.address)
+          ? 'You!'
+          : `${this.owner}`
+        : 'Owned By --'
+    },
+    readableContractAddress() {
+      return String(this.$web3?.contractAddress)
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription
@@ -129,10 +151,31 @@ export default {
       return this.nft?.video?.url ? this.nft.video : null
     }
   },
+  watch: {
+    nftIsOwned() {
+      this.getOwner()
+    }
+  },
+  mounted() {
+    this.getOwner()
+  },
   methods: {
-    buy() {
-      console.log('Buying for', this.$web3.accounts)
-      this.$web3.mintDuck(this.tokenId)
+    async buy() {
+      if (this.$web3?.connectionStatus !== 'wallet') {
+        this.$web3.connectWallet()
+        return
+      }
+      this.transactionInProgress = true
+      try {
+        await this.$web3.mintDuck(this.tokenId)
+      } catch (e) {
+        console.log(e)
+      }
+      this.transactionInProgress = false
+    },
+    async getOwner() {
+
+      this.owner = await this.$web3.getTokenOwner(this.tokenId)
     }
   }
 }

@@ -134,9 +134,9 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     async getTokenOwner(tokenId) {
       try {
-        const ownerOfDuck = await this.$web3.contract.ownerOf(tokenId)
+        const ownerOfDuck = await this.contract.ownerOf(tokenId)
         console.log('ownerOf', ownerOfDuck)
-        console.log('yours!', this.$web3.accounts[0].address === ownerOfDuck)
+        console.log('yours!', this.accounts[0].address === ownerOfDuck)
         return ownerOfDuck
       } catch (e) {
         console.error(e)
