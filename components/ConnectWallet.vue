@@ -4,12 +4,12 @@
       <span
         :class="[
           'connect-button cta flex items-center h-10 leading-none px-5 py-0 relative',
-          { 'bg-salmon': isConnected && isWrongNetwork }
+          { 'bg-salmon': isConnected && !isCorrectNetwork }
         ]"
       >
         {{ connectText }}
         <span
-          v-if="isConnected && isWrongNetwork"
+          v-if="isConnected && !isCorrectNetwork"
           class="connect-button-helper left-0 pt-2 absolute right-0"
         >
           Connect to Mainnet
@@ -24,19 +24,19 @@ export default {
   computed: {
     connectText() {
       return this.isConnected
-        ? this.isWrongNetwork
-          ? 'Wrong Network'
-          : 'Disconnect'
+        ? this.isCorrectNetwork
+          ? 'Disconnect'
+          : 'Wrong Network'
         : 'Connect Wallet'
     },
     isConnected() {
       return this.$web3?.accounts
     },
-    isWrongNetwork() {
-      if (this.network === 'mainnet') {
-        return this.network !== 'homestead'
+    isCorrectNetwork() {
+      if (this.$config.ethereumNetwork === 'mainnet') {
+        return this.network === 'homestead'
       } else {
-        return this.network !== this.$config.ethereumNetwork
+        return this.network === this.$config.ethereumNetwork
       }
     },
     network() {
