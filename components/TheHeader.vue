@@ -12,14 +12,16 @@
           v-for="(link, index) in headerLinks"
           :key="index"
           :url="link.url"
+          :class="link.class"
         >
           {{ link.label }}
         </NavLink>
       </div>
 
       <div class="flex justify-end">
-        <TwitterLink class="hidden lg:flex" />
-        <DiscordLink class="hidden lg:flex" />
+        <DiscordLink class="hidden xl:flex" />
+        <OpenSeaLink class="hidden xl:flex" />
+        <TwitterLink class="hidden xl:flex" />
         <ConnectWallet v-if="nftGoLive" class="hidden lg:flex" />
         <TheMobileMenu class="flex lg:hidden" />
       </div>
@@ -61,10 +63,6 @@ export default {
   &-nav {
     display: flex;
     justify-content: space-between;
-    @media (min-width: theme('screens.xl')) {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-    }
 
     a,
     button {

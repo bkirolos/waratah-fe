@@ -49,8 +49,9 @@
             <ConnectWallet class="mt-5" />
 
             <div class="flex mt-6">
-              <TwitterLink />
               <DiscordLink />
+              <OpenSeaLink />
+              <TwitterLink />
             </div>
           </div>
         </aside>
