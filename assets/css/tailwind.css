@@ -61,6 +61,10 @@
     @apply border rounded-full inline-flex justify-center items-center font-sans text-xs font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
   }
 
+  .small-cta {
+    @apply rounded-full inline-flex justify-center items-center px-2 py-1 font-sans text-xxs py-1 px-3;
+  }
+
   .input {
     background: transparent;
     height: 5.5rem;

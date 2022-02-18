@@ -6,17 +6,20 @@
   >
     <DiscordIcon v-if="showDiscordIcon" aria-hidden="true" />
     <TwitterIcon v-if="showTwitterIcon" aria-hidden="true" />
+    <OpenSeaIcon v-if="showOpenSeaIcon" aria-hidden="true" />
     <span>{{ ctaText }}</span>
   </Hyperlink>
 </template>
 
 <script>
 import DiscordIcon from '@/assets/svg/discord-logo.svg?inline'
+import OpenSeaIcon from '@/assets/svg/open-sea-logo.svg?inline'
 import TwitterIcon from '@/assets/svg/twitter-logo.svg?inline'
 
 export default {
   components: {
     DiscordIcon,
+    OpenSeaIcon,
     TwitterIcon
   },
   props: {
@@ -41,6 +44,9 @@ export default {
     },
     showDiscordIcon() {
       return this.ctaIcon === 'discord'
+    },
+    showOpenSeaIcon() {
+      return this.ctaIcon === 'opensea'
     },
     showTwitterIcon() {
       return this.ctaIcon === 'twitter'
