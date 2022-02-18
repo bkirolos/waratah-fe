@@ -4,7 +4,14 @@
       class="grid grid-cols-12 bg-light-blue bg-opacity-20 py-20 row-start-1 row-span-1"
     >
       <div class="nft-video-asset col-start-4 col-span-6">
-        <VideoPlayer v-if="video" :video="video" autoplay loop />
+        <VideoPlayer
+          v-if="video"
+          :video="video"
+          :autopause="false"
+          autoplay
+          hide-controls
+          loop
+        />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
@@ -46,8 +53,10 @@
 <script>
 import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       nft: null,
@@ -79,11 +88,17 @@ export default {
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
     },
+    metaImage() {
+      return this.image
+    },
     nftTitle() {
       return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'
     },
     nftDescription() {
       return this.nftGeneral?.nftDescription
+    },
+    pageTitle() {
+      return this.title
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription

@@ -29,8 +29,10 @@
 
 <script>
 import allNfts from '@/groq/allNfts'
+import head from '@/mixins/head'
 
 export default {
+  mixins: [head],
   data() {
     return {
       nfts: null
