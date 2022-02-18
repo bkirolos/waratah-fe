@@ -25,6 +25,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     network: null,
     signer: null,
     contract: null,
+    contractAddress: null,
     price: null,
     connectionStatus: 'disconnected',
     ownedTokens: [],
@@ -32,8 +33,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     async getAllOwnedTokens() {
       try {
         const tokenIds = await this.contract.getAllTokens()
-        console.log('tokenIds', tokenIds)
-        this.ownedTokens = tokenIds
+        const mappedTokens = tokenIds.map(bn => bn.toNumber())
+        this.ownedTokens = mappedTokens
       } catch (e) {
         console.error(e)
       }
@@ -55,7 +56,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           this.network = network
         })
         this.accounts = accounts
-        console.log(this.accounts, 'from store')
 
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
@@ -71,7 +71,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       await this.connectToContract(infura)
 
       this.provider = infura
-      console.log('connect to infura')
       this.connectionStatus = 'infura'
     },
     async connectToContract(providerOrSigner) {
@@ -80,17 +79,17 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
       // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
 
-      const contractAddress = Token.address.rinkeby
-      const contractAbi = Token.abi.rinkeby
+      const contractAddress = Token.address[ethereumNetwork]
+      const contractAbi = Token.abi[ethereumNetwork]
       const contract = await new ethers.Contract(
         contractAddress,
         contractAbi,
         providerOrSigner
       )
+      this.contractAddress = contractAddress
 
       const currentPriceWei = await contract.getPrice()
       this.price = currentPriceWei
-      console.log(this.formatPrice(this.price), 'from store')
 
       // fetch the price every block
       this.provider.on('block', async () => {
@@ -114,8 +113,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
 
     async mintDuck(tokenId) {
-      console.log('minting', tokenId)
-
       try {
         if (this.connectionStatus !== 'wallet') {
           throw new Error('Not connected to wallet!')
@@ -128,8 +125,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
           value: ethers.utils.parseEther(ethPrice.toString())
         })
-
-        console.log('activeTx', activeTx)
         const txResult = await activeTx.wait()
 
         console.log('txResult', txResult)

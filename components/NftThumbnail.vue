@@ -27,10 +27,6 @@ export default {
     nft: {
       type: Object,
       required: true
-    },
-    sold: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -43,11 +39,17 @@ export default {
     slug() {
       return `/flyingformations/${this.tokenId}`
     },
+    sold() {
+      if (this.$web3?.ownedTokens) {
+        return this.$web3.ownedTokens.includes(this.tokenId)
+      }
+      return false
+    },
     title() {
       return this.nft?.title
     },
     tokenId() {
-      return this.nft?.tokenId
+      return Number(this.nft?.tokenId)
     }
   }
 }
