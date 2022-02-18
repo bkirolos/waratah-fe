@@ -1,7 +1,11 @@
 <template>
-  <!-- TODO: add support for options prop? -->
   <client-only>
-    <vue-plyr v-if="url" ref="plyr" v-observe-visibility="options">
+    <vue-plyr
+      v-if="url"
+      ref="plyr"
+      v-observe-visibility="observeVisibilityOptions"
+      :options="plyrOptions"
+    >
       <video
         playsinline
         controls
@@ -21,7 +25,15 @@ import imageBuilder from '@/mixins/imageBuilder'
 export default {
   mixins: [imageBuilder],
   props: {
+    autopause: {
+      type: Boolean,
+      default: true
+    },
     autoplay: {
+      type: Boolean,
+      default: false
+    },
+    hideControls: {
       type: Boolean,
       default: false
     },
@@ -36,12 +48,13 @@ export default {
   },
   data() {
     return {
-      options: {
+      observeVisibilityOptions: {
         callback: this.handleVisibilityChange,
         intersection: {
           threshold: 0.5
         }
-      }
+      },
+      plyrOptions: {}
     }
   },
   computed: {
@@ -53,6 +66,20 @@ export default {
     },
     url() {
       return this.video?.url
+    }
+  },
+  mounted() {
+    // option to hide controls and prevent video from playing/pausing on click
+    if (this.hideControls) {
+      this.plyrOptions = {
+        clickToPlay: false,
+        controls: []
+      }
+    }
+
+    // option to prevent video from automatically pausing when scrolling out of view
+    if (!this.autopause) {
+      this.observeVisibilityOptions = false
     }
   },
   methods: {

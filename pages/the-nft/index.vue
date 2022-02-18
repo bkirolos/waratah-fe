@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <section class="grid grid-cols-1">
+  <div class="grid grid-cols-1 w-full">
+    <section>
       <div class="grid row-1 grid-cols-12 bg-navy py-12 md:py-20">
-        <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-8">
+        <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-12">
           <h1 class="heading-2">{{ heading }}</h1>
           <p class="body my-4 md:my-8">
             {{ description }}
           </p>
-          <CTA :cta="discordCta" class="bg-lime text-navy mt-4 md:mt-0" />
+          <CTA :cta="discordCta" class="bg-lime text-navy my-4" />
         </div>
         <div
           class="col-start-2 col-span-10 md:col-span-5 col-start-2 md:col-start-7 my-auto"
@@ -17,7 +17,7 @@
             <hr class="my-6" />
             <CurrentPrice />
           </div>
-          <div class="py-8 md:flex md:flex-row md:justify-between flex-wrap">
+          <div class="my-2 md:flex md:flex-row md:justify-between flex-wrap">
             <p class="heading-4 font-serif py-4">{{ minted }} / 120 Minted</p>
             <CTA :cta="openSeaCta" class="text-lime border-lime" />
           </div>

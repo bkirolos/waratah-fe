@@ -1,10 +1,17 @@
 <template>
-  <section class="grid grid-cols-1">
+  <section class="grid grid-cols-1 w-full">
     <div class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-20">
       <div
         class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6"
       >
-        <VideoPlayer v-if="video" :video="video" autoplay loop />
+        <VideoPlayer
+          v-if="video"
+          :video="video"
+          :autopause="false"
+          autoplay
+          hide-controls
+          loop
+        />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
@@ -84,6 +91,9 @@ export default {
     },
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
+    },
+    metaImage() {
+      return this.image
     },
     nftTitle() {
       return this.tokenId ? `Ducks of a Feather ${this.tokenId}` : '404'

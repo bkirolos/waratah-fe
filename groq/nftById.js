@@ -4,7 +4,8 @@ export default groq`
   *[_type == "nftAsset" && _id == $id] | order(_updatedAt desc) [0] {
     image {
       alt,
-      asset
+      asset,
+      "url": asset->url
     },
     shoeSize,
     title,

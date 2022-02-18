@@ -1,24 +1,24 @@
 <template>
- <Hyperlink :url="slug" :aria-label="`View details of nft ${title}`">
-  <article class="nft-item text-navy center border border-stroke-gray pb-4">
-    <div class="nft-thumbnail pb-4">
-      <div
-        v-if="sold"
-        class="small-cta absolute z-10 border text-navy bg-electric-green font-semibold right-2 top-2"
-      >
-        SOLD
+  <Hyperlink :url="slug" :aria-label="`View details of nft ${title}`">
+    <article class="nft-item text-navy center border border-stroke-gray pb-4">
+      <div class="nft-thumbnail pb-4">
+        <div
+          v-if="sold"
+          class="small-cta absolute z-10 border text-navy bg-electric-green font-semibold right-2 top-2"
+        >
+          SOLD
+        </div>
+        <LazyImage v-if="image" :image="image" />
       </div>
-      <LazyImage v-if="image" :image="image" />
-    </div>
-    <div class="mt-4 ml-4">
-      <p class="heading-4 text-base my-1">{{ title }}</p>
-      <p class="heading-6">Shoe Size {{ shoeSize }}</p>
-      <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-6">
-        View Details
-      </Hyperlink>
-    </div>
-  </article>
- </Hyperlink>
+      <div class="mt-4 ml-4">
+        <p class="heading-4 text-base my-1">{{ title }}</p>
+        <p class="heading-6">Shoe Size {{ shoeSize }}</p>
+        <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-6">
+          View Details
+        </Hyperlink>
+      </div>
+    </article>
+  </Hyperlink>
 </template>
 
 <script>
