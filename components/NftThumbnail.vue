@@ -1,6 +1,6 @@
 <template>
- <Hyperlink :url="slug" aria-label="link to nft asset">
-  <article class="nft-item text-navy center border border-stroke-gray pb-2">
+ <Hyperlink :url="slug" :aria-label="`View details of nft ${title}`">
+  <article class="nft-item text-navy center border border-stroke-gray pb-4">
     <div class="nft-thumbnail pb-4">
       <div
         v-if="sold"
