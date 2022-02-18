@@ -1,4 +1,5 @@
 <template>
+ <Hyperlink :url="slug" aria-label="link to nft asset">
   <article class="nft-item text-navy center border border-stroke-gray pb-2">
     <div class="nft-thumbnail pb-4">
       <div
@@ -17,6 +18,7 @@
       </Hyperlink>
     </div>
   </article>
+ </Hyperlink>
 </template>
 
 <script>
@@ -51,7 +53,7 @@ export default {
 }
 </script>
 <style lang="scss">
-$asset-width: clamp(1px, 100%, 300px);
+$asset-width: clamp(1px, 100%, 600px);
 .nft-thumbnail {
   flex-shrink: 0;
   height: 0;
