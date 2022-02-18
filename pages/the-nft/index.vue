@@ -1,28 +1,30 @@
 <template>
-  <section class="grid grid-cols-1">
-    <div class="grid row-1 grid-cols-12 bg-navy py-12 md:py-20">
-      <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-8">
-        <h1 class="heading-2">{{this.heading}}</h1>
-        <p class="body my-4 md:my-8 ">
-          {{ description }}
-        </p>
-        <CTA :cta="discordCta" class="bg-lime text-navy mt-4 md:mt-0" />
-      </div>
-      <div class="col-start-2 col-span-10 md:col-span-5 col-start-2 md:col-start-7 my-auto">
-         <p class="base font-bold my-4">
-          Sale ends Feburary 10th at 10:00pm PST at 1ETH
-        </p>
-        <p>ADD TIMER</p>
-        <hr class="my-6" />
-        <h2 class="heading-5 base font-bold my-2">Current Price</h2>
-        <p class="heading-4 font-serif">{{ price }} ETH</p>
-        <div class="py-8 md:flex md:flex-row md:justify-between flex-wrap">
-          <p class="heading-4 font-serif py-4">{{ minted }} / 120 Minted</p>
-          <CTA :cta="openSeaCta" class="text-lime border-lime" />
+  <div>
+    <section class="grid grid-cols-1">
+      <div class="grid row-1 grid-cols-12 bg-navy py-12 md:py-20">
+        <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-8">
+          <h1 class="heading-2">{{ heading }}</h1>
+          <p class="body my-4 md:my-8">
+            {{ description }}
+          </p>
+          <CTA :cta="discordCta" class="bg-lime text-navy mt-4 md:mt-0" />
+        </div>
+        <div
+          class="col-start-2 col-span-10 md:col-span-5 col-start-2 md:col-start-7 my-auto"
+        >
+          <div class="col-span-full md:col-start-7 md:col-span-5">
+            <Countdown />
+            <hr class="my-6" />
+            <CurrentPrice />
+          </div>
+          <div class="py-8 md:flex md:flex-row md:justify-between flex-wrap">
+            <p class="heading-4 font-serif py-4">{{ minted }} / 120 Minted</p>
+            <CTA :cta="openSeaCta" class="text-lime border-lime" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="grid bg-white row-start-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-4 py-20 gap-5">
+    </section>
+    <section class="grid bg-white row-start-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 px-4 py-20">
       <NftThumbnail
         v-for="nft in nfts"
         :key="nft.tokenId"
@@ -30,8 +32,8 @@
         :nft="nft"
         :sold="true"
       />
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -68,7 +70,9 @@ export default {
       return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
     },
     metaDescription() {
-      return this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
+      return (
+        this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
+      )
     },
     heading() {
       return this.nftGeneral?.nftCollectionHeading
@@ -82,9 +86,6 @@ export default {
         icon: 'opensea',
         link: 'https://opensea.io/assets/'
       }
-    },
-    price() {
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
     }
   }
 }

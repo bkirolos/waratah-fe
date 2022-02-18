@@ -1,14 +1,16 @@
 <template>
   <section class="grid grid-cols-1">
-    <div
-      class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-20"
-    >
-      <div class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6">
+    <div class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-20">
+      <div
+        class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6"
+      >
         <VideoPlayer v-if="video" :video="video" autoplay loop />
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
-    <div class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10">
+    <div
+      class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10"
+    >
       <div class="col-start-1 col-span-12 md:col-start-1 md:col-span-5">
         <h1 class="heading-3">{{ title }}</h1>
         <p class="base font-serif text-lime mt-2 mb-4">
@@ -16,14 +18,10 @@
         </p>
         <PortableText :blocks="nftDescription" />
       </div>
-      <div class="col-start-1 col-span-12 md:col-start-7 md:col-span-6">
-        <p class="base font-bold my-4">
-          Sale ends Feburary 24th at 11:45pm PST at 1ETH
-        </p>
-        <p>ADD TIMER</p>
+      <div class="md:col-span-6 col-span-12">
+        <Countdown />
         <hr class="my-6" />
-        <h2 class="heading-5 base font-bold my-2">Current Price</h2>
-        <p class="heading-4 font-serif">{{ price }} ETH</p>
+        <CurrentPrice />
         <button
           class="cta bg-lime text-navy w-full my-6"
           :disabled="disableButton"
@@ -32,9 +30,11 @@
           {{ buyButtonText }}
         </button>
       </div>
-      <hr class="col-span-12"/>
+      <hr class="col-span-12" />
     </div>
-    <div class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10">
+    <div
+      class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10"
+    >
       <div class="md:col-span-6 col-span-12">
         <div class="shoe-asset">
           <LazyImage v-if="shoeImage" :image="shoeImage" />
@@ -95,10 +95,9 @@ export default {
       return `Flying Formation | ${this.nftTitle}`
     },
     metaDescription() {
-      return this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
-    },
-    price() {
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3?.price) : '-'
+      return (
+        this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
+      )
     },
     shoeDescription() {
       return this.nftGeneral?.shoeDescription
