@@ -41,7 +41,7 @@ export default {
       return this.nft?.shoeSize
     },
     slug() {
-      return `/the-nft/${this.tokenId}`
+      return `/flyingformations/${this.tokenId}`
     },
     title() {
       return this.nft?.title
