@@ -31,6 +31,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     ownedTokens: [],
 
     async getAllOwnedTokens() {
+      if (!this.contract) return null
+
       try {
         const tokenIds = await this.contract.getAllTokens()
         const mappedTokens = tokenIds.map(bn => bn.toNumber())
@@ -45,6 +47,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         const instance = await web3.web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(instance, 'any')
         const accounts = await provider.listAccounts()
+        this.accounts = accounts
 
         this.provider = provider
 
@@ -55,7 +58,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           const network = await provider.getNetwork()
           this.network = network
         })
-        this.accounts = accounts
 
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
@@ -68,10 +70,11 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     async connectWithInfura() {
       // TODO: set up with env vars
       const infura = new ethers.providers.InfuraProvider('rinkeby')
-      await this.connectToContract(infura)
 
       this.provider = infura
       this.connectionStatus = 'infura'
+
+      await this.connectToContract(infura)
     },
     async connectToContract(providerOrSigner) {
       // TODO: use actual env vars here
@@ -106,10 +109,13 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       if (!weiPrice) return
       return ethers.utils.formatEther(weiPrice)
     },
-    clearConnection() {
+    async clearConnection() {
       this.web3Modal.clearCachedProvider()
       this.accounts = null
       this.connectionStatus = 'disconnected'
+      this.provider = null
+
+      await this.connectWithInfura()
     },
 
     async mintDuck(tokenId) {
@@ -134,9 +140,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     async getTokenOwner(tokenId) {
       try {
-        const ownerOfDuck = await this.contract.ownerOf(tokenId)
-        console.log('ownerOf', ownerOfDuck)
-        console.log('yours!', this.accounts[0].address === ownerOfDuck)
+        const ownerOfDuck = await this.contract?.ownerOf(tokenId)
         return ownerOfDuck
       } catch (e) {
         console.error(e)

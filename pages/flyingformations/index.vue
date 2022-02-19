@@ -84,10 +84,9 @@ export default {
       return this.$web3?.ownedTokens
     },
     minted() {
-      if (this.$web3?.ownedTokens) {
-        return this.$web3?.ownedTokens?.length
-      }
-      return '-'
+      if (!this.$web3?.ownedTokens?.length) return '-'
+
+      return this.$web3?.ownedTokens?.length
     },
     openSeaCta() {
       return {
