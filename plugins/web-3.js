@@ -95,7 +95,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       this.price = currentPriceWei
 
       // fetch the price every block
-      providerOrSigner.on('block', async () => {
+      this.provider.on('block', async () => {
         const price = await contract.getPrice()
         this.price = price
 
@@ -109,10 +109,13 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       if (!weiPrice) return
       return ethers.utils.formatEther(weiPrice)
     },
-    clearConnection() {
+    async clearConnection() {
       this.web3Modal.clearCachedProvider()
       this.accounts = null
       this.connectionStatus = 'disconnected'
+      this.provider = null
+
+      await this.connectWithInfura()
     },
 
     async mintDuck(tokenId) {
