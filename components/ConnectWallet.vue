@@ -33,11 +33,7 @@ export default {
       return this.$web3?.accounts
     },
     isCorrectNetwork() {
-      if (this.$config.ethereumNetwork === 'mainnet') {
-        return this.network === 'homestead'
-      } else {
-        return this.network === this.$config.ethereumNetwork
-      }
+      return this.network === this.$config.ethereumNetwork
     },
     network() {
       return this.$web3?.network?.name
