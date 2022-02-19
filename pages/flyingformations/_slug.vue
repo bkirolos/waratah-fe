@@ -30,7 +30,7 @@
           <Countdown />
           <hr class="my-6" />
           <CurrentPrice />
-          <button class="wide-cta text-navy my-6" @click="buy">
+          <button class="wide-cta bg-lime text-navy my-6" @click="buy">
             {{ buyButtonText }}
           </button>
         </div>
