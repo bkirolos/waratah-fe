@@ -1,33 +1,31 @@
 <template>
-  <div class="grid grid-cols-1 w-full">
-    <section>
-      <div class="grid row-1 grid-cols-12 bg-navy py-12 md:py-20">
-        <div class="col-start-2 md:col-start-2 col-span-10 md:col-span-5 mr-12">
-          <h1 class="heading-2">{{ heading }}</h1>
-          <p class="body my-4 md:my-8">
-            {{ description }}
-          </p>
-          <CTA :cta="discordCta" class="bg-lime text-navy my-4" />
+  <div>
+    <section
+      class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
+    >
+      <div class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
+        <h1 class="heading-2">{{ heading }}</h1>
+        <PortableText :blocks="description" class="mt-6" />
+        <CTA :cta="discordCta" class="bg-lime text-navy mt-6" />
+      </div>
+      <div
+        class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
+      >
+        <div class="col-span-full md:col-start-7 md:col-span-5">
+          <Countdown />
+          <hr class="my-6" />
+          <CurrentPrice />
         </div>
         <div
-          class="col-start-2 col-span-10 md:col-span-5 col-start-2 md:col-start-7 my-auto"
+          class="md:flex md:flex-wrap md:justify-between md:items-center mt-8 space-y-4 md:space-y-0"
         >
-          <div class="col-span-full md:col-start-7 md:col-span-5">
-            <Countdown />
-            <hr class="my-6" />
-            <CurrentPrice />
-          </div>
-          <div class="my-2 md:flex md:flex-row md:justify-between flex-wrap">
-            <p class="heading-4 font-serif py-4 pr-4">
-              {{ minted }} / 120 Minted
-            </p>
-            <CTA :cta="openSeaCta" class="text-lime border-lime" />
-          </div>
+          <p class="heading-4 text-md md:pt-3">{{ minted }} / 120 Sold</p>
+          <CTA :cta="openSeaCta" class="text-lime border-lime" />
         </div>
       </div>
     </section>
     <section
-      class="grid bg-white row-start-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 px-4 py-20"
+      class="bg-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-4 md:p-10"
     >
       <NftThumbnail
         v-for="nft in nfts"
