@@ -49,7 +49,7 @@
           </p>
           <Hyperlink
             :url="openSeaUrl"
-            class="wide-cta text-lime border-lime my-6"
+            class="wide-cta text-lime border-lime my-6 cursor-pointer"
           >
             View On OpenSea
           </Hyperlink>
@@ -125,6 +125,7 @@ export default {
       return `Flying Formation | ${this.nftTitle}`
     },
     openSeaUrl() {
+      console.log('hi')
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
     },
     ownedByText() {

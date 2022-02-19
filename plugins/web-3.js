@@ -106,7 +106,9 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     formatPrice(weiPrice) {
       if (!weiPrice) return
-      return ethers.utils.formatEther(weiPrice)
+      const ethPrice = ethers.utils.formatEther(weiPrice)
+
+      return (+ethPrice)?.toFixed(2)
     },
     async clearConnection() {
       this.web3Modal.clearCachedProvider()

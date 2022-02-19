@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     endingTime() {
-      return this.$dayjs('2022-02-18T17:30:00')
+      return this.$dayjs('2022-02-20T22:00:00')
     },
     timeZone() {
       return Intl.DateTimeFormat().resolvedOptions().timeZone
