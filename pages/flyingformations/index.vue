@@ -69,19 +69,13 @@ export default {
     description() {
       return this.nftGeneral?.nftCollectionDescription
     },
+    heading() {
+      return this.nftGeneral?.nftCollectionHeading
+    },
     metaDescription() {
       return (
         this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
       )
-    },
-    pageTitle() {
-      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
-    },
-    heading() {
-      return this.nftGeneral?.nftCollectionHeading
-    },
-    ownedTokens() {
-      return this.$web3?.ownedTokens
     },
     minted() {
       if (this.$web3?.ownedTokens) {
@@ -89,15 +83,18 @@ export default {
       }
       return '-'
     },
+    ownedTokens() {
+      return this.$web3?.ownedTokens
+    },
+    pageTitle() {
+      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
+    },
     openSeaCta() {
       return {
         text: 'View On OpenSea',
         icon: 'opensea',
-        link: `https://opensea.io/assets/${this.readableContractAddress}`
+        link: this.$config.openSeaCollectionUrl
       }
-    },
-    readableContractAddress() {
-      return String(this.$web3?.contractAddress)
     }
   }
 }
