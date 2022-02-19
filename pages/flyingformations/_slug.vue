@@ -33,6 +33,7 @@
           <button class="wide-cta bg-lime text-navy my-6" @click="buy">
             {{ buyButtonText }}
           </button>
+          <p class="error-text">Error: {{ errorMessage }}</p>
         </div>
         <div v-else>
           <p class="heading-4 my-2">SOLD</p>
@@ -79,7 +80,8 @@ export default {
       nft: null,
       nftGeneral: null,
       owner: null,
-      transactionInProgress: false
+      transactionInProgress: false,
+      errorMessage: null
     }
   },
   async fetch() {
@@ -173,12 +175,13 @@ export default {
         this.$web3.connectWallet()
         return
       }
+      if (this.transactionInProgress) return
+
       this.transactionInProgress = true
       try {
         await this.$web3.mintDuck(this.tokenId)
       } catch (e) {
-        const errorToShow = this.$web3.parseError(e.message)
-        console.log('PARSED ERROR', errorToShow)
+        this.errorMessage = this.$web3.parseError(e.message)
       }
       this.transactionInProgress = false
     },
@@ -209,5 +212,11 @@ $slide-width: clamp(1px, 100%, 670px);
 }
 .shoe-asset {
   width: clamp(1px, 100%, 660px);
+}
+
+.error-text {
+  color: red !important;
+  font-size: 1rem;
+  text-align: center;
 }
 </style>
