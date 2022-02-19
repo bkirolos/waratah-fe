@@ -38,7 +38,7 @@
           </p>
         </div>
         <div v-else>
-          <p class="heading-4 my-2">SOLD</p>
+          <p class="heading-4 my-2">MINTED</p>
           <p class="body truncate">
             Owned By
             <Hyperlink :url="ownedByUrl" class="text-lime">
@@ -123,6 +123,9 @@ export default {
       return `Flying Formation | ${this.nftTitle}`
     },
     openSeaUrl() {
+      if (this.$config.ethereumNetwork !== 'mainnet') {
+        return `https://testnets.opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
+      }
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
     },
     ownedByText() {

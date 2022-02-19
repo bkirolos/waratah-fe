@@ -3,10 +3,10 @@
     <article class="nft-item text-navy center border border-stroke-gray">
       <div class="nft-thumbnail">
         <div
-          v-if="sold"
+          v-if="minted"
           class="small-cta absolute z-10 border text-navy bg-electric-green font-semibold right-2 top-2"
         >
-          SOLD
+          MINTED
         </div>
         <LazyImage v-if="image" :image="image" />
       </div>
@@ -39,7 +39,7 @@ export default {
     slug() {
       return `/flyingformations/${this.tokenId}`
     },
-    sold() {
+    minted() {
       if (this.$web3?.ownedTokens) {
         return this.$web3.ownedTokens.includes(this.tokenId)
       }

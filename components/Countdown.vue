@@ -1,9 +1,10 @@
 <template>
   <div>
     <h2 class="body font-bold mb-4">
-      Sale ends Feburary 20th at 10:00pm PST at 1ETH
+      <span v-if="countdownLive"> Sale ends on {{ displayEndTime }} at 1ETH</span>
+      <span v-else-if="!countdownStarted"> Auction begins on {{ displayStartTime }}</span>
     </h2>
-    <div class="flex justify-between md:space-x-10 md:w-min">
+    <div v-if="countdownLive" class="flex justify-between md:space-x-10 md:w-min">
       <p class="flex flex-col space-y-2">
         <span class="heading-4">{{ formatNumber(hours) }}</span>
         <span class="heading-6">Hours</span>
@@ -30,8 +31,30 @@ export default {
     }
   },
   computed: {
+    countdownLive() {
+      return !this.countdownEnded && this.countdownStarted
+    },
+    countdownEnded() {
+      return this.$dayjs() > this.endingTime
+    },
+    countdownStarted() {
+      return this.$dayjs() >= this.startingTime
+    },
+    displayEndTime() {
+      return this.endingTime.format('MMMM Do [at] h:mm A')
+    },
+    displayStartTime() {
+      return this.startingTime.format('MMMM Do [at] h:mm A')
+    },
     endingTime() {
-      return this.$dayjs('2022-02-20T22:00:00')
+      return this.$config.auctionEndTime 
+        ? this.$dayjs(this.$config.auctionEndTime)
+        : this.$dayjs().subtract(1, 'day')
+    },
+    startingTime() {
+      return this.$config.auctionStartTime 
+        ? this.$dayjs(this.$config.auctionStartTime)
+        : this.$dayjs()
     },
     timeZone() {
       return Intl.DateTimeFormat().resolvedOptions().timeZone

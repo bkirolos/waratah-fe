@@ -66,7 +66,7 @@
   }
 
   .wide-cta {
-    @apply border font-display text-base md:text-md px-6 pt-2 w-full border rounded-full font-bold hover-transition rounded-full inline-flex justify-center items-center text-center uppercase hover-transition;
+    @apply border font-display text-base lg:text-md px-6 pt-2 w-full border font-bold hover-transition rounded-full inline-flex justify-center items-center text-center uppercase hover-transition;
   }
 
   .small-cta {
