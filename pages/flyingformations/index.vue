@@ -18,7 +18,9 @@
             <CurrentPrice />
           </div>
           <div class="my-2 md:flex md:flex-row md:justify-between flex-wrap">
-            <p class="heading-4 font-serif py-4">{{ minted }} / 120 Minted</p>
+            <p class="heading-4 font-serif py-4 pr-4">
+              {{ minted }} / 120 Minted
+            </p>
             <CTA :cta="openSeaCta" class="text-lime border-lime" />
           </div>
         </div>
@@ -32,7 +34,6 @@
         :key="nft.tokenId"
         class="col-span-1"
         :nft="nft"
-        :sold="true"
       />
     </section>
   </div>
@@ -68,26 +69,35 @@ export default {
     description() {
       return this.nftGeneral?.nftCollectionDescription
     },
-    pageTitle() {
-      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
-    },
     metaDescription() {
       return (
         this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
       )
     },
+    pageTitle() {
+      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
+    },
     heading() {
       return this.nftGeneral?.nftCollectionHeading
     },
+    ownedTokens() {
+      return this.$web3?.ownedTokens
+    },
     minted() {
-      return 0
+      if (this.$web3?.ownedTokens) {
+        return this.$web3?.ownedTokens?.length
+      }
+      return '-'
     },
     openSeaCta() {
       return {
         text: 'View On OpenSea',
         icon: 'opensea',
-        link: 'https://opensea.io/assets/'
+        link: `https://opensea.io/assets/${this.readableContractAddress}`
       }
+    },
+    readableContractAddress() {
+      return String(this.$web3?.contractAddress)
     }
   }
 }
