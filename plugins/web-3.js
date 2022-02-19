@@ -35,7 +35,9 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       try {
         const tokenIds = await this.contract.getAllTokens()
-        const mappedTokens = tokenIds.map(bn => bn.toNumber())
+        const mappedTokens = tokenIds
+          .filter(t => t._isBigNumber)
+          .map(bn => bn.toNumber())
         this.ownedTokens = mappedTokens
       } catch (e) {
         console.error(e)
@@ -43,6 +45,11 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     async connectWallet() {
       this.connectionStatus = 'disconnected'
+
+      if (this.provider) {
+        this.provider.removeAllListeners()
+      }
+
       try {
         const instance = await web3.web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(instance, 'any')
@@ -59,6 +66,14 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           this.network = network
         })
 
+        instance.on('accountsChanged', async accounts => {
+          if (accounts.length > 0) {
+            this.accounts = accounts
+          } else {
+            await this.clearConnection()
+          }
+        })
+
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
         this.connectionStatus = 'wallet'
@@ -68,8 +83,10 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       }
     },
     async connectWithInfura() {
-      // TODO: set up with env vars
-      const infura = new ethers.providers.InfuraProvider('rinkeby')
+      const infura = new ethers.providers.InfuraProvider(
+        ethereumNetwork,
+        infuraId
+      )
 
       this.provider = infura
       this.connectionStatus = 'infura'
@@ -77,11 +94,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       await this.connectToContract(infura)
     },
     async connectToContract(providerOrSigner) {
-      // TODO: use actual env vars here
-      // const contractAddress =
-      //   Token.address[process.env.ETHEREUM_NETWORK_NAME]
-      // const contractAbi = Token.abi[process.env.ETHEREUM_NETWORK_NAME]
-
       const contractAddress = Token.address[ethereumNetwork]
       const contractAbi = Token.abi[ethereumNetwork]
       const contract = await new ethers.Contract(
@@ -96,6 +108,17 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       // fetch the price every block
       this.provider.on('block', async () => {
+        if (providerOrSigner._isSigner) {
+          // if wallet, make sure it's still connected
+          // if user has disconnected, clear connection and connect to infura instead
+          const accounts = await providerOrSigner.provider.listAccounts()
+
+          if (!accounts?.length) {
+            await this.clearConnection()
+            return
+          }
+        }
+
         const price = await contract.getPrice()
         this.price = price
 
@@ -107,7 +130,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     formatPrice(weiPrice) {
       if (!weiPrice) return
 
-      if (weiPrice.isBigNumber) {
+      if (weiPrice._isBigNumber) {
         const ethPrice = ethers.utils.formatEther(weiPrice)
         return (+ethPrice)?.toFixed(2)
       }
@@ -120,6 +143,10 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       this.web3Modal.clearCachedProvider()
       this.accounts = null
       this.connectionStatus = 'disconnected'
+
+      if (this.provider) {
+        this.provider.removeAllListeners()
+      }
       this.provider = null
 
       await this.connectWithInfura()
@@ -128,7 +155,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     async mintDuck(tokenId) {
       if (this.connectionStatus !== 'wallet') {
         throw new Error('Not connected to wallet!')
-      } else if (this.network.name !== 'rinkeby') {
+      } else if (this.network.name !== ethereumNetwork) {
         throw new Error('Wrong network!')
       }
 
@@ -171,6 +198,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
             })
             if (!accounts.length) {
               console.log('Having trouble re-connecting to Metamask')
+              await this.clearConnection()
+              return
             }
           }
 
