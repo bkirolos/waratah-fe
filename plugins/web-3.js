@@ -45,6 +45,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         const instance = await web3.web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(instance, 'any')
         const accounts = await provider.listAccounts()
+        this.accounts = accounts
 
         this.provider = provider
 
@@ -55,7 +56,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           const network = await provider.getNetwork()
           this.network = network
         })
-        this.accounts = accounts
 
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
@@ -134,9 +134,10 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     async getTokenOwner(tokenId) {
       try {
-        const ownerOfDuck = await this.contract.ownerOf(tokenId)
+        const ownerOfDuck = await this.contract?.ownerOf(tokenId)
         console.log('ownerOf', ownerOfDuck)
-        console.log('yours!', this.accounts[0].address === ownerOfDuck)
+        console.log('current address', this.accounts)
+        console.log('yours!', this.accounts?.[0] === ownerOfDuck)
         return ownerOfDuck
       } catch (e) {
         console.error(e)

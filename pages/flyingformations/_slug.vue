@@ -127,7 +127,7 @@ export default {
     },
     ownedByText() {
       return this.owner
-        ? String(this.owner) === String(this.$web3?.accounts[0]?.address)
+        ? String(this.owner) === String(this.$web3?.accounts?.[0])
           ? 'You!'
           : `${this.owner.slice(0, 8)}...`
         : 'Owned By --'
