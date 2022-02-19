@@ -1,121 +1,121 @@
 id,imageAssetName,title,shoeSize,videoUrl,stripes,backgroundColor
-1,DOAF_FF_000.png,Flying Formations #1,6,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_000.mp4#t=1.5,Y,DARK GREEN
-2,DOAF_FF_001.png,Flying Formations #2,6.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_001.mp4#t=1.5,N,PINK
-3,DOAF_FF_002.png,Flying Formations #3,7,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_002.mp4#t=1.5,Y,BRIGHT ORANGE
-4,DOAF_FF_003.png,Flying Formations #4,7,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_003.mp4#t=1.5,N,LIGHT GREY
-5,DOAF_FF_004.png,Flying Formations #5,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_004.mp4#t=1.5,Y,YELLOW
-6,DOAF_FF_005.png,Flying Formations #6,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_005.mp4#t=1.5,N,MAROON
-7,DOAF_FF_006.png,Flying Formations #7,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_006.mp4#t=1.5,N,ARTICHOKE GREEN
-8,DOAF_FF_007.png,Flying Formations #8,7.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_007.mp4#t=1.5,N,BROWN
-9,DOAF_FF_008.png,Flying Formations #9,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_008.mp4#t=1.5,N,PURPLE
-10,DOAF_FF_009.png,Flying Formations #10,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_009.mp4#t=1.5,N,LIGHT GREY
-11,DOAF_FF_010.png,Flying Formations #11,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_010.mp4#t=1.5,N,SKY BLUE
-12,DOAF_FF_011.png,Flying Formations #12,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_011.mp4#t=1.5,N,DARK GREY
-13,DOAF_FF_012.png,Flying Formations #13,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_012.mp4#t=1.5,N,ARTICHOKE GREEN
-14,DOAF_FF_013.png,Flying Formations #14,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_013.mp4#t=1.5,Y,BRIGHT ORANGE
-15,DOAF_FF_014.png,Flying Formations #15,8,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_014.mp4#t=1.5,N,MAROON
-16,DOAF_FF_015.png,Flying Formations #16,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_015.mp4#t=1.5,N,FLAME ORANGE
-17,DOAF_FF_016.png,Flying Formations #17,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_016.mp4#t=1.5,N,LIGHT GREY
-18,DOAF_FF_017.png,Flying Formations #18,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_017.mp4#t=1.5,N,MINT GREEN
-19,DOAF_FF_018.png,Flying Formations #19,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_018.mp4#t=1.5,N,PURPLE
-20,DOAF_FF_019.png,Flying Formations #20,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_019.mp4#t=1.5,N,PINK
-21,DOAF_FF_020.png,Flying Formations #21,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_020.mp4#t=1.5,N,DARK GREY
-22,DOAF_FF_021.png,Flying Formations #22,8.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_021.mp4#t=1.5,N,SKY BLUE
-23,DOAF_FF_022.png,Flying Formations #23,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_022.mp4#t=1.5,N,ARTICHOKE GREEN
-24,DOAF_FF_023.png,Flying Formations #24,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_023.mp4#t=1.5,Y,BLACK
-25,DOAF_FF_024.png,Flying Formations #25,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_024.mp4#t=1.5,N,MAROON
-26,DOAF_FF_025.png,Flying Formations #26,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_025.mp4#t=1.5,Y,BRIGHT ORANGE
-27,DOAF_FF_026.png,Flying Formations #27,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_026.mp4#t=1.5,N,DARK GREY
-28,DOAF_FF_027.png,Flying Formations #28,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_027.mp4#t=1.5,N,PURPLE
-29,DOAF_FF_028.png,Flying Formations #29,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_028.mp4#t=1.5,N,MINT GREEN
-30,DOAF_FF_029.png,Flying Formations #30,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_029.mp4#t=1.5,N,LIGHT GREY
-31,DOAF_FF_030.png,Flying Formations #31,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_030.mp4#t=1.5,N,BROWN
-32,DOAF_FF_031.png,Flying Formations #32,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_031.mp4#t=1.5,N,SKY BLUE
-33,DOAF_FF_032.png,Flying Formations #33,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_032.mp4#t=1.5,Y,YELLOW
-34,DOAF_FF_033.png,Flying Formations #34,9,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_033.mp4#t=1.5,N,PINK
-35,DOAF_FF_034.png,Flying Formations #35,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_034.mp4#t=1.5,N,ARTICHOKE GREEN
-36,DOAF_FF_035.png,Flying Formations #36,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_035.mp4#t=1.5,N,MINT GREEN
-37,DOAF_FF_036.png,Flying Formations #37,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_036.mp4#t=1.5,N,DARK GREY
-38,DOAF_FF_037.png,Flying Formations #38,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_037.mp4#t=1.5,N,LIGHT GREY
-39,DOAF_FF_038.png,Flying Formations #39,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_038.mp4#t=1.5,Y,BRIGHT ORANGE
-40,DOAF_FF_039.png,Flying Formations #40,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_039.mp4#t=1.5,N,MAROON
-41,DOAF_FF_040.png,Flying Formations #41,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_040.mp4#t=1.5,N,PURPLE
-42,DOAF_FF_041.png,Flying Formations #42,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_041.mp4#t=1.5,N,BROWN
-43,DOAF_FF_042.png,Flying Formations #43,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_042.mp4#t=1.5,N,DARK GREY
-44,DOAF_FF_043.png,Flying Formations #44,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_043.mp4#t=1.5,N,PINK
-45,DOAF_FF_044.png,Flying Formations #45,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_044.mp4#t=1.5,N,MINT GREEN
-46,DOAF_FF_045.png,Flying Formations #46,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_045.mp4#t=1.5,N,PURPLE
-47,DOAF_FF_046.png,Flying Formations #47,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_046.mp4#t=1.5,Y,DARK GREEN
-48,DOAF_FF_047.png,Flying Formations #48,9.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_047.mp4#t=1.5,N,SKY BLUE
-49,DOAF_FF_048.png,Flying Formations #49,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_048.mp4#t=1.5,N,MAROON
-50,DOAF_FF_049.png,Flying Formations #50,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_049.mp4#t=1.5,Y,BRIGHT ORANGE
-51,DOAF_FF_050.png,Flying Formations #51,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_050.mp4#t=1.5,N,PINK
-52,DOAF_FF_051.png,Flying Formations #52,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_051.mp4#t=1.5,N,LIGHT GREY
-53,DOAF_FF_052.png,Flying Formations #53,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_052.mp4#t=1.5,N,ARTICHOKE GREEN
-54,DOAF_FF_053.png,Flying Formations #54,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_053.mp4#t=1.5,Y,YELLOW
-55,DOAF_FF_054.png,Flying Formations #55,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_054.mp4#t=1.5,N,FLAME ORANGE
-56,DOAF_FF_055.png,Flying Formations #56,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_055.mp4#t=1.5,N,SKY BLUE
-57,DOAF_FF_056.png,Flying Formations #57,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_056.mp4#t=1.5,N,PURPLE
-58,DOAF_FF_057.png,Flying Formations #58,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_057.mp4#t=1.5,Y,BRIGHT ORANGE
-59,DOAF_FF_058.png,Flying Formations #59,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_058.mp4#t=1.5,N,PINK
-60,DOAF_FF_059.png,Flying Formations #60,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_059.mp4#t=1.5,N,MINT GREEN
-61,DOAF_FF_060.png,Flying Formations #61,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_060.mp4#t=1.5,N,LIGHT GREY
-62,DOAF_FF_061.png,Flying Formations #62,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_061.mp4#t=1.5,N,BROWN
-63,DOAF_FF_062.png,Flying Formations #63,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_062.mp4#t=1.5,N,MAROON
-64,DOAF_FF_063.png,Flying Formations #64,10,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_063.mp4#t=1.5,N,MAROON
-65,DOAF_FF_064.png,Flying Formations #65,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_064.mp4#t=1.5,N,FLAME ORANGE
-66,DOAF_FF_065.png,Flying Formations #66,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_065.mp4#t=1.5,N,ARTICHOKE GREEN
-67,DOAF_FF_066.png,Flying Formations #67,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_066.mp4#t=1.5,N,MINT GREEN
-68,DOAF_FF_067.png,Flying Formations #68,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_067.mp4#t=1.5,N,SKY BLUE
-69,DOAF_FF_068.png,Flying Formations #69,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_068.mp4#t=1.5,N,DARK GREY
-70,DOAF_FF_069.png,Flying Formations #70,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_069.mp4#t=1.5,Y,BRIGHT ORANGE
-71,DOAF_FF_070.png,Flying Formations #71,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_070.mp4#t=1.5,N,MAROON
-72,DOAF_FF_071.png,Flying Formations #72,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_071.mp4#t=1.5,N,PURPLE
-73,DOAF_FF_072.png,Flying Formations #73,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_072.mp4#t=1.5,N,BROWN
-74,DOAF_FF_073.png,Flying Formations #74,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_073.mp4#t=1.5,N,PINK
-75,DOAF_FF_074.png,Flying Formations #75,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_074.mp4#t=1.5,N,DARK GREY
-76,DOAF_FF_075.png,Flying Formations #76,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_075.mp4#t=1.5,N,MINT GREEN
-77,DOAF_FF_076.png,Flying Formations #77,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_076.mp4#t=1.5,N,LIGHT GREY
-78,DOAF_FF_077.png,Flying Formations #78,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_077.mp4#t=1.5,N,DARK GREY
-79,DOAF_FF_078.png,Flying Formations #79,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_078.mp4#t=1.5,Y,BLACK
-80,DOAF_FF_079.png,Flying Formations #80,10.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_079.mp4#t=1.5,N,ARTICHOKE GREEN
-81,DOAF_FF_080.png,Flying Formations #81,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_080.mp4#t=1.5,N,MAROON
-82,DOAF_FF_081.png,Flying Formations #82,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_081.mp4#t=1.5,Y,BRIGHT ORANGE
-83,DOAF_FF_082.png,Flying Formations #83,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_082.mp4#t=1.5,N,SKY BLUE
-84,DOAF_FF_083.png,Flying Formations #84,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_083.mp4#t=1.5,N,PURPLE
-85,DOAF_FF_084.png,Flying Formations #85,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_084.mp4#t=1.5,N,BROWN
-86,DOAF_FF_085.png,Flying Formations #86,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_085.mp4#t=1.5,N,DARK GREY
-87,DOAF_FF_086.png,Flying Formations #87,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_086.mp4#t=1.5,N,PINK
-88,DOAF_FF_087.png,Flying Formations #88,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_087.mp4#t=1.5,N,FLAME ORANGE
-89,DOAF_FF_088.png,Flying Formations #89,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_088.mp4#t=1.5,Y,BRIGHT ORANGE
-90,DOAF_FF_089.png,Flying Formations #90,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_089.mp4#t=1.5,N,LIGHT GREY
-91,DOAF_FF_090.png,Flying Formations #91,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_090.mp4#t=1.5,N,FLAME ORANGE
-92,DOAF_FF_091.png,Flying Formations #92,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_091.mp4#t=1.5,N,MINT GREEN
-93,DOAF_FF_092.png,Flying Formations #93,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_092.mp4#t=1.5,N,FLAME ORANGE
-94,DOAF_FF_093.png,Flying Formations #94,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_093.mp4#t=1.5,Y,YELLOW
-95,DOAF_FF_094.png,Flying Formations #95,11,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_094.mp4#t=1.5,N,DARK GREY
-96,DOAF_FF_095.png,Flying Formations #96,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_095.mp4#t=1.5,N,SKY BLUE
-97,DOAF_FF_096.png,Flying Formations #97,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_096.mp4#t=1.5,N,BROWN
-98,DOAF_FF_097.png,Flying Formations #98,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_097.mp4#t=1.5,N,ARTICHOKE GREEN
-99,DOAF_FF_098.png,Flying Formations #99,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_098.mp4#t=1.5,N,BROWN
-100,DOAF_FF_099.png,Flying Formations #100,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_099.mp4#t=1.5,N,PURPLE
-101,DOAF_FF_100.png,Flying Formations #101,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_100.mp4#t=1.5,Y,BRIGHT ORANGE
-102,DOAF_FF_101.png,Flying Formations #102,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_101.mp4#t=1.5,N,FLAME ORANGE
-103,DOAF_FF_102.png,Flying Formations #103,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_102.mp4#t=1.5,N,SKY BLUE
-104,DOAF_FF_103.png,Flying Formations #104,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_103.mp4#t=1.5,N,MINT GREEN
-105,DOAF_FF_104.png,Flying Formations #105,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_104.mp4#t=1.5,N,FLAME ORANGE
-106,DOAF_FF_105.png,Flying Formations #106,11.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_105.mp4#t=1.5,N,LIGHT GREY
-107,DOAF_FF_106.png,Flying Formations #107,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_106.mp4#t=1.5,Y,YELLOW
-108,DOAF_FF_107.png,Flying Formations #108,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_107.mp4#t=1.5,N,FLAME ORANGE
-109,DOAF_FF_108.png,Flying Formations #109,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_108.mp4#t=1.5,N,ARTICHOKE GREEN
-110,DOAF_FF_109.png,Flying Formations #110,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_109.mp4#t=1.5,N,BROWN
-111,DOAF_FF_110.png,Flying Formations #111,12,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_110.mp4#t=1.5,N,FLAME ORANGE
-112,DOAF_FF_111.png,Flying Formations #112,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_111.mp4#t=1.5,N,SKY BLUE
-113,DOAF_FF_112.png,Flying Formations #113,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_112.mp4#t=1.5,N,PINK
-114,DOAF_FF_113.png,Flying Formations #114,12.5,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_113.mp4#t=1.5,N,MAROON
-115,DOAF_FF_114.png,Flying Formations #115,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_114.mp4#t=1.5,N,MINT GREEN
-116,DOAF_FF_115.png,Flying Formations #116,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_115.mp4#t=1.5,N,PINK
-117,DOAF_FF_116.png,Flying Formations #117,13,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_116.mp4#t=1.5,N,ARTICHOKE GREEN
-118,DOAF_FF_117.png,Flying Formations #118,14,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_117.mp4#t=1.5,N,BROWN
-119,DOAF_FF_118.png,Flying Formations #119,14,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_118.mp4#t=1.5,N,PURPLE
-120,DOAF_FF_119.png,Flying Formations #120,15,https://ipfs.ducksofafeather.xyz/ipfs/QmZCPYVep92MF3yq2LTN1pFjsZNTCiFKmZxkZRCWCdCMiS/DOAF_FF_119.mp4#t=1.5,Y,DARK GREEN
+1,DOAF_FF_000.png,Ducks of a Feather #1,6,https://player.vimeo.com/progressive_redirect/playback/679384502/rendition/540p?loc=external&signature=51e542181b41ff03c846afb69db652f43e1a4578de612074fc6b8adea25fade3,Y,DARK GREEN
+2,DOAF_FF_001.png,Ducks of a Feather #2,6.5,https://player.vimeo.com/progressive_redirect/playback/679384508/rendition/540p?loc=external&signature=02f1d51b76f362b107326d72ea4104eaa73b4ba22c9b4feb9a135bc0a1a932ff,N,PINK
+3,DOAF_FF_002.png,Ducks of a Feather #3,7,https://player.vimeo.com/progressive_redirect/playback/679384524/rendition/540p?loc=external&signature=fa74ddaeffacb1cad6c9087fe762795176e246dd3eb2f35d324a1ff1995902d4,Y,BRIGHT ORANGE
+4,DOAF_FF_003.png,Ducks of a Feather #4,7,https://player.vimeo.com/progressive_redirect/playback/679384532/rendition/540p?loc=external&signature=a0a1da463872ccda93089e1b7d91366e91c622e80f3992e27a1ddf4991818666,N,LIGHT GREY
+5,DOAF_FF_004.png,Ducks of a Feather #5,7.5,https://player.vimeo.com/progressive_redirect/playback/679384541/rendition/540p?loc=external&signature=be5bba027fd8969e34201f7157663d779e78f05a2e665c2497921589c790ee5f,Y,YELLOW
+6,DOAF_FF_005.png,Ducks of a Feather #6,7.5,https://player.vimeo.com/progressive_redirect/playback/679384556/rendition/540p?loc=external&signature=30f680741db7ef0c5ca51c2746f763acea8d86372c193ce8ff4d5677d42c0292,N,MAROON
+7,DOAF_FF_006.png,Ducks of a Feather #7,7.5,https://player.vimeo.com/progressive_redirect/playback/679384567/rendition/540p?loc=external&signature=154f8278ea253314076255eb1f35bb82853f187d12a4de7758e40533ddfacbc5,N,ARTICHOKE GREEN
+8,DOAF_FF_007.png,Ducks of a Feather #8,7.5,https://player.vimeo.com/progressive_redirect/playback/679384572/rendition/540p?loc=external&signature=2f71dabcaa0e418fc4130000388b6d4edf5d2485a67f6cb9941f2d612afa8ef4,N,BROWN
+9,DOAF_FF_008.png,Ducks of a Feather #9,8,https://player.vimeo.com/progressive_redirect/playback/679384580/rendition/540p?loc=external&signature=c2610cab8f63bd0add7a51865c2445a4888ed613a8fe8d842d445892e4ce29fa,N,PURPLE
+10,DOAF_FF_009.png,Ducks of a Feather #10,8,https://player.vimeo.com/progressive_redirect/playback/679384590/rendition/540p?loc=external&signature=653982081e77f6144adab453b5d5fd7ec22606cbb19d24724f65e38a37c581ff,N,LIGHT GREY
+11,DOAF_FF_010.png,Ducks of a Feather #11,8,https://player.vimeo.com/progressive_redirect/playback/679384604/rendition/540p?loc=external&signature=df31efe726eae3d08ad581a1d0f15a6307c5e32008c7ceae9b2e5caae6e18514,N,SKY BLUE
+12,DOAF_FF_011.png,Ducks of a Feather #12,8,https://player.vimeo.com/progressive_redirect/playback/679384614/rendition/540p?loc=external&signature=868e4cf10310b334422b5693c3dc63bb756be8cc7550d247c9df0c6c390f8eb6,N,DARK GREY
+13,DOAF_FF_012.png,Ducks of a Feather #13,8,https://player.vimeo.com/progressive_redirect/playback/679384622/rendition/540p?loc=external&signature=f7edbe5feb19dd6f2ba68e37266f73d8fd1acf85a44a6f31130db7a29843c163,N,ARTICHOKE GREEN
+14,DOAF_FF_013.png,Ducks of a Feather #14,8,https://player.vimeo.com/progressive_redirect/playback/679384635/rendition/540p?loc=external&signature=01bf699cd7e1155eb1050a81c37161b61374f4fa4546d7b2a319c55dd32564b9,Y,BRIGHT ORANGE
+15,DOAF_FF_014.png,Ducks of a Feather #15,8,https://player.vimeo.com/progressive_redirect/playback/679384645/rendition/540p?loc=external&signature=956593762acabb658db35675019bbbcad969d7539dae5ad5a8a054003eaeb5a5,N,MAROON
+16,DOAF_FF_015.png,Ducks of a Feather #16,8.5,https://player.vimeo.com/progressive_redirect/playback/679384650/rendition/540p?loc=external&signature=8ee12fe78216b38c0ba3c4caa6a3ca914351d5f0c49d8225d777637c358f93cb,N,FLAME ORANGE
+17,DOAF_FF_016.png,Ducks of a Feather #17,8.5,https://player.vimeo.com/progressive_redirect/playback/679384659/rendition/540p?loc=external&signature=14c5e6d2faa083e85f6987d84de76726c5a08a26a34fe414ada00ac28790d330,N,LIGHT GREY
+18,DOAF_FF_017.png,Ducks of a Feather #18,8.5,https://player.vimeo.com/progressive_redirect/playback/679384667/rendition/540p?loc=external&signature=7a61402c9c6c3f85a0d7ad40444b51ffa4c5ece1e07023b9f96d4ee165ce6072,N,MINT GREEN
+19,DOAF_FF_018.png,Ducks of a Feather #19,8.5,https://player.vimeo.com/progressive_redirect/playback/679384680/rendition/540p?loc=external&signature=c5dfa56d632450da288dff0d05af26f5283e17cc213840d815738d106bf77d4c,N,PURPLE
+20,DOAF_FF_019.png,Ducks of a Feather #20,8.5,https://player.vimeo.com/progressive_redirect/playback/679384691/rendition/540p?loc=external&signature=7c1dd133672ebf04962fedcb8ea957ff00bcf54a074d3bcaeabed706c0b32e0d,N,PINK
+21,DOAF_FF_020.png,Ducks of a Feather #21,8.5,https://player.vimeo.com/progressive_redirect/playback/679384702/rendition/540p?loc=external&signature=2d0ee6217b9b3bb02e220962897e3e9fe4b51ea0da15b012a279b5b6343ae95c,N,DARK GREY
+22,DOAF_FF_021.png,Ducks of a Feather #22,8.5,https://player.vimeo.com/progressive_redirect/playback/679384712/rendition/540p?loc=external&signature=d4b66345c7224999b44e73c501c01cc3af1070f455113afb0e4273f557a72f42,N,SKY BLUE
+23,DOAF_FF_022.png,Ducks of a Feather #23,9,https://player.vimeo.com/progressive_redirect/playback/679384726/rendition/540p?loc=external&signature=e6857e2ab865d02cd4f26a8ef0eff1989cc9f29ef726a92864403e3327d31bbf,N,ARTICHOKE GREEN
+24,DOAF_FF_023.png,Ducks of a Feather #24,9,https://player.vimeo.com/progressive_redirect/playback/679384734/rendition/540p?loc=external&signature=1e7ab004cc0b72d2ce277913814bc14260472de7bbffdebcbcd0f38d9f1f7cbc,Y,BLACK
+25,DOAF_FF_024.png,Ducks of a Feather #25,9,https://player.vimeo.com/progressive_redirect/playback/679384747/rendition/540p?loc=external&signature=ab913d24f03067dc51fcab48e381b2a093195526ab6fece6c406c34a7183ac53,N,MAROON
+26,DOAF_FF_025.png,Ducks of a Feather #26,9,https://player.vimeo.com/progressive_redirect/playback/679384760/rendition/540p?loc=external&signature=5ec1701fa3416c5f8175af79711ba20552cc686eef03a8f3d1057a3f3147aabd,Y,BRIGHT ORANGE
+27,DOAF_FF_026.png,Ducks of a Feather #27,9,https://player.vimeo.com/progressive_redirect/playback/679384780/rendition/540p?loc=external&signature=b500ed30fb2e3aafbe253c7ec89997bd985a68c862d09bebd7fdd8aa25f1cc7c,N,DARK GREY
+28,DOAF_FF_027.png,Ducks of a Feather #28,9,https://player.vimeo.com/progressive_redirect/playback/679384796/rendition/540p?loc=external&signature=befe3beab9c955548e0e232d2112b573ca773a18e2b93cdd7363c537effa99c1,N,PURPLE
+29,DOAF_FF_028.png,Ducks of a Feather #29,9,https://player.vimeo.com/progressive_redirect/playback/679384808/rendition/540p?loc=external&signature=cd15c758054364b0956acc1feb475d2cc6991028d9273df620d4a40d45066005,N,MINT GREEN
+30,DOAF_FF_029.png,Ducks of a Feather #30,9,https://player.vimeo.com/progressive_redirect/playback/679384819/rendition/540p?loc=external&signature=a311e79f7f83b918e324cdcdf6021f3bef39ce2d3e96dc033690e23e5dc19a27,N,LIGHT GREY
+31,DOAF_FF_030.png,Ducks of a Feather #31,9,https://player.vimeo.com/progressive_redirect/playback/679384831/rendition/540p?loc=external&signature=62481f769e57ab14b490b585781d65bd8dc9021fb3ee81c85968e9486526da5b,N,BROWN
+32,DOAF_FF_031.png,Ducks of a Feather #32,9,https://player.vimeo.com/progressive_redirect/playback/679384837/rendition/540p?loc=external&signature=1fc3fd62ef68c0f30ae04e9bd0bb64cc5ff57b4901398ca3d737515a3ded47a0,N,SKY BLUE
+33,DOAF_FF_032.png,Ducks of a Feather #33,9,https://player.vimeo.com/progressive_redirect/playback/679384847/rendition/540p?loc=external&signature=b9d99e24d660117dd9585a282ac5c4f4836c51ff8339c3bfb55eac8cf8e4f8cc,Y,YELLOW
+34,DOAF_FF_033.png,Ducks of a Feather #34,9,https://player.vimeo.com/progressive_redirect/playback/679384861/rendition/540p?loc=external&signature=880037b6948b4e49434fe55f473d1fb674aa4beb79fd88241e64ba57d263fd2e,N,PINK
+35,DOAF_FF_034.png,Ducks of a Feather #35,9.5,https://player.vimeo.com/progressive_redirect/playback/679384879/rendition/540p?loc=external&signature=7bd226ef93e65ddb91f50bf1ae0ff1863588e0477a989f37d094fa8f0f843bdc,N,ARTICHOKE GREEN
+36,DOAF_FF_035.png,Ducks of a Feather #36,9.5,https://player.vimeo.com/progressive_redirect/playback/679384897/rendition/540p?loc=external&signature=66714bd6c8a5ab36bb58b01191f47000078e26bb439d7ed7b213f9c6ab10e88e,N,MINT GREEN
+37,DOAF_FF_036.png,Ducks of a Feather #37,9.5,https://player.vimeo.com/progressive_redirect/playback/679384897/rendition/540p?loc=external&signature=66714bd6c8a5ab36bb58b01191f47000078e26bb439d7ed7b213f9c6ab10e88e,N,DARK GREY
+38,DOAF_FF_037.png,Ducks of a Feather #38,9.5,https://player.vimeo.com/progressive_redirect/playback/679384905/rendition/540p?loc=external&signature=90b94677c6947fddb580ef920160657ed2687e34fc0290152b805e3f48423e6d,N,LIGHT GREY
+39,DOAF_FF_038.png,Ducks of a Feather #39,9.5,https://player.vimeo.com/progressive_redirect/playback/679384915/rendition/540p?loc=external&signature=4c558ff8a2feca72039ef6c19ae5d7baaef900ed9988b4bb6927ebdbb72b5be6,Y,BRIGHT ORANGE
+40,DOAF_FF_039.png,Ducks of a Feather #40,9.5,https://player.vimeo.com/progressive_redirect/playback/679384925/rendition/540p?loc=external&signature=0e5c9256134973d884ca4ef52bcee5810ee70bcafd6c0dfb0213a31ab7e324ab,N,MAROON
+41,DOAF_FF_040.png,Ducks of a Feather #41,9.5,https://player.vimeo.com/progressive_redirect/playback/679384936/rendition/540p?loc=external&signature=8971fccfa5c977eac712f80e2ca608745f0fcb64ce7e29bde7eaf13e8bdab09c,N,PURPLE
+42,DOAF_FF_041.png,Ducks of a Feather #42,9.5,https://player.vimeo.com/progressive_redirect/playback/679384943/rendition/540p?loc=external&signature=48488af40ad815ed88547ab056a01bfe3709269e54f12150ccab075ff729f7ad,N,BROWN
+43,DOAF_FF_042.png,Ducks of a Feather #43,9.5,https://player.vimeo.com/progressive_redirect/playback/679384954/rendition/540p?loc=external&signature=9180d845144a1899fc5bbbde1f13f15d329bc8a0bc979f300cdde02c94bf4776,N,DARK GREY
+44,DOAF_FF_043.png,Ducks of a Feather #44,9.5,https://player.vimeo.com/progressive_redirect/playback/679384975/rendition/540p?loc=external&signature=17312e78bf8da6392d3c6afaf9629b0b5e344a4ae0f4539f05e4bc937635a011,N,PINK
+45,DOAF_FF_044.png,Ducks of a Feather #45,9.5,https://player.vimeo.com/progressive_redirect/playback/679384981/rendition/540p?loc=external&signature=5fa1f0e486c35c660826ff857ae9692e2442dfc3a9de8c8dfef39aa0b7cd7992,N,MINT GREEN
+46,DOAF_FF_045.png,Ducks of a Feather #46,9.5,https://player.vimeo.com/progressive_redirect/playback/679384991/rendition/540p?loc=external&signature=cf6b3a44a6cbbfac45aaf85f7c44ce9fd19477d5a517304e3ca3870012eb8b39,N,PURPLE
+47,DOAF_FF_046.png,Ducks of a Feather #47,9.5,https://player.vimeo.com/progressive_redirect/playback/679385004/rendition/540p?loc=external&signature=9ed6c5390b1292fc56645a555d570ac01daa54e4c8624378a6923017e8265366,Y,DARK GREEN
+48,DOAF_FF_047.png,Ducks of a Feather #48,9.5,https://player.vimeo.com/progressive_redirect/playback/679385015/rendition/540p?loc=external&signature=0c211272e3140ca6f4fa15714c03137eb457f7577d7f9eb7622cc438a0ad49b5,N,SKY BLUE
+49,DOAF_FF_048.png,Ducks of a Feather #49,10,https://player.vimeo.com/progressive_redirect/playback/679385024/rendition/540p?loc=external&signature=77c76c3dbb0d5011cd9cdd12cf5f390caf2002bc97bced8590d6c812c96e5faa,N,MAROON
+50,DOAF_FF_049.png,Ducks of a Feather #50,10,https://player.vimeo.com/progressive_redirect/playback/679385034/rendition/540p?loc=external&signature=ab8d04774ea1ede5f5e399d713a70b3df4bc21c435bf0d4892c798abddd3c5bd,Y,BRIGHT ORANGE
+51,DOAF_FF_050.png,Ducks of a Feather #51,10,https://player.vimeo.com/progressive_redirect/playback/679385049/rendition/540p?loc=external&signature=39e0f993f8dad3c564aee7a51dacb2aa658ea24ae99c7f98911065ac38631617,N,PINK
+52,DOAF_FF_051.png,Ducks of a Feather #52,10,https://player.vimeo.com/progressive_redirect/playback/679385058/rendition/540p?loc=external&signature=fce90931cfd35a417878baec214b380f821671942cb711eeb4c2feefaf738d90,N,LIGHT GREY
+53,DOAF_FF_052.png,Ducks of a Feather #53,10,https://player.vimeo.com/progressive_redirect/playback/679385067/rendition/540p?loc=external&signature=e550d1aa4dcce9416e8446b0839f33f9ad1acafdc34d3474d2a5cd8dbb3ecfea,N,ARTICHOKE GREEN
+54,DOAF_FF_053.png,Ducks of a Feather #54,10,https://player.vimeo.com/progressive_redirect/playback/679385089/rendition/540p?loc=external&signature=bb2ee9f0205a55dda8b287a71f4be3c1a06ad94f3a51c3ec07bd2dc1277bf93d,Y,YELLOW
+55,DOAF_FF_054.png,Ducks of a Feather #55,10,https://player.vimeo.com/progressive_redirect/playback/679385098/rendition/540p?loc=external&signature=7229edd8c7a887d37d636a5141aa8c7922b2b266ba486c1131266d76f48a32d7,N,FLAME ORANGE
+56,DOAF_FF_055.png,Ducks of a Feather #56,10,https://player.vimeo.com/progressive_redirect/playback/679385108/rendition/540p?loc=external&signature=9cdf43673765276c002f68fd4659652ee9a0979fa0a84300dce1d77bc35ec92e,N,SKY BLUE
+57,DOAF_FF_056.png,Ducks of a Feather #57,10,https://player.vimeo.com/progressive_redirect/playback/679385121/rendition/540p?loc=external&signature=3074710d2f19038fca6445a43a242f2a94a92f2e1c47a438bdd61bf252891ddc,N,PURPLE
+58,DOAF_FF_057.png,Ducks of a Feather #58,10,https://player.vimeo.com/progressive_redirect/playback/679385134/rendition/540p?loc=external&signature=f388e76ca609ef477d246356375091bfbf08a41da1b66d9612ae8945092f1c8a,Y,BRIGHT ORANGE
+59,DOAF_FF_058.png,Ducks of a Feather #59,10,https://player.vimeo.com/progressive_redirect/playback/679385144/rendition/540p?loc=external&signature=f6dffc9bcb3c2a15cdab3836f6be0c31728daf416388f53f362fa5b321250fc8,N,PINK
+60,DOAF_FF_059.png,Ducks of a Feather #60,10,https://player.vimeo.com/progressive_redirect/playback/679385155/rendition/540p?loc=external&signature=4132cba3f7d643ab40ef2f71e1ff21f355cea184da5d6f191465b9148c6c6b7b,N,MINT GREEN
+61,DOAF_FF_060.png,Ducks of a Feather #61,10,https://player.vimeo.com/progressive_redirect/playback/679385167/rendition/540p?loc=external&signature=aaa72b7764cdf0680549e9c17b04dbe359b6dccb0b10c4698d8452ac58ef5a48,N,LIGHT GREY
+62,DOAF_FF_061.png,Ducks of a Feather #62,10,https://player.vimeo.com/progressive_redirect/playback/679385176/rendition/540p?loc=external&signature=f5c8820565445153fa7a6759b521277393d0708ae80d0c3b857b29a8541537e1,N,BROWN
+63,DOAF_FF_062.png,Ducks of a Feather #63,10,https://player.vimeo.com/progressive_redirect/playback/679385182/rendition/540p?loc=external&signature=c964986b7939bbc6e97e8d6b107396338366dec412ea25bfe1c79f8a8466d95b,N,MAROON
+64,DOAF_FF_063.png,Ducks of a Feather #64,10,https://player.vimeo.com/progressive_redirect/playback/679385193/rendition/540p?loc=external&signature=6baeef95b6399c324bda1bd15245bba7582b12513ede173f240727d45d7e3836,N,MAROON
+65,DOAF_FF_064.png,Ducks of a Feather #65,10.5,https://player.vimeo.com/progressive_redirect/playback/679385210/rendition/540p?loc=external&signature=9c824851b12f07f3e3a71225c09f695ecd92151f997a08306368d4525a9bc622,N,FLAME ORANGE
+66,DOAF_FF_065.png,Ducks of a Feather #66,10.5,https://player.vimeo.com/progressive_redirect/playback/679385211/rendition/540p?loc=external&signature=33e987b441b802d8cc25b41ca6662076d9df5d9aa40307307a917549cf47fe79,N,ARTICHOKE GREEN
+67,DOAF_FF_066.png,Ducks of a Feather #67,10.5,https://player.vimeo.com/progressive_redirect/playback/679385223/rendition/540p?loc=external&signature=d2b86c40847cab3cfea09eaf9092fa3caf98018303271626c196ce1fcc6a8b09,N,MINT GREEN
+68,DOAF_FF_067.png,Ducks of a Feather #68,10.5,https://player.vimeo.com/progressive_redirect/playback/679385235/rendition/540p?loc=external&signature=d431eac4f44c37a00ad71f2ecb694a519d980dd6a3a7bd64aecc2a4a654b0f5a,N,SKY BLUE
+69,DOAF_FF_068.png,Ducks of a Feather #69,10.5,https://player.vimeo.com/progressive_redirect/playback/679385245/rendition/540p?loc=external&signature=efe37244d28bcc2a892e07f96cd2e1f5ae240b087b6d247a336653a95948c935,N,DARK GREY
+70,DOAF_FF_069.png,Ducks of a Feather #70,10.5,https://player.vimeo.com/progressive_redirect/playback/679385261/rendition/540p?loc=external&signature=cb34e6d072f656dc8e56027dd9110165c87491678456f998b2aac17e4261ff6e,Y,BRIGHT ORANGE
+71,DOAF_FF_070.png,Ducks of a Feather #71,10.5,https://player.vimeo.com/progressive_redirect/playback/679385270/rendition/540p?loc=external&signature=541844473ca1562461ce42d48fe1eb0b5f7479330156f16516a2420a0f789d5a,N,MAROON
+72,DOAF_FF_071.png,Ducks of a Feather #72,10.5,https://player.vimeo.com/progressive_redirect/playback/679385278/rendition/540p?loc=external&signature=235bc1dc1972694f004670d4b5f860dbbebefb00a9f1e9533808b62f697381b9,N,PURPLE
+73,DOAF_FF_072.png,Ducks of a Feather #73,10.5,https://player.vimeo.com/progressive_redirect/playback/679385286/rendition/540p?loc=external&signature=ed18a0c402a7240f5b01cface487351bfa17bf9fd701b3e9359fd1f710fa1c14,N,BROWN
+74,DOAF_FF_073.png,Ducks of a Feather #74,10.5,https://player.vimeo.com/progressive_redirect/playback/679385296/rendition/540p?loc=external&signature=1a0d5e451c873eef2d3076c2771a0272ea7447da483f70ad3a0eae326e49a924,N,PINK
+75,DOAF_FF_074.png,Ducks of a Feather #75,10.5,https://player.vimeo.com/progressive_redirect/playback/679385307/rendition/540p?loc=external&signature=612d1833e0e3457086baa6525174c402c82c6cabfa753b1d7fbef0e76a2abc92,N,DARK GREY
+76,DOAF_FF_075.png,Ducks of a Feather #76,10.5,https://player.vimeo.com/progressive_redirect/playback/679385316/rendition/540p?loc=external&signature=3b92f09828af03fcd9da40ce164952c24124c3d17b51d5c0e7f18d68832be7b9,N,MINT GREEN
+77,DOAF_FF_076.png,Ducks of a Feather #77,10.5,https://player.vimeo.com/progressive_redirect/playback/679385324/rendition/540p?loc=external&signature=45f4d00615b6f574aadb4baf99ebd9b0bdb08484cdf726da24b3c7ce4e78430f,N,LIGHT GREY
+78,DOAF_FF_077.png,Ducks of a Feather #78,10.5,https://player.vimeo.com/progressive_redirect/playback/679385329/rendition/540p?loc=external&signature=2d6d5bfc78535baf475465f293840b4f932a28b9d1dfc6dde4e36e472fe34d12,N,DARK GREY
+79,DOAF_FF_078.png,Ducks of a Feather #79,10.5,https://player.vimeo.com/progressive_redirect/playback/679385342/rendition/540p?loc=external&signature=7259a1e762168d15e97cb9718c498159374af77a92f135682aa2186d17cbd161,Y,BLACK
+80,DOAF_FF_079.png,Ducks of a Feather #80,10.5,https://player.vimeo.com/progressive_redirect/playback/679385353/rendition/540p?loc=external&signature=07c77867ec534205acae11923e3aa1adca0aaf3b15f88da9c3183215296017a6,N,ARTICHOKE GREEN
+81,DOAF_FF_080.png,Ducks of a Feather #81,11,https://player.vimeo.com/progressive_redirect/playback/679385361/rendition/540p?loc=external&signature=d4fa7bddf150cf8ab72f8e253602d64eda510cfbfba497374c0df5dfe8d85fbd,N,MAROON
+82,DOAF_FF_081.png,Ducks of a Feather #82,11,https://player.vimeo.com/progressive_redirect/playback/679385371/rendition/540p?loc=external&signature=0196af76d1157ea0d07aa9b6865256eb6a7ea2446d9fb0d08eec51662d7ec3a3,Y,BRIGHT ORANGE
+83,DOAF_FF_082.png,Ducks of a Feather #83,11,https://player.vimeo.com/progressive_redirect/playback/679385379/rendition/540p?loc=external&signature=d1b80c8b970fb79be2f388bd808db7ebb3085038f7b2c7430301b444824aaf1b,N,SKY BLUE
+84,DOAF_FF_083.png,Ducks of a Feather #84,11,https://player.vimeo.com/progressive_redirect/playback/679385389/rendition/540p?loc=external&signature=68aaf80cce1c320cfbb8436aa73dcb4a0fddb43b8bb3f6daf5d0345da649e6a1,N,PURPLE
+85,DOAF_FF_084.png,Ducks of a Feather #85,11,https://player.vimeo.com/progressive_redirect/playback/679385398/rendition/540p?loc=external&signature=134c9f4bd22bc8d6f1d7c9715480047235c84c6848ac8ec7626283edb8526d7d,N,BROWN
+86,DOAF_FF_085.png,Ducks of a Feather #86,11,https://player.vimeo.com/progressive_redirect/playback/679385411/rendition/540p?loc=external&signature=f155f4d047babf4cbafce12197d1c5c3c7509bed986b609de610accba106437f,N,DARK GREY
+87,DOAF_FF_086.png,Ducks of a Feather #87,11,https://player.vimeo.com/progressive_redirect/playback/679385419/rendition/540p?loc=external&signature=9ee49017c2fccc678439ba3cd2b90e36686e9782864286aa23910a04e6e7bba6,N,PINK
+88,DOAF_FF_087.png,Ducks of a Feather #88,11,https://player.vimeo.com/progressive_redirect/playback/679385428/rendition/540p?loc=external&signature=7981108d5deea9d23a8aa63fd9acd528d5447ef5775ef08f8e7b4effc3184aaf,N,FLAME ORANGE
+89,DOAF_FF_088.png,Ducks of a Feather #89,11,https://player.vimeo.com/progressive_redirect/playback/679385444/rendition/540p?loc=external&signature=e2ef8ae0f14ccec08121d5475555a4e60ee0e4464a5ecef461cce0c162982bdc,Y,BRIGHT ORANGE
+90,DOAF_FF_089.png,Ducks of a Feather #90,11,https://player.vimeo.com/progressive_redirect/playback/679385454/rendition/540p?loc=external&signature=fb15faae23cf0f3443e9478ad941a4d46ea43326b15feae3d0e5f88941fc8c22,N,LIGHT GREY
+91,DOAF_FF_090.png,Ducks of a Feather #91,11,https://player.vimeo.com/progressive_redirect/playback/679385458/rendition/540p?loc=external&signature=917adc45b1bec01ded79c3dfd729c15c6a09f38b29346a18fa1c892bb1cb32c3,N,FLAME ORANGE
+92,DOAF_FF_091.png,Ducks of a Feather #92,11,https://player.vimeo.com/progressive_redirect/playback/679385467/rendition/540p?loc=external&signature=c94760f2defc07ffe50be1590c07a77d6f8d80dc3a7076a27718d1a1bf921925,N,MINT GREEN
+93,DOAF_FF_092.png,Ducks of a Feather #93,11,https://player.vimeo.com/progressive_redirect/playback/679385477/rendition/540p?loc=external&signature=e5c7c96513226ed5004766165ef97bbeb17be9cb0d42c43b5cea207d7c5de2bf,N,FLAME ORANGE
+94,DOAF_FF_093.png,Ducks of a Feather #94,11,https://player.vimeo.com/progressive_redirect/playback/679385483/rendition/540p?loc=external&signature=7504e88deef938508af851575e67ea5e961023a359edea88ba6dcf2c37ca8b1d,Y,YELLOW
+95,DOAF_FF_094.png,Ducks of a Feather #95,11,https://player.vimeo.com/progressive_redirect/playback/679385491/rendition/540p?loc=external&signature=1df1b51cee9f317255a30539ceb53aef174c335f18c44440b17d1d83f5a87872,N,DARK GREY
+96,DOAF_FF_095.png,Ducks of a Feather #96,11.5,https://player.vimeo.com/progressive_redirect/playback/679385500/rendition/540p?loc=external&signature=106ff1543b0f703aa71e252448ae183836052a0b616409358b57120f22c4f2f7,N,SKY BLUE
+97,DOAF_FF_096.png,Ducks of a Feather #97,11.5,https://player.vimeo.com/progressive_redirect/playback/679385511/rendition/540p?loc=external&signature=f222d2816198288199c217f71dbca69fe7f148160760edb3702b5fa6860b8f13,N,BROWN
+98,DOAF_FF_097.png,Ducks of a Feather #98,11.5,https://player.vimeo.com/progressive_redirect/playback/679385518/rendition/540p?loc=external&signature=6d5f1e959eff398607713b867e737b8f705b5106f433f5506a9075c6d1afcd0c,N,ARTICHOKE GREEN
+99,DOAF_FF_098.png,Ducks of a Feather #99,11.5,https://player.vimeo.com/progressive_redirect/playback/679385528/rendition/540p?loc=external&signature=f69966eac6cd5ca30efc86f26cc60cae0d00dbdd484526436594232d53349ff9,N,BROWN
+100,DOAF_FF_099.png,Ducks of a Feather #100,11.5,https://player.vimeo.com/progressive_redirect/playback/679385535/rendition/540p?loc=external&signature=bd535a40446268aff0b8f2e81da2ac2572e0f1c6e1432d6846154d0d99f517af,N,PURPLE
+101,DOAF_FF_100.png,Ducks of a Feather #101,11.5,https://player.vimeo.com/progressive_redirect/playback/679385538/rendition/540p?loc=external&signature=8d5630252be34301a1207988967378631f290ba8cca997f34b70f14283b10c33,Y,BRIGHT ORANGE
+102,DOAF_FF_101.png,Ducks of a Feather #102,11.5,https://player.vimeo.com/progressive_redirect/playback/679385546/rendition/540p?loc=external&signature=bc5527899c4810dd0c67801f99575f91e774090309dd861b94ab208456283af2,N,FLAME ORANGE
+103,DOAF_FF_102.png,Ducks of a Feather #103,11.5,https://player.vimeo.com/progressive_redirect/playback/679385555/rendition/540p?loc=external&signature=baf914132acc9bc11fb5ba1ae9de2393c05d6339a360a65d57aebecc14b9861d,N,SKY BLUE
+104,DOAF_FF_103.png,Ducks of a Feather #104,11.5,https://player.vimeo.com/progressive_redirect/playback/679385562/rendition/540p?loc=external&signature=dc0a84efa309001268c13d2986386d33e19800447ff23ee98a179cd0d972fe5b,N,MINT GREEN
+105,DOAF_FF_104.png,Ducks of a Feather #105,11.5,https://player.vimeo.com/progressive_redirect/playback/679385576/rendition/540p?loc=external&signature=1400a13df7d6b020631e47610e7a224fdc2d2274abb642836208a004f03f384f,N,FLAME ORANGE
+106,DOAF_FF_105.png,Ducks of a Feather #106,11.5,https://player.vimeo.com/progressive_redirect/playback/679385580/rendition/540p?loc=external&signature=3f5dd94fc0b5194b03b4ca36d7a9202cf77ff469c9bf86adb37d19f416c10fd2,N,LIGHT GREY
+107,DOAF_FF_106.png,Ducks of a Feather #107,12,https://player.vimeo.com/progressive_redirect/playback/679385584/rendition/540p?loc=external&signature=d6b58c14308c8560427604e8bb1214491d293c0c538c5b0d1ae10809e5956fd1,Y,YELLOW
+108,DOAF_FF_107.png,Ducks of a Feather #108,12,https://player.vimeo.com/progressive_redirect/playback/679385597/rendition/540p?loc=external&signature=b2b83b7fe7439f97d12aa0c8612876b5821155de17ef3dd229cbb78198d54c20,N,FLAME ORANGE
+109,DOAF_FF_108.png,Ducks of a Feather #109,12,https://player.vimeo.com/progressive_redirect/playback/679385609/rendition/540p?loc=external&signature=077d870ad454f7edcd4266e088ce55a59890fbe10ee92f8691c71f983f3caf93,N,ARTICHOKE GREEN
+110,DOAF_FF_109.png,Ducks of a Feather #110,12,https://player.vimeo.com/progressive_redirect/playback/679385623/rendition/540p?loc=external&signature=caffc608332d9c0331014d9870015d541d635ee82b7f48680ba2dd30244ddbd9,N,BROWN
+111,DOAF_FF_110.png,Ducks of a Feather #111,12,https://player.vimeo.com/progressive_redirect/playback/679385634/rendition/540p?loc=external&signature=8aba153cca91e41d03cd162e6ed2c010f36e1f41145976c4ea5be10fe8906568,N,FLAME ORANGE
+112,DOAF_FF_111.png,Ducks of a Feather #112,12.5,https://player.vimeo.com/progressive_redirect/playback/679385642/rendition/540p?loc=external&signature=c9bb420960d2a1170c1723b53fab33b83d4b98a4b67cf2306c4bcb5e3dbdbb1c,N,SKY BLUE
+113,DOAF_FF_112.png,Ducks of a Feather #113,12.5,https://player.vimeo.com/progressive_redirect/playback/679385642/rendition/540p?loc=external&signature=c9bb420960d2a1170c1723b53fab33b83d4b98a4b67cf2306c4bcb5e3dbdbb1c,N,PINK
+114,DOAF_FF_113.png,Ducks of a Feather #114,12.5,https://player.vimeo.com/progressive_redirect/playback/679385665/rendition/540p?loc=external&signature=272fd96f52444440c8ee481418602ab654f902edfadaaf3476309729817d0341,N,MAROON
+115,DOAF_FF_114.png,Ducks of a Feather #115,13,https://player.vimeo.com/progressive_redirect/playback/679385674/rendition/540p?loc=external&signature=1a1cb9169faa19f115b5a4c9eff35a6e5ce5429573d3a936b58aa97adb847674,N,MINT GREEN
+116,DOAF_FF_115.png,Ducks of a Feather #116,13,https://player.vimeo.com/progressive_redirect/playback/679385688/rendition/540p?loc=external&signature=0909c6dc76f5f6249fdd01a4bccf000b2d276475221b581edc85f1b171db064c,N,PINK
+117,DOAF_FF_116.png,Ducks of a Feather #117,13,https://player.vimeo.com/progressive_redirect/playback/679385694/rendition/540p?loc=external&signature=5a2c39741344e7b72bee0bca27e01c435e3b4b79b15ddf6db0a166583b2c6cc7,N,ARTICHOKE GREEN
+118,DOAF_FF_117.png,Ducks of a Feather #118,14,https://player.vimeo.com/progressive_redirect/playback/679385701/rendition/540p?loc=external&signature=80374fe1e4cfc697535129becb0a8c36e34df9b0d1265938cd35b7a9e0d4eb36,N,BROWN
+119,DOAF_FF_118.png,Ducks of a Feather #119,14,https://player.vimeo.com/progressive_redirect/playback/679385716/rendition/540p?loc=external&signature=f58362434bc20d11e40bdebd1d6d9ef7f3b1f13089f4232c1b613560291eb2f7,N,PURPLE
+120,DOAF_FF_119.png,Ducks of a Feather #120,15,https://player.vimeo.com/progressive_redirect/playback/679385721/rendition/540p?loc=external&signature=7c48f08e8dc67db3fe1a70e13702bf4fbe3dbac748026195d5772922ce2e1bf2,Y,DARK GREEN
