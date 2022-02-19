@@ -17,7 +17,7 @@
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
-    <div class="grid grid-cols-12 gap-x-12 gap-y-10 px-4 md:px-10 py-14">
+    <div class="grid grid-cols-12 md:gap-x-12 gap-y-10 px-4 md:px-10 py-14">
       <div class="col-span-full md:col-start-1 md:col-span-6">
         <h1 class="heading-3">
           {{ title }}
