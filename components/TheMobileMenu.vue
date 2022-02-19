@@ -46,9 +46,9 @@
             >
               {{ link.label }}
             </NavLink>
-            <BuyNowLink large />
+            <BuyNowLink large @click.native="closeMenu" />
 
-            <ConnectWallet class="mt-5" />
+            <ConnectWallet class="mt-5" @click.native="closeMenu" />
 
             <div class="flex mt-6">
               <DiscordLink />
