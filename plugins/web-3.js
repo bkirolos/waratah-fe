@@ -106,12 +106,15 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     formatPrice(weiPrice) {
       if (!weiPrice) return
+
+      if (weiPrice.isBigNumber) {
+        const ethPrice = ethers.utils.formatEther(weiPrice)
+        return (+ethPrice)?.toFixed(2)
+      }
+
       // TODO: remove this before launch but I want to keep it for now
       // to try and catch a weird bug
       console.log('formatting', weiPrice)
-      const ethPrice = ethers.utils.formatEther(weiPrice)
-
-      return (+ethPrice)?.toFixed(2)
     },
     async clearConnection() {
       this.web3Modal.clearCachedProvider()
