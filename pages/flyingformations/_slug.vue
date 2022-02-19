@@ -189,24 +189,18 @@ export default {
 </script>
 
 <style lang="scss">
-$slide-width: clamp(1px, 100%, 670px);
 .nft-video-asset,
 .shoe-asset {
-  flex-shrink: 0;
   height: 0;
-  margin-right: 0.5rem;
-  padding-bottom: $slide-width;
+  padding-bottom: 100%;
   position: relative;
-  width: $slide-width;
+  width: 100%;
   img,
   .plyr {
-    position: absolute;
-    width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    width: 100%;
   }
-}
-.shoe-asset {
-  width: clamp(1px, 100%, 660px);
 }
 </style>
