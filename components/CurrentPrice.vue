@@ -30,11 +30,13 @@ export default {
       return this.$web3?.price ? this.$web3.formatPrice(this.$web3.price) : '-'
     },
     priceUSD() {
-      return this.priceETH !== '-' && this.usd
+      return this.priceETH !== '-' && this.usd && this.$web3?.price
         ? new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
-          }).format(this.usd)
+          }).format(
+            this.usd * parseFloat(this.$web3.formatPrice(this.$web3.price))
+          )
         : null
     }
   }
