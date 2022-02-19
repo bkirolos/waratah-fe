@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div v-if="$config.nftGoLive" class="flex">
     <button class="p-2" @click="handleClick">
       <span
         :class="[

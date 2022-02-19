@@ -1,6 +1,8 @@
 <template>
   <section class="grid grid-cols-1 w-full">
-    <div class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-20">
+    <div
+      class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-14 md:py-20"
+    >
       <div
         class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6"
       >
@@ -15,17 +17,17 @@
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
-    <div
-      class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10"
-    >
-      <div class="col-start-1 col-span-12 md:col-start-1 md:col-span-6">
-        <h1 class="heading-3">{{ title }}</h1>
-        <p class="base font-serif text-lime mt-2 mb-4">
+    <div class="grid grid-cols-12 md:gap-x-12 gap-y-10 px-4 md:px-10 py-14">
+      <div class="col-span-full md:col-start-1 md:col-span-6">
+        <h1 class="heading-3">
+          {{ title }}
+        </h1>
+        <p class="body text-lime font-serif text-base mt-2 mb-4">
           SHOE SIZE: {{ shoeSize }}
         </p>
         <PortableText :blocks="nftDescription" />
       </div>
-      <div class="md:col-start-7 md:col-span-6 col-span-12">
+      <div class="col-span-full md:col-start-7 md:col-span-6">
         <div v-if="!nftIsOwned">
           <Countdown />
           <hr class="my-6" />
@@ -36,7 +38,7 @@
         </div>
         <div v-else>
           <p class="heading-4 my-2">SOLD</p>
-          <p class="base truncate">
+          <p class="body truncate">
             Owned By
             <Hyperlink :url="ownedByUrl" class="text-lime">
               {{ ownedByText }}
@@ -50,17 +52,13 @@
           </Hyperlink>
         </div>
       </div>
-      <hr class="col-span-12" />
-    </div>
-    <div
-      class="row-span-1 grid grid-cols-12 p-10 sm:gap-y-5 md:gap-y-10 md:gap-x-10"
-    >
-      <div class="md:col-span-6 col-span-12">
+      <hr class="col-span-full" />
+      <div class="col-span-full md:col-span-6">
         <div class="shoe-asset">
           <LazyImage v-if="shoeImage" :image="shoeImage" />
         </div>
       </div>
-      <div class="md:col-span-6 col-span-12">
+      <div class="col-span-full md:col-span-6">
         <PortableText :blocks="shoeDescription" />
       </div>
     </div>
@@ -189,24 +187,18 @@ export default {
 </script>
 
 <style lang="scss">
-$slide-width: clamp(1px, 100%, 670px);
 .nft-video-asset,
 .shoe-asset {
-  flex-shrink: 0;
   height: 0;
-  margin-right: 0.5rem;
-  padding-bottom: $slide-width;
+  padding-bottom: 100%;
   position: relative;
-  width: $slide-width;
+  width: 100%;
   img,
   .plyr {
-    position: absolute;
-    width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    width: 100%;
   }
-}
-.shoe-asset {
-  width: clamp(1px, 100%, 660px);
 }
 </style>

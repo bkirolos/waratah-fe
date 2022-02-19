@@ -1,7 +1,7 @@
 <template>
   <Hyperlink :url="slug" :aria-label="`View details of nft ${title}`">
-    <article class="nft-item text-navy center border border-stroke-gray pb-4">
-      <div class="nft-thumbnail pb-4">
+    <article class="nft-item text-navy center border border-stroke-gray">
+      <div class="nft-thumbnail">
         <div
           v-if="sold"
           class="small-cta absolute z-10 border text-navy bg-electric-green font-semibold right-2 top-2"
@@ -10,10 +10,10 @@
         </div>
         <LazyImage v-if="image" :image="image" />
       </div>
-      <div class="mt-4 ml-4">
-        <p class="heading-4 text-base my-1">{{ title }}</p>
-        <p class="heading-6">Shoe Size {{ shoeSize }}</p>
-        <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-6">
+      <div class="p-2 md:p-4">
+        <p class="heading-4 text-sm md:text-base">{{ title }}</p>
+        <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
+        <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-8">
           View Details
         </Hyperlink>
       </div>
@@ -55,14 +55,11 @@ export default {
 }
 </script>
 <style lang="scss">
-$asset-width: clamp(1px, 100%, 600px);
 .nft-thumbnail {
-  flex-shrink: 0;
   height: 0;
-  margin-right: 0.5rem;
-  padding-bottom: $asset-width;
+  padding-bottom: 100%;
   position: relative;
-  width: $asset-width;
+  width: 100%;
   img {
     position: absolute;
     width: 100%;
