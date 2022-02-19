@@ -34,11 +34,6 @@ export default {
         {
           label: 'FAQ',
           url: '/#faq'
-        },
-        {
-          label: 'Buy Now',
-          url: '/flyingformations',
-          class: 'text-lime'
         }
       ]
     }

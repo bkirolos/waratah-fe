@@ -16,13 +16,14 @@
         >
           {{ link.label }}
         </NavLink>
+        <BuyNowLink />
       </div>
 
       <div class="flex justify-end">
         <DiscordLink class="hidden xl:flex" />
         <OpenSeaLink class="hidden xl:flex" />
         <TwitterLink class="hidden xl:flex" />
-        <ConnectWallet v-if="nftGoLive" class="hidden lg:flex" />
+        <ConnectWallet class="hidden lg:flex" />
         <TheMobileMenu class="flex lg:hidden" />
       </div>
     </nav>
@@ -38,11 +39,6 @@ export default {
     Logo
   },
   mixins: [nav],
-  computed: {
-    nftGoLive() {
-      return this.$config.nftGoLive === 'y'
-    }
-  },
   methods: {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
