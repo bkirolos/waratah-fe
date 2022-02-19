@@ -106,6 +106,9 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     formatPrice(weiPrice) {
       if (!weiPrice) return
+      // TODO: remove this before launch but I want to keep it for now
+      // to try and catch a weird bug
+      console.log('formatting', weiPrice)
       const ethPrice = ethers.utils.formatEther(weiPrice)
 
       return (+ethPrice)?.toFixed(2)
@@ -165,12 +168,11 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
             })
             if (!accounts.length) {
               console.log('Having trouble re-connecting to Metamask')
-              // TODO: handle this edge case
             }
-
-            this.connectionStatus = 'pending'
-            await this.connectWallet()
           }
+
+          this.connectionStatus = 'pending'
+          await this.connectWallet()
         } catch (e) {
           console.error(e)
           await this.connectWithInfura()
