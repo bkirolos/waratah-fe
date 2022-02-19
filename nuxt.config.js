@@ -83,7 +83,8 @@ export default {
   publicRuntimeConfig: {
     ethereumNetwork: process.env.ETHEREUM_NETWORK,
     infuraId: process.env.INFURA_ID,
-    nftGoLive: process.env.NFT_GO_LIVE
+    nftGoLive: process.env.NFT_GO_LIVE,
+    openSeaCollectionUrl: process.env.OPEN_SEA_COLLECTION_URL
   },
   privateRuntimeConfig: {
     sanity: {

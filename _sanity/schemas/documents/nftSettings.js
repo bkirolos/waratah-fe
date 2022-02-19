@@ -16,7 +16,7 @@ export default {
       title: 'NFT Collection Heading'
     },
     {
-      type: 'text',
+      type: 'portableTextLite',
       name: 'nftCollectionDescription',
       title: 'NFT Collection Description'
     },

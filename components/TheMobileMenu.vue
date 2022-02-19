@@ -46,6 +46,7 @@
             >
               {{ link.label }}
             </NavLink>
+            <BuyNowLink large />
 
             <ConnectWallet class="mt-5" />
 

@@ -15,6 +15,7 @@
       >
         {{ link.label }}
       </NavLink>
+      <BuyNowLink />
     </div>
 
     <div
