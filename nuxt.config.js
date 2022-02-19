@@ -76,7 +76,7 @@ export default {
   modules: ['@nuxtjs/dayjs', '@nuxtjs/axios'],
   dayjs: {
     defaultTimeZone: 'America/Los_Angeles',
-    plugins: ['utc', 'timezone']
+    plugins: ['utc', 'timezone', 'advancedFormat']
   },
 
   // Runtime config
@@ -84,7 +84,8 @@ export default {
     ethereumNetwork: process.env.ETHEREUM_NETWORK,
     infuraId: process.env.INFURA_ID,
     nftGoLive: process.env.NFT_GO_LIVE,
-    openSeaCollectionUrl: process.env.OPEN_SEA_COLLECTION_URL
+    openSeaCollectionUrl: process.env.OPEN_SEA_COLLECTION_URL || 'https://opensea.io/',
+    auctionEndTime: process.env.AUCTION_END_TIME
   },
   privateRuntimeConfig: {
     sanity: {

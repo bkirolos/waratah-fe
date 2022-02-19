@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="countdownLive">
     <h2 class="body font-bold mb-4">
-      Sale ends Feburary 20th at 10:00pm PST at 1ETH
+      Sale ends on {{ this.displayDate }} at 1ETH
     </h2>
     <div class="flex justify-between md:space-x-10 md:w-min">
       <p class="flex flex-col space-y-2">
@@ -30,8 +30,14 @@ export default {
     }
   },
   computed: {
+    countdownLive() {
+      return this.$dayjs() < this.endingTime
+    },
+    displayDate() {
+      return this.endingTime.format('MMMM Do [at] h:mm A')
+    },
     endingTime() {
-      return this.$dayjs('2022-02-18T17:30:00')
+      return this.$dayjs(this.$config.auctionEndTime)
     },
     timeZone() {
       return Intl.DateTimeFormat().resolvedOptions().timeZone
