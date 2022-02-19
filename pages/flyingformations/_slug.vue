@@ -125,7 +125,6 @@ export default {
       return `Flying Formation | ${this.nftTitle}`
     },
     openSeaUrl() {
-      console.log('hi')
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
     },
     ownedByText() {
