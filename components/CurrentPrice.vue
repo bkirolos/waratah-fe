@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="body font-bold mb-4">Current Price</h2>
+    <h2 class="body font-bold mb-4">{{ currentPriceLabel }}</h2>
     <p class="flex items-center space-x-4">
       <span class="heading-3 leading-none">{{ priceETH }} ETH</span>
       <span v-if="priceUSD" class="body font-bold -mt-3">({{ priceUSD }})</span>
@@ -27,6 +27,9 @@ export default {
   },
   computed: {
     priceETH() {
+      if (this.$web3?.auctionNotStarted()) {
+        return '12.5'
+      }
       return this.$web3?.price ? this.$web3.formatPrice(this.$web3.price) : '-'
     },
     priceUSD() {
@@ -34,10 +37,13 @@ export default {
         ? new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD'
-          }).format(
-            this.usd * parseFloat(this.$web3.formatPrice(this.$web3.price))
-          )
+          }).format(this.usd * parseFloat(this.priceETH))
         : null
+    },
+    currentPriceLabel() {
+      return this.$web3?.auctionNotStarted()
+        ? 'Starting Price'
+        : 'Current Price'
     }
   }
 }

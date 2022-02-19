@@ -103,8 +103,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       )
       this.contractAddress = contractAddress
 
-      const currentPriceWei = await contract.getPrice()
-      this.price = currentPriceWei
+      await this.updatePrice()
 
       // fetch the price every block
       this.provider.on('block', async () => {
@@ -119,8 +118,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           }
         }
 
-        const price = await contract.getPrice()
-        this.price = price
+        await this.updatePrice()
 
         await this.getAllOwnedTokens()
       })
@@ -130,15 +128,14 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     formatPrice(weiPrice) {
       if (!weiPrice) return
 
-      if (weiPrice._isBigNumber) {
-        const ethPrice = ethers.utils.formatEther(weiPrice)
-        return (+ethPrice)?.toFixed(2)
+      if (!weiPrice._isBigNumber) {
+        return null
       }
 
-      // TODO: remove this before launch but I want to keep it for now
-      // to try and catch a weird bug
-      console.log('formatting', weiPrice)
+      const ethPrice = ethers.utils.formatEther(weiPrice)
+      return (+ethPrice)?.toFixed(2)
     },
+
     async clearConnection() {
       this.web3Modal.clearCachedProvider()
       this.accounts = null
@@ -152,6 +149,20 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       await this.connectWithInfura()
     },
 
+    async updatePrice() {
+      try {
+        const price = await this.contract.getPrice()
+        this.price = price
+        return price
+      } catch (e) {
+        if (e.message.includes('auction has not started')) {
+          this.price = -1
+        }
+      }
+    },
+    auctionNotStarted() {
+      return this.price === -1
+    },
     async mintDuck(tokenId) {
       if (this.connectionStatus !== 'wallet') {
         throw new Error('Not connected to wallet!')
@@ -159,7 +170,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         throw new Error('Wrong network!')
       }
 
-      const weiPrice = await this.contract.getPrice()
+      const weiPrice = await this.updatePrice()
       const ethPrice = ethers.utils.formatEther(weiPrice)
       const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
         value: ethers.utils.parseEther(ethPrice.toString())

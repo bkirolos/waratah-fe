@@ -30,7 +30,11 @@
           <Countdown />
           <hr class="my-6" />
           <CurrentPrice />
-          <button class="wide-cta bg-lime text-navy my-6" @click="buy">
+          <button
+            class="wide-cta bg-lime text-navy my-6"
+            @click="buy"
+            v-if="auctionStarted"
+          >
             {{ buyButtonText }}
           </button>
           <p v-if="errorMessage" class="error-text">
@@ -90,6 +94,9 @@ export default {
     this.nftGeneral = nftGeneral
   },
   computed: {
+    auctionStarted() {
+      return !this.$web3?.auctionNotStarted()
+    },
     buyButtonText() {
       if (this.transactionInProgress) {
         return 'Transaction In Progress'
