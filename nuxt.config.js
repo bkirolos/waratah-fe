@@ -85,7 +85,8 @@ export default {
     infuraId: process.env.INFURA_ID,
     nftGoLive: process.env.NFT_GO_LIVE,
     openSeaCollectionUrl: process.env.OPEN_SEA_COLLECTION_URL || 'https://opensea.io/',
-    auctionEndTime: process.env.AUCTION_END_TIME
+    auctionEndTime: process.env.AUCTION_END_TIME || null,
+    auctionStartTime: process.env.AUCTION_START_TIME || null
   },
   privateRuntimeConfig: {
     sanity: {
