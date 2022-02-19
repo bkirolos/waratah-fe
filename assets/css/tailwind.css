@@ -71,6 +71,7 @@
 
   .small-cta {
     @apply rounded-full inline-flex justify-center items-center px-2 py-1 font-sans text-xxs py-1 px-3;
+    z-index: 1;
   }
 
   .input {

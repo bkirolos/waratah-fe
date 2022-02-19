@@ -4,7 +4,7 @@
       <div class="nft-thumbnail">
         <div
           v-if="minted"
-          class="small-cta absolute z-10 border text-navy bg-electric-green font-semibold right-2 top-2"
+          class="small-cta absolute border text-navy bg-electric-green font-semibold right-2 top-2"
         >
           MINTED
         </div>
