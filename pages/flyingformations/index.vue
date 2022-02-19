@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
+      class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20 w-full"
     >
       <div class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
         <h1 class="heading-2">{{ heading }}</h1>
