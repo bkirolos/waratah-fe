@@ -100,7 +100,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         this.price = price
 
         await this.getAllOwnedTokens()
-        console.log('new price just dropped!!!!!', this.formatPrice(price))
       })
 
       this.contract = contract
