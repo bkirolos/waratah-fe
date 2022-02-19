@@ -36,7 +36,8 @@
         </div>
         <div v-else>
           <p class="heading-4 my-2">SOLD</p>
-          <p class="base truncate">Owned By 
+          <p class="base truncate">
+            Owned By
             <Hyperlink :url="ownedByUrl" class="text-lime">
               {{ ownedByText }}
             </Hyperlink>
@@ -128,7 +129,7 @@ export default {
       return this.owner
         ? String(this.owner) === String(this.$web3?.accounts[0]?.address)
           ? 'You!'
-          : `${this.owner.slice(0,8)}...`
+          : `${this.owner.slice(0, 8)}...`
         : 'Owned By --'
     },
     ownedByUrl() {
@@ -181,7 +182,6 @@ export default {
       this.transactionInProgress = false
     },
     async getOwner() {
-
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
     }
   }
