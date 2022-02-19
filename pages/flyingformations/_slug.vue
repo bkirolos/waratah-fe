@@ -177,7 +177,8 @@ export default {
       try {
         await this.$web3.mintDuck(this.tokenId)
       } catch (e) {
-        console.log(e)
+        const errorToShow = this.$web3.parseError(e.message)
+        console.log('PARSED ERROR', errorToShow)
       }
       this.transactionInProgress = false
     },
