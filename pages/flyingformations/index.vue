@@ -19,7 +19,7 @@
         <div
           class="md:flex md:flex-wrap md:justify-between md:items-center mt-8 space-y-4 md:space-y-0"
         >
-          <p class="heading-4 text-md md:pt-3">{{ minted }} / 120 Sold</p>
+          <p class="heading-4 text-md md:pt-3">{{ minted }} / 120 MINTED</p>
           <CTA :cta="openSeaCta" class="text-lime border-lime cursor-pointer" />
         </div>
       </div>
