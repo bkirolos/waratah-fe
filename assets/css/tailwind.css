@@ -53,6 +53,10 @@
   .body {
     @apply font-sans text-xs md:text-base tracking-normal leading-normal normal-case;
   }
+
+  button {
+    cursor: pointer;
+  }
 }
 
 @layer components {

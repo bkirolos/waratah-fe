@@ -49,7 +49,7 @@
           </p>
           <Hyperlink
             :url="openSeaUrl"
-            class="wide-cta text-lime border-lime my-6"
+            class="wide-cta text-lime border-lime my-6 cursor-pointer"
           >
             View On OpenSea
           </Hyperlink>
