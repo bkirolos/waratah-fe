@@ -31,6 +31,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     ownedTokens: [],
 
     async getAllOwnedTokens() {
+      if (!this.contract) return null
+
       try {
         const tokenIds = await this.contract.getAllTokens()
         const mappedTokens = tokenIds.map(bn => bn.toNumber())
@@ -68,10 +70,11 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     async connectWithInfura() {
       // TODO: set up with env vars
       const infura = new ethers.providers.InfuraProvider('rinkeby')
-      await this.connectToContract(infura)
 
       this.provider = infura
       this.connectionStatus = 'infura'
+
+      await this.connectToContract(infura)
     },
     async connectToContract(providerOrSigner) {
       // TODO: use actual env vars here
@@ -92,7 +95,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       this.price = currentPriceWei
 
       // fetch the price every block
-      this.provider.on('block', async () => {
+      providerOrSigner.on('block', async () => {
         const price = await contract.getPrice()
         this.price = price
 
