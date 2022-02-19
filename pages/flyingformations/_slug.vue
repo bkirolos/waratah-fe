@@ -36,7 +36,11 @@
         </div>
         <div v-else>
           <p class="heading-4 my-2">SOLD</p>
-          <p class="base truncate">Owned By {{ ownedByText }}</p>
+          <p class="base truncate">Owned By 
+            <Hyperlink :url="ownedByUrl" class="text-lime">
+              {{ ownedByText }}
+            </Hyperlink>
+          </p>
           <Hyperlink
             :url="openSeaUrl"
             class="wide-cta text-lime border-lime my-6"
@@ -124,8 +128,11 @@ export default {
       return this.owner
         ? String(this.owner) === String(this.$web3?.accounts[0]?.address)
           ? 'You!'
-          : `${this.owner}`
+          : `${this.owner.slice(0,8)}...`
         : 'Owned By --'
+    },
+    ownedByUrl() {
+      return `https://etherscan.io/address/${this.owner}`
     },
     readableContractAddress() {
       return String(this.$web3?.contractAddress)
