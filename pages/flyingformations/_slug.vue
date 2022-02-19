@@ -33,7 +33,9 @@
           <button class="wide-cta bg-lime text-navy my-6" @click="buy">
             {{ buyButtonText }}
           </button>
-          <p class="error-text">Error: {{ errorMessage }}</p>
+          <p class="error-text" v-if="errorMessage">
+            Error: {{ errorMessage }}
+          </p>
         </div>
         <div v-else>
           <p class="heading-4 my-2">SOLD</p>
@@ -180,6 +182,7 @@ export default {
       this.transactionInProgress = true
       try {
         await this.$web3.mintDuck(this.tokenId)
+        this.errorMessage = null
       } catch (e) {
         this.errorMessage = this.$web3.parseError(e.message)
       }
