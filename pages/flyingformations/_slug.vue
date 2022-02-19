@@ -1,8 +1,6 @@
 <template>
-  <section class="grid grid-cols-1 w-full">
-    <div
-      class="row-span-1 grid grid-cols-12 bg-light-blue bg-opacity-20 py-14 md:py-20"
-    >
+  <section class="nft-slug w-full">
+    <div class="bg-light-blue bg-opacity-20 grid grid-cols-12 0 py-14 md:py-20">
       <div
         class="nft-video-asset col-start-2 col-span-10 md:col-start-4 md:col-span-6"
       >
@@ -19,11 +17,11 @@
     </div>
     <div class="grid grid-cols-12 md:gap-x-12 gap-y-10 px-4 md:px-10 py-14">
       <div class="col-span-full md:col-start-1 md:col-span-6">
-        <h1 class="heading-3">
+        <h1 class="nft-title heading-3">
           {{ title }}
         </h1>
-        <p class="body text-lime font-serif text-base mt-2 mb-4">
-          SHOE SIZE: {{ shoeSize }}
+        <p class="nft-shoe-size heading-4 text-lime font-serif mt-2 mb-4">
+          Shoe Size: {{ shoeSize }}
         </p>
         <PortableText :blocks="nftDescription" />
       </div>
@@ -35,7 +33,7 @@
           <button class="wide-cta bg-lime text-navy my-6" @click="buy">
             {{ buyButtonText }}
           </button>
-          <p class="error-text" v-if="errorMessage">
+          <p v-if="errorMessage" class="error-text">
             Error: {{ errorMessage }}
           </p>
         </div>
@@ -197,27 +195,38 @@ export default {
 </script>
 
 <style lang="scss">
-.nft-video-asset,
-.shoe-asset {
-  height: 0;
-  padding-bottom: 100%;
-  position: relative;
-  width: 100%;
-  img,
-  .plyr {
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
+.nft-slug {
+  .nft-video-asset,
+  .shoe-asset {
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
     width: 100%;
+    img,
+    .plyr {
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
+    }
   }
-}
-.shoe-asset {
-  width: clamp(1px, 100%, 660px);
-}
 
-.error-text {
-  color: red !important;
-  font-size: 1rem;
-  text-align: center;
+  .nft-title {
+    @media (max-width: calc(theme('screens.md') - 1px)) {
+      font-size: 36px;
+    }
+  }
+
+  .nft-shoe-size {
+    @media (max-width: calc(theme('screens.md') - 1px)) {
+      font-size: 28px;
+    }
+  }
+
+  .error-text {
+    color: red !important;
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 </style>

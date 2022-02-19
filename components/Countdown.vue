@@ -1,10 +1,17 @@
 <template>
   <div>
     <h2 class="body font-bold mb-4">
-      <span v-if="countdownLive"> Sale ends on {{ displayEndTime }} at 1ETH</span>
-      <span v-else-if="!countdownStarted"> Auction begins on {{ displayStartTime }}</span>
+      <span v-if="countdownLive">
+        Sale ends on {{ displayEndTime }} at 1ETH
+      </span>
+      <span v-else-if="!countdownStarted">
+        Auction begins on {{ displayStartTime }}
+      </span>
     </h2>
-    <div v-if="countdownLive" class="flex justify-between md:space-x-10 md:w-min">
+    <div
+      v-if="countdownLive"
+      class="flex justify-between md:space-x-10 md:w-min"
+    >
       <p class="flex flex-col space-y-2">
         <span class="heading-4">{{ formatNumber(hours) }}</span>
         <span class="heading-6">Hours</span>
@@ -47,12 +54,12 @@ export default {
       return this.startingTime.format('MMMM Do [at] h:mm A')
     },
     endingTime() {
-      return this.$config.auctionEndTime 
+      return this.$config.auctionEndTime
         ? this.$dayjs(this.$config.auctionEndTime)
         : this.$dayjs().subtract(1, 'day')
     },
     startingTime() {
-      return this.$config.auctionStartTime 
+      return this.$config.auctionStartTime
         ? this.$dayjs(this.$config.auctionStartTime)
         : this.$dayjs()
     },

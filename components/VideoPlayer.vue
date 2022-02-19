@@ -12,6 +12,7 @@
         :data-poster="poster"
         :autoplay="autoplay"
         :loop="loop"
+        :muted="autoplay"
       >
         <source :src="url" type="video/mp4" />
       </video>

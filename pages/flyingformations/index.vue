@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col w-full">
     <section
       class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
     >
@@ -25,7 +25,7 @@
       </div>
     </section>
     <section
-      class="bg-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-4 md:p-10"
+      class="bg-white flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-4 md:p-10"
     >
       <NftThumbnail
         v-for="nft in nfts"
