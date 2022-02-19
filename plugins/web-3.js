@@ -100,7 +100,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         this.price = price
 
         await this.getAllOwnedTokens()
-        console.log('new price just dropped!!!!!', this.formatPrice(price))
       })
 
       this.contract = contract
@@ -119,24 +118,33 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
 
     async mintDuck(tokenId) {
-      try {
-        if (this.connectionStatus !== 'wallet') {
-          throw new Error('Not connected to wallet!')
-        } else if (this.network.name !== 'rinkeby') {
-          throw new Error('Wrong network!')
-        }
-
-        const weiPrice = await this.contract.getPrice()
-        const ethPrice = ethers.utils.formatEther(weiPrice)
-        const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
-          value: ethers.utils.parseEther(ethPrice.toString())
-        })
-        const txResult = await activeTx.wait()
-
-        console.log('txResult', txResult)
-      } catch (e) {
-        console.error(e)
+      if (this.connectionStatus !== 'wallet') {
+        throw new Error('Not connected to wallet!')
+      } else if (this.network.name !== 'rinkeby') {
+        throw new Error('Wrong network!')
       }
+
+      const weiPrice = await this.contract.getPrice()
+      const ethPrice = ethers.utils.formatEther(weiPrice)
+      const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
+        value: ethers.utils.parseEther(ethPrice.toString())
+      })
+      const txResult = await activeTx.wait()
+
+      console.log('txResult', txResult)
+    },
+    parseError(message) {
+      if (message.includes('User has already bought'))
+        return 'Only one Duck per wallet'
+
+      if (message.includes('insufficient funds for gas * price'))
+        return 'Insufficient funds'
+
+      // If none of these, try to parse it out and if that really doesn't work,
+      // just return the raw message
+      return (
+        message?.split('FlyingFormations: ')?.[1]?.split(`"`)?.[0] || message
+      )
     },
     async getTokenOwner(tokenId) {
       try {
