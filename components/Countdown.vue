@@ -3,7 +3,10 @@
     <h2 v-if="countdownLive" class="body font-bold mb-4">
       Sale ends on {{ displayEndTime }} at 1ETH
     </h2>
-    <h2 v-else-if="!countdownStarted" class="body font-bold mb-4">
+    <h2
+      v-else-if="!countdownStarted && currentTime"
+      class="body font-bold mb-4"
+    >
       Auction begins on {{ displayStartTime }}
     </h2>
     <div
@@ -23,7 +26,9 @@
         <span class="heading-6">Seconds</span>
       </p>
     </div>
-    <p v-if="countdownLive" class="body-small mt-4 uppercase">Price Drops With Every Block (~12 sec)</p>
+    <p v-if="countdownLive" class="body-small mt-4 uppercase">
+      Price Drops With Every Block (~12 sec)
+    </p>
   </div>
 </template>
 
@@ -39,7 +44,7 @@ export default {
   },
   computed: {
     countdownLive() {
-      return !this.countdownEnded && this.countdownStarted
+      return this.currentTime && !this.countdownEnded && this.countdownStarted
     },
     countdownEnded() {
       return this.currentTime > this.endingTime
