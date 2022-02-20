@@ -1,24 +1,28 @@
 <template>
-  <Hyperlink :url="slug" :aria-label="`View details of nft ${title}`">
-    <article class="nft-item text-navy center border border-stroke-gray">
-      <div class="nft-thumbnail">
-        <div
-          v-if="minted"
-          class="small-cta absolute border text-navy bg-electric-green font-semibold right-2 top-2"
-        >
-          MINTED
-        </div>
+  <article class="nft-item text-navy center border border-stroke-gray">
+    <div class="nft-thumbnail">
+      <div
+        v-if="minted"
+        class="small-cta absolute border text-navy bg-electric-green font-semibold right-2 top-2"
+      >
+        MINTED
+      </div>
+      <Hyperlink :url="slug">
         <LazyImage v-if="image" :image="image" />
-      </div>
-      <div class="p-2 md:p-4">
+      </Hyperlink>
+    </div>
+    <div class="p-2 md:p-4">
+      <Hyperlink :url="slug">
         <p class="heading-4 text-sm md:text-base">{{ title }}</p>
+      </Hyperlink>
+      <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
-        <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-8">
-          View Details
-        </Hyperlink>
-      </div>
-    </article>
-  </Hyperlink>
+      </Hyperlink>
+      <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-8">
+        View Details
+      </Hyperlink>
+    </div>
+  </article>
 </template>
 
 <script>
