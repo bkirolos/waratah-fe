@@ -7,7 +7,7 @@ import { Token } from '../contracts/token'
 export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
   const web3 = Vue.observable({
     web3Modal: new Web3Modal({
-      network: ethereumNetwork, // optional
+      network: 'mainnet', // optional
       cacheProvider: true, // optional
       providerOptions: {
         walletconnect: {
