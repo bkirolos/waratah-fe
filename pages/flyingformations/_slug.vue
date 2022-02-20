@@ -138,7 +138,7 @@ export default {
       return `Flying Formation | ${this.nftTitle}`
     },
     openSeaUrl() {
-      if (this.$config.ethereumNetwork !== 'mainnet') {
+      if (this.$config.ethereumNetwork !== 'homestead') {
         return `https://testnets.opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
       }
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
