@@ -53,7 +53,7 @@ export default {
       return this.currentTime >= this.startingTime
     },
     displayEndTime() {
-      return "February 20nd at 10:00PM PST"
+      return "February 20th at 10:00PM PST"
       // return this.endingTime.format('MMMM Do [at] h:mm A z')
     },
     displayStartTime() {
