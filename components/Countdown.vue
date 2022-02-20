@@ -60,7 +60,7 @@ export default {
       return this.startingTime.format('MMMM Do [at] h:mm A z')
     },
     endingTime() {
-      return this.$dayjs.unix(1645386521)
+      return this.$dayjs.unix(1645423200)
     },
     startingTime() {
       return this.$config?.auctionStartTime
