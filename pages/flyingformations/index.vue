@@ -28,7 +28,7 @@
       </div>
     </section>
     <section
-      class="bg-white flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-4 md:p-10"
+      class="bg-white flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-2 md:p-10"
     >
       <NftThumbnail
         v-for="nft in nfts"
