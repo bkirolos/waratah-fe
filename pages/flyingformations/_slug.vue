@@ -15,8 +15,10 @@
         <LazyImage v-else-if="image" :image="image" />
       </div>
     </div>
-    <div class="grid grid-cols-12 md:gap-x-12 gap-y-10 px-4 md:px-10 pt-5 pb-14">
-      <Hyperlink class="body back-link" url="/flyingformations"> Back </Hyperlink>
+    <div
+      class="grid grid-cols-12 md:gap-x-12 gap-y-10 px-4 md:px-10 pt-5 pb-14"
+    >
+      <Hyperlink class="body back-link" url="/flyingformations">Back</Hyperlink>
       <div class="col-span-full md:col-start-1 md:col-span-6 relative">
         <h1 class="nft-title heading-3">
           {{ title }}
@@ -39,7 +41,7 @@
             {{ buyButtonText }}
           </button>
           <p v-if="errorMessage" class="error-text">
-            Error: {{ errorMessage }}
+            {{ errorMessage }}
           </p>
         </div>
         <div v-else>
@@ -238,5 +240,4 @@ export default {
     text-align: center;
   }
 }
-
 </style>
