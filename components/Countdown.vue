@@ -53,14 +53,14 @@ export default {
       return this.currentTime >= this.startingTime
     },
     displayEndTime() {
-      return "February 22nd at 10:00PM PST"
+      return "February 20nd at 10:00PM PST"
       // return this.endingTime.format('MMMM Do [at] h:mm A z')
     },
     displayStartTime() {
       return this.startingTime.format('MMMM Do [at] h:mm A z')
     },
     endingTime() {
-      return this.$dayjs.unix(1645423200)
+      return this.$dayjs.unix(1645386521)
     },
     startingTime() {
       return this.$config?.auctionStartTime
