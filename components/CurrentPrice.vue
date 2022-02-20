@@ -26,7 +26,7 @@ export default {
     }
   },
   computed: {
-    auctionLive(){
+    auctionLive() {
       return !this.$web3?.auctionNotStarted()
     },
     priceETH() {
