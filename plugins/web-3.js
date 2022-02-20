@@ -26,7 +26,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     signer: null,
     contract: null,
     contractAddress: null,
-    price: -1,
+    price: null,
     connectionStatus: 'disconnected',
     ownedTokens: [],
 
