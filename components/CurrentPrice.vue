@@ -5,7 +5,6 @@
       <span class="heading-3 leading-none">{{ priceETH }} ETH</span>
       <span v-if="priceUSD" class="body font-bold -mt-3">({{ priceUSD }})</span>
     </p>
-    <p class="body-small mb-4 uppercase">Price Drops With Every Block (~12 sec)</p>
   </div>
 </template>
 
