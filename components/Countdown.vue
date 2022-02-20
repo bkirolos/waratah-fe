@@ -53,15 +53,14 @@ export default {
       return this.currentTime >= this.startingTime
     },
     displayEndTime() {
-      return this.endingTime.format('MMMM Do [at] h:mm A')
+      return "February 22st at 10:00PM PST"
+      // return this.endingTime.format('MMMM Do [at] h:mm A z')
     },
     displayStartTime() {
-      return this.startingTime.format('MMMM Do [at] h:mm A')
+      return this.startingTime.format('MMMM Do [at] h:mm A z')
     },
     endingTime() {
-      return this.$config?.auctionEndTime
-        ? this.$dayjs(this.$config.auctionEndTime)
-        : this.$dayjs().subtract(1, 'day')
+      return this.$dayjs.unix(1645423200)
     },
     startingTime() {
       return this.$config?.auctionStartTime
@@ -85,7 +84,7 @@ export default {
     },
     getTimeRemaining() {
       this.currentTime = this.$dayjs().tz(this.timeZone)
-      const currentTime = this.$dayjs().tz(this.timeZone)
+      const currentTime = this.$dayjs().tz("America/Los_Angeles")
       return this.endingTime.diff(currentTime)
     },
     initializeCountdown() {
