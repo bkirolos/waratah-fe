@@ -164,8 +164,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       const activeTx = await this.contract.buy(this.accounts[0], tokenId, {
         value: ethers.utils.parseEther(ethPrice.toString())
       })
-      const txResult = await activeTx.wait()
-
+      await activeTx.wait()
       // console.log('txResult', txResult)
     },
     parseError(message) {
@@ -192,6 +191,15 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       try {
         const ownerOfDuck = await this.contract?.ownerOf(tokenId)
         return ownerOfDuck
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async getTokenOwnerEns(tokenId) {
+      try {
+        const ownerOfDuck = await this.contract?.ownerOf(tokenId)
+        const ensName = await this.provider?.lookupAddress(ownerOfDuck)
+        return ensName
       } catch (e) {
         console.error(e)
       }

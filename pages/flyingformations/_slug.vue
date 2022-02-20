@@ -87,6 +87,7 @@ export default {
       nft: null,
       nftGeneral: null,
       owner: null,
+      ownerEns: null,
       transactionInProgress: false,
       errorMessage: null
     }
@@ -95,7 +96,7 @@ export default {
     const params = { id: this.$route.params.slug }
     const nft = await this.$sanity.fetch(nftById, params)
     if (!nft) {
-      return this.$nuxt.error({ statusCode: 404})
+      return this.$nuxt.error({ statusCode: 404 })
     }
     this.nft = nft
     const nftGeneral = await this.$sanity.fetch(nftSettings)
@@ -144,12 +145,18 @@ export default {
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
     },
     ownedByText() {
-      return this.owner
-        ? String(this.owner).toUpperCase() ===
+      if (this.owner) {
+        if (
+          String(this.owner).toUpperCase() ===
           String(this.$web3?.accounts?.[0]).toUpperCase()
-          ? 'You!'
-          : `${this.owner.slice(0, 8)}...`
-        : 'Owned By --'
+        ) {
+          return 'You!'
+        } else {
+          return this.ownerEns ? this.ownerEns : `${this.owner.slice(0, 8)}...`
+        }
+      } else {
+        return 'Owned By --'
+      }
     },
     ownedByUrl() {
       return `https://etherscan.io/address/${this.owner}`
@@ -205,6 +212,7 @@ export default {
     },
     async getOwner() {
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
+      this.ownerEns = await this.$web3.getTokenOwnerEns(this.tokenId)
     }
   }
 }
