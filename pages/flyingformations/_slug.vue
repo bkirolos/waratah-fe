@@ -30,13 +30,15 @@
       </div>
       <div class="col-span-full md:col-start-7 md:col-span-6">
         <div v-if="!nftIsOwned">
-          <Countdown />
+          <client-only>
+            <Countdown />
+          </client-only>
           <hr class="my-6" />
           <CurrentPrice />
           <button
+            v-if="auctionStarted"
             class="wide-cta bg-lime text-navy my-6"
             @click="buy"
-            v-if="auctionStarted"
           >
             {{ buyButtonText }}
           </button>
@@ -92,8 +94,11 @@ export default {
   async fetch() {
     const params = { id: this.$route.params.slug }
     const nft = await this.$sanity.fetch(nftById, params)
-    const nftGeneral = await this.$sanity.fetch(nftSettings)
+    if (!nft) {
+      return this.$nuxt.error({ statusCode: 404})
+    }
     this.nft = nft
+    const nftGeneral = await this.$sanity.fetch(nftSettings)
     this.nftGeneral = nftGeneral
   },
   computed: {

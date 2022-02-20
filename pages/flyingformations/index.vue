@@ -12,7 +12,10 @@
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
       >
         <div class="col-span-full md:col-start-7 md:col-span-5">
-          <Countdown />
+          <client-only>
+            <Countdown />
+          </client-only>
+
           <hr class="my-6" />
           <CurrentPrice />
         </div>
@@ -25,7 +28,7 @@
       </div>
     </section>
     <section
-      class="bg-white flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-4 md:p-10"
+      class="bg-white flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 p-2 py-10 md:p-10"
     >
       <NftThumbnail
         v-for="nft in nfts"
