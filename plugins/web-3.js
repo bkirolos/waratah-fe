@@ -122,7 +122,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       }
 
       const ethPrice = ethers.utils.formatEther(weiPrice)
-      return (+ethPrice)?.toFixed(2)
+      return (+ethPrice)?.toFixed(3)
     },
 
     async clearConnection() {
