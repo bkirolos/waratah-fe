@@ -107,17 +107,6 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       // fetch the price every block
       this.provider.on('block', async () => {
-        if (providerOrSigner._isSigner) {
-          // if wallet, make sure it's still connected
-          // if user has disconnected, clear connection and connect to infura instead
-          const accounts = await providerOrSigner.provider.listAccounts()
-
-          if (!accounts?.length) {
-            await this.clearConnection()
-            return
-          }
-        }
-
         await this.updatePrice()
 
         await this.getAllOwnedTokens()
@@ -203,6 +192,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     async init() {
       if (web3.web3Modal.cachedProvider) {
         try {
+          // METAMASK
           if (web3.web3Modal.cachedProvider === 'injected') {
             const accounts = await window.ethereum.request({
               method: 'eth_accounts'
@@ -212,6 +202,14 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
               await this.clearConnection()
               return
             }
+          } else {
+            // MOBILE CACHED
+            localStorage.removeItem('WEB3_CONNECT_CACHED_PROVIDER')
+            localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE')
+            localStorage.removeItem('walletconnect')
+
+            await this.connectWithInfura()
+            return
           }
 
           this.connectionStatus = 'pending'
