@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h2 class="body font-bold mb-4">
-      <span v-if="countdownLive">
-        Sale ends on {{ displayEndTime }} at 1ETH
-      </span>
-      <span v-else-if="!countdownStarted">
-        Auction begins on {{ displayStartTime }}
-      </span>
+    <h2 v-if="countdownLive" class="body font-bold mb-4">
+      Sale ends on {{ displayEndTime }} at 1ETH
+    </h2>
+    <h2 v-else-if="!countdownStarted" class="body font-bold mb-4">
+      Auction begins on {{ displayStartTime }}
     </h2>
     <div
       v-if="countdownLive"
@@ -54,12 +52,12 @@ export default {
       return this.startingTime.format('MMMM Do [at] h:mm A')
     },
     endingTime() {
-      return this.$config.auctionEndTime
+      return this.$config?.auctionEndTime
         ? this.$dayjs(this.$config.auctionEndTime)
         : this.$dayjs().subtract(1, 'day')
     },
     startingTime() {
-      return this.$config.auctionStartTime
+      return this.$config?.auctionStartTime
         ? this.$dayjs(this.$config.auctionStartTime)
         : this.$dayjs()
     },

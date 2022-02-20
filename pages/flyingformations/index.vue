@@ -12,7 +12,10 @@
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
       >
         <div class="col-span-full md:col-start-7 md:col-span-5">
-          <Countdown />
+          <client-only>
+            <Countdown />
+          </client-only>
+
           <hr class="my-6" />
           <CurrentPrice />
         </div>
