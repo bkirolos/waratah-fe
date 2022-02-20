@@ -26,7 +26,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     signer: null,
     contract: null,
     contractAddress: null,
-    price: null,
+    price: -1,
     connectionStatus: 'disconnected',
     ownedTokens: [],
 
@@ -177,6 +177,10 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       if (message.includes('token already minted'))
         return '😭 Token already minted 😭'
+
+      if (message.includes('transaction failed')) {
+        return '😵 Transaction Failed 😵'
+      }
 
       // If none of these, try to parse it out and if that really doesn't work,
       // just return the raw message
