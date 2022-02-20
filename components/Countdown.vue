@@ -23,6 +23,7 @@
         <span class="heading-6">Seconds</span>
       </p>
     </div>
+    <p v-if="countdownLive" class="body-small mt-4 uppercase">Price Drops With Every Block (~12 sec)</p>
   </div>
 </template>
 
@@ -32,7 +33,8 @@ export default {
     return {
       hours: '-',
       minutes: '-',
-      seconds: '-'
+      seconds: '-',
+      currentTime: null
     }
   },
   computed: {
@@ -40,10 +42,10 @@ export default {
       return !this.countdownEnded && this.countdownStarted
     },
     countdownEnded() {
-      return this.$dayjs() > this.endingTime
+      return this.currentTime > this.endingTime
     },
     countdownStarted() {
-      return this.$dayjs() >= this.startingTime
+      return this.currentTime >= this.startingTime
     },
     displayEndTime() {
       return this.endingTime.format('MMMM Do [at] h:mm A')
@@ -77,6 +79,7 @@ export default {
       }
     },
     getTimeRemaining() {
+      this.currentTime = this.$dayjs().tz(this.timeZone)
       const currentTime = this.$dayjs().tz(this.timeZone)
       return this.endingTime.diff(currentTime)
     },
