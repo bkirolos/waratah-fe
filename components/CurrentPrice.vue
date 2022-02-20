@@ -22,7 +22,7 @@ export default {
       )
       this.usd = data.rates.USD
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
   },
   computed: {

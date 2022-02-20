@@ -78,7 +78,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         await this.connectToContract(signer)
         this.connectionStatus = 'wallet'
       } catch (e) {
-        console.log(e)
+        // console.log(e)
         await this.connectWithInfura()
       }
     },
@@ -166,7 +166,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       })
       const txResult = await activeTx.wait()
 
-      console.log('txResult', txResult)
+      // console.log('txResult', txResult)
     },
     parseError(message) {
       if (message.includes('User has already bought'))
@@ -205,7 +205,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
               method: 'eth_accounts'
             })
             if (!accounts.length) {
-              console.log('Having trouble re-connecting to Metamask')
+              // console.log('Having trouble re-connecting to Metamask')
               await this.clearConnection()
               return
             }
