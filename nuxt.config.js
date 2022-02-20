@@ -30,7 +30,8 @@ export default {
   plugins: [
     { src: '~/plugins/preview', mode: 'client' },
     { src: '~/plugins/vue-observe-visibility' },
-    { src: '~/plugins/vue-plyr', mode: 'client' }
+    { src: '~/plugins/vue-plyr', mode: 'client' },
+    { src: '~/plugins/web-3', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -72,20 +73,33 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios'],
+  dayjs: {
+    defaultTimeZone: 'America/Los_Angeles',
+    plugins: ['utc', 'timezone', 'advancedFormat']
+  },
 
+  // Runtime config
+  publicRuntimeConfig: {
+    auctionEndTime: process.env.AUCTION_END_TIME || null,
+    auctionStartTime: process.env.AUCTION_START_TIME || null,
+    ethereumNetwork: process.env.ETHEREUM_NETWORK,
+    infuraId: process.env.INFURA_ID,
+    nftGoLive: process.env.NFT_GO_LIVE,
+    openSeaCollectionUrl:
+      process.env.OPEN_SEA_COLLECTION_URL || 'https://opensea.io/'
+  },
   privateRuntimeConfig: {
     sanity: {
       token: process.env.SANITY_PREVIEW_TOKEN
     }
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: ['web3modal-vue']
-  },
-
+  // Generate configuration
   generate: {
     fallback: true
-  }
+  },
+
+  // Build configuration: https://go.nuxtjs.dev/config-build
+  build: {}
 }

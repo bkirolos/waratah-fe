@@ -10,7 +10,7 @@
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-start-8 lg:col-span-4"
       >
         <PortableText :blocks="copy" />
-        <CTA :cta="cta" class="mt-6" />
+        <CTA if="cta" :cta="cta" class="mt-6" />
       </div>
     </div>
     <Carousel :slides="slides" />

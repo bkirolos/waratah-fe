@@ -12,15 +12,18 @@
           v-for="(link, index) in headerLinks"
           :key="index"
           :url="link.url"
+          :class="link.class"
         >
           {{ link.label }}
         </NavLink>
+        <BuyNowLink />
       </div>
 
       <div class="flex justify-end">
-        <TwitterLink class="hidden lg:flex" />
-        <DiscordLink class="hidden lg:flex" />
-        <!-- <ConnectWallet /> -->
+        <DiscordLink class="hidden xl:flex" />
+        <OpenSeaLink class="hidden xl:flex" />
+        <TwitterLink class="hidden xl:flex" />
+        <ConnectWallet class="hidden lg:flex" />
         <TheMobileMenu class="flex lg:hidden" />
       </div>
     </nav>
@@ -51,15 +54,11 @@ export default {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
   &-nav {
     display: flex;
     justify-content: space-between;
-    @media (min-width: theme('screens.xl')) {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-    }
 
     a,
     button {

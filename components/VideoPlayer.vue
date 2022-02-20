@@ -1,8 +1,19 @@
 <template>
-  <!-- TODO: add support for options prop? -->
   <client-only>
-    <vue-plyr v-if="url" ref="plyr" v-observe-visibility="options">
-      <video controls playsinline :data-poster="poster">
+    <vue-plyr
+      v-if="url"
+      ref="plyr"
+      v-observe-visibility="observeVisibilityOptions"
+      :options="plyrOptions"
+    >
+      <video
+        playsinline
+        controls
+        :data-poster="poster"
+        :autoplay="autoplay"
+        :loop="loop"
+        :muted="autoplay"
+      >
         <source :src="url" type="video/mp4" />
       </video>
     </vue-plyr>
@@ -15,6 +26,22 @@ import imageBuilder from '@/mixins/imageBuilder'
 export default {
   mixins: [imageBuilder],
   props: {
+    autopause: {
+      type: Boolean,
+      default: true
+    },
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+    hideControls: {
+      type: Boolean,
+      default: false
+    },
+    loop: {
+      type: Boolean,
+      default: false
+    },
     video: {
       type: Object,
       default: null
@@ -22,12 +49,13 @@ export default {
   },
   data() {
     return {
-      options: {
+      observeVisibilityOptions: {
         callback: this.handleVisibilityChange,
         intersection: {
           threshold: 0.5
         }
-      }
+      },
+      plyrOptions: {}
     }
   },
   computed: {
@@ -35,10 +63,24 @@ export default {
       return this.$refs.plyr.player
     },
     poster() {
-      return this.urlFor(this.video?.poster)
+      return this.video?.poster && this.urlFor(this.video.poster)
     },
     url() {
       return this.video?.url
+    }
+  },
+  mounted() {
+    // option to hide controls and prevent video from playing/pausing on click
+    if (this.hideControls) {
+      this.plyrOptions = {
+        clickToPlay: false,
+        controls: []
+      }
+    }
+
+    // option to prevent video from automatically pausing when scrolling out of view
+    if (!this.autopause) {
+      this.observeVisibilityOptions = false
     }
   },
   methods: {

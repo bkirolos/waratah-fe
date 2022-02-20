@@ -26,5 +26,9 @@ export default () =>
       S.documentListItem().schemaType('termsPage').id('termsPage'),
       S.documentListItem().schemaType('privacyPage').id('privacyPage'),
       S.divider(),
-      S.documentTypeListItem('faq').title('FAQs')
+      S.documentTypeListItem('nftAsset').title('NFTs'),
+      S.divider(),
+      S.documentTypeListItem('faq').title('FAQs'),
+      S.divider(),
+      S.documentListItem().schemaType('nftSettings').id('nftSettings')
     ])

@@ -6,38 +6,45 @@
       </NavLink>
     </div>
 
-    <div
-      class="footer-navigation lg:flex lg:justify-end xl:justify-center mt-8 lg:mt-0"
-    >
+    <div class="footer-navigation lg:flex lg:justify-end mt-8 lg:mt-0">
       <NavLink
         v-for="(link, index) in footerLinks"
         :key="index"
         :url="link.url"
+        :class="link.class"
       >
         {{ link.label }}
       </NavLink>
+      <BuyNowLink />
     </div>
 
-    <div class="footer-socials flex lg:justify-end items-center mt-9 lg:mt-0">
-      <Hyperlink
-        url="http://six21.xyz"
-        aria-label="Built by Six21"
-        class="hover-transition"
-      >
-        <Six21Icon aria-hidden="true" />
-      </Hyperlink>
-      <Hyperlink
-        url="https://aerial.is/nft"
-        aria-label="Aerial"
-        class="ml-6 hover-transition"
-      >
-        <img src="~/assets/png/aerial-logo.png" aria-hidden="true" />
-      </Hyperlink>
-      <GenuineCollegeProductIcon class="ml-5" />
-      <span class="divider"></span>
-      <InstagramLink />
-      <TwitterLink />
-      <DiscordLink />
+    <div
+      class="footer-socials grid gap-y-3 md:flex lg:justify-end items-center mt-9 lg:mt-0"
+    >
+      <div class="flex pl-3">
+        <Hyperlink
+          url="http://six21.xyz"
+          aria-label="Built by Six21"
+          class="hover-transition"
+        >
+          <Six21Icon aria-hidden="true" />
+        </Hyperlink>
+        <Hyperlink
+          url="https://aerial.is/nft"
+          aria-label="Aerial"
+          class="ml-6 hover-transition"
+        >
+          <img src="~/assets/png/aerial-logo.png" aria-hidden="true" />
+        </Hyperlink>
+        <GenuineCollegeProductIcon class="ml-5" />
+      </div>
+      <span class="divider hidden md:block"></span>
+      <div class="flex">
+        <DiscordLink />
+        <OpenSeaLink />
+        <TwitterLink />
+        <InstagramLink />
+      </div>
     </div>
   </footer>
 </template>
@@ -74,10 +81,6 @@ export default {
       'logo navigation'
       'socials socials';
   }
-  @media (min-width: theme('screens.xl')) {
-    grid-template-columns: auto auto auto;
-    grid-template-areas: 'logo navigation socials';
-  }
 
   .footer-logo {
     grid-area: logo;
@@ -89,9 +92,6 @@ export default {
 
   .footer-socials {
     grid-area: socials;
-    @media (max-width: calc(theme('screens.lg') - 1px)) {
-      padding-left: theme('padding.3');
-    }
   }
 
   .nav-item {
@@ -101,7 +101,8 @@ export default {
   .divider {
     border-left: 1px solid currentColor;
     height: 44px;
-    margin: 0 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1rem;
   }
 }
 </style>

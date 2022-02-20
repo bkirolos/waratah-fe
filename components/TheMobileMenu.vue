@@ -41,14 +41,19 @@
               :key="index"
               :url="link.url"
               large
+              :class="link.class"
               @click.native="closeMenu"
             >
               {{ link.label }}
             </NavLink>
+            <BuyNowLink large @click.native="closeMenu" />
 
-            <div class="flex mt-10">
-              <TwitterLink />
+            <ConnectWallet class="mt-5" @click.native="closeMenu" />
+
+            <div class="flex mt-6">
               <DiscordLink />
+              <OpenSeaLink />
+              <TwitterLink />
             </div>
           </div>
         </aside>

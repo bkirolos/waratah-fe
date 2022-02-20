@@ -51,7 +51,15 @@
 
   body,
   .body {
-    @apply font-sans text-xs md:text-base leading-normal;
+    @apply font-sans text-xs md:text-base tracking-normal leading-normal normal-case;
+  }
+
+  .body-small {
+    @apply font-sans text-xxs md:text-xs tracking-normal leading-normal normal-case;
+  } 
+
+  button {
+    cursor: pointer;
   }
 }
 
@@ -59,6 +67,15 @@
   .cta {
     min-width: 9.4375rem;
     @apply border rounded-full inline-flex justify-center items-center font-sans text-xs font-bold leading-normal px-7 py-4 text-center uppercase hover-transition;
+  }
+
+  .wide-cta {
+    @apply border font-display text-base lg:text-md px-6 pt-2 w-full border font-bold hover-transition rounded-full inline-flex justify-center items-center text-center uppercase hover-transition;
+  }
+
+  .small-cta {
+    @apply rounded-full inline-flex justify-center items-center px-2 py-1 font-sans text-xxs py-1 px-3;
+    z-index: 1;
   }
 
   .input {
