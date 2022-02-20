@@ -170,10 +170,13 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     parseError(message) {
       if (message.includes('User has already bought'))
-        return 'Only one Duck per wallet'
+        return '🦆 Only one Duck per wallet 🦆'
 
       if (message.includes('insufficient funds for gas * price'))
-        return 'Insufficient funds'
+        return '💸 Insufficient funds 💸'
+
+      if (message.includes('token already minted'))
+        return '😭 Token already minted 😭'
 
       // If none of these, try to parse it out and if that really doesn't work,
       // just return the raw message
