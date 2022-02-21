@@ -107,9 +107,12 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       // fetch the price every block
       this.provider.on('block', async () => {
-        await this.updatePrice()
+        if (!this.price || !this.ownedTokens) {
+          console.log('fetch')
+          await this.updatePrice()
 
-        await this.getAllOwnedTokens()
+          await this.getAllOwnedTokens()
+        }
       })
 
       this.contract = contract

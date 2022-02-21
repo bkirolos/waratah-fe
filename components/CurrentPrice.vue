@@ -30,10 +30,7 @@ export default {
       return !this.$web3?.auctionNotStarted()
     },
     priceETH() {
-      if (this.$web3?.auctionNotStarted()) {
-        return '12.5'
-      }
-      return this.$web3?.price ? this.$web3.formatPrice(this.$web3.price) : '-'
+      return '1.760'
     },
     priceUSD() {
       return this.priceETH !== '-' && this.usd && this.$web3?.price
@@ -44,9 +41,7 @@ export default {
         : null
     },
     currentPriceLabel() {
-      return this.$web3?.auctionNotStarted()
-        ? 'Starting Price'
-        : 'Current Price'
+      return 'Final Price'
     }
   }
 }
