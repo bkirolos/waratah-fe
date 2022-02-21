@@ -1,14 +1,6 @@
 <template>
   <div>
-    <h2 v-if="countdownLive" class="body font-bold mb-4">
-      Sale ends on {{ displayEndTime }} at 1ETH
-    </h2>
-    <h2
-      v-else-if="!countdownStarted && currentTime"
-      class="body font-bold mb-4"
-    >
-      Auction begins on {{ displayStartTime }}
-    </h2>
+    <h2 class="body font-bold mb-4">SOLD OUT</h2>
     <div
       v-if="countdownLive"
       class="flex justify-between md:space-x-10 md:w-min"
@@ -44,7 +36,8 @@ export default {
   },
   computed: {
     countdownLive() {
-      return this.currentTime && !this.countdownEnded && this.countdownStarted
+      return false
+      // return this.currentTime && !this.countdownEnded && this.countdownStarted
     },
     countdownEnded() {
       return this.currentTime > this.endingTime
@@ -53,7 +46,7 @@ export default {
       return this.currentTime >= this.startingTime
     },
     displayEndTime() {
-      return "February 22nd at 10:00PM PST"
+      return 'February 22nd at 10:00PM PST'
       // return this.endingTime.format('MMMM Do [at] h:mm A z')
     },
     displayStartTime() {
@@ -84,7 +77,7 @@ export default {
     },
     getTimeRemaining() {
       this.currentTime = this.$dayjs().tz(this.timeZone)
-      const currentTime = this.$dayjs().tz("America/Los_Angeles")
+      const currentTime = this.$dayjs().tz('America/Los_Angeles')
       return this.endingTime.diff(currentTime)
     },
     initializeCountdown() {
