@@ -30,7 +30,7 @@ export default {
       return !this.$web3?.auctionNotStarted()
     },
     priceETH() {
-      return '1.760'
+      return '1.761'
     },
     priceUSD() {
       return this.priceETH !== '-' && this.usd && this.$web3?.price
