@@ -3,9 +3,8 @@
     v-if="$config.nftGoLive"
     url="/flyingformations"
     :large="large"
-    class="text-lime"
   >
-    Buy Now
+    THE COLLECTION
   </NavLink>
 </template>
 
