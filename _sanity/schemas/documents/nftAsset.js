@@ -25,7 +25,7 @@ export default {
       type: 'video',
       name: 'video',
       title: 'Video',
-      readOnly: true
+      // readOnly: true
     },
     {
       type: 'string',
