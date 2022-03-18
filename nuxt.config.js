@@ -37,6 +37,11 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  env: {
+    SHOPIFY_STOREFRONT_ACCESS_TOKEN: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN, // prettier-ignore
+    SHOPIFY_API_ENDPOINT: process.env.SHOPIFY_API_ENDPOINT
+  },
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',

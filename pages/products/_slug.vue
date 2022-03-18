@@ -1,6 +1,6 @@
 <template>
   <div
-    class="redeem bg-lime text-navy grid grid-cols-12 place-items-center w-screen"
+    class="product-detail bg-lime text-navy grid grid-cols-12 place-items-center w-screen"
   >
     <div
       class="grid grid-cols-12 col-span-full xl:col-span-6 py-12 xl:py-16 w-full"
@@ -19,7 +19,7 @@
         ></div>
       </div>
     </div>
-    <div class="hero-image-wrap col-span-full xl:col-span-6">
+    <div class="product-image-wrap col-span-full xl:col-span-6">
       <LazyImage :image="image" />
     </div>
   </div>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-.redeem {
+.product-detail {
   .content-block {
     max-width: 357px;
     width: 100%;
