@@ -20,13 +20,34 @@
       </div>
     </div>
     <div class="product-image-wrap col-span-full xl:col-span-6">
-      <LazyImage :image="image" />
+      <!-- <LazyImage :image="image" /> -->
     </div>
   </div>
 </template>
 
 <script>
+import productByHandle from '@/apollo/queries/productByHandle'
+
 export default {
+  data() {
+    return {
+      product: null
+    }
+  },
+  async fetch() {
+    const { app, error, params } = this.$nuxt.context
+    const client = app.apolloProvider.defaultClient
+    const { data } = await client.query({
+      query: productByHandle,
+      variables: { handle: params.product }
+    })
+
+    if (data.product) {
+      this.product = data.product
+    } else {
+      error({ statusCode: 404 })
+    }
+  },
   head() {
     return {
       script: [

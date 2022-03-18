@@ -22,7 +22,6 @@ export default {
       }
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -98,6 +97,13 @@ export default {
     sanity: {
       token: process.env.SANITY_PREVIEW_TOKEN
     }
+  },
+
+  apollo: {
+    clientConfigs: {
+      default: '@/apollo/clients/shopifyClient.js'
+    },
+    includeNodeModules: true
   },
 
   // Generate configuration
