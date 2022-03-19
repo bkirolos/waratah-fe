@@ -6,10 +6,8 @@
       class="grid grid-cols-12 col-span-full xl:col-span-6 py-12 xl:py-16 w-full"
     >
       <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
-        <h1 class="heading-2 leading-negative mt-6">Product Title</h1>
-        <h2 class="content-block heading-5">
-          This is where the product description goes
-        </h2>
+        <h1 class="heading-2 leading-negative mt-6">{{ title }}</h1>
+        <h2 class="content-block heading-5" v-html="description"></h2>
         <div
           data-widget="m-oauth-connect"
           :data-client-id="manifoldClientId"
@@ -20,13 +18,13 @@
       </div>
     </div>
     <div class="product-image-wrap col-span-full xl:col-span-6">
-      <!-- <LazyImage :image="image" /> -->
+      <img :src="src" />
     </div>
   </div>
 </template>
 
 <script>
-import productByHandle from '@/apollo/queries/productByHandle'
+import productByHandle from '@/apollo/queries/productByHandle.gql'
 
 export default {
   data() {
@@ -39,7 +37,7 @@ export default {
     const client = app.apolloProvider.defaultClient
     const { data } = await client.query({
       query: productByHandle,
-      variables: { handle: params.product }
+      variables: { handle: params.slug }
     })
 
     if (data.product) {
@@ -64,8 +62,17 @@ export default {
     }
   },
   computed: {
+    description() {
+      return this.product?.descriptionHtml
+    },
     manifoldClientId() {
       return process.env.MANIFOLD_CLIENT_ID
+    },
+    src() {
+      return this.product?.images.edges[0].node.originalSrc
+    },
+    title() {
+      return this.product?.title
     }
   }
 }

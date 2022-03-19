@@ -1,7 +1,9 @@
 query ($handle: String!) {
   product: productByHandle(handle: $handle) {
+    descriptionHtml
     id
-    images(first: 5) {
+    title
+    images(first: 1) {
       edges {
         node {
           originalSrc
@@ -9,17 +11,6 @@ query ($handle: String!) {
         }
       }
     }
-    priceRange {
-      maxVariantPrice {
-        amount
-        currencyCode
-      }
-      minVariantPrice {
-        amount
-        currencyCode
-      }
-    }
-    title
     variants(first: 10) {
       edges {
         node {

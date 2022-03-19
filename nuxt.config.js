@@ -37,8 +37,8 @@ export default {
   components: true,
 
   env: {
-    SHOPIFY_STOREFRONT_ACCESS_TOKEN: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN, // prettier-ignore
-    SHOPIFY_API_ENDPOINT: process.env.SHOPIFY_API_ENDPOINT
+    storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN, // prettier-ignore
+    apiEndpoint: process.env.SHOPIFY_API_ENDPOINT
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -77,7 +77,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios', '@nuxtjs/apollo'],
   dayjs: {
     defaultTimeZone: 'America/Los_Angeles',
     plugins: ['utc', 'timezone', 'advancedFormat']
