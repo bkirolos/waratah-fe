@@ -1,3 +1,5 @@
+import { shopifyApolloClient, shopifyGenerate } from './generate-config'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -108,7 +110,20 @@ export default {
 
   // Generate configuration
   generate: {
-    fallback: true
+    fallback: true,
+    routes() {
+      shopifyApolloClient.query({ query: shopifyGenerate }).then(response => {
+        const products = response.data.products.edges
+        const productRoutes = []
+
+        for (const p of products) {
+          const route = `/products/${p.node.handle}`
+          productRoutes.push(route)
+        }
+
+        return productRoutes
+      })
+    }
   },
 
   // Build configuration: https://go.nuxtjs.dev/config-build
