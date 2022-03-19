@@ -112,17 +112,7 @@ export default {
   generate: {
     fallback: true,
     routes() {
-      shopifyApolloClient.query({ query: shopifyGenerate }).then(response => {
-        const products = response.data.products.edges
-        const productRoutes = []
-
-        for (const p of products) {
-          const route = `/products/${p.node.handle}`
-          productRoutes.push(route)
-        }
-
-        return productRoutes
-      })
+      return ['products/limited-edition-nike-air-max-1-uo-edition']
     }
   },
 
