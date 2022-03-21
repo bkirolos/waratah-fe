@@ -20,13 +20,6 @@
         </h2>
         <LazyImage :image="signatureImage" class="content-block mt-6" />
         <CTA :cta="cta" class="bg-lime border-lime text-black mt-6" />
-        <div
-          data-widget="m-oauth-connect"
-          :data-client-id="manifoldClientId"
-          data-app-name="Waratah"
-          data-redirect-uri="https://ducksofafeather.xyz/"
-          data-network="1"
-        ></div>
         <p v-if="closing" class="content-block heading-6 mt-6">
           {{ closing }}
         </p>
@@ -44,21 +37,6 @@ export default {
     hero: {
       type: Object,
       default: null
-    }
-  },
-  head() {
-    return {
-      script: [
-        {
-          src: 'https://connect.manifoldxyz.dev/connect.umd.js'
-        }
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://connect.manifoldxyz.dev/connect.css'
-        }
-      ]
     }
   },
   computed: {
