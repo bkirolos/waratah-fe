@@ -15,6 +15,13 @@
           data-redirect-uri="https://ducksofafeather.xyz/"
           data-network="1"
         ></div>
+        <div
+          data-widget="m-campaign"
+          :data-campaign-id="manifoldCampaignId"
+          :data-client-id="manifoldClientId"
+          data-app-name="Waratah"
+          data-network="1"
+        ></div>
       </div>
     </div>
     <div class="product-image-wrap col-span-full xl:col-span-6">
@@ -51,12 +58,19 @@ export default {
       script: [
         {
           src: 'https://connect.manifoldxyz.dev/connect.umd.js'
+        },
+        {
+          src: 'https://campaign.manifoldxyz.dev/campaign.umd.js'
         }
       ],
       link: [
         {
           rel: 'stylesheet',
           href: 'https://connect.manifoldxyz.dev/connect.css'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://campaign.manifoldxyz.dev/campaign.css'
         }
       ]
     }
@@ -64,6 +78,9 @@ export default {
   computed: {
     description() {
       return this.product?.descriptionHtml
+    },
+    manifoldCampaignId() {
+      return '1049966459'
     },
     manifoldClientId() {
       return process.env.MANIFOLD_CLIENT_ID
