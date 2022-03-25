@@ -8,20 +8,23 @@
       <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
         <h1 class="heading-2 leading-negative mt-6">{{ title }}</h1>
         <h2 class="content-block heading-5" v-html="description"></h2>
-        <div
-          data-widget="m-oauth-connect"
-          :data-client-id="manifoldClientId"
-          data-app-name="Waratah"
-          data-redirect-uri="https://ducksofafeather.xyz/"
-          data-network="1"
-        ></div>
-        <div
-          data-widget="m-campaign"
-          :data-campaign-id="manifoldCampaignId"
-          :data-client-id="manifoldClientId"
-          data-app-name="Waratah"
-          data-network="1"
-        ></div>
+        <div class="manifold-widgets mt-6 flex-column">
+          <div
+            data-widget="m-oauth-connect"
+            :data-client-id="manifoldClientId"
+            data-app-name="Waratah"
+            data-redirect-uri="https://ducksofafeather.xyz/"
+            data-override-connect-text="Connect Wallet"
+            data-network="1"
+          ></div>
+          <div
+            data-widget="m-campaign"
+            :data-campaign-id="manifoldCampaignId"
+            :data-client-id="manifoldClientId"
+            data-app-name="Waratah"
+            data-network="1"
+          ></div>
+        </div>
       </div>
     </div>
     <div class="product-image-wrap col-span-full xl:col-span-6">
