@@ -58,9 +58,6 @@ export default {
     introduction() {
       return this.hero?.introduction
     },
-    manifoldClientId() {
-      return process.env.MANIFOLD_CLIENT_ID
-    },
     signatureImage() {
       return this.hero?.signatureImage
     },
