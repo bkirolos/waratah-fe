@@ -9,7 +9,7 @@
         <h1 class="heading-2 leading-negative mt-6">{{ title }}</h1>
         <h2 class="content-block heading-5" v-html="description"></h2>
         <div class="manifold-widgets mt-6 flex-column">
-          <div
+          <!-- <div
             data-widget="m-oauth-connect"
             :data-client-id="manifoldClientId"
             data-app-name="Waratah"
@@ -23,7 +23,8 @@
             :data-client-id="manifoldClientId"
             data-app-name="Waratah"
             data-network="1"
-          ></div>
+          ></div> -->
+          <button @click="clickCheckout" class="connect-button"> Checkout </button>
         </div>
       </div>
     </div>
@@ -34,7 +35,12 @@
 </template>
 
 <script>
+// import { mapActions } from 'vuex'
 import productByHandle from '@/apollo/queries/productByHandle.gql'
+import {
+  CheckoutCreate,
+} from '@/apollo/mutations/checkout.gql'
+
 
 export default {
   data() {
@@ -43,18 +49,19 @@ export default {
     }
   },
   async fetch() {
-    const { app, error, params } = this.$nuxt.context
-    const client = app.apolloProvider.defaultClient
-    const { data } = await client.query({
-      query: productByHandle,
-      variables: { handle: params.slug }
-    })
+    await this.getProduct()
+    // const { app, error, params } = this.$nuxt.context
+    // const client = app.apolloProvider.defaultClient
+    // const { data } = await client.query({
+    //   query: productByHandle,
+    //   variables: { handle: params.slug }
+    // })
 
-    if (data.product) {
-      this.product = data.product
-    } else {
-      error({ statusCode: 404 })
-    }
+    // if (data.product) {
+    //   this.product = data.product
+    // } else {
+    //   error({ statusCode: 404 })
+    // }
   },
   head() {
     return {
@@ -93,6 +100,54 @@ export default {
     },
     title() {
       return this.product?.title
+    },
+    encodedVariantId() {
+      return window.btoa(`gid://shopify/ProductVariant/42663024427253`)
+    },
+    variantId() {
+      return this.product?.variants?.edges[0].node.id
+    }
+
+  },
+  methods: {
+    // ...mapActions({
+    //   createCheckout: 'shopify/createCheckout'
+    // }),
+    clickCheckout() {
+      this.getCheckout()
+    },
+    async getProduct() {
+      const { app, error, params } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const { data } = await client.query({
+        query: productByHandle,
+        variables: { handle: params.slug }
+      })
+
+      if (data.product) {
+        this.product = data.product
+      } else {
+        error({ statusCode: 404 })
+      }
+    },
+    async getCheckout() {
+      const { app } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      // const variantId = this.encodedVariantId
+      // const quantity = Number(1)
+      try { 
+        const checkout = await client.mutate({
+          mutation: CheckoutCreate,
+          variables: {
+            variantId: "Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC80MjY2MzAyNDQyNzI1Mw==",
+            quantity: 1,
+            note: "Trying notes"
+          }
+        })
+        console.log(checkout)
+       }catch(e) {
+        console.log(e)
+      }
     }
   }
 }

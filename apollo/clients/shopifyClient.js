@@ -1,10 +1,10 @@
-export default () => ({
-  httpEndpoint: process.env.SHOPIFY_API_ENDPOINT,
+export default ({ env }) => ({
+  httpEndpoint: env.apiEndpoint,
   httpLinkOptions: {
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token':
-        process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
+        env.storefrontAccessToken
     }
   }
 })

@@ -54,6 +54,19 @@
               {{ ownedByText }}
             </Hyperlink>
           </p>
+          <button
+            class="wide-cta bg-lime text-navy my-6"
+            @click="redeem"
+          >
+            Redeem
+          </button>
+         <Hyperlink
+            v-if="checkoutUrl"
+            :url="checkoutUrl"
+            class="wide-cta text-lime bg-lime text-navy my-6"
+          >
+            Checkout
+          </Hyperlink>
           <Hyperlink
             :url="openSeaUrl"
             class="wide-cta text-lime border-lime my-6 cursor-pointer"
@@ -79,17 +92,23 @@
 import nftById from '@/groq/nftById'
 import nftSettings from '@/groq/nftSettings'
 import head from '@/mixins/head'
+import productByHandle from '@/apollo/queries/productByHandle.gql'
+import {
+  CheckoutCreate,
+} from '@/apollo/mutations/checkout.gql'
 
 export default {
   mixins: [head],
   data() {
     return {
+      product: null,
       nft: null,
       nftGeneral: null,
       owner: null,
       ownerEns: null,
       transactionInProgress: false,
-      errorMessage: null
+      errorMessage: null,
+      checkoutUrl: null
     }
   },
   async fetch() {
@@ -101,6 +120,7 @@ export default {
     this.nft = nft
     const nftGeneral = await this.$sanity.fetch(nftSettings)
     this.nftGeneral = nftGeneral
+    await this.getProduct()
   },
   computed: {
     auctionStarted() {
@@ -143,6 +163,23 @@ export default {
         return `https://testnets.opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
       }
       return `https://opensea.io/assets/${this.readableContractAddress}/${this.tokenId}`
+    },
+    ownedByYou() {
+       if (this.owner) {
+        if (
+          String(this.owner).toUpperCase() ===
+          String(this.$web3?.accounts?.[0]).toUpperCase()
+        ) {
+          return true
+        } else {
+          return false
+        }
+      } else {
+        return false
+      }
+    },
+    variantId() {
+      return this.product?.variants?.edges[0].node.id
     },
     ownedByText() {
       if (this.owner) {
@@ -213,6 +250,44 @@ export default {
     async getOwner() {
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
       this.ownerEns = await this.$web3.getTokenOwnerEns(this.tokenId)
+    },
+    redeem() {
+      this.getCheckout()
+    },
+    // SHOPIFY
+    async getProduct() {
+      const { app, error, params } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const { data } = await client.query({
+        query: productByHandle,
+        variables: { handle: params.slug }
+      })
+
+      if (data.product) {
+        this.product = data.product
+      } else {
+        error({ statusCode: 404 })
+      }
+    },
+    async getCheckout() {
+      const { app } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const variantId =  this.variantId
+      const quantity = 1
+      try { 
+        const checkout = await client.mutate({
+          mutation: CheckoutCreate,
+          variables: {
+            variantId,
+            quantity,
+            note: "Trying notes 1"
+          }
+        })
+        this.checkoutUrl = checkout?.data?.checkoutCreate?.checkout?.webUrl
+        console.log(checkout)
+       }catch(e) {
+        console.log(e)
+      }
     }
   }
 }
