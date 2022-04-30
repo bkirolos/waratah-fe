@@ -29,6 +29,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     price: null,
     connectionStatus: 'disconnected',
     ownedTokens: [],
+    signedMessage: null,
+    ownerTokenCount: null,
 
     async getAllOwnedTokens() {
       if (!this.contract) return null
@@ -39,6 +41,15 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           .filter(t => t._isBigNumber)
           .map(bn => bn.toNumber())
         this.ownedTokens = mappedTokens
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async getTokensByOwnerCount(addressOwner) {
+      if (!this.contract) return null
+      try {
+        const numberTokens = await this.contract.balanceOf(addressOwner)
+        this.ownerTokenCount = numberTokens
       } catch (e) {
         console.error(e)
       }

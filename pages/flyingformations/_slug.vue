@@ -55,13 +55,14 @@
             </Hyperlink>
           </p>
           <button
+            v-if="ownedByYou"
             class="wide-cta bg-lime text-navy my-6"
             @click="redeem"
           >
             Redeem
           </button>
          <Hyperlink
-            v-if="checkoutUrl"
+            v-if="ownedByYou && checkoutUrl"
             :url="checkoutUrl"
             class="wide-cta text-lime bg-lime text-navy my-6"
           >
@@ -121,6 +122,7 @@ export default {
     const nftGeneral = await this.$sanity.fetch(nftSettings)
     this.nftGeneral = nftGeneral
     await this.getProduct()
+
   },
   computed: {
     auctionStarted() {
@@ -263,7 +265,7 @@ export default {
         variables: { handle: params.slug }
       })
 
-      if (data.product) {
+      if (data?.product) {
         this.product = data.product
       } else {
         error({ statusCode: 404 })
