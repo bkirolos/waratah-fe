@@ -253,7 +253,8 @@ export default {
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
       this.ownerEns = await this.$web3.getTokenOwnerEns(this.tokenId)
     },
-    redeem() {
+    async redeem() {
+      await this.$web3.redeemDuck(this.tokenId)
       this.getCheckout()
     },
     // SHOPIFY
@@ -262,7 +263,7 @@ export default {
       const client = app.apolloProvider.defaultClient
       const { data } = await client.query({
         query: productByHandle,
-        variables: { handle: params.slug }
+        variables: { handle: `flying-formations-${params.slug}` }
       })
 
       if (data?.product) {

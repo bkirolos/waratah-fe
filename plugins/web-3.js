@@ -181,6 +181,19 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       await activeTx.wait()
       // console.log('txResult', txResult)
     },
+    async redeemDuck(tokenId) {
+      if (this.connectionStatus !== 'wallet') {
+        throw new Error('Not connected to wallet!')
+      } else if (this.network.name !== ethereumNetwork) {
+        throw new Error('Wrong network!')
+      }
+
+      // const weiPrice = await this.updatePrice()
+      // const ethPrice = ethers.utils.formatEther(weiPrice)
+      const activeTx = await this.contract.redeem(tokenId)
+      await activeTx.wait()
+      // console.log('txResult', txResult)
+    },
     parseError(message) {
       if (message.includes('User has already bought'))
         return '🦆 Only one Duck per wallet 🦆'
@@ -205,6 +218,14 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       try {
         const ownerOfDuck = await this.contract?.ownerOf(tokenId)
         return ownerOfDuck
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async getTokenRedeemer(tokenId) {
+      try {
+           const redeemerOfDuck = await this.contract?.sneakerRedeemedBy(tokenId)
+        return redeemerOfDuck
       } catch (e) {
         console.error(e)
       }

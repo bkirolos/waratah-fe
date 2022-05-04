@@ -1,5 +1,5 @@
 <template>
-  <article v-if="ownedByCurrentOwner" class="nft-item text-navy center border border-stroke-gray">
+  <article v-if="ownedByCurrentOwner || redeemedByCurrentAccount" class="nft-item text-navy center border border-stroke-gray">
     <div class="nft-thumbnail">
       <div
         v-if="minted"
@@ -61,6 +61,20 @@ export default {
     tokenId() {
       return Number(this.nft?.tokenId)
     },
+    redeemedByCurrentAccount() {
+      if (this.redeemer) {
+        if (
+          String(this.redeemer).toUpperCase() ===
+          String(this.$web3?.accounts?.[0]).toUpperCase()
+        ) {
+          return true
+        } else {
+          return false
+        }
+      } else {
+        return false
+      }
+    },
     ownedByCurrentOwner () {
       if (this.owner) {
         if (
@@ -74,14 +88,27 @@ export default {
       } else {
         return false
       }
+    },
+    walletConnected() {
+      return this.$web3?.accounts
+    }
+  },
+  watch: {
+    walletConnected() {
+      this.getOwner()
+      this.getRedeemer()
     }
   },
   mounted() {
     this.getOwner()
+    this.getRedeemer()
   },
   methods: {
     async getOwner() {
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
+    },
+    async getRedeemer() {
+      this.redeemer = await this.$web3.getTokenRedeemer(this.tokenId)
     }
   },
 
