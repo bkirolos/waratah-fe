@@ -10,7 +10,6 @@
       h-max
       right-0
       left-0
-      z-50
       bg-navy
     "
   >
