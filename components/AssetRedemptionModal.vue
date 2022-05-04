@@ -26,15 +26,17 @@
       "
     >
       <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
-        <h1>ARE YOU READY TO TAKE FLIGHT?</h1>
-        <p>
+        <h1 class="heading-2 leading-negative mt-6">
+          ARE YOU READY TO TAKE FLIGHT?
+        </h1>
+        <p class="content-block">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
           condimentum et integer at condimentum placerat sodales sed. Justo
           eleifend netus maecenas enim condimentum. Aliquet non nisl fringilla
           tincidunt sociis a. Odio cras sed tincidunt feugiat.
         </p>
-        <h2>Title goes here</h2>
-        <p>
+        <h2 class="content-block heading-4">Title goes here</h2>
+        <p class="content-block">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
           condimentum et integer at condimentum placerat sodales sed. Justo
           eleifend netus maecenas enim condimentum. Aliquet non nisl fringilla
