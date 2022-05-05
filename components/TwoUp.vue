@@ -70,7 +70,7 @@ export default {
   props: {
     ctaEffect: {
       type: Function,
-      Required: true
+      default: () => {}
     }
   }
 }
