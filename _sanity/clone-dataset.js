@@ -4,6 +4,8 @@ const datasetToClone = process.argv[2]
 const newDataset = process.argv[3]
 
 /*
+clones an existing sanity dataset to a non existant empty dataset
+
 data to clone from = production
 data to clone to = sandbox
 
@@ -18,6 +20,7 @@ if (datasetToClone === '-h')
 console.log(datasetToClone)
 
 const { spawn } = require('child_process')
+const fs = require('fs')
 
 const exportDataset = spawn('sanity', [
   'dataset',
@@ -57,10 +60,10 @@ exportDataset.on('close', code => {
     upload.on('close', code => {
       console.log(`upload exited with code ${code}`)
 
-      // fs.rmdirSync(`${__dirname}/${unzippedDirName}`, {
-      //   force: true,
-      //   recursive: true
-      // })
+      fs.rmSync(path, {
+        force: true,
+        recursive: true
+      })
     })
   }
 })
