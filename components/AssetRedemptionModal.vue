@@ -1,45 +1,20 @@
 <template>
-  <TwoUp :isRedeemable="isRedeemable" :startRedemption="startRedemption" />
+  <TwoUp v-if="showTwoUpModal" :close="setModalClosed" />
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  props: {
-    isRedeemable: {
-      type: Boolean,
-      default: true
-    },
-    startRedemption: {
-      type: Function,
-      required: true
-    }
-  },
   computed: {
-    image() {
-      return '~/assets/shoe.png'
-    },
-    show() {
-      return (
-        this.$route.path === '/flyingformations/redeem' && this.isRedeemable
-      )
-    }
+    ...mapGetters({
+      showTwoUpModal: 'ui/showTwoUpModal'
+    })
+  },
+  methods: {
+    ...mapActions({
+      setModalClosed: 'ui/setModalClosed'
+    })
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.asset-redemption-modal {
-  .image-wrap {
-    height: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    width: 100%;
-    img {
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      width: 100%;
-    }
-  }
-}
-</style>

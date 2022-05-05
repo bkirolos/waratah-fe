@@ -1,6 +1,5 @@
 <template>
   <section
-    v-if="show"
     class="
       asset-redemption-modal
       grid grid-cols-12
@@ -53,7 +52,7 @@
               place-content-center
               content-center
             "
-            @click="startRedemption"
+            @click="ctaEffect"
           >
             <span class="heading-4 pt-2">Start Redemption</span>
           </button>
@@ -69,23 +68,9 @@
 <script>
 export default {
   props: {
-    isRedeemable: {
-      type: Boolean,
-      default: true
-    },
-    startRedemption: {
+    ctaEffect: {
       type: Function,
-      required: true
-    }
-  },
-  computed: {
-    image() {
-      return '~/assets/shoe.png'
-    },
-    show() {
-      return (
-        this.$route.path === '/flyingformations/redeem' && this.isRedeemable
-      )
+      Required: true
     }
   }
 }

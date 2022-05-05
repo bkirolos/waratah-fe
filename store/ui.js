@@ -9,7 +9,7 @@ export const mutations = {
 }
 
 export const actions = {
-  setModalClose({ commit }) {
+  setModalClosed({ commit }) {
     commit('SET_MODAL_CLOSED')
   }
 }
