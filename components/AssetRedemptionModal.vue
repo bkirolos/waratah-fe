@@ -1,5 +1,5 @@
 <template>
-  <TwoUp v-if="showTwoUpModal" :ctaEffect="setModalClosed" />
+  <TwoUp v-if="showTwoUpModal" :cta="setModalClosed" />
 </template>
 
 <script>

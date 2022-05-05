@@ -51,7 +51,7 @@
               place-content-center
               content-center
             "
-            @click="ctaEffect"
+            @click="cta"
           >
             <span class="heading-4 pt-2">Start Redemption</span>
           </button>
@@ -67,7 +67,7 @@
 <script>
 export default {
   props: {
-    ctaEffect: {
+    cta: {
       type: Function,
       default: () => {}
     }
