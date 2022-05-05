@@ -5,7 +5,6 @@
       grid grid-cols-12
       place-items-center
       w-screen
-      modal-overlay
       h-max
       right-0
       left-0
