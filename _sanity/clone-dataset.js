@@ -4,9 +4,12 @@ const datasetToClone = process.argv[2]
 const newDataset = process.argv[3]
 
 /*
-sanity dataset export production
-tar -xvf /Volumes/workspace_01/Code/Bean/waratah-nuxt/_sanity/production.tar.gz
-sanity dataset import /Volumes/workspace_01/Code/Bean/waratah-nuxt/_sanity/production-export-2022-05-05t16-52-20-899z/data.ndjson sandbox
+data to clone from = production
+data to clone to = sandbox
+
+will create dataset if it doesn't exist
+
+example - yarn run clonedataset production sandbox
 */
 
 if (datasetToClone === '-h')
@@ -87,20 +90,6 @@ exportDataset.on('close', code => {
             force: true,
             recursive: true
           })
-          //           spawn('rm', ['-rf', `${__dirname}/${datasetToClone}.tar.g`])
-          //           const removeTar = spawn('rm', ['-rf', `${upzippedPath}`])
-          //
-          //           removeTar.stdout.on('data', data => {
-          //             console.log(`stdout: ${data}`)
-          //           })
-          //
-          //           removeTar.stderr.on('data', data => {
-          //             console.log(`stderr: ${data}`)
-          //           })
-          //
-          //           removeTar.on('close', code => {
-          //             console.log(`removeTar exited with code ${code}`)
-          //           })
         })
       })
     })
