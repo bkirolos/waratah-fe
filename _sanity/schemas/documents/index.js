@@ -1,3 +1,4 @@
+import dropSettings from './dropSettings'
 import faq from './faq'
 import faqPage from './faqPage'
 import homePage from './homePage'
@@ -8,6 +9,7 @@ import siteSettings from './siteSettings'
 import termsPage from './termsPage'
 
 export default [
+  dropSettings,
   faq,
   faqPage,
   homePage,
