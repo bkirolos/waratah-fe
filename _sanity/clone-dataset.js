@@ -18,7 +18,6 @@ if (datasetToClone === '-h')
 console.log(datasetToClone)
 
 const { spawn } = require('child_process')
-const fs = require('fs')
 
 const exportDataset = spawn('sanity', [
   'dataset',
@@ -32,66 +31,36 @@ exportDataset.stdout.on('data', data => {
 })
 
 exportDataset.stderr.on('data', data => {
-  console.log(`stderr: ${data}`)
+  console.warn(`stderr: ${data}`)
 })
 
 exportDataset.on('close', code => {
   const path = `${__dirname}/${datasetToClone}.tar.gz`
   console.log(`download exited with code ${code}`)
   if (code === 0) {
-    const unzip = spawn('tar', ['-xvf', `${path}`])
+    const upload = spawn('sanity', [
+      'dataset',
+      'import',
+      `${path}`,
+      `${newDataset}`
+    ])
 
-    unzip.stdout.on('data', data => {
+    upload.stdout.on('data', data => {
       console.log(`stdout: ${data}`)
+      upload.stdin.write('\n')
     })
 
-    unzip.stderr.on('data', data => {
-      console.log(`stderr: ${data}`)
+    upload.stderr.on('data', data => {
+      console.warn(`stderr: ${data}`)
     })
 
-    unzip.on('close', code => {
-      console.log(`unzip exited with code ${code}`)
+    upload.on('close', code => {
+      console.log(`upload exited with code ${code}`)
 
-      fs.rmSync(`${__dirname}/${datasetToClone}.tar.gz`, {
-        force: true
-      })
-
-      fs.readdir(process.cwd(), function (err, files) {
-        if (err) {
-          console.log(err)
-          return
-        }
-        const unzippedDirName = files.filter(file =>
-          file.includes(`${datasetToClone}-export`)
-        )[0]
-
-        const upzippedPath = `${__dirname}/${unzippedDirName}/data.ndjson`
-
-        const upload = spawn('sanity', [
-          'dataset',
-          'import',
-          `${upzippedPath}`,
-          `${newDataset}`
-        ])
-
-        upload.stdout.on('data', data => {
-          console.log(`stdout: ${data}`)
-          upload.stdin.write('\n')
-        })
-
-        upload.stderr.on('data', data => {
-          console.log(`stderr: ${data}`)
-        })
-
-        upload.on('close', code => {
-          console.log(`upload exited with code ${code}`)
-
-          fs.rmdirSync(`${__dirname}/${unzippedDirName}`, {
-            force: true,
-            recursive: true
-          })
-        })
-      })
+      // fs.rmdirSync(`${__dirname}/${unzippedDirName}`, {
+      //   force: true,
+      //   recursive: true
+      // })
     })
   }
 })
