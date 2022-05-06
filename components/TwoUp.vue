@@ -1,16 +1,5 @@
 <template>
-  <section
-    class="
-      asset-redemption-modal
-      grid grid-cols-12
-      place-items-center
-      w-screen
-      h-max
-      right-0
-      left-0
-      bg-navy
-    "
-  >
+  <section class="grid grid-cols-12 place-items-center w-screen h-max bg-navy">
     <div
       class="grid grid-cols-12 col-span-full xl:col-span-6 py-2 xl:py-2 w-full"
     >
@@ -21,16 +10,7 @@
         <PortableText class="content-block" :blocks="copy" />
         <div class="w-full flex pt-6">
           <button
-            class="
-              flex flex-1
-              cta
-              space-x-2
-              bg-lime
-              border-lime
-              text-navy
-              place-content-center
-              content-center
-            "
+            class="flex flex-1 cta bg-lime border-lime text-navy content-center"
             @click="cta"
           >
             <span class="heading-4 pt-2">{{ ctaText }}</span>
@@ -83,18 +63,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.asset-redemption-modal {
-  .image-wrap {
-    height: 0;
-    padding-bottom: 100%;
-    position: relative;
+.image-wrap {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  width: 100%;
+  img {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
     width: 100%;
-    img {
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      width: 100%;
-    }
   }
 }
 </style>
