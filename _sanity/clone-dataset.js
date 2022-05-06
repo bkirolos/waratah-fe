@@ -61,8 +61,7 @@ exportDataset.on('close', code => {
       console.log(`upload exited with code ${code}`)
 
       fs.rmSync(path, {
-        force: true,
-        recursive: true
+        force: true
       })
     })
   }
