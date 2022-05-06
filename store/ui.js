@@ -1,19 +1,27 @@
 export const state = () => ({
-  showTwoUpModal: true
+  showRedepmtionModal: true,
+  redemptionSettings: null
 })
 
 export const mutations = {
-  SET_MODAL_CLOSED(state) {
-    state.showTwoUpModal = false
+  SET_REDEMPTION_MODAL_CLOSED(state) {
+    state.showRedepmtionModal = false
+  },
+  SET_REDEMPTION_SETTINGS(state, settings) {
+    state.redemptionSettings = settings
   }
 }
 
 export const actions = {
-  setModalClosed({ commit }) {
-    commit('SET_MODAL_CLOSED')
+  setRedemptionModalClosed({ commit }) {
+    commit('SET_REDEMPTION_MODAL_CLOSED')
+  },
+  setRedemptionSettings({ commit }, settings) {
+    commit('SET_REDEMPTION_SETTINGS', settings)
   }
 }
 
 export const getters = {
-  showTwoUpModal: state => state.showTwoUpModal
+  showRedepmtionModal: state => state.showRedepmtionModal,
+  redemptionSettings: state => state.redemptionSettings
 }

@@ -32,15 +32,12 @@ export default {
       type: Function,
       default: () => {}
     },
-    page: {
+    twoUp: {
       type: Object,
       required: true
     }
   },
   computed: {
-    twoUp() {
-      return this.page?.twoUp
-    },
     heading() {
       return this.twoUp?.heading
     },
