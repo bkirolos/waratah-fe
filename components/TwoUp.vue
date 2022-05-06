@@ -62,8 +62,8 @@ export default {
 
 <style lang="scss" scoped>
 .image-wrap {
-  height: 0;
-  padding-bottom: 90%;
+  height: 100%;
+  padding-bottom: 100%;
   position: relative;
   width: 100%;
   img {
