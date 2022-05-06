@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="image-wrap col-span-full xl:col-span-6 py-6">
-      <img src="~/assets/png/shoe.png" />
+      <image v-if="imageUrl" :src="imageUrl" :alt="imageAlt" />
     </div>
   </section>
 </template>
