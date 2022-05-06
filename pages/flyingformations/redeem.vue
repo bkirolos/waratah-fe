@@ -9,11 +9,11 @@ import { mapGetters } from 'vuex'
 import head from '@/mixins/head'
 
 export default {
-  mixins: [head]
+  mixins: [head],
   computed: {
     ...mapGetters({
       showRedepmtionModal: 'ui/showRedepmtionModal'
-    }),
+    })
   }
 }
 </script>
