@@ -6,7 +6,8 @@ export default {
     {
       type: 'string',
       name: 'heading',
-      title: 'Heading'
+      title: 'Heading',
+      validation: Rule => Rule.required().error('Heading is required')
     },
     {
       type: 'portableTextSuite',
@@ -22,7 +23,8 @@ export default {
     {
       type: 'string',
       name: 'ctaCopy',
-      title: 'CTA Copy'
+      title: 'CTA Copy',
+      validation: Rule => Rule.required().error('CTA Copy is required')
     }
   ]
 }
