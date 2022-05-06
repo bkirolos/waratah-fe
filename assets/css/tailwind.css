@@ -73,6 +73,10 @@
     @apply border font-display text-base lg:text-md px-6 pt-2 w-full border font-bold hover-transition rounded-full inline-flex justify-center items-center text-center uppercase hover-transition;
   }
 
+  .wide-thin-cta {
+    @apply border font-display text-base lg:text-sm px-6 pt-2 w-full border font-bold hover-transition rounded-full inline-flex justify-center items-center text-center uppercase hover-transition;
+  }
+
   .small-cta {
     @apply rounded-full inline-flex justify-center items-center px-2 py-1 font-sans text-xxs py-1 px-3;
     z-index: 1;

@@ -12,13 +12,13 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <button v-if="!redeemer && ownedByCurrentOwner" class="wide-cta text-navy bg-stroke-gray mt-8" @click="redeem">
+      <button v-if="!redeemer && ownedByCurrentOwner" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
         Redeem
       </button>
-      <button v-if="redeemedByCurrentAccount && !productVariantAvailability <= 0" class="wide-cta text-navy bg-stroke-gray mt-8" @click="checkout">
+      <button v-if="redeemedByCurrentAccount && !productVariantAvailability <= 0" class="wide-thin-cta text-navy bg-lime mt-8" @click="checkout">
         Checkout
       </button>
-      <button v-if="redeemedByCurrentAccount && product && productVariantAvailability <= 0" class="wide-cta text-navy bg-stroke-gray mt-8" disabled> 
+      <button v-if="redeemedByCurrentAccount && product && productVariantAvailability <= 0" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
         Completed
       </button>
     </div>
