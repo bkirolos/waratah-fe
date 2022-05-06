@@ -12,33 +12,13 @@
     "
   >
     <div
-      class="
-        grid grid-cols-12
-        col-span-full
-        xl:col-span-6
-        py-12
-        xl:py-16
-        w-full
-        bg-current
-      "
+      class="grid grid-cols-12 col-span-full xl:col-span-6 py-2 xl:py-2 w-full"
     >
       <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
-        <h1 class="heading-2 leading-negative mt-6">
-          ARE YOU READY TO TAKE FLIGHT?
+        <h1 class="heading-2 mt-6">
+          {{ heading }}
         </h1>
-        <p class="content-block">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          condimentum et integer at condimentum placerat sodales sed. Justo
-          eleifend netus maecenas enim condimentum. Aliquet non nisl fringilla
-          tincidunt sociis a. Odio cras sed tincidunt feugiat.
-        </p>
-        <h2 class="content-block heading-4 pt-12 pb-6">Title goes here</h2>
-        <p class="content-block">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-          condimentum et integer at condimentum placerat sodales sed. Justo
-          eleifend netus maecenas enim condimentum. Aliquet non nisl fringilla
-          tincidunt sociis a. Odio cras sed tincidunt feugiat.
-        </p>
+        <PortableText class="content-block" :blocks="copy" />
         <div class="w-full flex pt-6">
           <button
             class="
@@ -53,12 +33,12 @@
             "
             @click="cta"
           >
-            <span class="heading-4 pt-2">Start Redemption</span>
+            <span class="heading-4 pt-2">{{ ctaText }}</span>
           </button>
         </div>
       </div>
     </div>
-    <div class="image-wrap col-span-full xl:col-span-6">
+    <div class="image-wrap col-span-full xl:col-span-6 py-6">
       <img src="~/assets/png/shoe.png" />
     </div>
   </section>
@@ -70,6 +50,33 @@ export default {
     cta: {
       type: Function,
       default: () => {}
+    },
+    page: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    twoUp() {
+      return this.page?.twoUp
+    },
+    heading() {
+      return this.twoUp?.heading
+    },
+    copy() {
+      return this.twoUp?.copy
+    },
+    ctaText() {
+      return this.twoUp?.ctaCopy
+    },
+    image() {
+      return this.twoUp?.image
+    },
+    imageAlt() {
+      return this.image?.alt
+    },
+    imageUrl() {
+      return this.image?.url
     }
   }
 }
@@ -78,7 +85,7 @@ export default {
 <style lang="scss" scoped>
 .asset-redemption-modal {
   .image-wrap {
-    height: 100%;
+    height: 0;
     padding-bottom: 100%;
     position: relative;
     width: 100%;
