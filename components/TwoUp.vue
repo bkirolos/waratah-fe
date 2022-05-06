@@ -8,6 +8,7 @@
           {{ heading }}
         </h1>
         <PortableText v-if="copy" class="content-block" :blocks="copy" />
+
         <div class="w-full flex pt-6">
           <button
             class="flex flex-1 cta bg-lime border-lime text-navy content-center"
