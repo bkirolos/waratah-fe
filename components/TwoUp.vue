@@ -4,10 +4,10 @@
       class="grid grid-cols-12 col-span-full xl:col-span-6 py-2 xl:py-2 w-full"
     >
       <div class="col-start-2 col-span-10 xl:col-start-3 xl:col-span-9">
-        <h1 class="heading-2 mt-6">
+        <h1 v-if="heading" class="heading-2 mt-6">
           {{ heading }}
         </h1>
-        <PortableText class="content-block" :blocks="copy" />
+        <PortableText v-if="copy" class="content-block" :blocks="copy" />
         <div class="w-full flex pt-6">
           <button
             class="flex flex-1 cta bg-lime border-lime text-navy content-center"
