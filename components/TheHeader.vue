@@ -16,6 +16,11 @@
         >
           {{ link.label }}
         </NavLink>
+        <NavLink
+          url="/flyingformations/redeem"
+        >
+          Redeem
+        </NavLink>
         <BuyNowLink />
       </div>
 

@@ -253,8 +253,8 @@ export default {
       this.owner = await this.$web3.getTokenOwner(this.tokenId)
       this.ownerEns = await this.$web3.getTokenOwnerEns(this.tokenId)
     },
-    async redeem() {
-      await this.$web3.redeemDuck(this.tokenId)
+    redeem() {
+      // await this.$web3.redeemDuck(this.tokenId)
       this.getCheckout()
     },
     // SHOPIFY

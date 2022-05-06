@@ -224,7 +224,11 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     },
     async getTokenRedeemer(tokenId) {
       try {
-           const redeemerOfDuck = await this.contract?.sneakerRedeemedBy(tokenId)
+        const redeemerOfDuck = await this.contract?.sneakerRedeemedBy(tokenId)
+        console.log(redeemerOfDuck)
+        if (redeemerOfDuck === '0x0000000000000000000000000000000000000000'){
+          return null
+        }
         return redeemerOfDuck
       } catch (e) {
         console.error(e)

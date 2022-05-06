@@ -1,12 +1,6 @@
 <template>
   <article v-if="ownedByCurrentOwner || redeemedByCurrentAccount" class="nft-item text-navy center border border-stroke-gray">
     <div class="nft-thumbnail">
-      <div
-        v-if="minted"
-        class="small-cta absolute border text-navy bg-electric-green font-semibold right-2 top-2"
-      >
-        MINTED
-      </div>
       <Hyperlink :url="slug">
         <LazyImage v-if="image" :image="image" />
       </Hyperlink>
@@ -18,14 +12,25 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <Hyperlink :url="slug" class="small-cta text-navy bg-stroke-gray mt-8">
-        View Details
-      </Hyperlink>
+      <button v-if="!redeemer && ownedByCurrentOwner" class="wide-cta text-navy bg-stroke-gray mt-8" @click="redeem">
+        Redeem
+      </button>
+      <button v-if="redeemedByCurrentAccount && !productVariantAvailability <= 0" class="wide-cta text-navy bg-stroke-gray mt-8" @click="checkout">
+        Checkout
+      </button>
+      <button v-if="redeemedByCurrentAccount && product && productVariantAvailability <= 0" class="wide-cta text-navy bg-stroke-gray mt-8" disabled> 
+        Completed
+      </button>
     </div>
   </article>
 </template>
 
 <script>
+import productByHandle from '@/apollo/queries/productByHandle.gql'
+import {
+  CheckoutCreate,
+} from '@/apollo/mutations/checkout.gql'
+
 export default {
   props: {
     nft: {
@@ -36,7 +41,9 @@ export default {
   data () {
     return {
       owner: null,
-      redeemer: null
+      redeemer: null,
+      checkoutUrl: null,
+      product: null
     }
   },
   computed: {
@@ -89,6 +96,15 @@ export default {
         return false
       }
     },
+    productVariant() {
+      return this.product?.variants?.edges[0].node
+    },
+    productVariantId() {
+      return this.productVariant?.id
+    },
+    productVariantAvailability() {
+      return this.productVariant?.quantityAvailable || 0
+    },
     walletConnected() {
       return this.$web3?.accounts
     }
@@ -97,7 +113,10 @@ export default {
     walletConnected() {
       this.getOwner()
       this.getRedeemer()
-    }
+    },
+    redeemedByCurrentAccount() {
+      this.getProduct()
+    },
   },
   mounted() {
     this.getOwner()
@@ -109,6 +128,50 @@ export default {
     },
     async getRedeemer() {
       this.redeemer = await this.$web3.getTokenRedeemer(this.tokenId)
+    },
+    async redeem() {
+      await this.$web3.redeemDuck(this.tokenId)
+      await this.getProduct()
+    },
+    async checkout() {
+      await this.getCheckout()
+      console.log(this.checkoutUrl)
+      if (this.checkoutUrl) {
+        window.open(`${this.checkoutUrl}`)
+      }
+    },
+    // Shopify 
+    async getProduct() {
+      const { app } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const { data } = await client.query({
+        query: productByHandle,
+        variables: { handle: `flying-formations-${this.tokenId}` }
+      })
+
+      if (data?.product) {
+        this.product = data.product
+      } else {
+        console.log("product not available")
+      }
+    },
+    async getCheckout() {
+      const { app } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const variantId =  this.productVariantId
+      const quantity = 1
+      try { 
+        const checkout = await client.mutate({
+          mutation: CheckoutCreate,
+          variables: {
+            variantId,
+            quantity,
+          }
+        })
+        this.checkoutUrl = checkout?.data?.checkoutCreate?.checkout?.webUrl
+       }catch(e) {
+        console.log(e)
+      }
     }
   },
 

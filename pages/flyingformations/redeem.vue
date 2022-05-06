@@ -4,36 +4,22 @@
       class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
     >
       <div class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
-        <h1 class="heading-2">{{ heading }}</h1>
-        <PortableText :blocks="description" class="mt-6" />
-        <CTA :cta="discordCta" class="bg-lime text-navy mt-6" />
+        <h1 class="heading-2">Redeem</h1>
+        <client-only>
+          <Countdown live-text="Redemption ends June 30th at 10pm PST" :end-time="1656651600"/>
+        </client-only>
       </div>
       <div
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
       >
-        <div class="col-span-full md:col-start-7 md:col-span-5">
-          <client-only>
-            <Countdown />
-          </client-only>
-
-          <hr class="my-6" />
-          <h3>
-            {{ displayAccount }} - {{ nftsOwned }}
-          </h3>
-        </div>
-        <div
-          class="md:flex md:flex-wrap md:justify-between md:items-center mt-8 space-y-4 md:space-y-0"
-        >
-          <p class="heading-4 text-md md:pt-3">{{ minted }} / 120 MINTED</p>
-          <CTA :cta="openSeaCta" class="text-lime border-lime cursor-pointer" />
-        </div>
+        <PortableText :blocks="description" class="mt-6" />
       </div>
     </section>
     <section
       class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2 py-10 md:p-10"
     >
       <RedeemNftThumbnail
-        v-for="nft in nfts"
+        v-for="nft in nftDisplay"
         :key="nft.tokenId"
         class="col-span-1"
         :nft="nft"
@@ -88,14 +74,15 @@ export default {
         this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
       )
     },
-    minted() {
-      if (!this.$web3?.ownedTokens?.length) return '-'
-
-      return this.$web3?.ownedTokens?.length
-    },
     ownedTokens() {
-      return this.$web3?.ownedTokens
+      return this.$web3?.ownedTokens || []
     },
+    nftDisplay() {
+      if (!this.ownedTokens && !this.nfts) {
+        return null
+      }
+      return this.nfts?.filter(nft => this.ownedTokens.includes(Number(nft.tokenId)))
+    },    
     pageTitle() {
       return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
     },
@@ -107,14 +94,5 @@ export default {
       }
     },
   },
-  async mounted() {
-    await this.getTokenCountOfOwner()
-  },
-  methods: {
-    async getTokenCountOfOwner() {
-      this.nftsOwned = await this.$web3?.getTokensByOwnerCount(this.currentAccount)
-      console.log(this.nftsOwned)
-    },
-  }
 }
 </script>
