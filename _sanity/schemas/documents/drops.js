@@ -10,7 +10,7 @@ export default {
     },
     {
       type: 'twoUp',
-      name: 'redeemSettings',
+      name: 'twoUp',
       title: 'Redeem Settings'
     }
   ],
