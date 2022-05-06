@@ -132,6 +132,7 @@ export default {
     async redeem() {
       await this.$web3.redeemDuck(this.tokenId)
       await this.getProduct()
+      this.getRedeemer()
     },
     async checkout() {
       await this.getCheckout()
