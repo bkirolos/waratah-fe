@@ -1,9 +1,5 @@
 <template>
-  <TwoUp
-    v-if="showRedepmtionModal"
-    :cta="setRedemptionModalClosed"
-    :twoUp="twoUp"
-  />
+  <TwoUp :cta="setRedemptionModalClosed" :twoUp="twoUp" />
 </template>
 
 <script>
@@ -12,8 +8,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      redemptionSettings: 'ui/redemptionSettings',
-      showRedepmtionModal: 'ui/showRedepmtionModal'
+      redemptionSettings: 'ui/redemptionSettings'
     }),
     twoUp() {
       return this.redemptionSettings?.redeemSettings
