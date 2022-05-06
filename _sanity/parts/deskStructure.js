@@ -21,7 +21,7 @@ export default () =>
     .items([
       S.documentListItem().schemaType('siteSettings').id('siteSettings'),
       S.divider(),
-      S.documentListItem().schemaType('dropSettings').id('dropSettings'),
+      S.documentTypeListItem('drops').title('Drops'),
       S.divider(),
       S.documentListItem().schemaType('homePage').id('homePage'),
       S.documentListItem().schemaType('faqPage').id('faqPage'),
