@@ -5,25 +5,23 @@ export default {
   fields: [
     {
       type: 'string',
-      name: 'documentName',
-      title: 'Document Name',
-      hidden: true,
-      readOnly: true
+      name: 'drop',
+      title: 'Drop'
     },
     {
-      type: 'dropSettings',
-      name: 'dropSettings',
-      title: 'Drop Settings'
+      type: 'twoUp',
+      name: 'redeemSettings',
+      title: 'Redeem Settings'
     }
   ],
   preview: {
     select: {
-      documentName: 'documentName'
+      title: 'drop'
     },
     prepare(selection) {
-      const { documentName } = selection
+      const { title } = selection
       return {
-        title: documentName
+        title: title
       }
     }
   }

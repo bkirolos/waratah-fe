@@ -9,7 +9,6 @@ import link from './link'
 import metaInfo from './metaInfo'
 import portableTextLite from './portableTextLite'
 import portableTextSuite from './portableTextSuite'
-import redemptionModal from './redemptionModal'
 import twoUp from './twoUp'
 import video from './video'
 
@@ -25,7 +24,6 @@ export default [
   metaInfo,
   portableTextLite,
   portableTextSuite,
-  redemptionModal,
   twoUp,
   video
 ]
