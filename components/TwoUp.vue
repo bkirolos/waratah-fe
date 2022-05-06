@@ -19,8 +19,8 @@
         </div>
       </div>
     </div>
-    <div class="image-wrap col-span-full xl:col-span-6 py-6">
-      <img v-if="imageUrl" :src="imageUrl" :alt="imageAlt" />
+    <div class="image-wrap col-span-full xl:col-span-6">
+      <LazyImage :image="imageUrl" :alt="imageAlt" />
     </div>
   </section>
 </template>
@@ -62,8 +62,8 @@ export default {
 
 <style lang="scss" scoped>
 .image-wrap {
-  height: 100%;
-  padding-bottom: 100%;
+  height: 0;
+  padding-bottom: 90%;
   position: relative;
   width: 100%;
   img {
