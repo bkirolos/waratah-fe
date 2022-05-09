@@ -7,7 +7,8 @@
     "deploy": "sanity deploy",
     "csv-to-ndjson": "node import/csv-to-ndjson.js",
     "import:sandbox": "sanity dataset import import/nfts.ndjson sandbox --replace",
-    "import:production": "sanity dataset import import/nfts.ndjson production --replace"
+    "import:production": "sanity dataset import import/nfts.ndjson production --replace",
+    "clonedataset": "node clone-dataset.js"
   },
   "dependencies": {
     "@sanity/base": "^2.25.0",
