@@ -25,6 +25,9 @@
         :nft="nft"
       />
     </section>
+    <section>
+      {{ errorMessage }}
+    </section>
   </div>
 </template>
 
@@ -66,6 +69,13 @@ export default {
     description() {
       return this.nftGeneral?.nftCollectionDescription
     },
+    errorMessage() {
+      return this.walletConnected 
+      ? this.nftDisplay 
+        ? null 
+        : "Looks like you dont own any assets"
+      : "Please Connect Your Wallet" 
+    },
     heading() {
       return this.nftGeneral?.nftCollectionHeading
     },
@@ -93,6 +103,9 @@ export default {
         link: this.$config.openSeaCollectionUrl
       }
     },
+    walletConnected() {
+      return this.$web3?.accounts
+    }
   },
 }
 </script>
