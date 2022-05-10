@@ -2,6 +2,7 @@ export default {
   type: 'document',
   name: 'drops',
   title: 'Drops',
+
   fields: [
     {
       type: 'string',
@@ -9,7 +10,12 @@ export default {
       title: 'Drop'
     },
     {
-      type: 'twoUp',
+      type: 'slug',
+      name: 'slug',
+      title: 'URL'
+    },
+    {
+      type: 'redeemSettings',
       name: 'redeemSettings',
       title: 'Redeem Settings'
     }

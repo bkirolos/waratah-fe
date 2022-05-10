@@ -2,6 +2,9 @@ export default {
   type: 'object',
   name: 'twoUp',
   title: 'Two Up',
+  options: {
+    collapsable: true,
+  },
   fields: [
     {
       type: 'string',

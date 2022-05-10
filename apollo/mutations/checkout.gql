@@ -1,0 +1,17 @@
+#import "~/apollo/fragments/shopify.gql"
+
+mutation CheckoutCreate($variantId: ID!, $quantity: Int!) {
+  checkoutCreate(
+    input: { 
+      lineItems: [{ variantId: $variantId, quantity: $quantity }],
+    }) {
+    checkoutUserErrors {
+      code
+      message
+    }
+    checkout {
+      id
+      webUrl
+    }
+  }
+}

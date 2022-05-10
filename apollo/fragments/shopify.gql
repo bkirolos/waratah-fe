@@ -1,0 +1,40 @@
+fragment cartLineItems on CheckoutLineItemConnection {
+  edges {
+    node {
+      id
+      quantity
+      title
+      variant {
+        id
+        title
+        priceV2 {
+          amount
+        }
+        product {
+          handle
+          id
+          title
+          vendor
+        }
+        quantityAvailable
+      }
+    }
+  }
+}
+
+fragment cartCheckout on Checkout {
+  completedAt
+  id
+  lineItems(first: 50) {
+    ...cartLineItems
+  }
+  subtotalPriceV2 {
+    amount
+    currencyCode
+  }
+  totalPriceV2 {
+    amount
+    currencyCode
+  }
+  webUrl
+}

@@ -1,0 +1,9 @@
+#import "~/apollo/fragments/shopify.gql"
+
+query CheckoutById($checkoutId: ID!) {
+  node(id: $checkoutId) {
+    ... on Checkout {
+      ...cartCheckout
+    }
+  }
+}

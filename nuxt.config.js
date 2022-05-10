@@ -22,7 +22,6 @@ export default {
       }
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -36,6 +35,11 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
+
+  env: {
+    storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN, // prettier-ignore
+    apiEndpoint: process.env.SHOPIFY_API_ENDPOINT
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -73,7 +77,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/dayjs', '@nuxtjs/axios', '@nuxtjs/apollo'],
   dayjs: {
     defaultTimeZone: 'America/Los_Angeles',
     plugins: ['utc', 'timezone', 'advancedFormat']
@@ -95,9 +99,16 @@ export default {
     }
   },
 
+  apollo: {
+    clientConfigs: {
+      default: '@/apollo/clients/shopifyClient.js'
+    },
+    includeNodeModules: true
+  },
+
   // Generate configuration
   generate: {
-    fallback: true
+    fallback: true,
   },
 
   // Build configuration: https://go.nuxtjs.dev/config-build

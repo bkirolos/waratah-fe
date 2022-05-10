@@ -1,10 +1,14 @@
 <template>
   <div>
-    <h2 class="body font-bold mb-4">SOLD OUT</h2>
+    <h2 class="body font-bold mb-4">{{ headerText }}</h2>
     <div
       v-if="countdownLive"
       class="flex justify-between md:space-x-10 md:w-min"
     >
+      <p v-if="days" class="flex flex-col space-y-2">
+        <span class="heading-4">{{ formatNumber(days) }}</span>
+        <span class="heading-6">Days</span>
+      </p>
       <p class="flex flex-col space-y-2">
         <span class="heading-4">{{ formatNumber(hours) }}</span>
         <span class="heading-6">Hours</span>
@@ -18,16 +22,32 @@
         <span class="heading-6">Seconds</span>
       </p>
     </div>
-    <p v-if="countdownLive" class="body-small mt-4 uppercase">
-      Price Drops With Every Block (~12 sec)
-    </p>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    startTime: {
+      type: Number,
+      default: null
+    },
+    endTime: {
+      type: Number,
+      required: true
+    },
+    completedText: {
+      type: String,
+      default: null
+    },
+    liveText: {
+      type: String,
+      default: null
+    }
+  },
   data() {
     return {
+      days: null,
       hours: '-',
       minutes: '-',
       seconds: '-',
@@ -36,8 +56,7 @@ export default {
   },
   computed: {
     countdownLive() {
-      return false
-      // return this.currentTime && !this.countdownEnded && this.countdownStarted
+      return this.currentTime && !this.countdownEnded && this.countdownStarted
     },
     countdownEnded() {
       return this.currentTime > this.endingTime
@@ -46,18 +65,20 @@ export default {
       return this.currentTime >= this.startingTime
     },
     displayEndTime() {
-      return 'February 20th at 10:00PM PST'
-      // return this.endingTime.format('MMMM Do [at] h:mm A z')
+      return this.endingTime.format('MMMM Do [at] h:mm A z')
     },
     displayStartTime() {
       return this.startingTime.format('MMMM Do [at] h:mm A z')
     },
     endingTime() {
-      return this.$dayjs.unix(1645423200)
+      return this.$dayjs.unix(this.endTime)
+    },
+    headerText() {
+      return this.countdownEnded ? this.completedText : this.liveText
     },
     startingTime() {
-      return this.$config?.auctionStartTime
-        ? this.$dayjs(this.$config.auctionStartTime)
+      return this.startTime
+        ? this.$dayjs.unix(this.startTime)
         : this.$dayjs()
     },
     timeZone() {
@@ -91,6 +112,7 @@ export default {
       }, 1000)
     },
     updateTime(time) {
+      this.days = Math.floor((time) / (1000 * 60 * 60 * 24 ))
       this.hours = Math.floor((time / (1000 * 60 * 60)) % 24)
       this.minutes = Math.floor((time / 1000 / 60) % 60)
       this.seconds = Math.floor((time / 1000) % 60)

@@ -31,7 +31,7 @@
       <div class="col-span-full md:col-start-7 md:col-span-6">
         <div v-if="!nftIsOwned">
           <client-only>
-            <Countdown />
+            <Countdown :end-time="1645423200" completed-text="Sold Out" />
           </client-only>
           <hr class="my-6" />
           <CurrentPrice />

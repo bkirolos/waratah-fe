@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="image-wrap col-span-full xl:col-span-6">
-      <LazyImage :image="imageUrl" :alt="imageAlt" />
+      <LazyImage :image="image" :alt="imageAlt" />
     </div>
   </section>
 </template>

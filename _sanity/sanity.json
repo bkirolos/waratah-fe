@@ -3,6 +3,25 @@
   "project": {
     "name": "ducksofafeather.xyz"
   },
+  "__experimental_spaces": [
+    {
+      "name": "production",
+      "title": "Prod",
+      "default": true,
+      "api": {
+        "projectId": "v8qwjiay",
+        "dataset": "production"
+      }
+    },
+    {
+      "name": "sandbox",
+      "title": "Sandbox",
+      "api": {
+        "projectId": "v8qwjiay",
+        "dataset": "sandbox"
+      }
+    }
+  ],
   "api": {
     "projectId": "v8qwjiay",
     "dataset": "sandbox"
@@ -15,11 +34,14 @@
     "@sanity/desk-tool",
     "color-list",
     "media",
-    "webhook-deploy"
+    "webhook-deploy",
+    "@sanity/vision"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

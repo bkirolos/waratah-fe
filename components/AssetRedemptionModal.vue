@@ -3,15 +3,18 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
+  props: {
+    redemptionModal: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
-    ...mapGetters({
-      redemptionSettings: 'ui/redemptionSettings'
-    }),
     twoUp() {
-      return this.redemptionSettings?.redeemSettings
+      return this.redemptionModal
     }
   },
   methods: {
