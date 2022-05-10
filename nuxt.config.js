@@ -109,9 +109,6 @@ export default {
   // Generate configuration
   generate: {
     fallback: true,
-    routes() {
-      return ['/products/limited-edition-nike-air-max-1-uo-edition']
-    }
   },
 
   // Build configuration: https://go.nuxtjs.dev/config-build
