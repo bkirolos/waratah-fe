@@ -1,21 +1,26 @@
 <template>
-  <div class="flex flex-col w-full">
+  <AssetRedemptionModal v-if="showRedemptionModal" :redemption-modal="redemptionModalData" />
+  <div v-else class="flex flex-col w-full">
     <section
       class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
     >
       <div class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
-        <h1 class="heading-2">Redeem</h1>
+        <h1 class="heading-2">{{ heading }}</h1>
         <client-only>
-          <Countdown live-text="Redemption ends June 30th at 10pm PST" :end-time="1656651600"/>
+          <Countdown :live-text="countdownLiveText" :end-time="countdownEndTime" class="py-4"/>
         </client-only>
       </div>
       <div
         class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
       >
-        <PortableText :blocks="description" class="mt-6" />
+        <PortableText :blocks="description" />
       </div>
     </section>
+    <section v-if="errorMessage" class="bg-white heading-4 text-navy w-full text-center py-20 md:py-48">
+        {{ errorMessage }}
+    </section>
     <section
+      v-else
       class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2 py-10 md:p-10"
     >
       <RedeemNftThumbnail
@@ -25,15 +30,13 @@
         :nft="nft"
       />
     </section>
-    <section>
-      {{ errorMessage }}
-    </section>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import allNfts from '@/groq/allNfts'
-import nftSettings from '@/groq/nftSettings'
+import redeemSettings from '@/groq/redeemSettings'
 import head from '@/mixins/head'
 
 export default {
@@ -41,47 +44,48 @@ export default {
   data() {
     return {
       nfts: null,
-      nftGeneral: null,
-      owned: null,
-      nftsOwned: null
+      nftRedeemSettings: null
     }
   },
   async fetch() {
-    const nftGeneral = await this.$sanity.fetch(nftSettings)
-    this.nftGeneral = nftGeneral
+    const params = { slug: 'flyingformations' }
+    const nftRedeemSettings = await this.$sanity.fetch(redeemSettings, params)
+    if (!nftRedeemSettings) {
+      return this.$nuxt.error({ statusCode: 404 })
+    }
+    this.nftRedeemSettings = nftRedeemSettings?.redeemSettings
     const nfts = await this.$sanity.fetch(allNfts)
     this.nfts = nfts.sort((a, b) => a.tokenId - b.tokenId)
   },
   computed: {
-    currentAccount() {
-      return this.$web3?.accounts?.[0]
+    ...mapGetters({
+      showRedemptionModal: 'ui/showRedemptionModal'
+    }),
+    countdown() {
+      return this.nftRedeemSettings?.redeemCountdown
     },
-    displayAccount () {
-      return this.currentAccount?.slice(0, 4)
+    countdownEndTime() {
+      return this.countdown?.endTime
     },
-    discordCta() {
-      return {
-        text: 'Join The Discord',
-        icon: 'discord',
-        link: 'https://discord.gg/DzJHVXJM'
-      }
+    countdownLiveText() {
+      return this.countdown?.liveText
     },
     description() {
-      return this.nftGeneral?.nftCollectionDescription
+      return this.nftRedeemSettings?.redeemDescription
     },
     errorMessage() {
       return this.walletConnected 
       ? this.nftDisplay 
         ? null 
-        : "Looks like you dont own any assets"
-      : "Please Connect Your Wallet" 
+        : "Looks Like You Dont Own Any Assets."
+      : "Please Connect Your Wallet To View Your Assets" 
     },
     heading() {
-      return this.nftGeneral?.nftCollectionHeading
+      return this.nftRedeemSettings?.redeemHeading
     },
     metaDescription() {
       return (
-        this.nftGeneral?.metaInfo?.description || this.metaDescriptionFallback
+        this.metaDescriptionFallback
       )
     },
     ownedTokens() {
@@ -94,7 +98,7 @@ export default {
       return this.nfts?.filter(nft => this.ownedTokens.includes(Number(nft.tokenId)))
     },    
     pageTitle() {
-      return this.nftGeneral?.metaInfo?.title || this.pageTitleFallback
+      return this.pageTitleFallback
     },
     openSeaCta() {
       return {
@@ -103,9 +107,13 @@ export default {
         link: this.$config.openSeaCollectionUrl
       }
     },
+    redemptionModalData(){
+      return this.nftRedeemSettings?.redeemLanding
+    },
     walletConnected() {
       return this.$web3?.accounts
     }
   },
 }
 </script>
+

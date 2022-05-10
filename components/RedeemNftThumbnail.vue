@@ -1,5 +1,5 @@
 <template>
-  <article v-if="ownedByCurrentOwner || redeemedByCurrentAccount" class="nft-item text-navy center border border-stroke-gray">
+  <article v-if="isOwner || isRedeemer" class="nft-item text-navy center border border-stroke-gray">
     <div class="nft-thumbnail">
       <Hyperlink :url="slug">
         <LazyImage v-if="image" :image="image" />
@@ -12,13 +12,13 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <button v-if="!redeemer && ownedByCurrentOwner" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
+      <button v-if="!isRedeemer && isOwner" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
         Redeem
       </button>
-      <button v-if="redeemedByCurrentAccount && !productVariantAvailability <= 0" class="wide-thin-cta text-navy bg-lime mt-8" @click="checkout">
+      <button v-if="isRedeemer && hasAvailabileStock" class="wide-thin-cta text-navy bg-lime mt-8" @click="checkout">
         Checkout
       </button>
-      <button v-if="redeemedByCurrentAccount && product && productVariantAvailability <= 0" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
+      <button v-if="isRedeemer && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
         Completed
       </button>
     </div>
@@ -40,8 +40,8 @@ export default {
   },
   data () {
     return {
-      owner: null,
-      redeemer: null,
+      tokenOwner: null,
+      tokenRedeemer: null,
       checkoutUrl: null,
       product: null
     }
@@ -50,51 +50,18 @@ export default {
     image() {
       return this.nft?.image?.asset ? this.nft.image : null
     },
-    shoeSize() {
-      return this.nft?.shoeSize
+    hasAvailabileStock() {
+      return this.product && this.productVariantAvailability > 0
     },
-    slug() {
-      return `/flyingformations/${this.tokenId}`
+    isRedeemer() {
+      return this.tokenRedeemer 
+      ? String(this.tokenRedeemer).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
+      : false  
     },
-    minted() {
-      if (this.$web3?.ownedTokens) {
-        return this.$web3.ownedTokens.includes(this.tokenId)
-      }
-      return false
-    },
-    title() {
-      return this.nft?.title
-    },
-    tokenId() {
-      return Number(this.nft?.tokenId)
-    },
-    redeemedByCurrentAccount() {
-      if (this.redeemer) {
-        if (
-          String(this.redeemer).toUpperCase() ===
-          String(this.$web3?.accounts?.[0]).toUpperCase()
-        ) {
-          return true
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
-    },
-    ownedByCurrentOwner () {
-      if (this.owner) {
-        if (
-          String(this.owner).toUpperCase() ===
-          String(this.$web3?.accounts?.[0]).toUpperCase()
-        ) {
-          return true
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
+    isOwner () {
+       return this.tokenOwner 
+       ? String(this.tokenOwner).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
+       : false 
     },
     productVariant() {
       return this.product?.variants?.edges[0].node
@@ -105,6 +72,18 @@ export default {
     productVariantAvailability() {
       return this.productVariant?.quantityAvailable || 0
     },
+    shoeSize() {
+      return this.nft?.shoeSize
+    },
+    slug() {
+      return `/flyingformations/${this.tokenId}`
+    },
+    title() {
+      return this.nft?.title
+    },
+    tokenId() {
+      return Number(this.nft?.tokenId)
+    },
     walletConnected() {
       return this.$web3?.accounts
     }
@@ -114,7 +93,7 @@ export default {
       this.getOwner()
       this.getRedeemer()
     },
-    redeemedByCurrentAccount() {
+    isRedeemer() {
       this.getProduct()
     },
   },
@@ -123,39 +102,13 @@ export default {
     this.getRedeemer()
   },
   methods: {
-    async getOwner() {
-      this.owner = await this.$web3.getTokenOwner(this.tokenId)
-    },
-    async getRedeemer() {
-      this.redeemer = await this.$web3.getTokenRedeemer(this.tokenId)
-    },
-    async redeem() {
-      await this.$web3.redeemDuck(this.tokenId)
-      await this.getProduct()
-      this.getRedeemer()
-    },
     async checkout() {
       await this.getCheckout()
-      console.log(this.checkoutUrl)
       if (this.checkoutUrl) {
         window.open(`${this.checkoutUrl}`)
       }
     },
-    // Shopify 
-    async getProduct() {
-      const { app } = this.$nuxt.context
-      const client = app.apolloProvider.defaultClient
-      const { data } = await client.query({
-        query: productByHandle,
-        variables: { handle: `flying-formations-${this.tokenId}` }
-      })
-
-      if (data?.product) {
-        this.product = data.product
-      } else {
-        console.log("product not available")
-      }
-    },
+    // Shopify Checkout URL
     async getCheckout() {
       const { app } = this.$nuxt.context
       const client = app.apolloProvider.defaultClient
@@ -173,9 +126,39 @@ export default {
        }catch(e) {
         console.log(e)
       }
-    }
-  },
+    },
+    async getProduct() {
+      const { app } = this.$nuxt.context
+      const client = app.apolloProvider.defaultClient
+      const { data } = await client.query({
+        query: productByHandle,
+        variables: { handle: `flying-formations-${this.tokenId}` }
+      })
 
+      if (data?.product) {
+        this.product = data.product
+      } else {
+        console.log("product not available")
+      }
+    },
+    async getOwner() {
+      this.tokenOwner = await this.$web3.getTokenOwner(this.tokenId)
+    },
+    async getRedeemer() {
+      this.tokenRedeemer = await this.$web3.getTokenRedeemer(this.tokenId)
+    },
+    async redeem() {
+      try {
+        await this.$web3.redeemDuck(this.tokenId)
+      }
+      catch(e) {
+        console.log(e)
+        return
+      }
+      await this.getProduct()
+      this.getRedeemer()
+    }   
+  },
 }
 </script>
 <style lang="scss">

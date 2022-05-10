@@ -34,6 +34,10 @@ export default {
         {
           label: 'FAQ',
           url: '/#faq'
+        },
+        {
+          label: 'Redeem',
+          url: '/flyingformations/redeem'
         }
       ]
     }

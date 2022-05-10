@@ -5,6 +5,10 @@
       v-if="countdownLive"
       class="flex justify-between md:space-x-10 md:w-min"
     >
+      <p v-if="days" class="flex flex-col space-y-2">
+        <span class="heading-4">{{ formatNumber(days) }}</span>
+        <span class="heading-6">Days</span>
+      </p>
       <p class="flex flex-col space-y-2">
         <span class="heading-4">{{ formatNumber(hours) }}</span>
         <span class="heading-6">Hours</span>
@@ -43,6 +47,7 @@ export default {
   },
   data() {
     return {
+      days: null,
       hours: '-',
       minutes: '-',
       seconds: '-',
@@ -107,6 +112,7 @@ export default {
       }, 1000)
     },
     updateTime(time) {
+      this.days = Math.floor((time) / (1000 * 60 * 60 * 24 ))
       this.hours = Math.floor((time / (1000 * 60 * 60)) % 24)
       this.minutes = Math.floor((time / 1000 / 60) % 60)
       this.seconds = Math.floor((time / 1000) % 60)
