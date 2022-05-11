@@ -1,35 +1,57 @@
 <template>
-  <AssetRedemptionModal v-if="showRedemptionModal" :redemption-modal="redemptionModalData" />
-  <div v-else class="flex flex-col w-full">
-    <section
-      class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
-    >
-      <div class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5">
-        <h1 class="heading-2">{{ heading }}</h1>
-        <client-only>
-          <Countdown :live-text="countdownLiveText" :end-time="countdownEndTime" class="py-4"/>
-        </client-only>
-      </div>
-      <div
-        class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
-      >
-        <PortableText :blocks="description" />
-      </div>
-    </section>
-    <section v-if="errorMessage" class="bg-white heading-4 text-navy w-full text-center py-20 md:py-48">
-        {{ errorMessage }}
-    </section>
-    <section
-      v-else
-      class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2 py-10 md:p-10"
-    >
-      <RedeemNftThumbnail
-        v-for="nft in nftDisplay"
-        :key="nft.tokenId"
-        class="col-span-1"
-        :nft="nft"
+  <div class="relative">
+    <transition name="landing">
+      <AssetRedemptionModal
+        v-if="showRedemptionModal"
+        class="transition-opacity ease-out duration-2000 absolute"
+        :redemption-modal="redemptionModalData"
       />
-    </section>
+    </transition>
+
+    <tranistion name="landing">
+      <div v-if="!showRedemptionModal">
+        <div class="flex flex-col w-full">
+          <section
+            class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
+          >
+            <div
+              class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5"
+            >
+              <h1 class="heading-2">{{ heading }}</h1>
+              <client-only>
+                <Countdown
+                  :live-text="countdownLiveText"
+                  :end-time="countdownEndTime"
+                  class="py-4"
+                />
+              </client-only>
+            </div>
+            <div
+              class="col-span-full md:col-start-2 md:col-span-10 lg:col-span-5 lg:col-start-7"
+            >
+              <PortableText :blocks="description" />
+            </div>
+          </section>
+          <section
+            v-if="errorMessage"
+            class="bg-white heading-4 text-navy w-full text-center py-20 md:py-48"
+          >
+            {{ errorMessage }}
+          </section>
+          <section
+            v-else
+            class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2 py-10 md:p-10"
+          >
+            <RedeemNftThumbnail
+              v-for="nft in nftDisplay"
+              :key="nft.tokenId"
+              class="col-span-1"
+              :nft="nft"
+            />
+          </section>
+        </div>
+      </div>
+    </tranistion>
   </div>
 </template>
 
@@ -74,19 +96,17 @@ export default {
       return this.nftRedeemSettings?.redeemDescription
     },
     errorMessage() {
-      return this.walletConnected 
-      ? this.nftDisplay 
-        ? null 
-        : "Looks Like You Dont Own Any Assets."
-      : "Please Connect Your Wallet To View Your Assets" 
+      return this.walletConnected
+        ? this.nftDisplay
+          ? null
+          : 'Looks Like You Dont Own Any Assets.'
+        : 'Please Connect Your Wallet To View Your Assets'
     },
     heading() {
       return this.nftRedeemSettings?.redeemHeading
     },
     metaDescription() {
-      return (
-        this.metaDescriptionFallback
-      )
+      return this.metaDescriptionFallback
     },
     ownedTokens() {
       return this.$web3?.ownedTokens || []
@@ -95,8 +115,10 @@ export default {
       if (!this.ownedTokens && !this.nfts) {
         return null
       }
-      return this.nfts?.filter(nft => this.ownedTokens.includes(Number(nft.tokenId)))
-    },    
+      return this.nfts?.filter(nft =>
+        this.ownedTokens.includes(Number(nft.tokenId))
+      )
+    },
     pageTitle() {
       return this.pageTitleFallback
     },
@@ -107,13 +129,24 @@ export default {
         link: this.$config.openSeaCollectionUrl
       }
     },
-    redemptionModalData(){
+    redemptionModalData() {
       return this.nftRedeemSettings?.redeemLanding
     },
     walletConnected() {
       return this.$web3?.accounts
     }
-  },
+  }
 }
 </script>
 
+<style lang="scss">
+.landing-enter-active,
+.landing-leave-active {
+  transition: opacity 0.75s;
+}
+
+.landing-enter,
+.landing-leave-to {
+  opacity: 0;
+}
+</style>
