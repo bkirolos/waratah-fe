@@ -1,5 +1,7 @@
 <template>
-  <section class="grid grid-cols-12 place-items-center w-screen h-max bg-navy">
+  <section
+    class="grid grid-cols-12 w-screen h-max bg-navy transition ease-in-out delay-150"
+  >
     <div
       class="grid grid-cols-12 col-span-full xl:col-span-6 py-2 xl:py-2 w-full"
     >
@@ -19,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="image-wrap col-span-full xl:col-span-6">
+    <div class="image-wrap col-span-full xl:col-span-5">
       <LazyImage :image="image" :alt="imageAlt" />
     </div>
   </section>
@@ -62,7 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .image-wrap {
-  height: 100%;
+  height: inherit;
   padding-bottom: 100%;
   position: relative;
   width: 100%;
