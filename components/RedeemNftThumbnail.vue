@@ -12,13 +12,13 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <button v-if="!isRedeemer && isOwner" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
+      <button v-if="!tokenRedeemer && isOwner" :disabled="transacting" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
         Redeem
       </button>
-      <button v-if="isRedeemer && hasAvailabileStock" class="wide-thin-cta text-navy bg-lime mt-8" @click="checkout">
+      <Hyperlink v-if="isRedeemer && checkoutUrl" :url="checkoutUrl" class="wide-thin-cta text-navy bg-lime mt-8">
         Checkout
-      </button>
-      <button v-if="isRedeemer && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
+      </Hyperlink>
+      <button v-if="product && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
         Completed
       </button>
     </div>
@@ -43,7 +43,8 @@ export default {
       tokenOwner: null,
       tokenRedeemer: null,
       checkoutUrl: null,
-      product: null
+      product: null,
+      transacting: false
     }
   },
   computed: {
@@ -85,7 +86,7 @@ export default {
       return Number(this.nft?.tokenId)
     },
     walletConnected() {
-      return this.$web3?.accounts
+      return this.$web3?.accounts?.[0]
     }
   },
   watch: {
@@ -94,7 +95,7 @@ export default {
       this.getRedeemer()
     },
     isRedeemer() {
-      this.getProduct()
+      this.getProductDetails()
     },
   },
   mounted() {
@@ -102,12 +103,6 @@ export default {
     this.getRedeemer()
   },
   methods: {
-    async checkout() {
-      await this.getCheckout()
-      if (this.checkoutUrl) {
-        window.open(`${this.checkoutUrl}`)
-      }
-    },
     // Shopify Checkout URL
     async getCheckout() {
       const { app } = this.$nuxt.context
@@ -137,8 +132,15 @@ export default {
 
       if (data?.product) {
         this.product = data.product
+
       } else {
         console.log("product not available")
+      }
+    },
+    async getProductDetails() {
+      await this.getProduct()
+      if (this.isRedeemer && this.productVariantAvailability) {
+        await this.getCheckout()
       }
     },
     async getOwner() {
@@ -148,15 +150,18 @@ export default {
       this.tokenRedeemer = await this.$web3.getTokenRedeemer(this.tokenId)
     },
     async redeem() {
+      this.transacting = true
       try {
         await this.$web3.redeemDuck(this.tokenId)
+        await this.getRedeemer()
       }
       catch(e) {
         console.log(e)
+        this.transacting = false
         return
       }
-      await this.getProduct()
-      this.getRedeemer()
+      await this.getProductDetails()
+      this.transacting = false
     }   
   },
 }
