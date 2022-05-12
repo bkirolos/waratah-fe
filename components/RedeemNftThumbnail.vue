@@ -13,12 +13,15 @@
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
       <button v-if="!tokenRedeemer && isOwner" :disabled="transacting" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
-        Redeem
+        {{ redeemText }}
       </button>
       <Hyperlink v-if="isRedeemer && checkoutUrl" :url="checkoutUrl" class="wide-thin-cta text-navy bg-lime mt-8">
         Checkout
       </Hyperlink>
-      <button v-if="product && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
+      <button v-if="product && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer-events-none" :disabled='true'> 
+        Completed
+      </button>
+      <button v-if="tokenRedeemer && !isRedeemer" class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer pointer-events-none" disabled> 
         Completed
       </button>
     </div>
@@ -78,6 +81,9 @@ export default {
     },
     slug() {
       return `/flyingformations/${this.tokenId}`
+    },
+    redeemText() {
+      return this.transacting ? 'In Progress' : 'Redeem'
     },
     title() {
       return this.nft?.title
@@ -156,7 +162,7 @@ export default {
         await this.getRedeemer()
       }
       catch(e) {
-        console.log(e)
+        console.log(e, 'error')
         this.transacting = false
         return
       }
