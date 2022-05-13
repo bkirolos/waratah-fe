@@ -80,7 +80,7 @@
                   </p>
                   <CTA
                     :cta="openSeaCta"
-                    class="text-navy bg-lime cursor-pointer w-3/6 text-base"
+                    class="text-navy bg-lime cursor-pointer w-full md:w-3/6 text-base"
                   />
                 </div>
               </section>
