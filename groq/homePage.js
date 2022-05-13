@@ -50,6 +50,9 @@ export default groq`
       },
       faqs[]-> {
         _id,
+        slug {
+          current
+        },
         answer,
         question
       },

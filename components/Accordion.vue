@@ -1,5 +1,5 @@
 <template>
-  <article :class="['accordion', { 'pb-7': expanded }]">
+  <article :id="uniqueId" :class="['accordion', { 'pb-7': expanded, 'no-link-padding': hidePadding } ]">
     <component :is="headingTag">
       <button
         :id="toggleId"
@@ -9,7 +9,7 @@
         @click="toggleExpanded"
       >
         {{ heading }}
-        <Chevron aria-hidden="true" class="flex-shrink-0 ml-6 my-1" />
+        <Chevron aria-hidden="true" class="flex-shrink-0 ml- my-1" />
       </button>
     </component>
     <transition name="accordion-slide">
@@ -44,7 +44,11 @@ export default {
       type: String,
       default: 'h3'
     },
-    uniqueId: {
+    slug: {
+      type: Object,
+      default: null
+    },
+    id: {
       type: String,
       default: ''
     }
@@ -58,8 +62,28 @@ export default {
     contentId() {
       return `${this.uniqueId}-content`
     },
+    isHash() {
+      return this.$route.hash === `#${this.slugUrl}`
+    },
+    hidePadding() {
+      return !this.isHash
+    },
     toggleId() {
       return `${this.uniqueId}-toggle`
+    },
+    slugUrl() {
+      return this.slug?.current
+    },
+    uniqueId() {
+      if (this.slugUrl) {
+        return this.slugUrl
+      }
+      return this.id
+    }
+  },
+  mounted() {
+    if (this.isHash){
+      this.expanded = true
     }
   },
   methods: {
@@ -76,7 +100,19 @@ $duration: 300ms;
 .accordion {
   border-bottom: 1px solid currentColor;
   transition: padding $duration ease-in-out;
-
+  &::before {
+    display: block; 
+    content: " "; 
+    margin-top: -80px; 
+    height: 80px; 
+    visibility: hidden; 
+    pointer-events: none;
+  }
+  &.no-link-padding {
+    &::before {
+      display: none;
+    }
+  }
   .accordion-toggle {
     svg {
       transition: transform $duration ease-in-out;

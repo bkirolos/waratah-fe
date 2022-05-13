@@ -30,7 +30,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     connectionStatus: 'disconnected',
     ownedTokens: [],
     signedMessage: null,
-    ownerTokenCount: null,
+    accountTokenCount: null,
 
     async getAllOwnedTokens() {
       if (!this.contract) return null
@@ -49,8 +49,10 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       if (!this.contract) return null
       try {
         const numberTokens = await this.contract.balanceOf(addressOwner)
-        this.ownerTokenCount = numberTokens
+        this.accountTokenCount = numberTokens
+        console.log()
       } catch (e) {
+        this.accountTokenCount = 0
         console.error(e)
       }
     },
@@ -80,6 +82,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         instance.on('accountsChanged', async accounts => {
           if (accounts.length > 0) {
             this.accounts = accounts
+            const currentAccount = this.accounts[0]
+            await this.getTokensByOwnerCount(currentAccount)
           } else {
             await this.clearConnection()
           }
@@ -88,6 +92,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
         this.connectionStatus = 'wallet'
+        const currentAccount = this.accounts[0]
+        await this.getTokensByOwnerCount(currentAccount)
       } catch (e) {
         // console.log(e)
         await this.connectWithInfura()

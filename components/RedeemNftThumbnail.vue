@@ -12,13 +12,17 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <button v-if="!isRedeemer && isOwner" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
-        Redeem
+      <button v-if="!tokenRedeemer && isOwner" :disabled="transacting" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
+        {{ redeemText }}
       </button>
-      <button v-if="isRedeemer && hasAvailabileStock" class="wide-thin-cta text-navy bg-lime mt-8" @click="checkout">
+      <Hyperlink v-if="isRedeemer && checkoutUrl" :url="checkoutUrl" class="wide-thin-cta text-navy bg-lime mt-8">
         Checkout
-      </button>
-      <button v-if="isRedeemer && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8" disabled> 
+      </Hyperlink>
+      <button
+        v-if="orderCompleted"
+        class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer-events-none"
+        :disabled="true"
+      >
         Completed
       </button>
     </div>
@@ -43,7 +47,8 @@ export default {
       tokenOwner: null,
       tokenRedeemer: null,
       checkoutUrl: null,
-      product: null
+      product: null,
+      transacting: false
     }
   },
   computed: {
@@ -63,6 +68,15 @@ export default {
        ? String(this.tokenOwner).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
        : false 
     },
+    orderCompleted() {
+      if (this.tokenRedeemer && !this.isRedeemer) {
+        return true
+      }
+      if (this.product && !this.hasAvailabileStock) {
+        return true
+      }
+      return false
+    },
     productVariant() {
       return this.product?.variants?.edges[0].node
     },
@@ -78,6 +92,9 @@ export default {
     slug() {
       return `/flyingformations/${this.tokenId}`
     },
+    redeemText() {
+      return this.transacting ? 'In Progress' : 'Redeem'
+    },
     title() {
       return this.nft?.title
     },
@@ -85,7 +102,7 @@ export default {
       return Number(this.nft?.tokenId)
     },
     walletConnected() {
-      return this.$web3?.accounts
+      return this.$web3?.accounts?.[0]
     }
   },
   watch: {
@@ -94,7 +111,7 @@ export default {
       this.getRedeemer()
     },
     isRedeemer() {
-      this.getProduct()
+      this.getProductDetails()
     },
   },
   mounted() {
@@ -102,12 +119,6 @@ export default {
     this.getRedeemer()
   },
   methods: {
-    async checkout() {
-      await this.getCheckout()
-      if (this.checkoutUrl) {
-        window.open(`${this.checkoutUrl}`)
-      }
-    },
     // Shopify Checkout URL
     async getCheckout() {
       const { app } = this.$nuxt.context
@@ -137,8 +148,15 @@ export default {
 
       if (data?.product) {
         this.product = data.product
+
       } else {
         console.log("product not available")
+      }
+    },
+    async getProductDetails() {
+      await this.getProduct()
+      if (this.isRedeemer && this.productVariantAvailability) {
+        await this.getCheckout()
       }
     },
     async getOwner() {
@@ -148,15 +166,18 @@ export default {
       this.tokenRedeemer = await this.$web3.getTokenRedeemer(this.tokenId)
     },
     async redeem() {
+      this.transacting = true
       try {
         await this.$web3.redeemDuck(this.tokenId)
+        await this.getRedeemer()
       }
       catch(e) {
-        console.log(e)
+        console.log(e, 'error')
+        this.transacting = false
         return
       }
-      await this.getProduct()
-      this.getRedeemer()
+      await this.getProductDetails()
+      this.transacting = false
     }   
   },
 }

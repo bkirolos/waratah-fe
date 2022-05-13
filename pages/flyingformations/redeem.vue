@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative bg-white">
     <transition name="landing">
       <AssetRedemptionModal
         v-if="showRedemptionModal"
@@ -7,10 +7,11 @@
         :redemption-modal="redemptionModalData"
       />
     </transition>
+    
 
-    <tranistion name="landing">
+    <transition name="landing">
       <div v-if="!showRedemptionModal">
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full bg-white">
           <section
             class="bg-navy grid grid-cols-12 gap-y-10 px-4 py-12 md:px-10 md:py-20"
           >
@@ -32,26 +33,62 @@
               <PortableText :blocks="description" />
             </div>
           </section>
-          <section
-            v-if="errorMessage"
-            class="bg-white heading-4 text-navy w-full text-center py-20 md:py-48"
-          >
-            {{ errorMessage }}
-          </section>
-          <section
-            v-else
-            class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2 py-10 md:p-10"
-          >
-            <RedeemNftThumbnail
-              v-for="nft in nftDisplay"
-              :key="nft.tokenId"
-              class="col-span-1"
-              :nft="nft"
-            />
-          </section>
+          <div class="py-10 md:p-10">
+          <transition name="landing">
+
+            <section
+              v-if="!walletConnected"
+              class="flex w-full justify-center"
+            >
+              <div class="heading-4 text-navy text-center max-w-2xl px-2">  
+                <p class="my-8">Looks like there is no wallet connected</p>
+                <p class="my-8">Please connect your wallet using the "connect wallet" button in the top navigation.</p>
+              </div>
+            </section>
+            </transition>
+            <transition name="landing">
+
+            <section
+              v-if="walletConnected"
+              class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2"
+            >
+              <RedeemNftThumbnail
+                v-for="nft in nftDisplay"
+                :key="nft.tokenId"
+                class="col-span-1"
+                :nft="nft"
+              />
+            </section>
+            </transition>
+            <transition name="landing">
+              <section
+                v-if="walletConnected && !hasAssets"
+                class="flex w-full justify-center"
+              >
+                <div class="heading-4 text-navy text-center max-w-4xl px-2">
+                  <p class="my-8">
+                    Looks like you don't own a Flying Formations NFT in the connected wallet. Please make sure you have connected
+                    the correct wallet.
+                  </p>
+                  <p class="my-8">
+                    If you don’t own an NFT but really want the shoes, you can
+                    buy one on Opensea.
+                  </p>
+                  <p class="my-8">
+                    PLEASE NOTE: make sure the nft you purchase has the AIRMAX1:
+                    AVAILABLE TRAIT
+                  </p>
+                  <CTA
+                    :cta="openSeaCta"
+                    class="text-navy bg-lime cursor-pointer w-3/6 text-base"
+                  />
+                </div>
+              </section>
+            </transition>
+          </div>
         </div>
       </div>
-    </tranistion>
+    </transition>
   </div>
 </template>
 
@@ -95,12 +132,8 @@ export default {
     description() {
       return this.nftRedeemSettings?.redeemDescription
     },
-    errorMessage() {
-      return this.walletConnected
-        ? this.nftDisplay
-          ? null
-          : 'Looks Like You Dont Own Any Assets.'
-        : 'Please Connect Your Wallet To View Your Assets'
+    hasAssets(){
+      return this.$web3.accountTokenCount ? this.$web3.accountTokenCount?._hex !== "0x00" : null
     },
     heading() {
       return this.nftRedeemSettings?.redeemHeading
@@ -125,7 +158,6 @@ export default {
     openSeaCta() {
       return {
         text: 'View On OpenSea',
-        icon: 'opensea',
         link: this.$config.openSeaCollectionUrl
       }
     },
