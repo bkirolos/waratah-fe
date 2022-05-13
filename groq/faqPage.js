@@ -6,6 +6,9 @@ export default groq`
     copy,
     faqs[]-> {
       _id,
+      slug {
+        current
+      },
       answer,
       question
     },

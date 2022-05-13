@@ -6,11 +6,12 @@
       </h1>
       <Accordion
         v-for="(faq, ix) in faqs"
+        :id="faq._id"
         :key="ix"
         :content="faq.answer"
         :heading="faq.question"
+        :slug="faq.slug"
         heading-tag="h2"
-        :unique-id="faq._id"
       />
     </div>
   </section>
