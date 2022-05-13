@@ -18,10 +18,11 @@
       <Hyperlink v-if="isRedeemer && checkoutUrl" :url="checkoutUrl" class="wide-thin-cta text-navy bg-lime mt-8">
         Checkout
       </Hyperlink>
-      <button v-if="product && !hasAvailabileStock" class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer-events-none" :disabled='true'> 
-        Completed
-      </button>
-      <button v-if="tokenRedeemer && !isRedeemer" class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer pointer-events-none" disabled> 
+      <button
+        v-if="orderCompleted"
+        class="wide-thin-cta text-navy bg-stroke-gray mt-8 pointer-events-none"
+        :disabled="true"
+      >
         Completed
       </button>
     </div>
@@ -66,6 +67,15 @@ export default {
        return this.tokenOwner 
        ? String(this.tokenOwner).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
        : false 
+    },
+    orderCompleted() {
+      if (this.tokenRedeemer && !this.isRedeemer) {
+        return true
+      }
+      if (this.product && !this.hasAvailabileStock) {
+        return true
+      }
+      return false
     },
     productVariant() {
       return this.product?.variants?.edges[0].node

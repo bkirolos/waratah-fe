@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative bg-white">
     <transition name="landing">
       <AssetRedemptionModal
         v-if="showRedemptionModal"
@@ -61,19 +61,30 @@
             </section>
             </transition>
             <transition name="landing">
-            <section
-              v-if="walletConnected && !hasAssets"
-              class="flex w-full justify-center"
-            >
-              <div class="heading-4 text-navy text-center max-w-4xl px-2">   
-                <p class="my-8">Looks like the connected wallet doesn’t own a Flying Formations NFT in it. Please make sure you have connected the correct wallet.</p>
-                <p class="my-8"> If you don’t own an NFT but really want the shoes, you can buy one on Opensea.</p>
-                <p class="my-8">PLEASE NOTE: make sure the nft you purchase has the AIRMAX1: AVAILABLE TRAIT</p>
-                <CTA :cta="openSeaCta" class="text-navy bg-lime cursor-pointer w-3/6 text-base" />
-              </div>
-            </section>
-          </transition>
-
+              <section
+                v-if="walletConnected && !hasAssets"
+                class="flex w-full justify-center"
+              >
+                <div class="heading-4 text-navy text-center max-w-4xl px-2">
+                  <p class="my-8">
+                    Looks like you don't own a Flying Formations NFT in the connected wallet. Please make sure you have connected
+                    the correct wallet.
+                  </p>
+                  <p class="my-8">
+                    If you don’t own an NFT but really want the shoes, you can
+                    buy one on Opensea.
+                  </p>
+                  <p class="my-8">
+                    PLEASE NOTE: make sure the nft you purchase has the AIRMAX1:
+                    AVAILABLE TRAIT
+                  </p>
+                  <CTA
+                    :cta="openSeaCta"
+                    class="text-navy bg-lime cursor-pointer w-3/6 text-base"
+                  />
+                </div>
+              </section>
+            </transition>
           </div>
         </div>
       </div>
