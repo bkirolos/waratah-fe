@@ -66,7 +66,7 @@ export default {
       return this.$route.hash === `#${this.slugUrl}`
     },
     hidePadding() {
-      return this.isHash && this.expanded
+      return !this.isHash
     },
     toggleId() {
       return `${this.uniqueId}-toggle`
