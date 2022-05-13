@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="image-wrap col-span-full xl:col-span-5">
+    <div class="image-wrap col-span-full xl:col-span-5 pt-8 xl:pt-0">
       <LazyImage :image="image" :alt="imageAlt" />
     </div>
   </section>
