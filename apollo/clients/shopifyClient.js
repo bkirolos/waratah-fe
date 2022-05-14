@@ -3,8 +3,7 @@ export default ({ env }) => ({
   httpLinkOptions: {
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token':
-        env.storefrontAccessToken
+      'X-Shopify-Storefront-Access-Token': env.storefrontAccessToken
     }
   }
 })

@@ -7,7 +7,6 @@
         :redemption-modal="redemptionModalData"
       />
     </transition>
-    
 
     <transition name="landing">
       <div v-if="!showRedemptionModal">
@@ -34,31 +33,32 @@
             </div>
           </section>
           <div class="py-10 md:p-10">
-          <transition name="landing">
-
-            <section
-              v-if="!walletConnected"
-              class="flex w-full justify-center"
-            >
-              <div class="heading-4 text-navy text-center max-w-2xl px-2">  
-                <p class="my-8">Looks like there is no wallet connected</p>
-                <p class="my-8">Please connect your wallet using the "connect wallet" button in the top navigation.</p>
-              </div>
-            </section>
+            <transition name="landing">
+              <section
+                v-if="!walletConnected"
+                class="flex w-full justify-center"
+              >
+                <div class="heading-4 text-navy text-center max-w-2xl px-2">
+                  <p class="my-8">Looks like there is no wallet connected</p>
+                  <p class="my-8">
+                    Please connect your wallet using the "connect wallet" button
+                    in the top navigation.
+                  </p>
+                </div>
+              </section>
             </transition>
             <transition name="landing">
-
-            <section
-              v-if="walletConnected"
-              class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2"
-            >
-              <RedeemNftThumbnail
-                v-for="nft in nftDisplay"
-                :key="nft.tokenId"
-                class="col-span-1"
-                :nft="nft"
-              />
-            </section>
+              <section
+                v-if="walletConnected"
+                class="bg-white flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 p-2"
+              >
+                <RedeemNftThumbnail
+                  v-for="nft in nftDisplay"
+                  :key="nft.tokenId"
+                  class="col-span-1"
+                  :nft="nft"
+                />
+              </section>
             </transition>
             <transition name="landing">
               <section
@@ -67,8 +67,9 @@
               >
                 <div class="heading-4 text-navy text-center max-w-4xl px-2">
                   <p class="my-8">
-                    Looks like you don't own a Flying Formations NFT in the connected wallet. Please make sure you have connected
-                    the correct wallet.
+                    Looks like you don't own a Flying Formations NFT in the
+                    connected wallet. Please make sure you have connected the
+                    correct wallet.
                   </p>
                   <p class="my-8">
                     If you don’t own an NFT but really want the shoes, you can
@@ -132,8 +133,10 @@ export default {
     description() {
       return this.nftRedeemSettings?.redeemDescription
     },
-    hasAssets(){
-      return this.$web3.accountTokenCount ? this.$web3.accountTokenCount?._hex !== "0x00" : null
+    hasAssets() {
+      return this.$web3.accountTokenCount
+        ? this.$web3.accountTokenCount?._hex !== '0x00'
+        : null
     },
     heading() {
       return this.nftRedeemSettings?.redeemHeading

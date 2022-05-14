@@ -1,5 +1,8 @@
 <template>
-  <article :id="uniqueId" :class="['accordion', { 'pb-7': expanded, 'no-link-padding': hidePadding } ]">
+  <article
+    :id="uniqueId"
+    :class="['accordion', { 'pb-7': expanded, 'no-link-padding': hidePadding }]"
+  >
     <component :is="headingTag">
       <button
         :id="toggleId"
@@ -82,7 +85,7 @@ export default {
     }
   },
   mounted() {
-    if (this.isHash){
+    if (this.isHash) {
       this.expanded = true
     }
   },
@@ -101,11 +104,11 @@ $duration: 300ms;
   border-bottom: 1px solid currentColor;
   transition: padding $duration ease-in-out;
   &::before {
-    display: block; 
-    content: " "; 
-    margin-top: -80px; 
-    height: 80px; 
-    visibility: hidden; 
+    display: block;
+    content: ' ';
+    margin-top: -80px;
+    height: 80px;
+    visibility: hidden;
     pointer-events: none;
   }
   &.no-link-padding {

@@ -3,7 +3,7 @@ export default {
   name: 'twoUp',
   title: 'Two Up',
   options: {
-    collapsable: true,
+    collapsable: true
   },
   fields: [
     {
