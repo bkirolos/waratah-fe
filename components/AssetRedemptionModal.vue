@@ -1,5 +1,5 @@
 <template>
-  <TwoUp v-if="twoUp" :cta="setRedemptionModalClosed" :twoUp="twoUp" />
+  <TwoUp v-if="twoUp" :cta="setRedemptionModalClosed" :two-up="twoUp" />
 </template>
 
 <script>

@@ -3,7 +3,7 @@ export default {
   name: 'countdown',
   title: 'Countdown',
   options: {
-    collapsable: true,
+    collapsable: true
   },
   fields: [
     {
@@ -33,6 +33,6 @@ export default {
       type: 'string',
       name: 'completedText',
       title: 'Completed Text'
-    },
-  ],
+    }
+  ]
 }

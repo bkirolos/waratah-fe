@@ -6,7 +6,7 @@ export default {
     {
       type: 'twoUp',
       name: 'redeemLanding',
-      title: 'Redeem Landing Modal',
+      title: 'Redeem Landing Modal'
     },
     {
       type: 'string',
@@ -22,6 +22,6 @@ export default {
       type: 'countdown',
       name: 'redeemCountdown',
       title: 'Redeem Countdown'
-    },
-  ],
+    }
+  ]
 }

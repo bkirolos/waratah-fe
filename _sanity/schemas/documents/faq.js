@@ -11,14 +11,14 @@ export default {
       name: 'slug',
       title: 'Slug',
       options: {
-        source: "question",
-        slugify: (input) =>
+        source: 'question',
+        slugify: input =>
           input
             .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""),
-        validation: (Rule) => Rule.required(),
-      },
+            .replace(/\s+/g, '-')
+            .replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''),
+        validation: Rule => Rule.required()
+      }
     },
     {
       type: 'string',

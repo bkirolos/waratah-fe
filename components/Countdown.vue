@@ -77,9 +77,7 @@ export default {
       return this.countdownEnded ? this.completedText : this.liveText
     },
     startingTime() {
-      return this.startTime
-        ? this.$dayjs.unix(this.startTime)
-        : this.$dayjs()
+      return this.startTime ? this.$dayjs.unix(this.startTime) : this.$dayjs()
     },
     timeZone() {
       return Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -112,7 +110,7 @@ export default {
       }, 1000)
     },
     updateTime(time) {
-      this.days = Math.floor((time) / (1000 * 60 * 60 * 24 ))
+      this.days = Math.floor(time / (1000 * 60 * 60 * 24))
       this.hours = Math.floor((time / (1000 * 60 * 60)) % 24)
       this.minutes = Math.floor((time / 1000 / 60) % 60)
       this.seconds = Math.floor((time / 1000) % 60)

@@ -1,5 +1,8 @@
 <template>
-  <article v-if="isOwner || isRedeemer" class="nft-item text-navy center border border-stroke-gray">
+  <article
+    v-if="isOwner || isRedeemer"
+    class="nft-item text-navy center border border-stroke-gray"
+  >
     <div class="nft-thumbnail">
       <Hyperlink :url="slug">
         <LazyImage v-if="image" :image="image" />
@@ -12,10 +15,19 @@
       <Hyperlink :url="slug">
         <p class="heading-6 mt-1">Shoe Size {{ shoeSize }}</p>
       </Hyperlink>
-      <button v-if="!tokenRedeemer && isOwner" :disabled="transacting" class="wide-thin-cta text-white bg-navy mt-8" @click="redeem">
+      <button
+        v-if="!tokenRedeemer && isOwner"
+        :disabled="transacting"
+        class="wide-thin-cta text-white bg-navy mt-8"
+        @click="redeem"
+      >
         {{ redeemText }}
       </button>
-      <Hyperlink v-if="isRedeemer && checkoutUrl" :url="checkoutUrl" class="wide-thin-cta text-navy bg-lime mt-8">
+      <Hyperlink
+        v-if="isRedeemer && checkoutUrl"
+        :url="checkoutUrl"
+        class="wide-thin-cta text-navy bg-lime mt-8"
+      >
         Checkout
       </Hyperlink>
       <button
@@ -31,9 +43,7 @@
 
 <script>
 import productByHandle from '@/apollo/queries/productByHandle.gql'
-import {
-  CheckoutCreate,
-} from '@/apollo/mutations/checkout.gql'
+import { CheckoutCreate } from '@/apollo/mutations/checkout.gql'
 
 export default {
   props: {
@@ -42,7 +52,7 @@ export default {
       required: true
     }
   },
-  data () {
+  data() {
     return {
       tokenOwner: null,
       tokenRedeemer: null,
@@ -59,14 +69,16 @@ export default {
       return this.product && this.productVariantAvailability > 0
     },
     isRedeemer() {
-      return this.tokenRedeemer 
-      ? String(this.tokenRedeemer).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
-      : false  
+      return this.tokenRedeemer
+        ? String(this.tokenRedeemer).toUpperCase() ===
+            String(this.$web3?.accounts?.[0]).toUpperCase()
+        : false
     },
-    isOwner () {
-       return this.tokenOwner 
-       ? String(this.tokenOwner).toUpperCase() === String(this.$web3?.accounts?.[0]).toUpperCase()
-       : false 
+    isOwner() {
+      return this.tokenOwner
+        ? String(this.tokenOwner).toUpperCase() ===
+            String(this.$web3?.accounts?.[0]).toUpperCase()
+        : false
     },
     orderCompleted() {
       if (this.tokenRedeemer && !this.isRedeemer) {
@@ -112,7 +124,7 @@ export default {
     },
     isRedeemer() {
       this.getProductDetails()
-    },
+    }
   },
   mounted() {
     this.getOwner()
@@ -123,18 +135,18 @@ export default {
     async getCheckout() {
       const { app } = this.$nuxt.context
       const client = app.apolloProvider.defaultClient
-      const variantId =  this.productVariantId
+      const variantId = this.productVariantId
       const quantity = 1
-      try { 
+      try {
         const checkout = await client.mutate({
           mutation: CheckoutCreate,
           variables: {
             variantId,
-            quantity,
+            quantity
           }
         })
         this.checkoutUrl = checkout?.data?.checkoutCreate?.checkout?.webUrl
-       }catch(e) {
+      } catch (e) {
         console.log(e)
       }
     },
@@ -148,9 +160,8 @@ export default {
 
       if (data?.product) {
         this.product = data.product
-
       } else {
-        console.log("product not available")
+        console.log('product not available')
       }
     },
     async getProductDetails() {
@@ -170,16 +181,15 @@ export default {
       try {
         await this.$web3.redeemDuck(this.tokenId)
         await this.getRedeemer()
-      }
-      catch(e) {
+      } catch (e) {
         console.log(e, 'error')
         this.transacting = false
         return
       }
       await this.getProductDetails()
       this.transacting = false
-    }   
-  },
+    }
+  }
 }
 </script>
 <style lang="scss">
