@@ -201,7 +201,7 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
 
       // Force update on OpenSea
       try {
-        const url = `https://api.opensea.io/api/v1/asset/0x7ADBa40714BFFDc3c8d35f36971DfF9C8FA24E15/${this.tokenId}?force_update=true`
+        const url = `https://api.opensea.io/api/v1/asset/0x7ADBa40714BFFDc3c8d35f36971DfF9C8FA24E15/${tokenId}?force_update=true`
         await this.$axios.$get(url)
       } catch (e) {
         console.error(e)
