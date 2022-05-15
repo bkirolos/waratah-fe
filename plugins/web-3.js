@@ -4,7 +4,7 @@ import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { Token } from '../contracts/token'
 
-export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
+export default ({ $config: { infuraId, ethereumNetwork }, $axios}, inject) => {
   const web3 = Vue.observable({
     web3Modal: new Web3Modal({
       network: 'mainnet', // optional
@@ -194,15 +194,14 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         throw new Error('Wrong network!')
       }
 
-      // const weiPrice = await this.updatePrice()
-      // const ethPrice = ethers.utils.formatEther(weiPrice)
       const activeTx = await this.contract.redeem(tokenId)
       await activeTx.wait()
 
       // Force update on OpenSea
       try {
-        const url = `https://api.opensea.io/api/v1/asset/0x7ADBa40714BFFDc3c8d35f36971DfF9C8FA24E15/${tokenId}?force_update=true`
-        await this.$axios.$get(url)
+        const apiUrl = ethereumNetwork === 'rinkeby' ? 'testnets-api' : 'api'
+        const url = `https://${apiUrl}.opensea.io/api/v1/asset/${this.contractAddress}/${tokenId}?force_update=true`
+        await $axios.$get(url)
       } catch (e) {
         console.error(e)
       }
