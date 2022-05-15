@@ -124,6 +124,9 @@ export default {
     },
     isRedeemer() {
       this.getProductDetails()
+       setTimeout(() => {
+        this.$web3.forceUpdateOpenseaData(this.tokenId)
+      }, 10000)
     }
   },
   mounted() {

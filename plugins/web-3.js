@@ -197,7 +197,10 @@ export default ({ $config: { infuraId, ethereumNetwork }, $axios}, inject) => {
       const activeTx = await this.contract.redeem(tokenId)
       await activeTx.wait()
 
-      // Force update on OpenSea
+      // console.log('txResult', txResult)
+    },
+    // Force update on OpenSea
+    async forceUpdateOpenseaData(tokenId) {
       try {
         const apiUrl = ethereumNetwork === 'rinkeby' ? 'testnets-api' : 'api'
         const url = `https://${apiUrl}.opensea.io/api/v1/asset/${this.contractAddress}/${tokenId}?force_update=true`
@@ -205,8 +208,6 @@ export default ({ $config: { infuraId, ethereumNetwork }, $axios}, inject) => {
       } catch (e) {
         console.error(e)
       }
-
-      // console.log('txResult', txResult)
     },
     parseError(message) {
       if (message.includes('User has already bought'))
