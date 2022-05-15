@@ -29,6 +29,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
     price: null,
     connectionStatus: 'disconnected',
     ownedTokens: [],
+    signedMessage: null,
+    accountTokenCount: null,
 
     async getAllOwnedTokens() {
       if (!this.contract) return null
@@ -40,6 +42,17 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
           .map(bn => bn.toNumber())
         this.ownedTokens = mappedTokens
       } catch (e) {
+        console.error(e)
+      }
+    },
+    async getTokensByOwnerCount(addressOwner) {
+      if (!this.contract) return null
+      try {
+        const numberTokens = await this.contract.balanceOf(addressOwner)
+        this.accountTokenCount = numberTokens
+        console.log()
+      } catch (e) {
+        this.accountTokenCount = 0
         console.error(e)
       }
     },
@@ -69,6 +82,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         instance.on('accountsChanged', async accounts => {
           if (accounts.length > 0) {
             this.accounts = accounts
+            const currentAccount = this.accounts[0]
+            await this.getTokensByOwnerCount(currentAccount)
           } else {
             await this.clearConnection()
           }
@@ -77,6 +92,8 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
         const signer = await provider.getSigner()
         await this.connectToContract(signer)
         this.connectionStatus = 'wallet'
+        const currentAccount = this.accounts[0]
+        await this.getTokensByOwnerCount(currentAccount)
       } catch (e) {
         // console.log(e)
         await this.connectWithInfura()
@@ -170,6 +187,19 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       await activeTx.wait()
       // console.log('txResult', txResult)
     },
+    async redeemDuck(tokenId) {
+      if (this.connectionStatus !== 'wallet') {
+        throw new Error('Not connected to wallet!')
+      } else if (this.network.name !== ethereumNetwork) {
+        throw new Error('Wrong network!')
+      }
+
+      // const weiPrice = await this.updatePrice()
+      // const ethPrice = ethers.utils.formatEther(weiPrice)
+      const activeTx = await this.contract.redeem(tokenId)
+      await activeTx.wait()
+      // console.log('txResult', txResult)
+    },
     parseError(message) {
       if (message.includes('User has already bought'))
         return '🦆 Only one Duck per wallet 🦆'
@@ -194,6 +224,17 @@ export default ({ $config: { infuraId, ethereumNetwork } }, inject) => {
       try {
         const ownerOfDuck = await this.contract?.ownerOf(tokenId)
         return ownerOfDuck
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async getTokenRedeemer(tokenId) {
+      try {
+        const redeemerOfDuck = await this.contract?.sneakerRedeemedBy(tokenId)
+        if (redeemerOfDuck === '0x0000000000000000000000000000000000000000') {
+          return null
+        }
+        return redeemerOfDuck
       } catch (e) {
         console.error(e)
       }

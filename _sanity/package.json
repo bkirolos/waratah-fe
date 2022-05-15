@@ -7,7 +7,8 @@
     "deploy": "sanity deploy",
     "csv-to-ndjson": "node import/csv-to-ndjson.js",
     "import:sandbox": "sanity dataset import import/nfts.ndjson sandbox --replace",
-    "import:production": "sanity dataset import import/nfts.ndjson production --replace"
+    "import:production": "sanity dataset import import/nfts.ndjson production --replace",
+    "clonedataset": "node clone-dataset.js"
   },
   "dependencies": {
     "@sanity/base": "^2.25.0",
@@ -17,7 +18,7 @@
     "@sanity/default-login": "^2.24.1",
     "@sanity/desk-tool": "^2.25.0",
     "@sanity/ui": "^0.37.2",
-    "@sanity/vision": "^2.25.0",
+    "@sanity/vision": "^2.29.8",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",

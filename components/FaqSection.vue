@@ -10,10 +10,11 @@
       <div class="col-span-full md:col-start-2 md:col-span-10 mt-3 md:mt-1">
         <Accordion
           v-for="(faq, ix) in faqs"
+          :id="faq._id"
           :key="ix"
           :content="faq.answer"
           :heading="faq.question"
-          :unique-id="faq._id"
+          :slug="faq.slug"
         />
       </div>
     </div>
